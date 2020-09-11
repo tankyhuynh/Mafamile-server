@@ -3,6 +3,7 @@ package com.mafami.Mafami.api;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mafami.Mafami.Entity.PostEntity;
-import com.mafami.Mafami.Repository.PostRepo;
 import com.mafami.Mafami.Service.PostService;
 
 @RestController
@@ -29,13 +29,13 @@ public class PostAPI {
 	}
 	
 	@GetMapping("/{id}")
-	public PostEntity getOneById(@PathVariable String id) {
-		return postService.getOneById(id);
+	public ResponseEntity<PostEntity> getOneById(@PathVariable String id) {
+		return ResponseEntity.ok(postService.getOneById(id));
 	}
 	
 	@PostMapping
-	public PostEntity save(@RequestBody PostEntity entity) {
-		return postService.save(entity);
+	public ResponseEntity<PostEntity> save(@RequestBody PostEntity entity) {
+		return ResponseEntity.ok(postService.save(entity));
 	}
 	
 	@PutMapping("/{id}")

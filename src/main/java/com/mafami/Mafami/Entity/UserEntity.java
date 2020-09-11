@@ -13,7 +13,7 @@ public class UserEntity {
 	private String userName;
 	private String password;
 	private String fullName;
-	private String[] role;
+	private String[] roles;
 	private String token;
 	
 	public UserEntity() {
@@ -25,7 +25,7 @@ public class UserEntity {
 		this.userName = userName;
 		this.password = password;
 		this.fullName = fullName;
-		this.role = role;
+		this.roles = role;
 	}
 	
 	public String getId() {
@@ -53,10 +53,10 @@ public class UserEntity {
 		this.fullName = fullName;
 	}
 	public String[] getRole() {
-		return role;
+		return roles;
 	}
 	public void setRole(String[] role) {
-		this.role = role;
+		this.roles = role;
 	}
 
 	public String getToken() {
