@@ -17,7 +17,6 @@ import com.mafami.Mafami.Service.User_Service;
 import com.mafami.Mafami.model.AuthRequest;
 
 @RestController
-@CrossOrigin
 public class AuthenticationAPI {
 
 	@Autowired
