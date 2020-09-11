@@ -13,7 +13,7 @@ public class UserConvert {
 		entity2.setUserName(entity1.getUserName());
 		entity2.setPassword(entity1.getPassword());
 		entity2.setFullName(entity1.getFullName());
-		entity2.setRole(entity1.getRole());
+		entity2.setRoles(entity1.getRoles());
 		
 		return entity2;
 	}

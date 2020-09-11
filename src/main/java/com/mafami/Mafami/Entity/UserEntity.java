@@ -52,12 +52,7 @@ public class UserEntity {
 	public void setFullName(String fullName) {
 		this.fullName = fullName;
 	}
-	public String[] getRole() {
-		return roles;
-	}
-	public void setRole(String[] role) {
-		this.roles = role;
-	}
+	
 
 	public String getToken() {
 		return token;
@@ -65,6 +60,14 @@ public class UserEntity {
 
 	public void setToken(String token) {
 		this.token = token;
+	}
+
+	public String[] getRoles() {
+		return roles;
+	}
+
+	public void setRoles(String[] roles) {
+		this.roles = roles;
 	}
 	
 	

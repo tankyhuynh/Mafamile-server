@@ -63,7 +63,7 @@ public class UserAPI {
 	public UserEntity updateRole(@PathVariable String id, @RequestBody String[] role) {
 		UserEntity  userEntity = user_Service.findOneById(id);
 		userEntity.setId(id);
-		userEntity.setRole(role);
+		userEntity.setRoles(role);
 		
 		return user_Service.save(userEntity);
 	}
