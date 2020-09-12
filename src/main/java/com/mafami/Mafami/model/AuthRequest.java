@@ -48,6 +48,14 @@ public class AuthRequest implements Serializable {
 		this.token = token;
 	}
 
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
 	
 	
 	
