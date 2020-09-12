@@ -10,7 +10,7 @@ public class AuthRequest implements Serializable {
 
 	private static final long serialVersionUID = 5926468583005150707L;
 
-	private String username;
+	private String userName;
 	private String password;
 	private String token;
 
@@ -20,16 +20,16 @@ public class AuthRequest implements Serializable {
 	}
 
 	public AuthRequest(String username, String password) {
-		this.username = username;
+		this.userName = username;
 		this.password = password;
 	}
 
 	public String getUsername() {
-		return this.username;
+		return this.userName;
 	}
 
 	public void setUsername(String username) {
-		this.username = username;
+		this.userName = username;
 	}
 
 	public String getPassword() {
