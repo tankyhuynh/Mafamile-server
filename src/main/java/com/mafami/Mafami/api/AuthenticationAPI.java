@@ -12,28 +12,29 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mafami.Mafami.Entity.UserEntity;
-import com.mafami.Mafami.Repository.User_Repo;
-import com.mafami.Mafami.Service.User_Service;
+import com.mafami.Mafami.Repository.UserRepo;
+import com.mafami.Mafami.Service.UserService;
 import com.mafami.Mafami.model.AuthRequest;
+import com.mafami.Mafami.model.SigninRequest;
 
 @RestController
 public class AuthenticationAPI {
 
 	@Autowired
-	private User_Repo user_repo;
+	private UserRepo user_repo;
 	
 	@Autowired
-	private User_Service User_Service;
+	private UserService UserService;
 
 	@RequestMapping(value = "/signIn", method = RequestMethod.POST)
-	public String signIn(@RequestBody AuthRequest authenticationRequest)
+	public String signIn(@RequestBody SigninRequest authenticationRequest)
 			throws Exception {
 			String token = UUID.randomUUID().toString();
 			
 			try {
-				UserEntity user = User_Service.findByUserNameAndPassword(authenticationRequest.getUsername(), authenticationRequest.getPassword());
+				UserEntity user = UserService.findByUsernameAndPassword(authenticationRequest.getUsername(), authenticationRequest.getPassword());
 				user.setToken(token);
-				User_Service.save(user);
+				UserService.save(user);
 				return token;
 				
 			} catch (Exception e) {
@@ -47,7 +48,7 @@ public class AuthenticationAPI {
 	
 	@PostMapping("/auth")
 	public boolean auth(@RequestBody AuthRequest authRequest) {
-		UserEntity user = User_Service.findByUserNameAndPassword(authRequest.getUsername(), authRequest.getPassword());
+		UserEntity user = UserService.findByUsernameAndPassword(authRequest.getUsername(), authRequest.getPassword());
 		if (user != null && authRequest.getToken().equals(user.getToken())) {
 			return true;
 		}
@@ -56,11 +57,17 @@ public class AuthenticationAPI {
 	
 	
 	@RequestMapping(value = "/signOut", method = RequestMethod.POST)
-	public String logOut(@RequestBody AuthRequest authenticationRequest) {
-		UserEntity user = user_repo.findByUserNameAndPassword(authenticationRequest.getUsername(), authenticationRequest.getPassword());
-		user.setToken("");
-		user_repo.save(user);
-		 return "ok";
+	public boolean signOut(@RequestBody SigninRequest authenticationRequest) {
+		try {
+			UserEntity user = user_repo.findByUsernameAndPassword(authenticationRequest.getUsername(), authenticationRequest.getPassword());
+			user.setToken("");
+			user_repo.save(user);
+			return true;
+			
+		} catch (Exception e) {
+			return false;
+		}
+		
 	}
 	
 	

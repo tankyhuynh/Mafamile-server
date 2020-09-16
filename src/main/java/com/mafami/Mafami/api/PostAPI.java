@@ -1,5 +1,6 @@
 package com.mafami.Mafami.api;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.mafami.Mafami.Entity.PostEntity;
 import com.mafami.Mafami.Service.PostService;
+import com.mafami.Mafami.Utils.FileUtils_TanKy;
 
 @RestController
 @RequestMapping("/api/post")
@@ -23,6 +25,9 @@ public class PostAPI {
 	@Autowired
 	private PostService postService;
 	
+	@Autowired
+	private FileUtils_TanKy fileUtils;
+	
 	@GetMapping
 	public List<PostEntity> getAll() {
 		return postService.getAll();
@@ -30,23 +35,30 @@ public class PostAPI {
 	
 	@GetMapping("/{id}")
 	public ResponseEntity<PostEntity> getOneById(@PathVariable String id) {
-		return ResponseEntity.ok(postService.getOneById(id));
+		return ResponseEntity.ok(postService.findOneById(id));
 	}
 	
 	@PostMapping
-	public ResponseEntity<PostEntity> save(@RequestBody PostEntity entity) {
+	public ResponseEntity<PostEntity> saveOne(@RequestBody PostEntity entity) {
+		List<String> listImages = new ArrayList<>();
+		for (String item : entity.getImages()) {
+			String URL = fileUtils.decoder(item, "outputFile");
+			listImages.add(URL);
+		}
+		entity.setImages(listImages);
+		
 		return ResponseEntity.ok(postService.save(entity));
 	}
 	
 	@PutMapping("/{id}")
-	public PostEntity putOneById(@PathVariable String id, @RequestBody PostEntity postEntity) {
+	public PostEntity saveOneById(@PathVariable String id, @RequestBody PostEntity postEntity) {
 		postEntity.setId(id);
 		
 		return postService.save(postEntity);
 	}
 	
 	@DeleteMapping("/{id}")
-	public void delete(@PathVariable String id) {
+	public void deleteOneById(@PathVariable String id) {
 		 postService.delete(id);
 	}
 	

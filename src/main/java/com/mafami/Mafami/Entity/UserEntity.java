@@ -4,54 +4,83 @@ import javax.annotation.Generated;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 @Document(collection = "user")
 public class UserEntity {
 
 	@Id
 	private String id;
-	private String userName;
+
+	private String username;
+	
 	private String password;
-	private String fullName;
-	private String[] roles;
+	
+	private String fullname;
+	
+	private Object[] roles;
+	
 	private String token;
 	
 	public UserEntity() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public UserEntity(String userName, String password, String fullName, String[] role) {
-		super();
-		this.userName = userName;
-		this.password = password;
-		this.fullName = fullName;
-		this.roles = role;
-	}
+
 	
+
+
+	public String getUsername() {
+		return username;
+	}
+
+
+
+
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+
+
+
+
+
+
+
+
+
+	public String getFullname() {
+		return fullname;
+	}
+
+
+
+
+
+	public void setFullname(String fullname) {
+		this.fullname = fullname;
+	}
+
+
+
+
+
 	public String getId() {
 		return id;
 	}
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getUserName() {
-		return userName;
-	}
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
+	
 	public String getPassword() {
 		return password;
 	}
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getFullName() {
-		return fullName;
-	}
-	public void setFullName(String fullName) {
-		this.fullName = fullName;
-	}
+	
 	
 
 	public String getToken() {
@@ -62,13 +91,15 @@ public class UserEntity {
 		this.token = token;
 	}
 
-	public String[] getRoles() {
+	public Object[] getRoles() {
 		return roles;
 	}
 
-	public void setRoles(String[] roles) {
+	public void setRoles(Object[] roles) {
 		this.roles = roles;
 	}
+
+	
 	
 	
 	

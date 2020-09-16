@@ -9,5 +9,7 @@ import com.mafami.Mafami.Entity.BillEntity;
 public interface BillRepo extends MongoRepository<BillEntity, String> {
 
 	BillEntity findOneById(String id);
+	BillEntity findOneByIdproduct(String idProduct);
+	BillEntity findOneByIdcustomer(String idCustomer);
 	
 }

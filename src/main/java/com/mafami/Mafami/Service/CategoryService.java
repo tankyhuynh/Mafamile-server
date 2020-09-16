@@ -15,7 +15,7 @@ public class CategoryService {
 	@Autowired
 	private CategoryRepo categoryRepo;
 	
-	public CategoryEntity get(String id) {	return categoryRepo.findOneByName(id); 	}
+	public CategoryEntity findOneById(String id) {	return categoryRepo.findOneById(id); 	}
 
 	public List<CategoryEntity> getAll() {		return categoryRepo.findAll();		}
 

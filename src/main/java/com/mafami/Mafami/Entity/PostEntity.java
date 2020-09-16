@@ -1,17 +1,21 @@
 package com.mafami.Mafami.Entity;
 
+import java.util.List;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
-@Document(collection = "bai_viet")
+@Document(collection = "posts")
 public class PostEntity {
 
 	@Id
 	private String id;
-	
-	private String content;
 	private String title;
-	private String shortDescription;
+	private String content;
+	private List<String> images;
+
+	private String username;
 	
 	public PostEntity() {
 		// TODO Auto-generated constructor stub
@@ -21,17 +25,16 @@ public class PostEntity {
 		super();	
 		this.content = content;
 		this.title = title;
-		this.shortDescription = description;
 	}
-
-
 
 	public String getId() {
 		return id;
 	}
+
 	public void setId(String id) {
 		this.id = id;
 	}
+
 	public String getContent() {
 		return content;
 	}
@@ -44,14 +47,25 @@ public class PostEntity {
 	public void setTitle(String title) {
 		this.title = title;
 	}
+	
 
-	public String getShortDescription() {
-		return shortDescription;
+	public List<String> getImages() {
+		return images;
 	}
 
-	public void setShortDescription(String shortDescription) {
-		this.shortDescription = shortDescription;
+	public void setImages(List<String> images) {
+		this.images = images;
 	}
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	
 	
 	
 	

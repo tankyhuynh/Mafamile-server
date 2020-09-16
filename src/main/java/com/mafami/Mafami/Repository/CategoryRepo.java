@@ -8,6 +8,6 @@ import com.mafami.Mafami.Entity.CategoryEntity;
 @Repository
 public interface CategoryRepo extends MongoRepository<CategoryEntity, String> {
 
-	CategoryEntity findOneByName(String name);
+	CategoryEntity findOneById(String id);
 	
 }

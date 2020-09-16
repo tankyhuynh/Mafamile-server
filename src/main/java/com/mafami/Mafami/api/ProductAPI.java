@@ -29,23 +29,23 @@ public class ProductAPI {
 	private ProductConvert productConvert;
 	
 	@GetMapping
-	public ResponseEntity<List<ProductEntity>> getAllProducts() {
+	public ResponseEntity<List<ProductEntity>> getAll() {
 		return ResponseEntity.ok(productService.getAll());
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<ProductEntity> getProduct(@PathVariable String id) {
-		return ResponseEntity.ok(productService.getOne(id));
+	public ResponseEntity<ProductEntity> getOneById(@PathVariable String id) {
+		return ResponseEntity.ok(productService.findOneById(id));
 	}
 	
 	@PostMapping
-	public ResponseEntity<ProductEntity> postProduct(@RequestBody ProductEntity productEntity) {
+	public ResponseEntity<ProductEntity> saveOne(@RequestBody ProductEntity productEntity) {
 		return ResponseEntity.ok(productService.save(productEntity));
 	}
 	
 	@PutMapping("/{id}")
-	public ResponseEntity<ProductEntity> putProduct(@PathVariable String id, @RequestBody ProductEntity entity) {
-		ProductEntity newEntity = productService.getOne(id);
+	public ResponseEntity<ProductEntity> saveOneById(@PathVariable String id, @RequestBody ProductEntity entity) {
+		ProductEntity newEntity = productService.findOneById(id);
 		newEntity = productConvert.entity_to_entity(entity);
 		newEntity.setId(id);
 		
@@ -53,7 +53,7 @@ public class ProductAPI {
 	}
 	
 	@DeleteMapping("/{id}")
-	public void deleteProduct(@PathVariable String id) {
+	public void deleteOneById(@PathVariable String id) {
 		productService.delete(id);
 	}
 

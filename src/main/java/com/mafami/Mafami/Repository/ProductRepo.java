@@ -8,7 +8,9 @@ import com.mafami.Mafami.Entity.ProductEntity;
 @Repository
 public interface ProductRepo extends MongoRepository<ProductEntity, String> {
 
-	ProductEntity findOneByName(String name);
+	
 	ProductEntity findOneById(String id);
+	ProductEntity findOneByIdcategory(String idCategory);
+	ProductEntity findOneByName(String name);
 	
 }

@@ -14,7 +14,9 @@ public class PostService {
 	@Autowired
 	private PostRepo postRepo;
 	
-	public PostEntity getOneById(String id) {	return postRepo.findOneById(id); 	}
+	public PostEntity findOneById(String idPost) {	return postRepo.findOneById(idPost); 	}
+	
+	public PostEntity findOneByUsername(String username) {	return postRepo.findOneByUsername(username); 	}
 
 	public List<PostEntity> getAll() {		return postRepo.findAll();		}
 

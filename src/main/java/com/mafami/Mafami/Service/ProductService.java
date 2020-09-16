@@ -15,7 +15,11 @@ public class ProductService {
 	@Autowired
 	private ProductRepo productRepo;
 	
-	public ProductEntity getOne(String id) {	return productRepo.findOneById(id); 	}
+	public ProductEntity findOneById(String idProduct) {	return productRepo.findOneById(idProduct); 	}
+	
+	public ProductEntity findOneByIdcategory(String idCategory) {	return productRepo.findOneByIdcategory(idCategory); 	}
+	
+	public ProductEntity findOneByName(String name) {	return productRepo.findOneByName(name); 	}
 
 	public List<ProductEntity> getAll() {		return productRepo.findAll();		}
 

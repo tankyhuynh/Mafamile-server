@@ -16,56 +16,57 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.mafami.Mafami.Convert.UserConvert;
 import com.mafami.Mafami.Entity.UserEntity;
-import com.mafami.Mafami.Service.User_Service;
+import com.mafami.Mafami.Service.UserService;
 
 @RestController
 @RequestMapping("/api/user")
 public class UserAPI {
 
 	@Autowired
-	private User_Service user_Service;
+	private UserService userService;
 	
 	@Autowired
 	private UserConvert userConvert;
 	
 	@GetMapping
 	public List<UserEntity> getAll() {
-		return user_Service.getAll();
+		return userService.getAll();
 	}
 
 	@GetMapping("/{id}")
-	public UserEntity getUserInfo(@PathVariable String id) {
-		return user_Service.findOneById(id);
+	public UserEntity getOneById(@PathVariable String id) {
+		return userService.findOneById(id);
 	}
 	
+	
 	@PostMapping
-	public UserEntity addNewUser(@RequestBody UserEntity userEntity) {
+	public UserEntity saveOne(@RequestBody UserEntity userEntity) {
 		
-		return user_Service.save(userEntity);
+		return userService.save(userEntity);
 	}
 	
 	@PutMapping("/{id}")
-	public UserEntity updateUser(@PathVariable String id, @RequestBody UserEntity userEntity) {
-		UserEntity newEntity = user_Service.findOneById(id);
+	public UserEntity saveOneById(@PathVariable String id, @RequestBody UserEntity userEntity) {
+		UserEntity newEntity = userService.findOneById(id);
 		newEntity = userConvert.Entity_To_Entity(userEntity);
 		newEntity.setId(id);
 		
-		return user_Service.save(newEntity);
+		return userService.save(newEntity);
 	}
 	
 	@DeleteMapping("/{id}")
-	public void deleteUser(@PathVariable String id) {
-		user_Service.delete(id);
+	public void deleteOneById(@PathVariable String id) {
+		userService.delete(id);
 	}
 	
 	
 	@PutMapping("/role/{id}")
-	public UserEntity updateRole(@PathVariable String id, @RequestBody String[] role) {
-		UserEntity  userEntity = user_Service.findOneById(id);
+	public UserEntity saveOneById(@PathVariable String id, @RequestBody String[] role) {
+		UserEntity  userEntity = userService.findOneById(id);
 		userEntity.setId(id);
 		userEntity.setRoles(role);
 		
-		return user_Service.save(userEntity);
+		return userService.save(userEntity);
 	}
 	
 }

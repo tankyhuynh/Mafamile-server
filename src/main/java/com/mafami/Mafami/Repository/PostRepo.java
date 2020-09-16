@@ -9,5 +9,6 @@ import com.mafami.Mafami.Entity.PostEntity;
 public interface PostRepo extends MongoRepository<PostEntity, String> {
 
 	PostEntity findOneById(String id);
+	PostEntity findOneByUsername(String username);
 	
 }

@@ -14,8 +14,9 @@ public class MafamiApplication{
 																																																																																																																																																																																																																																																																																																																																																																																																																																																	
 	public static void main(String[] args) {	
 		SpringApplication.run(MafamiApplication.class, args);
-	}
+	}																															
 
 	
 
 }
+	

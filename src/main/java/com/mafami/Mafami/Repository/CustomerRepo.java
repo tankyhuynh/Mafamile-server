@@ -3,11 +3,11 @@ package com.mafami.Mafami.Repository;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
-import com.mafami.Mafami.Entity.BillDetailEntity;
+import com.mafami.Mafami.Entity.CustomerEntity;
 
 @Repository
-public interface BillDetailRepo extends MongoRepository<BillDetailEntity, String> {
+public interface CustomerRepo extends MongoRepository<CustomerEntity, String> {
 
-	BillDetailEntity findOneById(String id);
+	CustomerEntity findOneById(String id);
 	
 }
