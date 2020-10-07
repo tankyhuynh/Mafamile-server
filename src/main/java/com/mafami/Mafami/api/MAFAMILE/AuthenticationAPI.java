@@ -26,7 +26,7 @@ public class AuthenticationAPI {
 	@Autowired
 	private UserService UserService;
 
-	@RequestMapping(value = "/signIn", method = RequestMethod.POST)
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String signIn(@RequestBody SigninRequest authenticationRequest)
 			throws Exception {
 			String token = UUID.randomUUID().toString();
@@ -56,7 +56,7 @@ public class AuthenticationAPI {
 	}
 	
 	
-	@RequestMapping(value = "/signOut", method = RequestMethod.POST)
+	@RequestMapping(value = "/logout", method = RequestMethod.POST)
 	public boolean signOut(@RequestBody SigninRequest authenticationRequest) {
 		try {
 			UserEntity user = user_repo.findByUsernameAndPassword(authenticationRequest.getUsername(), authenticationRequest.getPassword());
