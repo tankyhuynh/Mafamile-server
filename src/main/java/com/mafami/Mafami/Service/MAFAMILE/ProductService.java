@@ -17,7 +17,7 @@ public class ProductService {
 	
 	public ProductEntity findOneById(String idProduct) {	return productRepo.findOneById(idProduct); 	}
 	
-	public ProductEntity findOneByIdcategory(String idCategory) {	return productRepo.findOneByIdcategory(idCategory); 	}
+	public ProductEntity findOneByCategoryID(String idCategory) {	return productRepo.findOneByCategoryID(idCategory); 	}
 	
 	public ProductEntity findOneByName(String name) {	return productRepo.findOneByName(name); 	}
 

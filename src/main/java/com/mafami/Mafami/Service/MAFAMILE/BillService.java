@@ -16,9 +16,9 @@ public class BillService {
 	
 	public BillEntity findOneById(String id) {	return billRepo.findOneById(id); 	}
 	
-	public BillEntity findOneByIdproduct(String idProduct) {	return billRepo.findOneByIdproduct(idProduct); 	}
+	public BillEntity findOneByProductID(String idProduct) {	return billRepo.findOneByProductID(idProduct); 	}
 	
-	public BillEntity findOneByIdcustomer(String idCustomer) {	return billRepo.findOneByIdcustomer(idCustomer); 	}
+	public BillEntity findOneByCustomerID(String idCustomer) {	return billRepo.findOneByCustomerID(idCustomer); 	}
 
 	public List<BillEntity> getAll() {		return billRepo.findAll();		}
 

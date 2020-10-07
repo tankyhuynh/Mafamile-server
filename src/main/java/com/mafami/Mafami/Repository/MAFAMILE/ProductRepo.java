@@ -10,7 +10,7 @@ public interface ProductRepo extends MongoRepository<ProductEntity, String> {
 
 	
 	ProductEntity findOneById(String id);
-	ProductEntity findOneByIdcategory(String idCategory);
+	ProductEntity findOneByCategoryID(String categoryID);
 	ProductEntity findOneByName(String name);
 	
 }
