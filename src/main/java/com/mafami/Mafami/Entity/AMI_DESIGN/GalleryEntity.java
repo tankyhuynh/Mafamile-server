@@ -12,27 +12,23 @@ public class GalleryEntity {
 	private String id;
 	private String title;
 	private String content;
-	private List<String> image;
+	private List<String> images;
 	private String username;
 	
 	
 	public GalleryEntity() {
 		// TODO Auto-generated constructor stub
 	}
-	
-	
 
 
-	public GalleryEntity(String id, String title, String content, List<String> image, String username) {
+	public GalleryEntity(String id, String title, String content, List<String> images, String username) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.content = content;
-		this.image = image;
+		this.images = images;
 		this.username = username;
 	}
-
-
 
 
 	public String getId() {
@@ -65,13 +61,13 @@ public class GalleryEntity {
 	}
 
 
-	public List<String> getImage() {
-		return image;
+	public List<String> getImages() {
+		return images;
 	}
 
 
-	public void setImage(List<String> image) {
-		this.image = image;
+	public void setImages(List<String> images) {
+		this.images = images;
 	}
 
 
@@ -87,12 +83,8 @@ public class GalleryEntity {
 	
 	
 	
-	
-	
-	
-	
-	
-	
+
+
 	
 	
 	
