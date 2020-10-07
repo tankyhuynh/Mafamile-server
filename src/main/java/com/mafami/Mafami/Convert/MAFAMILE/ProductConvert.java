@@ -11,7 +11,7 @@ public class ProductConvert {
 		ProductEntity entity2 = new ProductEntity();
 		entity2.setName(entity1.getName());
 		entity2.setPrice(entity2.getPrice());
-		entity2.setIdcategory(entity1.getIdcategory());
+		entity2.setCategoryID(entity1.getCategoryID());
 		entity2.setImage(entity1.getImage());
 		
 		return entity2;

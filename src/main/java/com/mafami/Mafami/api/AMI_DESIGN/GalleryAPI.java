@@ -19,7 +19,7 @@ import com.mafami.Mafami.Service.AMIA_DESIGN.GalleryService;
 import com.mafami.Mafami.Utils.FileUtils_TanKy;
 
 @RestController
-@RequestMapping("/api/amia-design/gallery")
+@RequestMapping("/api/ami-design/gallery")
 public class GalleryAPI {
 
 	@Autowired
