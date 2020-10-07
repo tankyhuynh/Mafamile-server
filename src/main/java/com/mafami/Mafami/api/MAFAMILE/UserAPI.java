@@ -19,7 +19,7 @@ import com.mafami.Mafami.Entity.MAFAMILE.UserEntity;
 import com.mafami.Mafami.Service.MAFAMILE.UserService;
 
 @RestController
-@RequestMapping("/api/user")
+@RequestMapping("/api/mafamile/user")
 public class UserAPI {
 
 	@Autowired

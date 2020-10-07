@@ -19,7 +19,7 @@ import com.mafami.Mafami.Entity.MAFAMILE.ProductEntity;
 import com.mafami.Mafami.Service.MAFAMILE.ProductService;
 
 @RestController
-@RequestMapping("/api/products")
+@RequestMapping("/api/mafamile/products")
 public class ProductAPI {
 
 	@Autowired

@@ -19,7 +19,7 @@ import com.mafami.Mafami.Service.MAFAMILE.PostService;
 import com.mafami.Mafami.Utils.FileUtils_TanKy;
 
 @RestController
-@RequestMapping("/api/post")
+@RequestMapping("/api/mafamile/post")
 public class PostAPI {
 
 	@Autowired
