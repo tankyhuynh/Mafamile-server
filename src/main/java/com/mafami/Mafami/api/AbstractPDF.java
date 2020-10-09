@@ -24,7 +24,7 @@ import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
-import com.mafami.Mafami.Entity.MAFAMILE.UserEntity;
+import com.mafami.Mafami.Entity.MAFAMILE.MAFAMILE_UserEntity;
 
 /**
 * @author root {4:49:19 PM}:
@@ -135,7 +135,7 @@ public class AbstractPDF<T> {
 	public static void main(String[] args) throws DocumentException, Exception {
 
 		Object[] roles = new String[] {"Admin"};
-		analyze(new UserEntity("tanky", "huynhtanky", "Huynh Tan Ky", roles, "juahdsiaisdiau12kl23JJDAL"));
+		analyze(new MAFAMILE_UserEntity("tanky", "huynhtanky", "Huynh Tan Ky", roles, "juahdsiaisdiau12kl23JJDAL"));
 		
 	}
 	

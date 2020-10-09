@@ -12,10 +12,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mafami.Mafami.Entity.MAFAMILE.PostEntity;
-import com.mafami.Mafami.Entity.MAFAMILE.UserEntity;
-import com.mafami.Mafami.Service.MAFAMILE.PostService;
-import com.mafami.Mafami.Service.MAFAMILE.UserService;
+import com.mafami.Mafami.Entity.MAFAMILE.MAFAMILE_PostEntity;
+import com.mafami.Mafami.Entity.MAFAMILE.MAFAMILE_UserEntity;
+import com.mafami.Mafami.Service.MAFAMILE.MFAMILE_PostService;
+import com.mafami.Mafami.Service.MAFAMILE.MAFAMILE_UserService;
 import com.mafami.Mafami.Utils.PDFGeneratorUtils;
 
 /**
@@ -31,22 +31,22 @@ import com.mafami.Mafami.Utils.PDFGeneratorUtils;
 public class PdfAPI {
 
 	@Autowired
-	private PostService postService;
+	private MFAMILE_PostService mFAMILE_PostService;
 	
 	@Autowired
-	private UserService userService;
+	private MAFAMILE_UserService mAFAMILE_UserService;
 	
 	@Autowired
 	private PDFGeneratorUtils pdfUtils;
 	
 	@Autowired
-	private AbstractPDF<PostEntity> pdfUser;
+	private AbstractPDF<MAFAMILE_PostEntity> pdfUser;
 	
-	@GetMapping(value = "/customers",
+	@GetMapping(value = "/pdf",
             produces = MediaType.APPLICATION_PDF_VALUE)
     public ResponseEntity<InputStreamResource> customersReport() throws Exception {
 		
-		List<PostEntity> customers = (List<PostEntity>) postService.getAll();
+		List<MAFAMILE_PostEntity> customers = (List<MAFAMILE_PostEntity>) mFAMILE_PostService.getAll();
 //        ByteArrayInputStream bis = pdfUtils.customerPDFReport(customers);
 
         
@@ -54,8 +54,8 @@ public class PdfAPI {
 //      String[] fieldName = {"id", "username", "password", "fullName", "roles", "token"};
         String[] fieldName = {"Id", "Title", "Content", "Images", "Username"};
         
-        List<UserEntity> userEntities = userService.getAll();
-        ByteArrayInputStream bis = pdfUser.customerPDFReport(fieldName, customers, PostEntity.class);
+        List<MAFAMILE_UserEntity> mAFAMILE_UserEntities = mAFAMILE_UserService.getAll();
+        ByteArrayInputStream bis = pdfUser.customerPDFReport(fieldName, customers, MAFAMILE_PostEntity.class);
         
         
         

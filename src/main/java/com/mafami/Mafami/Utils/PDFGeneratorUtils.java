@@ -19,13 +19,13 @@ import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
-import com.mafami.Mafami.Entity.MAFAMILE.CustomerEntity;
-import com.mafami.Mafami.Entity.MAFAMILE.PostEntity;
+import com.mafami.Mafami.Entity.MAFAMILE.MAFAMILE_CustomerEntity;
+import com.mafami.Mafami.Entity.MAFAMILE.MAFAMILE_PostEntity;
 
 @Component
 public class PDFGeneratorUtils {
 
-	public static ByteArrayInputStream customerPDFReport(List<PostEntity> posts) {
+	public static ByteArrayInputStream customerPDFReport(List<MAFAMILE_PostEntity> posts) {
 		Document document = new Document();
 		ByteArrayOutputStream out = new ByteArrayOutputStream();
 
@@ -53,7 +53,7 @@ public class PDFGeneratorUtils {
 				table.addCell(header);
 			});
 
-			for (PostEntity post : posts) {
+			for (MAFAMILE_PostEntity post : posts) {
 				PdfPCell idCell = new PdfPCell(new Phrase(post.getId().toString()));
 				idCell.setPaddingLeft(6);
 				idCell.setVerticalAlignment(Element.ALIGN_MIDDLE);
