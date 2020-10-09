@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 import org.springframework.format.annotation.DateTimeFormat;
 
-@Document(collection = "bills")
+@Document(collection = "mafamile_bills")
 public class BillEntity {
 
 	@Id

@@ -1,10 +1,10 @@
-package com.mafami.Mafami.Entity.MAFAMILE;
+package com.mafami.Mafami.Entity.AMIA;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
-@Document(collection = "mafamile_products")
+@Document(collection = "amia_products")
 public class ProductEntity {
 
 	@Id

@@ -3,7 +3,7 @@ package com.mafami.Mafami.Entity.MAFAMILE;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "user")
+@Document(collection = "mafamile_user")
 public class UserEntity {
 
 	@Id
