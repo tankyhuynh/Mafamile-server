@@ -14,11 +14,25 @@ public class MAFAMILE_CategoryService {
 
 	@Autowired
 	private MAFAMILE_CategoryRepo mAFAMILE_CategoryRepo;
-	
-	public MAFAMILE_CategoryEntity findOneById(String id) {	return mAFAMILE_CategoryRepo.findOneById(id); 	}
 
-	public List<MAFAMILE_CategoryEntity> getAll() {		return mAFAMILE_CategoryRepo.findAll();		}
+	public MAFAMILE_CategoryEntity getOneById(String id) {
+		return mAFAMILE_CategoryRepo.findOneById(id);
+	}
 
-	public MAFAMILE_CategoryEntity save(MAFAMILE_CategoryEntity entity) {		return mAFAMILE_CategoryRepo.save(entity);		}
+	public List<MAFAMILE_CategoryEntity> getAll() {
+		return mAFAMILE_CategoryRepo.findAll();
+	}
+
+	public MAFAMILE_CategoryEntity save(MAFAMILE_CategoryEntity entity) {
+		return mAFAMILE_CategoryRepo.save(entity);
+	}
 	
+	public void delete(String id) {
+		mAFAMILE_CategoryRepo.deleteById(id);
+	}
+	
+	public void deleteAll() {
+		mAFAMILE_CategoryRepo.deleteAll();
+	}
+
 }
