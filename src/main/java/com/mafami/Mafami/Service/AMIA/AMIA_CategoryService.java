@@ -14,8 +14,8 @@ public class AMIA_CategoryService {
 	@Autowired
 	private AMIA_CategoryRepo aMIA_CategoryRepo;
 
-	public AMIA_CategoryEntity findOneById(String id) {
-		return aMIA_CategoryRepo.findOneById(id);
+	public AMIA_CategoryEntity getOneById(String id) {
+		return aMIA_CategoryRepo.findById(id).orElse(new AMIA_CategoryEntity());
 	}
 
 	public List<AMIA_CategoryEntity> getAll() {
@@ -24,6 +24,14 @@ public class AMIA_CategoryService {
 
 	public AMIA_CategoryEntity save(AMIA_CategoryEntity entity) {
 		return aMIA_CategoryRepo.save(entity);
+	}
+	
+	public void delete(String id) {
+		aMIA_CategoryRepo.deleteById(id);
+	}
+	
+	public void deleteAll() {
+		aMIA_CategoryRepo.deleteAll();
 	}
 
 }

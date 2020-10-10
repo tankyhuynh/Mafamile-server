@@ -15,7 +15,7 @@ public class AMIA_ProductService {
 	private AMIA_ProductRepo aMIA_ProductRepo;
 
 	public AMIA_ProductEntity findOneById(String idProduct) {
-		return aMIA_ProductRepo.findOneById(idProduct);
+		return aMIA_ProductRepo.findById(idProduct).orElse(new AMIA_ProductEntity());
 	}
 
 	public AMIA_ProductEntity findOneByCategoryID(String idCategory) {
@@ -35,7 +35,11 @@ public class AMIA_ProductService {
 	}
 
 	public void delete(String id) {
-		aMIA_ProductRepo.delete(aMIA_ProductRepo.findOneById(id));
+		aMIA_ProductRepo.deleteById(id);
+	}
+	
+	public void deleteAll() {
+		aMIA_ProductRepo.deleteAll();
 	}
 
 }

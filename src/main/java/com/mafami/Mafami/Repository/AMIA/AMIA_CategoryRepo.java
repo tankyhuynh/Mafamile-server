@@ -8,6 +8,6 @@ import com.mafami.Mafami.Entity.AMIA.AMIA_CategoryEntity;
 @Repository
 public interface AMIA_CategoryRepo extends MongoRepository<AMIA_CategoryEntity, String> {
 
-	AMIA_CategoryEntity findOneById(String id);
+	
 
 }

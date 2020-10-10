@@ -8,8 +8,6 @@ import com.mafami.Mafami.Entity.AMIA.AMIA_ProductEntity;
 @Repository
 public interface AMIA_ProductRepo extends MongoRepository<AMIA_ProductEntity, String> {
 
-	AMIA_ProductEntity findOneById(String id);
-
 	AMIA_ProductEntity findOneByCategoryID(String categoryID);
 
 	AMIA_ProductEntity findOneByName(String name);
