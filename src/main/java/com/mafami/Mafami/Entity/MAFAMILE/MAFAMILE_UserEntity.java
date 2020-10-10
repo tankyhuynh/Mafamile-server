@@ -22,10 +22,6 @@ public class MAFAMILE_UserEntity {
 	public MAFAMILE_UserEntity() {
 		// TODO Auto-generated constructor stub
 	}
-	
-	
-	
-	
 
 	public MAFAMILE_UserEntity(String username, String password, String fullname, Object[] roles, String token) {
 		super();
@@ -35,10 +31,6 @@ public class MAFAMILE_UserEntity {
 		this.roles = roles;
 		this.token = token;
 	}
-
-
-
-
 
 	public String getUsername() {
 		return username;

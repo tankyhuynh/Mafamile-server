@@ -22,54 +22,51 @@ public class AuthenticationAPI {
 
 	@Autowired
 	private MAFAMILE_UserRepo user_repo;
-	
+
 	@Autowired
 	private MAFAMILE_UserService MAFAMILE_UserService;
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String signIn(@RequestBody SigninRequest authenticationRequest)
-			throws Exception {
-			String token = UUID.randomUUID().toString();
-			
-			try {
-				MAFAMILE_UserEntity user = MAFAMILE_UserService.findByUsernameAndPassword(authenticationRequest.getUsername(), authenticationRequest.getPassword());
-				user.setToken(token);
-				MAFAMILE_UserService.save(user);
-				return token;
-				
-			} catch (Exception e) {
+	public String signIn(@RequestBody SigninRequest authenticationRequest) throws Exception {
+		String token = UUID.randomUUID().toString();
 
-			}
-			return "";
-			
-		
+		try {
+			MAFAMILE_UserEntity user = MAFAMILE_UserService.findByUsernameAndPassword(
+					authenticationRequest.getUsername(), authenticationRequest.getPassword());
+			user.setToken(token);
+			MAFAMILE_UserService.save(user);
+			return token;
+
+		} catch (Exception e) {
+
+		}
+		return "";
+
 	}
-	
-	
+
 	@PostMapping("/auth")
 	public boolean auth(@RequestBody AuthRequest authRequest) {
-		MAFAMILE_UserEntity user = MAFAMILE_UserService.findByUsernameAndPassword(authRequest.getUsername(), authRequest.getPassword());
+		MAFAMILE_UserEntity user = MAFAMILE_UserService.findByUsernameAndPassword(authRequest.getUsername(),
+				authRequest.getPassword());
 		if (user != null && authRequest.getToken().equals(user.getToken())) {
 			return true;
 		}
 		return false;
 	}
-	
-	
+
 	@RequestMapping(value = "/logout", method = RequestMethod.POST)
 	public boolean signOut(@RequestBody SigninRequest authenticationRequest) {
 		try {
-			MAFAMILE_UserEntity user = user_repo.findByUsernameAndPassword(authenticationRequest.getUsername(), authenticationRequest.getPassword());
+			MAFAMILE_UserEntity user = user_repo.findByUsernameAndPassword(authenticationRequest.getUsername(),
+					authenticationRequest.getPassword());
 			user.setToken("");
 			user_repo.save(user);
 			return true;
-			
+
 		} catch (Exception e) {
 			return false;
 		}
-		
+
 	}
-	
-	
-	
+
 }

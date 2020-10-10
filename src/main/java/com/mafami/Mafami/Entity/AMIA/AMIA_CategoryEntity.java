@@ -12,6 +12,8 @@ public class AMIA_CategoryEntity {
 
 	private String name;
 
+	private String code;
+
 	public AMIA_CategoryEntity() {
 		// TODO Auto-generated constructor stub
 	}
@@ -30,6 +32,14 @@ public class AMIA_CategoryEntity {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
 	}
 
 }
