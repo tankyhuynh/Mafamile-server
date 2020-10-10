@@ -46,6 +46,14 @@ public class AMIA_CategoryAPI {
 	public ResponseEntity<AMIA_CategoryEntity> save(@RequestBody AMIA_CategoryEntity categoryEntity) {
 		return ResponseEntity.ok(amia_CategoryService.save(categoryEntity));
 	}
+	
+	@PostMapping("/all")
+	public ResponseEntity<String> save(@RequestBody List<AMIA_CategoryEntity> categoryEntity) {
+		for (AMIA_CategoryEntity entity : categoryEntity) {
+			amia_CategoryService.save(entity);
+		}
+		return ResponseEntity.ok("OK");
+	}
 
 	@PutMapping("/{id}")
 	public ResponseEntity<AMIA_CategoryEntity> update(@PathVariable("id") String id,

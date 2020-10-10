@@ -48,6 +48,14 @@ public class MAFAMILE_CategoryAPI {
 	public ResponseEntity<MAFAMILE_CategoryEntity> save(@RequestBody MAFAMILE_CategoryEntity categoryEntity) {
 		return ResponseEntity.ok(categoryService.save(categoryEntity));
 	}
+	
+	@PostMapping("/all")
+	public ResponseEntity<String> save(@RequestBody List<MAFAMILE_CategoryEntity> categoryEntity) {
+		for (MAFAMILE_CategoryEntity entity : categoryEntity) {
+			categoryService.save(entity);
+		}
+		return ResponseEntity.ok("OK");
+	}
 
 	@PutMapping("/{id}")
 	public ResponseEntity<MAFAMILE_CategoryEntity> update(@PathVariable("id") String id,
