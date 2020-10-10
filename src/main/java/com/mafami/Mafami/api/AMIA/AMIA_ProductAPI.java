@@ -38,9 +38,22 @@ public class AMIA_ProductAPI {
 		return ResponseEntity.ok(aMIA_ProductService.findOneById(id));
 	}
 	
+	@GetMapping("/category/{categoryCode}")
+	public ResponseEntity<List<AMIA_ProductEntity>> getAllByCategoryCode(@PathVariable("categoryCode") String categoryCode) {
+		return ResponseEntity.ok(aMIA_ProductService.findAllByCategoryCode(categoryCode));
+	}
+	
 	@PostMapping
 	public ResponseEntity<AMIA_ProductEntity> saveOne(@RequestBody AMIA_ProductEntity aMIA_ProductEntity) {
 		return ResponseEntity.ok(aMIA_ProductService.save(aMIA_ProductEntity));
+	}
+	
+	@PostMapping("/all")
+	public ResponseEntity<String> saveOne(@RequestBody List<AMIA_ProductEntity> aMIA_ProductEntity) {
+		for (AMIA_ProductEntity entity : aMIA_ProductEntity) {
+			aMIA_ProductService.save(entity);
+		}
+		return ResponseEntity.ok("OK");
 	}
 	
 	@PutMapping("/{id}")

@@ -1,5 +1,7 @@
 package com.mafami.Mafami.Repository.MAFAMILE;
 
+import java.util.List;
+
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
@@ -10,7 +12,7 @@ public interface MAFAMILE_ProductRepo extends MongoRepository<MAFAMILE_ProductEn
 
 	
 	MAFAMILE_ProductEntity findOneById(String id);
-	MAFAMILE_ProductEntity findOneByCategoryID(String categoryID);
+	List<MAFAMILE_ProductEntity> findAllByCategoryCode(String categoryCode);
 	MAFAMILE_ProductEntity findOneByName(String name);
 	
 }

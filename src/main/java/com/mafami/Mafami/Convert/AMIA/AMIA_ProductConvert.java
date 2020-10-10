@@ -11,7 +11,7 @@ public class AMIA_ProductConvert {
 		AMIA_ProductEntity entity2 = new AMIA_ProductEntity();
 		entity2.setName(entity1.getName());
 		entity2.setPrice(entity2.getPrice());
-		entity2.setCategoryID(entity1.getCategoryID());
+		entity2.setCategoryCode(entity1.getCategoryCode());
 		entity2.setImage(entity1.getImage());
 
 		return entity2;

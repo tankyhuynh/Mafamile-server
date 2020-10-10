@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.mafami.Mafami.Entity.AMIA.AMIA_ProductEntity;
 import com.mafami.Mafami.Repository.AMIA.AMIA_ProductRepo;
 
-@Service("amia")
+@Service
 public class AMIA_ProductService {
 
 	@Autowired
@@ -18,8 +18,8 @@ public class AMIA_ProductService {
 		return aMIA_ProductRepo.findById(idProduct).orElse(new AMIA_ProductEntity());
 	}
 
-	public AMIA_ProductEntity findOneByCategoryID(String idCategory) {
-		return aMIA_ProductRepo.findOneByCategoryID(idCategory);
+	public List<AMIA_ProductEntity> findAllByCategoryCode(String categoryCode) {
+		return aMIA_ProductRepo.findAllByCategoryCode(categoryCode);
 	}
 
 	public AMIA_ProductEntity findOneByName(String name) {

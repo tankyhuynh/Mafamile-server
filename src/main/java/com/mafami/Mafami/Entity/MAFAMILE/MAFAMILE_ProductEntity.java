@@ -10,7 +10,7 @@ public class MAFAMILE_ProductEntity {
 	@Id
 	private String id;
 
-	private String categoryID;
+	private String categoryCode;
 
 	private String name;
 	private double price;
@@ -21,12 +21,13 @@ public class MAFAMILE_ProductEntity {
 		// TODO Auto-generated constructor stub
 	}
 
-	public String getCategoryID() {
-		return categoryID;
-	}
-
-	public void setCategoryID(String categoryID) {
-		this.categoryID = categoryID;
+	public MAFAMILE_ProductEntity(String id, String categoryCode, String name, double price, String image) {
+		super();
+		this.id = id;
+		this.categoryCode = categoryCode;
+		this.name = name;
+		this.price = price;
+		this.image = image;
 	}
 
 	public String getId() {
@@ -35,6 +36,14 @@ public class MAFAMILE_ProductEntity {
 
 	public void setId(String id) {
 		this.id = id;
+	}
+
+	public String getCategoryCode() {
+		return categoryCode;
+	}
+
+	public void setCategoryCode(String categoryCode) {
+		this.categoryCode = categoryCode;
 	}
 
 	public String getName() {
@@ -60,5 +69,9 @@ public class MAFAMILE_ProductEntity {
 	public void setImage(String image) {
 		this.image = image;
 	}
+
+	
+	
+	
 
 }

@@ -38,9 +38,22 @@ public class MAFAMILE_ProductAPI {
 		return ResponseEntity.ok(mAFAMILE_ProductService.findOneById(id));
 	}
 	
+	@GetMapping("/category/{categoryCode}")
+	public ResponseEntity<List<MAFAMILE_ProductEntity>> getAllByCategoryCode(@PathVariable("categoryCode") String categoryCode) {
+		return ResponseEntity.ok(mAFAMILE_ProductService.findAllByCategoryCode(categoryCode));
+	}
+	
 	@PostMapping
 	public ResponseEntity<MAFAMILE_ProductEntity> saveOne(@RequestBody MAFAMILE_ProductEntity mAFAMILE_ProductEntity) {
 		return ResponseEntity.ok(mAFAMILE_ProductService.save(mAFAMILE_ProductEntity));
+	}
+	
+	@PostMapping("/all")
+	public ResponseEntity<String> saveOne(@RequestBody List<MAFAMILE_ProductEntity> mAFAMILE_ProductEntity) {
+		for (MAFAMILE_ProductEntity entity : mAFAMILE_ProductEntity) {
+			mAFAMILE_ProductService.save(entity);
+		}
+		return ResponseEntity.ok("OK");
 	}
 	
 	@PutMapping("/{id}")
