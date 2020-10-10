@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mafami.Mafami.Entity.AMIA.AMIA_CategoryEntity;
@@ -25,6 +26,7 @@ import com.mafami.Mafami.Service.AMIA.AMIA_CategoryService;
  *
  */
 @RestController
+@RequestMapping("/api/amia/category")
 public class AMIA_CategoryAPI {
 
 	@Autowired
