@@ -19,7 +19,7 @@ import com.mafami.Mafami.Entity.MAFAMILE.MAFAMILE_ProductEntity;
 import com.mafami.Mafami.Service.MAFAMILE.MAFAMILE_ProductService;
 
 @RestController
-@RequestMapping("/api/mafamile/products")
+@RequestMapping("/api/mafamile/menu")
 public class MAFAMILE_ProductAPI {
 
 	@Autowired

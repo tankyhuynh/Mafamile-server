@@ -19,7 +19,7 @@ import com.mafami.Mafami.Service.AMIA.AMIA_ProductService;
 
 
 @RestController
-@RequestMapping("/api/amia/products")
+@RequestMapping("/api/amia/menu")
 public class AMIA_ProductAPI {
 
 	@Autowired
