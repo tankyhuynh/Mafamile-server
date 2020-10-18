@@ -12,10 +12,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.mafami.Mafami.Entity.UserEntity;
 import com.mafami.Mafami.Entity.MAFAMILE.MAFAMILE_PostEntity;
-import com.mafami.Mafami.Entity.MAFAMILE.MAFAMILE_UserEntity;
+import com.mafami.Mafami.Service.UserService;
 import com.mafami.Mafami.Service.MAFAMILE.MFAMILE_PostService;
-import com.mafami.Mafami.Service.MAFAMILE.MAFAMILE_UserService;
 import com.mafami.Mafami.Utils.PDFGeneratorUtils;
 
 /**
@@ -34,7 +34,7 @@ public class PdfAPI {
 	private MFAMILE_PostService mFAMILE_PostService;
 	
 	@Autowired
-	private MAFAMILE_UserService mAFAMILE_UserService;
+	private UserService userService;
 	
 	@Autowired
 	private PDFGeneratorUtils pdfUtils;
@@ -54,7 +54,7 @@ public class PdfAPI {
 //      String[] fieldName = {"id", "username", "password", "fullName", "roles", "token"};
         String[] fieldName = {"Id", "Title", "Content", "Images", "Username"};
         
-        List<MAFAMILE_UserEntity> mAFAMILE_UserEntities = mAFAMILE_UserService.getAll();
+        List<UserEntity> userEntities = userService.getAll();
         ByteArrayInputStream bis = pdfUser.customerPDFReport(fieldName, customers, MAFAMILE_PostEntity.class);
         
         

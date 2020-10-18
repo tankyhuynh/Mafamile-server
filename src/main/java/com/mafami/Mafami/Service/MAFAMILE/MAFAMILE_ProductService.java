@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.mafami.Mafami.Entity.UserEntity;
 import com.mafami.Mafami.Entity.MAFAMILE.MAFAMILE_ProductEntity;
-import com.mafami.Mafami.Entity.MAFAMILE.MAFAMILE_UserEntity;
 import com.mafami.Mafami.Repository.MAFAMILE.MAFAMILE_ProductRepo;
 
 @Service

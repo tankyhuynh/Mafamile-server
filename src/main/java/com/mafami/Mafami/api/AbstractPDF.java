@@ -2,10 +2,7 @@ package com.mafami.Mafami.api;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
-import java.lang.reflect.Array;
 import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
@@ -24,7 +21,6 @@ import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
-import com.mafami.Mafami.Entity.MAFAMILE.MAFAMILE_UserEntity;
 
 /**
 * @author root {4:49:19 PM}:
@@ -132,11 +128,6 @@ public class AbstractPDF<T> {
 	
 	
 
-	public static void main(String[] args) throws DocumentException, Exception {
-
-		Object[] roles = new String[] {"Admin"};
-		analyze(new MAFAMILE_UserEntity("tanky", "huynhtanky", "Huynh Tan Ky", roles, "juahdsiaisdiau12kl23JJDAL"));
-		
-	}
+	
 	
 }

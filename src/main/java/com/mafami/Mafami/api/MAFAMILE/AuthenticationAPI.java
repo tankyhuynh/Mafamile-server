@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mafami.Mafami.Entity.MAFAMILE.MAFAMILE_UserEntity;
-import com.mafami.Mafami.Repository.MAFAMILE.MAFAMILE_UserRepo;
-import com.mafami.Mafami.Service.MAFAMILE.MAFAMILE_UserService;
+import com.mafami.Mafami.Entity.UserEntity;
+import com.mafami.Mafami.Repository.UserRepo;
+import com.mafami.Mafami.Service.UserService;
 import com.mafami.Mafami.model.MAFAMILE.AuthRequest;
 import com.mafami.Mafami.model.MAFAMILE.SigninRequest;
 
@@ -21,20 +21,20 @@ import com.mafami.Mafami.model.MAFAMILE.SigninRequest;
 public class AuthenticationAPI {
 
 	@Autowired
-	private MAFAMILE_UserRepo user_repo;
+	private UserRepo user_repo;
 
 	@Autowired
-	private MAFAMILE_UserService MAFAMILE_UserService;
+	private UserService UserService;
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String signIn(@RequestBody SigninRequest authenticationRequest) throws Exception {
 		String token = UUID.randomUUID().toString();
 
 		try {
-			MAFAMILE_UserEntity user = MAFAMILE_UserService.findByUsernameAndPassword(
+			UserEntity user = UserService.findByUsernameAndPassword(
 					authenticationRequest.getUsername(), authenticationRequest.getPassword());
 			user.setToken(token);
-			MAFAMILE_UserService.save(user);
+			UserService.save(user);
 			return token;
 
 		} catch (Exception e) {
@@ -46,7 +46,7 @@ public class AuthenticationAPI {
 
 	@PostMapping("/auth")
 	public boolean auth(@RequestBody AuthRequest authRequest) {
-		MAFAMILE_UserEntity user = MAFAMILE_UserService.findByUsernameAndPassword(authRequest.getUsername(),
+		UserEntity user = UserService.findByUsernameAndPassword(authRequest.getUsername(),
 				authRequest.getPassword());
 		if (user != null && authRequest.getToken().equals(user.getToken())) {
 			return true;
@@ -57,7 +57,7 @@ public class AuthenticationAPI {
 	@RequestMapping(value = "/logout", method = RequestMethod.POST)
 	public boolean signOut(@RequestBody SigninRequest authenticationRequest) {
 		try {
-			MAFAMILE_UserEntity user = user_repo.findByUsernameAndPassword(authenticationRequest.getUsername(),
+			UserEntity user = user_repo.findByUsernameAndPassword(authenticationRequest.getUsername(),
 					authenticationRequest.getPassword());
 			user.setToken("");
 			user_repo.save(user);

@@ -1,6 +1,7 @@
 package com.mafami.Mafami.Controller;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -45,6 +46,14 @@ public class HomeController {
 		return "user Authorize";
 	}
 	
+	
+	
+	public static void main(String[] args) {
+		
+		Date date = new Date();
+		System.out.println(date);
+		
+	}
 	
 	
 	
