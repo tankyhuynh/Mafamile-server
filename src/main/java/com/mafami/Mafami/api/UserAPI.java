@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.mafami.Mafami.Convert.UserConvert;
 import com.mafami.Mafami.Entity.UserEntity;
 import com.mafami.Mafami.Service.UserService;
+import com.mafami.Mafami.Utils.FileUtils_TanKy;
 
 @RestController
 @RequestMapping("/api/user")
@@ -27,6 +28,9 @@ public class UserAPI {
 	
 	@Autowired
 	private UserConvert userConvert;
+	
+	@Autowired
+	private FileUtils_TanKy fileUtils;
 	
 	@GetMapping
 	public List<UserEntity> getAll() {
@@ -41,7 +45,8 @@ public class UserAPI {
 	
 	@PostMapping
 	public UserEntity saveOne(@RequestBody UserEntity userEntity) {
-		
+		String URL = fileUtils.decoder(userEntity.getImage(), "test");
+		userEntity.setImage(URL);
 		return userService.save(userEntity);
 	}
 	

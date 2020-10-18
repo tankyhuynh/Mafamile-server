@@ -19,8 +19,10 @@ public class UserConvert {
 		newEntity.setDateOfBirth(oldEntity.getDateOfBirth());
 		newEntity.setRole(oldEntity.getRole());
 		newEntity.setToken(oldEntity.getToken());
+		newEntity.setEmail(oldEntity.getEmail());
+		newEntity.setImage(oldEntity.getImage());
 
-		return null;
+		return newEntity;
 	}
 
 }

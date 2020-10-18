@@ -1,4 +1,4 @@
-package com.mafami.Mafami.Service.AMIA_DESIGN;
+package com.mafami.Mafami.Service.AMI_DESIGN;
 
 import java.util.List;
 

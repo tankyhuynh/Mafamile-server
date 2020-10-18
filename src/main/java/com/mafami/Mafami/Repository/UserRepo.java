@@ -12,6 +12,7 @@ public interface UserRepo extends MongoRepository<UserEntity, String> {
 	List<UserEntity> findByFullname(String fullname);
 	UserEntity findOneById(String id);
 	UserEntity findByUsernameAndPassword(String userName, String password);
+	UserEntity findOneByToken(String token);
 
 	
 }

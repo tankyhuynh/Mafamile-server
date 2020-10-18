@@ -17,8 +17,10 @@ public class UserEntity {
 	private String address;
 	private String phone;
 	private String role;
+	private String email;
 	private Date dateOfBirth;
 	private String token;
+	private String image;
 
 	public UserEntity() {
 		// TODO Auto-generated constructor stub
@@ -109,5 +111,25 @@ public class UserEntity {
 	public void setToken(String token) {
 		this.token = token;
 	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+	
+	
+	
+	
 
 }

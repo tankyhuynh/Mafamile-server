@@ -1,4 +1,4 @@
-package com.mafami.Mafami.api.AMI_DESIGN;
+package com.mafami.Mafami.api.AMIA;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,33 +14,32 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mafami.Mafami.Entity.AMI_DESIGN.AMIDESIGN_GalleryEntity;
-import com.mafami.Mafami.Service.AMI_DESIGN.GalleryService;
+import com.mafami.Mafami.Entity.MAFAMILE.MAFAMILE_PostEntity;
+import com.mafami.Mafami.Service.MAFAMILE.MFAMILE_PostService;
 import com.mafami.Mafami.Utils.FileUtils_TanKy;
 
 @RestController
-@RequestMapping("/api/ami-design/gallery")
-public class AMIDESIGN_GalleryAPI {
+@RequestMapping("/api/mafamile/post")
+public class AMIA_PostAPI {
 
 	@Autowired
-	private GalleryService galleryService;
+	private MFAMILE_PostService mFAMILE_PostService;
 	
 	@Autowired
 	private FileUtils_TanKy fileUtils;
 	
 	@GetMapping
-	public ResponseEntity<List<AMIDESIGN_GalleryEntity>> getAll() {
-		return ResponseEntity.ok(galleryService.findAll());
+	public List<MAFAMILE_PostEntity> getAll() {
+		return mFAMILE_PostService.getAll();
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<AMIDESIGN_GalleryEntity> getOne(@PathVariable("id") String id) {
-		return ResponseEntity.ok(galleryService.findOneById(id));
+	public ResponseEntity<MAFAMILE_PostEntity> getOneById(@PathVariable String id) {
+		return ResponseEntity.ok(mFAMILE_PostService.findOneById(id));
 	}
 	
-	
 	@PostMapping
-	public ResponseEntity<AMIDESIGN_GalleryEntity> saveOne(@RequestBody AMIDESIGN_GalleryEntity entity) {
+	public ResponseEntity<MAFAMILE_PostEntity> saveOne(@RequestBody MAFAMILE_PostEntity entity) {
 		List<String> listImages = new ArrayList<>();
 		for (String item : entity.getImages()) {
 			String URL = fileUtils.decoder(item, "outputFile");
@@ -48,20 +47,23 @@ public class AMIDESIGN_GalleryAPI {
 		}
 		entity.setImages(listImages);
 		
-		return ResponseEntity.ok(galleryService.save(entity));
+		return ResponseEntity.ok(mFAMILE_PostService.save(entity));
 	}
 	
 	@PutMapping("/{id}")
-	public AMIDESIGN_GalleryEntity saveOneById(@PathVariable String id, @RequestBody AMIDESIGN_GalleryEntity aMIDESIGN_GalleryEntity) {
-		aMIDESIGN_GalleryEntity.setId(id);
+	public MAFAMILE_PostEntity saveOneById(@PathVariable String id, @RequestBody MAFAMILE_PostEntity mAFAMILE_PostEntity) {
+		mAFAMILE_PostEntity.setId(id);
 		
-		return galleryService.save(aMIDESIGN_GalleryEntity);
+		return mFAMILE_PostService.save(mAFAMILE_PostEntity);
 	}
 	
 	@DeleteMapping("/{id}")
 	public void deleteOneById(@PathVariable String id) {
-		galleryService.delete(id);
+		 mFAMILE_PostService.delete(id);
 	}
+	
+	
+	
 	
 	
 	

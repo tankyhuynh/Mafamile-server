@@ -1,10 +1,10 @@
-package com.mafami.Mafami.api.MAFAMILE;
+package com.mafami.Mafami.api;
 
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.mafami.Mafami.Entity.UserEntity;
 import com.mafami.Mafami.Repository.UserRepo;
 import com.mafami.Mafami.Service.UserService;
-import com.mafami.Mafami.model.AuthRequest;
 import com.mafami.Mafami.model.SigninRequest;
 
 @RestController
+@RequestMapping("/api")
 public class AuthenticationAPI {
 
 	@Autowired
@@ -27,44 +27,42 @@ public class AuthenticationAPI {
 	private UserService UserService;
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String signIn(@RequestBody SigninRequest authenticationRequest) throws Exception {
+	public ResponseEntity<UserEntity> signIn(@RequestBody SigninRequest authenticationRequest) throws Exception {
 		String token = UUID.randomUUID().toString();
-
-		try {
-			UserEntity user = UserService.findByUsernameAndPassword(
-					authenticationRequest.getUsername(), authenticationRequest.getPassword());
+		UserEntity user;
+		if((user = UserService.findByUsernameAndPassword(
+				authenticationRequest.getUsername(), authenticationRequest.getPassword())) != null) {
+			 
 			user.setToken(token);
 			UserService.save(user);
-			return token;
+			return ResponseEntity.ok(user);
 
-		} catch (Exception e) {
-
-		}
-		return "";
+		} 
+		else return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
 
 	}
 
 	@PostMapping("/auth")
-	public boolean auth(@RequestBody AuthRequest authRequest) {
+	public ResponseEntity<String> auth(@RequestBody UserEntity authRequest) {
 		UserEntity user = UserService.findByUsernameAndPassword(authRequest.getUsername(),
 				authRequest.getPassword());
 		if (user != null && authRequest.getToken().equals(user.getToken())) {
-			return true;
+			return ResponseEntity.ok().build();
 		}
-		return false;
+		return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
 	}
 
 	@RequestMapping(value = "/logout", method = RequestMethod.POST)
-	public boolean signOut(@RequestBody SigninRequest authenticationRequest) {
+	public ResponseEntity<String> signOut(@RequestBody UserEntity userRequest) {
 		try {
-			UserEntity user = user_repo.findByUsernameAndPassword(authenticationRequest.getUsername(),
-					authenticationRequest.getPassword());
+			UserEntity user = user_repo.findByUsernameAndPassword(userRequest.getUsername(),
+					userRequest.getPassword());
 			user.setToken("");
 			user_repo.save(user);
-			return true;
+			return ResponseEntity.ok().build();
 
 		} catch (Exception e) {
-			return false;
+			return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
 		}
 
 	}
