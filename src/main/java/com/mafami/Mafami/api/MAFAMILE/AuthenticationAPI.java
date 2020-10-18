@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.mafami.Mafami.Entity.UserEntity;
 import com.mafami.Mafami.Repository.UserRepo;
 import com.mafami.Mafami.Service.UserService;
-import com.mafami.Mafami.model.MAFAMILE.AuthRequest;
-import com.mafami.Mafami.model.MAFAMILE.SigninRequest;
+import com.mafami.Mafami.model.AuthRequest;
+import com.mafami.Mafami.model.SigninRequest;
 
 @RestController
 public class AuthenticationAPI {

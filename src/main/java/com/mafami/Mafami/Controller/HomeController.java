@@ -29,7 +29,7 @@ public class HomeController {
 	@ResponseBody
 	public String welcom() {
 		
-		return "Welcom";
+		return "Welcom"; 
 	}
 	
 	@RequestMapping("/admin")
@@ -46,14 +46,6 @@ public class HomeController {
 		return "user Authorize";
 	}
 	
-	
-	
-	public static void main(String[] args) {
-		
-		Date date = new Date();
-		System.out.println(date);
-		
-	}
 	
 	
 	

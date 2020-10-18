@@ -1,4 +1,4 @@
-package com.mafami.Mafami.model.MAFAMILE;
+package com.mafami.Mafami.model;
 
 import java.io.Serializable;
 
