@@ -24,7 +24,7 @@ public class AMIDESIGN_PostEntity {
 	}
 
 
-	public AMIDESIGN_PostEntity(String id, String title, String content, List<String> images, String username) {
+	public AMIDESIGN_PostEntity(String id, String title, String content, String username) {
 		super();
 		this.id = id;
 		this.title = title;
