@@ -41,7 +41,6 @@ public class AMIDESIGN_PostAPI {
 	
 	@PostMapping
 	public ResponseEntity<AMIDESIGN_PostEntity> saveOne(@RequestBody AMIDESIGN_PostEntity entity) {
-		
 		return ResponseEntity.ok(postService.save(entity));
 	}
 	
