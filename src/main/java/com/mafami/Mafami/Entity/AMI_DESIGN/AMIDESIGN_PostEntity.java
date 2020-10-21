@@ -15,7 +15,6 @@ public class AMIDESIGN_PostEntity {
 	private String title;
 	private String content;
 	private Date time = Calendar.getInstance().getTime();
-	private List<String> images;
 	private String author;
 	private String site;
 	
