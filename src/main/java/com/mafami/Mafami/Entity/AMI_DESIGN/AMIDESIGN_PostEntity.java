@@ -1,5 +1,6 @@
 package com.mafami.Mafami.Entity.AMI_DESIGN;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -13,7 +14,7 @@ public class AMIDESIGN_PostEntity {
 	private String id;
 	private String title;
 	private String content;
-	private Date time;
+	private Date time = Calendar.getInstance().getTime();
 	private List<String> images;
 	private String author;
 	private String site;

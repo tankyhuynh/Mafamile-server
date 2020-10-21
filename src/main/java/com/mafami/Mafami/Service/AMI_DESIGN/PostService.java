@@ -18,6 +18,10 @@ public class PostService {
 		return aMIDESIGN_PostRepo.findAll();
 	}
 	
+	public List<AMIDESIGN_PostEntity> findAllByAuthor(String author) {
+		return aMIDESIGN_PostRepo.findAllByAuthor(author);
+	}
+	
 	public AMIDESIGN_PostEntity findOneById(String id) {
 		return aMIDESIGN_PostRepo.findById(id).orElse(new AMIDESIGN_PostEntity());
 	}
