@@ -1,33 +1,35 @@
 package com.mafami.Mafami.Entity.AMI_DESIGN;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document("ami_design_post")
-public class AMIDESIGN_GalleryEntity {
+public class AMIDESIGN_PostEntity {
 
 	@Id
 	private String id;
 	private String title;
 	private String content;
+	private Date time;
 	private List<String> images;
-	private String username;
+	private String author;
+	private String site;
 	
 	
-	public AMIDESIGN_GalleryEntity() {
+	public AMIDESIGN_PostEntity() {
 		// TODO Auto-generated constructor stub
 	}
 
 
-	public AMIDESIGN_GalleryEntity(String id, String title, String content, List<String> images, String username) {
+	public AMIDESIGN_PostEntity(String id, String title, String content, List<String> images, String username) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.content = content;
 		this.images = images;
-		this.username = username;
 	}
 
 
@@ -71,14 +73,37 @@ public class AMIDESIGN_GalleryEntity {
 	}
 
 
-	public String getUsername() {
-		return username;
+	public Date getTime() {
+		return time;
 	}
 
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setTime(Date time) {
+		this.time = time;
 	}
+
+
+	public String getAuthor() {
+		return author;
+	}
+
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+
+	public String getSite() {
+		return site;
+	}
+
+
+	public void setSite(String site) {
+		this.site = site;
+	}
+
+
+	
 	
 	
 	

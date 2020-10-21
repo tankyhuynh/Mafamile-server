@@ -14,33 +14,33 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mafami.Mafami.Entity.AMI_DESIGN.AMIDESIGN_GalleryEntity;
-import com.mafami.Mafami.Service.AMI_DESIGN.GalleryService;
+import com.mafami.Mafami.Entity.AMI_DESIGN.AMIDESIGN_PostEntity;
+import com.mafami.Mafami.Service.AMI_DESIGN.PostService;
 import com.mafami.Mafami.Utils.FileUtils_TanKy;
 
 @RestController
-@RequestMapping("/api/ami-design/gallery")
-public class AMIDESIGN_GalleryAPI {
+@RequestMapping("/api/ami-design/post")
+public class AMIDESIGN_PostAPI {
 
 	@Autowired
-	private GalleryService galleryService;
+	private PostService postService;
 	
 	@Autowired
 	private FileUtils_TanKy fileUtils;
 	
 	@GetMapping
-	public ResponseEntity<List<AMIDESIGN_GalleryEntity>> getAll() {
-		return ResponseEntity.ok(galleryService.findAll());
+	public ResponseEntity<List<AMIDESIGN_PostEntity>> getAll() {
+		return ResponseEntity.ok(postService.findAll());
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<AMIDESIGN_GalleryEntity> getOne(@PathVariable("id") String id) {
-		return ResponseEntity.ok(galleryService.findOneById(id));
+	public ResponseEntity<AMIDESIGN_PostEntity> getOne(@PathVariable("id") String id) {
+		return ResponseEntity.ok(postService.findOneById(id));
 	}
 	
 	
 	@PostMapping
-	public ResponseEntity<AMIDESIGN_GalleryEntity> saveOne(@RequestBody AMIDESIGN_GalleryEntity entity) {
+	public ResponseEntity<AMIDESIGN_PostEntity> saveOne(@RequestBody AMIDESIGN_PostEntity entity) {
 		List<String> listImages = new ArrayList<>();
 		for (String item : entity.getImages()) {
 			String URL = fileUtils.decoder(item, "outputFile");
@@ -48,19 +48,19 @@ public class AMIDESIGN_GalleryAPI {
 		}
 		entity.setImages(listImages);
 		
-		return ResponseEntity.ok(galleryService.save(entity));
+		return ResponseEntity.ok(postService.save(entity));
 	}
 	
 	@PutMapping("/{id}")
-	public AMIDESIGN_GalleryEntity saveOneById(@PathVariable String id, @RequestBody AMIDESIGN_GalleryEntity aMIDESIGN_GalleryEntity) {
-		aMIDESIGN_GalleryEntity.setId(id);
+	public AMIDESIGN_PostEntity saveOneById(@PathVariable String id, @RequestBody AMIDESIGN_PostEntity aMIDESIGN_PostEntity) {
+		aMIDESIGN_PostEntity.setId(id);
 		
-		return galleryService.save(aMIDESIGN_GalleryEntity);
+		return postService.save(aMIDESIGN_PostEntity);
 	}
 	
 	@DeleteMapping("/{id}")
 	public void deleteOneById(@PathVariable String id) {
-		galleryService.delete(id);
+		postService.delete(id);
 	}
 	
 	
