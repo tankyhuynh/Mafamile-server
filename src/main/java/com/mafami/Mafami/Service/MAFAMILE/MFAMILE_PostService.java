@@ -16,7 +16,7 @@ public class MFAMILE_PostService {
 	
 	public MAFAMILE_PostEntity findOneById(String idPost) {	return mAFAMILE_PostRepo.findOneById(idPost); 	}
 	
-	public MAFAMILE_PostEntity findOneByUsername(String username) {	return mAFAMILE_PostRepo.findOneByUsername(username); 	}
+	public MAFAMILE_PostEntity findOneByAuthor(String author) {	return mAFAMILE_PostRepo.findOneByAuthor(author); 	}
 
 	public List<MAFAMILE_PostEntity> getAll() {		return mAFAMILE_PostRepo.findAll();		}
 

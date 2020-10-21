@@ -9,6 +9,6 @@ import com.mafami.Mafami.Entity.MAFAMILE.MAFAMILE_PostEntity;
 public interface MAFAMILE_PostRepo extends MongoRepository<MAFAMILE_PostEntity, String> {
 
 	MAFAMILE_PostEntity findOneById(String id);
-	MAFAMILE_PostEntity findOneByUsername(String username);
+	MAFAMILE_PostEntity findOneByAuthor(String author);
 	
 }

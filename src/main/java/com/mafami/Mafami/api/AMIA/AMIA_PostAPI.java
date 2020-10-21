@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mafami.Mafami.Entity.MAFAMILE.MAFAMILE_PostEntity;
-import com.mafami.Mafami.Service.MAFAMILE.MFAMILE_PostService;
+import com.mafami.Mafami.Entity.AMIA.AMIA_PostEntity;
+import com.mafami.Mafami.Service.AMIA.AMIA_PostService;
 import com.mafami.Mafami.Utils.FileUtils_TanKy;
 
 @RestController
@@ -23,43 +23,43 @@ import com.mafami.Mafami.Utils.FileUtils_TanKy;
 public class AMIA_PostAPI {
 
 	@Autowired
-	private MFAMILE_PostService mFAMILE_PostService;
+	private AMIA_PostService amia_PostService;
 	
 	@Autowired
 	private FileUtils_TanKy fileUtils;
 	
 	@GetMapping
-	public List<MAFAMILE_PostEntity> getAll() {
-		return mFAMILE_PostService.getAll();
+	public List<AMIA_PostEntity> getAll() {
+		return amia_PostService.getAll();
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<MAFAMILE_PostEntity> getOneById(@PathVariable String id) {
-		return ResponseEntity.ok(mFAMILE_PostService.findOneById(id));
+	public ResponseEntity<AMIA_PostEntity> getOneById(@PathVariable String id) {
+		return ResponseEntity.ok(amia_PostService.findOneById(id));
 	}
 	
 	@PostMapping
-	public ResponseEntity<MAFAMILE_PostEntity> saveOne(@RequestBody MAFAMILE_PostEntity entity) {
-		List<String> listImages = new ArrayList<>();
-		for (String item : entity.getImages()) {
-			String URL = fileUtils.decoder(item, "outputFile");
-			listImages.add(URL);
-		}
-		entity.setImages(listImages);
+	public ResponseEntity<AMIA_PostEntity> saveOne(@RequestBody AMIA_PostEntity entity) {
+//		List<String> listImages = new ArrayList<>();
+//		for (String item : entity.getImages()) {
+//			String URL = fileUtils.decoder(item, "outputFile");
+//			listImages.add(URL);
+//		}
+//		entity.setImages(listImages);
 		
-		return ResponseEntity.ok(mFAMILE_PostService.save(entity));
+		return ResponseEntity.ok(amia_PostService.save(entity));
 	}
 	
 	@PutMapping("/{id}")
-	public MAFAMILE_PostEntity saveOneById(@PathVariable String id, @RequestBody MAFAMILE_PostEntity mAFAMILE_PostEntity) {
-		mAFAMILE_PostEntity.setId(id);
+	public AMIA_PostEntity saveOneById(@PathVariable String id, @RequestBody AMIA_PostEntity amia_PostEntity) {
+		amia_PostEntity.setId(id);
 		
-		return mFAMILE_PostService.save(mAFAMILE_PostEntity);
+		return amia_PostService.save(amia_PostEntity);
 	}
 	
 	@DeleteMapping("/{id}")
 	public void deleteOneById(@PathVariable String id) {
-		 mFAMILE_PostService.delete(id);
+		amia_PostService.delete(id);
 	}
 	
 	

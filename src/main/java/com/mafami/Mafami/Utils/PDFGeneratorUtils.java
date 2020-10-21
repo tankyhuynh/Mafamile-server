@@ -19,7 +19,6 @@ import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
-import com.mafami.Mafami.Entity.MAFAMILE.MAFAMILE_CustomerEntity;
 import com.mafami.Mafami.Entity.MAFAMILE.MAFAMILE_PostEntity;
 
 @Component
@@ -41,7 +40,7 @@ public class PDFGeneratorUtils {
 			document.add(para);
 			document.add(Chunk.NEWLINE);
 
-			PdfPTable table = new PdfPTable(5);
+			PdfPTable table = new PdfPTable(4);
 			// Add PDF Table Header ->
 			Stream.of("ID", "Title", "Content", "Image", "Post By").forEach(headerTitle -> {
 				PdfPCell header = new PdfPCell();
@@ -81,16 +80,16 @@ public class PDFGeneratorUtils {
 				contentCell.setBorderColorTop(BaseColor.GREEN);
 				table.addCell(contentCell);
 
-				PdfPCell imageCell = new PdfPCell(new Phrase(String.valueOf(post.getImages())));
-				imageCell.setVerticalAlignment(Element.ALIGN_MIDDLE);
-				imageCell.setHorizontalAlignment(Element.ALIGN_CENTER);
-				imageCell.setPaddingRight(6);
-				imageCell.setBorderWidth(2);
-				imageCell.setUseVariableBorders(true);
-				imageCell.setBorderColorTop(BaseColor.GREEN);
-				table.addCell(imageCell);
+//				PdfPCell imageCell = new PdfPCell(new Phrase(String.valueOf(post.getImages())));
+//				imageCell.setVerticalAlignment(Element.ALIGN_MIDDLE);
+//				imageCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+//				imageCell.setPaddingRight(6);
+//				imageCell.setBorderWidth(2);
+//				imageCell.setUseVariableBorders(true);
+//				imageCell.setBorderColorTop(BaseColor.GREEN);
+//				table.addCell(imageCell);
 
-				PdfPCell usernameCell = new PdfPCell(new Phrase(String.valueOf(post.getUsername())));
+				PdfPCell usernameCell = new PdfPCell(new Phrase(String.valueOf(post.getAuthor())));
 				usernameCell.setVerticalAlignment(Element.ALIGN_MIDDLE);
 				usernameCell.setHorizontalAlignment(Element.ALIGN_CENTER);
 				usernameCell.setBorderWidth(2);

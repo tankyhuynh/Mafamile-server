@@ -1,6 +1,5 @@
 package com.mafami.Mafami.api.MAFAMILE;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,12 +39,12 @@ public class MAFAMILE_PostAPI {
 	
 	@PostMapping
 	public ResponseEntity<MAFAMILE_PostEntity> saveOne(@RequestBody MAFAMILE_PostEntity entity) {
-		List<String> listImages = new ArrayList<>();
-		for (String item : entity.getImages()) {
-			String URL = fileUtils.decoder(item, "outputFile");
-			listImages.add(URL);
-		}
-		entity.setImages(listImages);
+//		List<String> listImages = new ArrayList<>();
+//		for (String item : entity.getImages()) {
+//			String URL = fileUtils.decoder(item, "outputFile");
+//			listImages.add(URL);
+//		}
+//		entity.setImages(listImages);
 		
 		return ResponseEntity.ok(mFAMILE_PostService.save(entity));
 	}
