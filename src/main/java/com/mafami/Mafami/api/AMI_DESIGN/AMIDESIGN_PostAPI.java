@@ -41,12 +41,6 @@ public class AMIDESIGN_PostAPI {
 	
 	@PostMapping
 	public ResponseEntity<AMIDESIGN_PostEntity> saveOne(@RequestBody AMIDESIGN_PostEntity entity) {
-		List<String> listImages = new ArrayList<>();
-		for (String item : entity.getImages()) {
-			String URL = fileUtils.decoder(item, "outputFile");
-			listImages.add(URL);
-		}
-		entity.setImages(listImages);
 		
 		return ResponseEntity.ok(postService.save(entity));
 	}

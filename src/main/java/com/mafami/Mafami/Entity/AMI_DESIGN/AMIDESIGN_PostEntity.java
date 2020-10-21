@@ -29,7 +29,6 @@ public class AMIDESIGN_PostEntity {
 		this.id = id;
 		this.title = title;
 		this.content = content;
-		this.images = images;
 	}
 
 
@@ -60,16 +59,6 @@ public class AMIDESIGN_PostEntity {
 
 	public void setContent(String content) {
 		this.content = content;
-	}
-
-
-	public List<String> getImages() {
-		return images;
-	}
-
-
-	public void setImages(List<String> images) {
-		this.images = images;
 	}
 
 
