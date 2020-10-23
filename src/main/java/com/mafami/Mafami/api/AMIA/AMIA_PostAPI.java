@@ -40,13 +40,6 @@ public class AMIA_PostAPI {
 	
 	@PostMapping
 	public ResponseEntity<AMIA_PostEntity> saveOne(@RequestBody AMIA_PostEntity entity) {
-//		List<String> listImages = new ArrayList<>();
-//		for (String item : entity.getImages()) {
-//			String URL = fileUtils.decoder(item, "outputFile");
-//			listImages.add(URL);
-//		}
-//		entity.setImages(listImages);
-		
 		return ResponseEntity.ok(amia_PostService.save(entity));
 	}
 	

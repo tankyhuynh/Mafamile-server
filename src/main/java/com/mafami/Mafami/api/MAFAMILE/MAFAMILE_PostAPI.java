@@ -39,12 +39,6 @@ public class MAFAMILE_PostAPI {
 	
 	@PostMapping
 	public ResponseEntity<MAFAMILE_PostEntity> saveOne(@RequestBody MAFAMILE_PostEntity entity) {
-//		List<String> listImages = new ArrayList<>();
-//		for (String item : entity.getImages()) {
-//			String URL = fileUtils.decoder(item, "outputFile");
-//			listImages.add(URL);
-//		}
-//		entity.setImages(listImages);
 		
 		return ResponseEntity.ok(mFAMILE_PostService.save(entity));
 	}
@@ -59,6 +53,11 @@ public class MAFAMILE_PostAPI {
 	@DeleteMapping("/{id}")
 	public void deleteOneById(@PathVariable String id) {
 		 mFAMILE_PostService.delete(id);
+	}
+	
+	@DeleteMapping("/all")
+	public void deleteAll() {
+		mFAMILE_PostService.deleteAll();
 	}
 	
 	
