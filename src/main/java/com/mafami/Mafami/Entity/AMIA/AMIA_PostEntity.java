@@ -8,7 +8,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
-@Document(collection = "mafamile_posts")
+@Document(collection = "amia_posts")
 public class AMIA_PostEntity {
 
 	@Id
