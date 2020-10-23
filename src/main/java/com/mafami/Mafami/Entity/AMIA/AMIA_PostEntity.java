@@ -1,5 +1,7 @@
 package com.mafami.Mafami.Entity.AMIA;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
@@ -13,18 +15,21 @@ public class AMIA_PostEntity {
 	private String id;
 	private String title;
 	private String content;
-	private List<String> images;
+	private Date time = Calendar.getInstance().getTime();
+	private String author;
+	private String site;
 
-	private String username;
-	
 	public AMIA_PostEntity() {
 		// TODO Auto-generated constructor stub
 	}
-	
-	public AMIA_PostEntity(String content, String title, String description) {
-		super();	
-		this.content = content;
+
+	public AMIA_PostEntity(String title, String content, Date time, String author, String site) {
+		super();
 		this.title = title;
+		this.content = content;
+		this.time = time;
+		this.author = author;
+		this.site = site;
 	}
 
 	public String getId() {
@@ -35,40 +40,44 @@ public class AMIA_PostEntity {
 		this.id = id;
 	}
 
-	public String getContent() {
-		return content;
-	}
-	public void setContent(String content) {
-		this.content = content;
-	}
 	public String getTitle() {
 		return title;
 	}
+
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	
 
-	public List<String> getImages() {
-		return images;
+	public String getContent() {
+		return content;
 	}
 
-	public void setImages(List<String> images) {
-		this.images = images;
+	public void setContent(String content) {
+		this.content = content;
 	}
 
-	public String getUsername() {
-		return username;
+	public Date getTime() {
+		return time;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setTime(Date time) {
+		this.time = time;
 	}
 
-	
-	
-	
-	
-	
-	
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	public String getSite() {
+		return site;
+	}
+
+	public void setSite(String site) {
+		this.site = site;
+	}
+
 }

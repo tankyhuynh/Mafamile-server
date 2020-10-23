@@ -18,8 +18,8 @@ public class AMIA_PostService {
 		return amia_PostRepo.findOneById(idPost);
 	}
 
-	public AMIA_PostEntity findOneByUsername(String username) {
-		return amia_PostRepo.findOneByUsername(username);
+	public AMIA_PostEntity findOneByAuthor(String author) {
+		return amia_PostRepo.findOneByAuthor(author);
 	}
 
 	public List<AMIA_PostEntity> getAll() {
