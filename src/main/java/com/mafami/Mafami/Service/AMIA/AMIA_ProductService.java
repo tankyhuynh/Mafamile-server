@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.mafami.Mafami.Entity.AMIA.AMIA_CategoryEntity;
 import com.mafami.Mafami.Entity.AMIA.AMIA_ProductEntity;
 import com.mafami.Mafami.Repository.AMIA.AMIA_ProductRepo;
 
@@ -18,8 +19,8 @@ public class AMIA_ProductService {
 		return aMIA_ProductRepo.findById(idProduct).orElse(new AMIA_ProductEntity());
 	}
 
-	public List<AMIA_ProductEntity> findAllByCategoryCode(String categoryCode) {
-		return aMIA_ProductRepo.findAllByCategoryCode(categoryCode);
+	public List<AMIA_ProductEntity> findAllByCategoryCode(AMIA_CategoryEntity categoryCode) {
+		return aMIA_ProductRepo.findAllByCategory(categoryCode);
 	}
 
 	public AMIA_ProductEntity findOneByName(String name) {

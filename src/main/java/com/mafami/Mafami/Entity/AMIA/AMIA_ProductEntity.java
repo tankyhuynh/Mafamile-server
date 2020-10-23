@@ -10,7 +10,7 @@ public class AMIA_ProductEntity {
 	@Id
 	private String id;
 
-	private String categoryCode;
+	private AMIA_CategoryEntity category;
 
 	private String name;
 	private double price;
@@ -38,12 +38,12 @@ public class AMIA_ProductEntity {
 		this.id = id;
 	}
 
-	public String getCategoryCode() {
-		return categoryCode;
+	public AMIA_CategoryEntity getCategory() {
+		return category;
 	}
 
-	public void setCategoryCode(String categoryCode) {
-		this.categoryCode = categoryCode;
+	public void setCategory(AMIA_CategoryEntity category) {
+		this.category = category;
 	}
 
 	public String getName() {
