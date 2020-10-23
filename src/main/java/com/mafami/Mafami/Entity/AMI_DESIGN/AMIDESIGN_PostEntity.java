@@ -7,6 +7,8 @@ import java.util.List;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.mafami.Mafami.Entity.UserEntity;
+
 @Document("ami_design_post")
 public class AMIDESIGN_PostEntity {
 
@@ -15,7 +17,7 @@ public class AMIDESIGN_PostEntity {
 	private String title;
 	private String content;
 	private Date time = Calendar.getInstance().getTime();
-	private String author;
+	private UserEntity author;
 	private String site;
 	
 	
@@ -24,11 +26,14 @@ public class AMIDESIGN_PostEntity {
 	}
 
 
-	public AMIDESIGN_PostEntity(String id, String title, String content, String username) {
+	public AMIDESIGN_PostEntity(String id, String title, String content, Date time, UserEntity author, String site) {
 		super();
 		this.id = id;
 		this.title = title;
 		this.content = content;
+		this.time = time;
+		this.author = author;
+		this.site = site;
 	}
 
 
@@ -72,12 +77,12 @@ public class AMIDESIGN_PostEntity {
 	}
 
 
-	public String getAuthor() {
+	public UserEntity getAuthor() {
 		return author;
 	}
 
 
-	public void setAuthor(String author) {
+	public void setAuthor(UserEntity author) {
 		this.author = author;
 	}
 
@@ -90,14 +95,11 @@ public class AMIDESIGN_PostEntity {
 	public void setSite(String site) {
 		this.site = site;
 	}
-
-
-	
-	
-	
 	
 	
 
+
+	
 
 	
 	

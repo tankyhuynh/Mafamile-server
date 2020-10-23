@@ -8,6 +8,8 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import com.mafami.Mafami.Entity.UserEntity;
+
 @Document(collection = "amia_posts")
 public class AMIA_PostEntity {
 
@@ -16,15 +18,16 @@ public class AMIA_PostEntity {
 	private String title;
 	private String content;
 	private Date time = Calendar.getInstance().getTime();
-	private String author;
+	private UserEntity author;
 	private String site;
 
 	public AMIA_PostEntity() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public AMIA_PostEntity(String title, String content, Date time, String author, String site) {
+	public AMIA_PostEntity(String id, String title, String content, Date time, UserEntity author, String site) {
 		super();
+		this.id = id;
 		this.title = title;
 		this.content = content;
 		this.time = time;
@@ -64,11 +67,11 @@ public class AMIA_PostEntity {
 		this.time = time;
 	}
 
-	public String getAuthor() {
+	public UserEntity getAuthor() {
 		return author;
 	}
 
-	public void setAuthor(String author) {
+	public void setAuthor(UserEntity author) {
 		this.author = author;
 	}
 
@@ -79,5 +82,10 @@ public class AMIA_PostEntity {
 	public void setSite(String site) {
 		this.site = site;
 	}
+
+	
+	
+	
+	
 
 }

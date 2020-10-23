@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.mafami.Mafami.Entity.UserEntity;
 import com.mafami.Mafami.Entity.AMI_DESIGN.AMIDESIGN_PostEntity;
 import com.mafami.Mafami.Repository.AMI_DESIGN.AMIDESIGN_PostRepo;
 
@@ -18,7 +19,7 @@ public class PostService {
 		return aMIDESIGN_PostRepo.findAll();
 	}
 	
-	public List<AMIDESIGN_PostEntity> findAllByAuthor(String author) {
+	public List<AMIDESIGN_PostEntity> findAllByAuthor(UserEntity author) {
 		return aMIDESIGN_PostRepo.findAllByAuthor(author);
 	}
 	

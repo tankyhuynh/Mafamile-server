@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.mafami.Mafami.Entity.UserEntity;
 import com.mafami.Mafami.Entity.MAFAMILE.MAFAMILE_PostEntity;
 import com.mafami.Mafami.Repository.MAFAMILE.MAFAMILE_PostRepo;
 
@@ -18,7 +19,7 @@ public class MFAMILE_PostService {
 		return mAFAMILE_PostRepo.findOneById(idPost);
 	}
 
-	public MAFAMILE_PostEntity findOneByAuthor(String author) {
+	public MAFAMILE_PostEntity findOneByAuthor(UserEntity author) {
 		return mAFAMILE_PostRepo.findOneByAuthor(author);
 	}
 

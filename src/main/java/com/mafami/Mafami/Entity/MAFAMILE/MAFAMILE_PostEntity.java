@@ -8,6 +8,8 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import com.mafami.Mafami.Entity.UserEntity;
+
 @Document(collection = "mafamile_posts")
 public class MAFAMILE_PostEntity {
 
@@ -16,14 +18,14 @@ public class MAFAMILE_PostEntity {
 	private String title;
 	private String content;
 	private Date time = Calendar.getInstance().getTime();
-	private String author;
+	private UserEntity author;
 	private String site;
 	
 	public MAFAMILE_PostEntity() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public MAFAMILE_PostEntity(String id, String title, String content, Date time, String author, String site) {
+	public MAFAMILE_PostEntity(String id, String title, String content, Date time, UserEntity author, String site) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -65,11 +67,11 @@ public class MAFAMILE_PostEntity {
 		this.time = time;
 	}
 
-	public String getAuthor() {
+	public UserEntity getAuthor() {
 		return author;
 	}
 
-	public void setAuthor(String author) {
+	public void setAuthor(UserEntity author) {
 		this.author = author;
 	}
 
@@ -80,8 +82,7 @@ public class MAFAMILE_PostEntity {
 	public void setSite(String site) {
 		this.site = site;
 	}
-	
-	
+
 	
 	
 	
