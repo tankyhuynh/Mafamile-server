@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 @Document(collection = "mafamile_products")
-public class MAFAMILE_ProductEntity {
+public class MAFAMILE_MenuEntity {
 
 	@Id
 	private String id;
@@ -16,18 +16,30 @@ public class MAFAMILE_ProductEntity {
 	private double price;
 
 	private String image;
+	private String site;
+	
 
-	public MAFAMILE_ProductEntity() {
+	public MAFAMILE_MenuEntity() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public MAFAMILE_ProductEntity(String id, String categoryCode, String name, double price, String image) {
+	public MAFAMILE_MenuEntity(String id, String categoryCode, String name, double price, String image) {
 		super();
 		this.id = id;
 		this.categoryCode = categoryCode;
 		this.name = name;
 		this.price = price;
 		this.image = image;
+	}
+	
+	
+
+	public String getSite() {
+		return site;
+	}
+
+	public void setSite(String site) {
+		this.site = site;
 	}
 
 	public String getId() {

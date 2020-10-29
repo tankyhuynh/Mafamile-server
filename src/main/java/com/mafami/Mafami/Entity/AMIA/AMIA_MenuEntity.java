@@ -4,7 +4,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "amia_products")
-public class AMIA_ProductEntity {
+public class AMIA_MenuEntity {
 
 	@Id
 	private String id;
@@ -15,18 +15,27 @@ public class AMIA_ProductEntity {
 	private double price;
 
 	private String image;
+	private String site;
 
-	public AMIA_ProductEntity() {
+	public AMIA_MenuEntity() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public AMIA_ProductEntity(String id, AMIA_CategoryEntity categoryCode, String name, double price, String image) {
+	public AMIA_MenuEntity(String id, AMIA_CategoryEntity categoryCode, String name, double price, String image) {
 		super();
 		this.id = id;
 		this.category = categoryCode;
 		this.name = name;
 		this.price = price;
 		this.image = image;
+	}
+
+	public String getSite() {
+		return site;
+	}
+
+	public void setSite(String site) {
+		this.site = site;
 	}
 
 	public String getId() {
