@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mafami.Mafami.Convert.AMIA.AMIA_ProductConvert;
+import com.mafami.Mafami.Entity.AMIA.AMIA_CategoryEntity;
 import com.mafami.Mafami.Entity.AMIA.AMIA_ProductEntity;
 import com.mafami.Mafami.Service.AMIA.AMIA_ProductService;
 
@@ -39,7 +40,7 @@ public class AMIA_ProductAPI {
 	}
 	
 	@GetMapping("/category/{categoryCode}")
-	public ResponseEntity<List<AMIA_ProductEntity>> getAllByCategoryCode(@PathVariable("categoryCode") String categoryCode) {
+	public ResponseEntity<List<AMIA_ProductEntity>> getAllByCategoryCode(@PathVariable("categoryCode") AMIA_CategoryEntity categoryCode) {
 		return ResponseEntity.ok(aMIA_ProductService.findAllByCategoryCode(categoryCode));
 	}
 	

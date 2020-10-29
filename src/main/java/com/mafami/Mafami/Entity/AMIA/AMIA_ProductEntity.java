@@ -2,7 +2,6 @@ package com.mafami.Mafami.Entity.AMIA;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.data.mongodb.core.mapping.Field;
 
 @Document(collection = "amia_products")
 public class AMIA_ProductEntity {
@@ -21,10 +20,10 @@ public class AMIA_ProductEntity {
 		// TODO Auto-generated constructor stub
 	}
 
-	public AMIA_ProductEntity(String id, String categoryCode, String name, double price, String image) {
+	public AMIA_ProductEntity(String id, AMIA_CategoryEntity categoryCode, String name, double price, String image) {
 		super();
 		this.id = id;
-		this.categoryCode = categoryCode;
+		this.category = categoryCode;
 		this.name = name;
 		this.price = price;
 		this.image = image;

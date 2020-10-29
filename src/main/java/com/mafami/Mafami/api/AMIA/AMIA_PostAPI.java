@@ -1,6 +1,5 @@
 package com.mafami.Mafami.api.AMIA;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.mafami.Mafami.Entity.AMIA.AMIA_PostEntity;
 import com.mafami.Mafami.Service.AMIA.AMIA_PostService;
-import com.mafami.Mafami.Utils.FileUtils_TanKy;
+import com.mafami.Mafami.Utils.FileUtils;
 
 @RestController
 @RequestMapping("/api/amia/post")
@@ -26,7 +25,7 @@ public class AMIA_PostAPI {
 	private AMIA_PostService amia_PostService;
 	
 	@Autowired
-	private FileUtils_TanKy fileUtils;
+	private FileUtils fileUtils;
 	
 	@GetMapping
 	public List<AMIA_PostEntity> getAll() {

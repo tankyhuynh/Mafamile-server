@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.mafami.Mafami.Entity.MAFAMILE.MAFAMILE_PostEntity;
 import com.mafami.Mafami.Service.MAFAMILE.MFAMILE_PostService;
-import com.mafami.Mafami.Utils.FileUtils_TanKy;
+import com.mafami.Mafami.Utils.FileUtils;
 
 @RestController
 @RequestMapping("/api/mafamile/post")
@@ -25,7 +25,7 @@ public class MAFAMILE_PostAPI {
 	private MFAMILE_PostService mFAMILE_PostService;
 	
 	@Autowired
-	private FileUtils_TanKy fileUtils;
+	private FileUtils fileUtils;
 	
 	@GetMapping
 	public List<MAFAMILE_PostEntity> getAll() {

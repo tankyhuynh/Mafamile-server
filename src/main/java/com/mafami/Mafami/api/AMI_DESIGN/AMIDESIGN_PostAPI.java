@@ -1,6 +1,5 @@
 package com.mafami.Mafami.api.AMI_DESIGN;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.mafami.Mafami.Entity.AMI_DESIGN.AMIDESIGN_PostEntity;
 import com.mafami.Mafami.Service.AMI_DESIGN.PostService;
-import com.mafami.Mafami.Utils.FileUtils_TanKy;
+import com.mafami.Mafami.Utils.FileUtils;
 
 @RestController
 @RequestMapping("/api/ami-design/post")
@@ -26,7 +25,7 @@ public class AMIDESIGN_PostAPI {
 	private PostService postService;
 	
 	@Autowired
-	private FileUtils_TanKy fileUtils;
+	private FileUtils fileUtils;
 	
 	@GetMapping
 	public ResponseEntity<List<AMIDESIGN_PostEntity>> getAll() {

@@ -3,7 +3,6 @@ package com.mafami.Mafami.api;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,13 +10,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mafami.Mafami.Convert.UserConvert;
 import com.mafami.Mafami.Entity.UserEntity;
 import com.mafami.Mafami.Service.UserService;
-import com.mafami.Mafami.Utils.FileUtils_TanKy;
+import com.mafami.Mafami.Utils.FileUtils;
 
 @RestController
 @RequestMapping("/api/user")
@@ -30,7 +28,7 @@ public class UserAPI {
 	private UserConvert userConvert;
 	
 	@Autowired
-	private FileUtils_TanKy fileUtils;
+	private FileUtils fileUtils;
 	
 	@GetMapping
 	public List<UserEntity> getAll() {
