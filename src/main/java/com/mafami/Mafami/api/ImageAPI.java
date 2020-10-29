@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mafami.Mafami.Utils.FileUtils;
+import com.mafami.Mafami.model.Image;
 
 /**
 * @author root {6:37:38 PM}:
@@ -25,8 +26,8 @@ public class ImageAPI {
 	private FileUtils fileUtils;
 	
 	@PostMapping
-	public String upload(@RequestBody String base64Image) {
-		return fileUtils.decoder(base64Image, "ImageAPI");
+	public String upload(@RequestBody Image base64Image) {
+		return fileUtils.decoder(base64Image.getImage(), "ImageAPI");
 	}
 	
 }
