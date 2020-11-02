@@ -19,6 +19,7 @@ public class MAFAMILE_PostEntity {
 	private String content;
 	private Date time = Calendar.getInstance().getTime();
 	private UserEntity author;
+	private String thumbnail;
 	private String site;
 	
 	public MAFAMILE_PostEntity() {
@@ -83,6 +84,14 @@ public class MAFAMILE_PostEntity {
 		this.site = site;
 	}
 
+	public String getThumbnail() {
+		return thumbnail;
+	}
+
+	public void setThumbnail(String thumbnail) {
+		this.thumbnail = thumbnail;
+	}
+	
 	
 	
 	

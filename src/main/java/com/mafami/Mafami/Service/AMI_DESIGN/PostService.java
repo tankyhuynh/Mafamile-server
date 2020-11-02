@@ -40,6 +40,10 @@ public class PostService {
 		aMIDESIGN_PostRepo.deleteById(id);
 	}
 	
+	public void deleteAll() {
+		aMIDESIGN_PostRepo.deleteAll();
+	}
+	
 	
 	
 }

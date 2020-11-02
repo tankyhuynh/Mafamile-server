@@ -39,7 +39,8 @@ public class MAFAMILE_PostAPI {
 	
 	@PostMapping
 	public ResponseEntity<MAFAMILE_PostEntity> saveOne(@RequestBody MAFAMILE_PostEntity entity) {
-		
+		String URL = fileUtils.decoder(entity.getThumbnail(), "outputFile");
+		entity.setThumbnail(URL);
 		return ResponseEntity.ok(mFAMILE_PostService.save(entity));
 	}
 	
