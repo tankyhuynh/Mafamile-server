@@ -40,8 +40,10 @@ public class AMIDESIGN_PostAPI {
 	
 	@PostMapping
 	public ResponseEntity<AMIDESIGN_PostEntity> saveOne(@RequestBody AMIDESIGN_PostEntity entity) {
-		String URL = fileUtils.decoder(entity.getThumbnail(), "outputFile");
-		entity.setThumbnail(URL);
+		if (entity.getThumbnail() != null) {
+			String URL = fileUtils.decoder(entity.getThumbnail(), "outputFile");
+			entity.setThumbnail(URL);
+		}
 		return ResponseEntity.ok(postService.save(entity));
 	}
 	
