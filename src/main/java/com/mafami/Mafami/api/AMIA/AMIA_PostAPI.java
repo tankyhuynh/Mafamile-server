@@ -55,6 +55,11 @@ public class AMIA_PostAPI {
 	}
 	
 	
+	@DeleteMapping("/all")
+	public void deleteAll() {
+		amia_PostService.deleteAll();
+	}
+	
 	
 	
 	

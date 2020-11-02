@@ -30,34 +30,27 @@ public class AuthenticationAPI {
 	public ResponseEntity<UserEntity> signIn(@RequestBody SigninRequest authenticationRequest) throws Exception {
 		String token = UUID.randomUUID().toString();
 		UserEntity user;
-		if((user = UserService.findByUsernameAndPassword(
-				authenticationRequest.getUsername(), authenticationRequest.getPassword())) != null) {
-			 
-			user.setToken(token);
+		if ((user = UserService.findByUsernameAndPassword(authenticationRequest.getUsername(),
+				authenticationRequest.getPassword())) != null) {
+
 			UserService.save(user);
 			return ResponseEntity.ok(user);
 
-		} 
-		else return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+		} else
+			return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
 
 	}
 
 	@PostMapping("/auth")
 	public ResponseEntity<String> auth(@RequestBody UserEntity authRequest) {
-		UserEntity user = UserService.findByUsernameAndPassword(authRequest.getUsername(),
-				authRequest.getPassword());
-		if (user != null && authRequest.getToken().equals(user.getToken())) {
-			return ResponseEntity.ok().build();
-		}
-		return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
+
+		return null;
 	}
 
 	@RequestMapping(value = "/logout", method = RequestMethod.POST)
 	public ResponseEntity<String> signOut(@RequestBody UserEntity userRequest) {
 		try {
-			UserEntity user = user_repo.findByUsernameAndPassword(userRequest.getUsername(),
-					userRequest.getPassword());
-			user.setToken("");
+			UserEntity user = user_repo.findByUsernameAndPassword(userRequest.getUsername(), userRequest.getPassword());
 			user_repo.save(user);
 			return ResponseEntity.ok().build();
 

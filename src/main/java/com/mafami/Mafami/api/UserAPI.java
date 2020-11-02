@@ -43,8 +43,7 @@ public class UserAPI {
 	
 	@PostMapping
 	public UserEntity saveOne(@RequestBody UserEntity userEntity) {
-		String URL = fileUtils.decoder(userEntity.getImage(), "test");
-		userEntity.setImage(URL);
+		
 		return userService.save(userEntity);
 	}
 	

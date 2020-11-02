@@ -31,9 +31,7 @@ public class UserService {
 		userRepo.delete(userRepo.findOneById(id));
 	}
 	
-	public UserEntity findOneByToken (String token) {
-		return userRepo.findOneByToken(token);
-	}
+	
 	
 	
 

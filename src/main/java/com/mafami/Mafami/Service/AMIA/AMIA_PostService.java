@@ -34,5 +34,9 @@ public class AMIA_PostService {
 	public void delete(String id) {
 		amia_PostRepo.delete(amia_PostRepo.findOneById(id));
 	}
+	
+	public void deleteAll() {
+		amia_PostRepo.deleteAll();
+	}
 
 }
