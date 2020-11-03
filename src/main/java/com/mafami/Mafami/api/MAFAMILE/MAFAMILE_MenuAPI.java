@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mafami.Mafami.Convert.MAFAMILE.MAFAMILE_ProductConvert;
 import com.mafami.Mafami.Entity.MAFAMILE.MAFAMILE_MenuEntity;
 import com.mafami.Mafami.Service.MAFAMILE.MAFAMILE_MenuService;
+import com.mafami.Mafami.Utils.FileUtils;
 
 @RestController
 @RequestMapping("/api/mafamile/menu")
@@ -27,6 +27,9 @@ public class MAFAMILE_MenuAPI {
 	
 	@Autowired
 	private MAFAMILE_ProductConvert mAFAMILE_ProductConvert;
+	
+	@Autowired
+	private FileUtils fileUtils;
 	
 	@GetMapping
 	public ResponseEntity<List<MAFAMILE_MenuEntity>> getAll() {
@@ -45,7 +48,9 @@ public class MAFAMILE_MenuAPI {
 	
 	@PostMapping
 	public ResponseEntity<MAFAMILE_MenuEntity> saveOne(@RequestBody MAFAMILE_MenuEntity mAFAMILE_MenuEntity) {
-		mAFAMILE_MenuEntity.setSite("mafamile");
+		String URL = fileUtils.decoder(mAFAMILE_MenuEntity.getImage(), "ImageAPI");
+		mAFAMILE_MenuEntity.setImage(URL);
+		mAFAMILE_MenuEntity.setSite("amia");
 		return ResponseEntity.ok(mAFAMILE_MenuService.save(mAFAMILE_MenuEntity));
 	}
 	

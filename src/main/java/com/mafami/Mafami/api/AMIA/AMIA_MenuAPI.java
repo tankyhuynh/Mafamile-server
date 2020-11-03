@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.mafami.Mafami.Convert.AMIA.AMIA_ProductConvert;
 import com.mafami.Mafami.Entity.AMIA.AMIA_MenuEntity;
 import com.mafami.Mafami.Service.AMIA.AMIA_MenuService;
+import com.mafami.Mafami.Utils.FileUtils;
 
 
 @RestController
@@ -27,6 +28,9 @@ public class AMIA_MenuAPI {
 	
 	@Autowired
 	private AMIA_ProductConvert aMIA_ProductConvert;
+	
+	@Autowired
+	private FileUtils fileUtils;
 	
 	@GetMapping
 	public ResponseEntity<List<AMIA_MenuEntity>> getAll() {
@@ -45,6 +49,8 @@ public class AMIA_MenuAPI {
 	
 	@PostMapping
 	public ResponseEntity<AMIA_MenuEntity> saveOne(@RequestBody AMIA_MenuEntity aMIA_MenuEntity) {
+		String URL = fileUtils.decoder(aMIA_MenuEntity.getImage(), "ImageAPI");
+		aMIA_MenuEntity.setImage(URL);
 		aMIA_MenuEntity.setSite("amia");
 		return ResponseEntity.ok(aMIA_MenuService.save(aMIA_MenuEntity));
 	}
