@@ -45,6 +45,7 @@ public class MAFAMILE_MenuAPI {
 	
 	@PostMapping
 	public ResponseEntity<MAFAMILE_MenuEntity> saveOne(@RequestBody MAFAMILE_MenuEntity mAFAMILE_MenuEntity) {
+		mAFAMILE_MenuEntity.setSite("mafamile");
 		return ResponseEntity.ok(mAFAMILE_MenuService.save(mAFAMILE_MenuEntity));
 	}
 	

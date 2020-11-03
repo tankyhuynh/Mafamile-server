@@ -46,6 +46,7 @@ public class AMIA_MenuAPI {
 	
 	@PostMapping
 	public ResponseEntity<AMIA_MenuEntity> saveOne(@RequestBody AMIA_MenuEntity aMIA_MenuEntity) {
+		aMIA_MenuEntity.setSite("amia");
 		return ResponseEntity.ok(aMIA_MenuService.save(aMIA_MenuEntity));
 	}
 	
