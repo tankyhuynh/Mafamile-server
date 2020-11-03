@@ -9,7 +9,7 @@ public class AMIA_MenuEntity {
 	@Id
 	private String id;
 
-	private AMIA_CategoryEntity category;
+	private String category;
 
 	private String name;
 	private double price;
@@ -21,7 +21,7 @@ public class AMIA_MenuEntity {
 		// TODO Auto-generated constructor stub
 	}
 
-	public AMIA_MenuEntity(String id, AMIA_CategoryEntity categoryCode, String name, double price, String image) {
+	public AMIA_MenuEntity(String id, String categoryCode, String name, double price, String image) {
 		super();
 		this.id = id;
 		this.category = categoryCode;
@@ -46,11 +46,11 @@ public class AMIA_MenuEntity {
 		this.id = id;
 	}
 
-	public AMIA_CategoryEntity getCategory() {
+	public String getCategory() {
 		return category;
 	}
 
-	public void setCategory(AMIA_CategoryEntity category) {
+	public void setCategory(String category) {
 		this.category = category;
 	}
 

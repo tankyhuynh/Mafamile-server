@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mafami.Mafami.Convert.AMIA.AMIA_ProductConvert;
-import com.mafami.Mafami.Entity.AMIA.AMIA_CategoryEntity;
 import com.mafami.Mafami.Entity.AMIA.AMIA_MenuEntity;
 import com.mafami.Mafami.Service.AMIA.AMIA_MenuService;
 
@@ -40,7 +39,7 @@ public class AMIA_MenuAPI {
 	}
 	
 	@GetMapping("/category/{categoryCode}")
-	public ResponseEntity<List<AMIA_MenuEntity>> getAllByCategoryCode(@PathVariable("categoryCode") AMIA_CategoryEntity categoryCode) {
+	public ResponseEntity<List<AMIA_MenuEntity>> getAllByCategoryCode(@PathVariable("categoryCode") String categoryCode) {
 		return ResponseEntity.ok(aMIA_MenuService.findAllByCategoryCode(categoryCode));
 	}
 	

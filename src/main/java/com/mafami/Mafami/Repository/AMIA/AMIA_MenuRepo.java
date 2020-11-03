@@ -11,7 +11,7 @@ import com.mafami.Mafami.Entity.AMIA.AMIA_MenuEntity;
 @Repository
 public interface AMIA_MenuRepo extends MongoRepository<AMIA_MenuEntity, String> {
 
-	List<AMIA_MenuEntity> findAllByCategory(AMIA_CategoryEntity categoryCode);
+	List<AMIA_MenuEntity> findAllByCategory(String categoryCode);
 
 	AMIA_MenuEntity findOneByName(String name);
 
