@@ -13,6 +13,7 @@ public class AMIA_ProductConvert {
 		entity2.setPrice(entity2.getPrice());
 		entity2.setCategory(entity1.getCategory());
 		entity2.setImage(entity1.getImage());
+		entity2.setSite(entity1.getSite());
 
 		return entity2;
 	}

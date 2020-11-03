@@ -1,0 +1,316 @@
+[
+
+  {
+    "id": "5f81250a1b20876ce7486499",
+    "category": "ĂN VẶT",
+    "name": "Gà Viên + Bánh Gạo Giòn Cay",
+    "price": 25000,
+    "image": "https://images.foody.vn/res/g94/934973/s570x570/e0fe0353-7b5c-494a-bbf4-9bbbd43c-0b78e7eb-200829131952.jpeg",
+    "site": "amia"
+  },
+  {
+    "id": "5f81250a1b20876ce748649a",
+    "category": "ĂN VẶT",
+    "name": "Bánh Gạo Chả Cá Nhà Làm",
+    "price": 19000,
+    "image": "https://images.foody.vn/res/g94/934973/s570x570/61e495f1-d5fc-40d3-90c5-6251e6f6-1ab9f751-200829132121.jpeg",
+    "site": "amia"
+  },
+  {
+    "id": "5f81250a1b20876ce748649c",
+    "category": "ĂN VẶT",
+    "name": "Bánh gạo luộc thêm",
+    "price": 5000,
+    "image": "https://images.foody.vn/res/g94/934973/s570x570/0a701231-6bd0-49e9-ab07-ed5b8a77-a1f02b07-200905152928.jpeg",
+    "site": "amia"
+  },
+  {
+    "id": "5f81269f1b20876ce748649d",
+    "category": "CAKE",
+    "name": "Pastry Đào",
+    "price": 19000,
+    "image": "https://images.foody.vn/res/g94/934973/s570x570/f7459485-c5da-49ca-bd6b-ac7f4973b0c1.jpeg",
+    "site": "amia"
+  },
+  {
+    "id": "5f81269f1b20876ce748649e",
+    "category": "CAKE",
+    "name": "Pastry Dâu",
+    "price": 19000,
+    "image": "https://images.foody.vn/res/g94/934973/s570x570/2e568525-f3c8-4096-8f3d-fae8884f031f.jpeg",
+    "site": "amia"
+  },
+  {
+    "id": "5f81269f1b20876ce748649f",
+    "category": "CAKE",
+    "name": "CROISSANT TRỨNG MUỐI",
+    "price": 25000,
+    "image": "https://images.foody.vn/res/g94/934973/s570x570/d650d31c-e24e-4479-a144-74db7f603c84.jpeg",
+    "site": "amia"
+  },
+  {
+    "id": "5f81269f1b20876ce74864a0",
+    "category": "CAKE",
+    "name": "CROISSANT",
+    "price": 19000,
+    "image": "https://images.foody.vn/res/g94/934973/s570x570/44cd603c-8a8a-4452-8e61-cbf35a1182b5.jpeg",
+    "site": "amia"
+  },
+  {
+    "id": "5f81269f1b20876ce74864a1",
+    "category": "CAKE",
+    "name": "Bánh mì Xúc Xích",
+    "price": 19000,
+    "image": "https://images.foody.vn/res/g94/934973/s570x570/b1ab8bad-0691-4bfa-acc4-28121a447c66.jpeg",
+    "site": "amia"
+  },
+  {
+    "id": "5f81269f1b20876ce74864a2",
+    "category": "CAKE",
+    "name": "Bánh mì Tổ Cút",
+    "price": 19000,
+    "image": "https://images.foody.vn/res/g94/934973/s570x570/6bfa0ba5-ef82-4cb8-87b4-754aa338-1f49affe-200824101923.jpeg",
+    "site": "amia"
+  },
+  {
+    "id": "5f81269f1b20876ce74864a3",
+    "category": "SPECIAL TEA",
+    "name": "TRÀ ĐÀO CAM SẢ (L)",
+    "price": 39000,
+    "image": "https://images.foody.vn/res/g94/934973/s570x570/bc4bc091-8bd8-4b07-8eab-bd55fc298796.jpeg",
+    "site": "amia"
+  },
+  {
+    "id": "5f81269f1b20876ce74864a4",
+    "category": "SPECIAL TEA",
+    "name": "TRÀ CAM ĐÀO (L)",
+    "price": 37000,
+    "image": "https://images.foody.vn/res/g94/934973/s570x570/d3d48fe9-dd3b-46f1-86c0-9ca74b2772df.jpeg",
+    "site": "amia"
+  },
+  {
+    "id": "5f81269f1b20876ce74864a5",
+    "category": "SPECIAL TEA",
+    "name": "TRÀ CAM BERRY (L)",
+    "price": 35000,
+    "image": "https://images.foody.vn/res/g94/934973/s570x570/e2d27413-c7ee-4915-9467-6bfdf18c-05c72f2f-200823095306.jpeg",
+    "site": "amia"
+  },
+  {
+    "id": "5f81269f1b20876ce74864a6",
+    "category": "SPECIAL TEA",
+    "name": "TRÀ OLONG VẢI (L)",
+    "price": 35000,
+    "image": "https://images.foody.vn/res/g94/934973/s570x570/98a327f1-e8e5-4141-b77e-328f4e804c56.jpeg",
+    "site": "amia"
+  },
+  {
+    "id": "5f81269f1b20876ce74864a7",
+    "category": "SPECIAL TEA",
+    "name": "TRÀ NHÀI VẢI (L)",
+    "price": 35000,
+    "image": "https://images.foody.vn/res/g94/934973/s570x570/18ad1513-03f6-4aec-ada3-75971d4421f4.jpeg",
+    "site": "amia"
+  },
+  {
+    "id": "5f81269f1b20876ce74864a8",
+    "category": "SPECIAL TEA",
+    "name": "TRÀ OLONG ĐÀO (L)",
+    "price": 35000,
+    "image": "https://images.foody.vn/res/g94/934973/s570x570/27ed6bc2-5b4c-4761-8402-cecf70465c90.jpeg",
+    "site": "amia"
+  },
+  {
+    "id": "5f81269f1b20876ce74864a9",
+    "category": "SPECIAL TEA",
+    "name": "TRÀ BERRY CAM SẢ (L)",
+    "price": 37000,
+    "image": "https://images.foody.vn/res/g94/934973/s570x570/b66f7df2-a493-4175-aa54-b03a090c-2a710095-200823095236.jpeg",
+    "site": "amia"
+  },
+  {
+    "id": "5f8129601b20876ce74864aa",
+    "category": "MILK TEA",
+    "name": "TRÀ SỮA HONGKONG",
+    "price": 32000,
+    "image": "https://images.foody.vn/res/g94/934973/s570x570/d3e5cdc2-f905-4f2e-a81c-9285f4cb-19db3779-200823100635.jpeg",
+    "site": "amia"
+  },
+  {
+    "id": "5f8129601b20876ce74864ab",
+    "category": "MILK TEA",
+    "name": "TRÀ SỮA MATCHA NHẬT",
+    "price": 32000,
+    "image": "https://images.foody.vn/res/g94/934973/s570x570/3b22d2ab-b1e7-4b2b-9b87-3c6d21ab-63054393-200823100654.jpeg",
+    "site": "amia"
+  },
+  {
+    "id": "5f8129601b20876ce74864ad",
+    "category": "MILK TEA",
+    "name": "NHÀI SỮA TƯƠI",
+    "price": 29000,
+    "image": "https://images.foody.vn/res/g94/934973/s570x570/477c274e-4f13-495c-a351-690ee290-d53797a0-200823100603.jpeg",
+    "site": "amia"
+  },
+  {
+    "id": "5f8129601b20876ce74864ae",
+    "category": "MILK TEA",
+    "name": "OLONG SỮA TƯƠI",
+    "price": 29000,
+    "image": "https://images.foody.vn/res/g94/934973/s570x570/1fb5ab34-6cca-4e00-bbf6-f1e46ead-23545b68-200823100725.jpeg",
+    "site": "amia"
+  },
+  {
+    "id": "5f8129601b20876ce74864af",
+    "category": "MILK TEA",
+    "name": "KIỀU MẠCH SỮA",
+    "price": 32000,
+    "image": "https://images.foody.vn/res/g94/934973/s570x570/783c3931-ad34-417b-a118-f7fd8361-1f89e699-200823100832.jpeg",
+    "site": "amia"
+  },
+  {
+    "id": "5f8129601b20876ce74864b0",
+    "category": "TOPPING",
+    "name": "Pudding trứng",
+    "price": 5000,
+    "image": "https://images.foody.vn/res/g94/934973/s570x570/11e73cad-cc7d-4843-ada2-70d2c98283bd.jpg",
+    "site": "amia"
+  },
+  {
+    "id": "5f8129601b20876ce74864b1",
+    "category": "TOPPING",
+    "name": "Củ năng",
+    "price": 6000,
+    "image": "https://images.foody.vn/res/g94/934973/s570x570/bcc6c5fd-97e1-4db3-82f0-2e3c8ab7-6bc0826a-200829132139.jpeg",
+    "site": "amia"
+  },
+  {
+    "id": "5f8129601b20876ce74864b2",
+    "category":"TOPPING",
+    "name": "Pudding chocolate",
+    "price": 5000,
+    "image": "https://images.foody.vn/res/g94/934973/s570x570/679c1b14-c8fb-46fb-8e38-ddabaa7c23b3.jpg",
+    "site": "amia"
+  },
+  {
+    "id": "5f8129601b20876ce74864b3",
+    "category":"TOPPING",
+    "name": "Thạch Phomai",
+    "price": 6000,
+    "image": "https://images.foody.vn/res/g94/934973/s570x570/bb692719-a599-4192-b093-2bcc29a719ed.jpg",
+    "site": "amia"
+  },
+  {
+    "id": "5f8129601b20876ce74864b4",
+    "category": "TOPPING",
+    "name": "ĐÀO THÊM",
+    "price": 7000,
+    "image": "https://images.foody.vn/default/s560x560/deli-dish-no-image.png",
+    "site": "amia"
+  },
+  {
+    "id": "5f8129601b20876ce74864b5",
+    "category": "TOPPING",
+    "name": "Khoai dẻo",
+    "price": 6000,
+    "image": "https://images.foody.vn/default/s560x560/deli-dish-no-image.png",
+    "site": "amia"
+  },
+  {
+    "id": "5f8129601b20876ce74864b7",
+    "category": "TOPPING",
+    "name": "Hạt sen",
+    "price": 6000,
+    "image": "https://images.foody.vn/default/s560x560/deli-dish-no-image.png",
+    "site": "amia"
+  },
+  {
+    "id": "5f8129601b20876ce74864b6",
+    "category": "TOPPING",
+    "name": "KEM PHÔ MAI",
+    "price": 7000,
+    "image": "https://images.foody.vn/res/g94/934973/s570x570/e460438f-903c-4c09-9b9d-864b37c54b25.jpg",
+    "site": "amia"
+  },
+  {
+    "id": "5f8129601b20876ce74864b8",
+    "category": "TOPPING",
+    "name": "Sương sáo",
+    "price": 4000,
+    "image": "https://images.foody.vn/res/g94/934973/s570x570/4b8b28c8-0f7f-4100-a738-378e7e49e404.jpg",
+    "site": "amia"
+  },
+  {
+    "id": "5f8129601b20876ce74864b9",
+    "category": "TOPPING",
+    "name": "VẢI THÊM",
+    "price": 7000,
+    "image": "https://images.foody.vn/default/s560x560/deli-dish-no-image.png",
+    "site": "amia"
+  },
+  {
+    "id": "5f8129601b20876ce74864ba",
+    "category": "TRÀ NGUYÊN VỊ",
+    "name": "HỒNG TRÀ HẠT SEN",
+    "price": 32000,
+    "image": "https://images.foody.vn/res/g94/934973/s570x570/80836d12-410a-4a43-b903-b2c9a57a-f61f03dc-200823100421.jpeg",
+    "site": "amia"
+  },
+  {
+    "id": "5f8129601b20876ce74864bb",
+    "category": "TRÀ NGUYÊN VỊ",
+    "name": "KIỀU MẠCH HẠT SEN",
+    "price": 32000,
+    "image": "https://images.foody.vn/res/g94/934973/s570x570/02a583ae-be96-4d48-bf88-6e4cf2be98de.jpeg",
+    "site": "amia"
+  },
+  {
+    "id": "5f8129601b20876ce74864bc",
+    "category": "TRÀ NGUYÊN VỊ",
+    "name": "OLONG HẠT SEN",
+    "price": 32000,
+    "image": "https://images.foody.vn/res/g94/934973/s570x570/feca795d-6586-4343-9000-0f19a274-c41ad52f-200823100508.jpeg",
+    "site": "amia"
+  },
+  {
+    "id": "5f8129601b20876ce74864bd",
+    "category": "TRÀ NGUYÊN VỊ",
+    "name": "NHÀI HẠT SEN",
+    "price": 32000,
+    "image": "https://images.foody.vn/res/g94/934973/s570x570/82340b58-5363-4879-9566-b3cea03b-cb14ca4f-200823100440.jpeg",
+    "site": "amia"
+  },
+  {
+    "id": "5f8129601b20876ce74864be",
+    "category": "CÀ PHÊ VIỆT NAM",
+    "name": "BẠC XỈU",
+    "price": 29000,
+    "image": "https://images.foody.vn/res/g94/934973/s570x570/d92b07b2-d71d-4132-82ed-977f0ad61f52.jpg",
+    "site": "amia"
+  },
+  {
+    "id": "5f8129601b20876ce74864bf",
+    "category": "CÀ PHÊ VIỆT NAM",
+    "name": "CÀ PHÊ SỮA",
+    "price": 24000,
+    "image": "https://images.foody.vn/res/g94/934973/s570x570/852d85ef-5bf4-467e-8eb2-d6e7fa3a9ae7.jpg",
+    "site": "amia"
+  },
+  {
+    "id": "5f8129601b20876ce74864c1",
+    "category": "CÀ PHÊ VIỆT NAM",
+    "name": "CACAO SỮA",
+    "price": 32000,
+    "image": "https://images.foody.vn/res/g94/934973/s570x570/85b39862-4861-40be-864c-8ae272ffb48f.jpg",
+    "site": "amia"
+  },
+  {
+    "id": "5f8129601b20876ce74864c1",
+    "category": "CÀ PHÊ VIỆT NAM",
+    "name": "CÀ PHÊ ĐEN",
+    "price": 20000,
+    "image": "https://images.foody.vn/res/g94/934973/s570x570/85b39862-4861-40be-864c-8ae272ffb48f.jpg",
+    "site": "amia"
+  }
+  
+]

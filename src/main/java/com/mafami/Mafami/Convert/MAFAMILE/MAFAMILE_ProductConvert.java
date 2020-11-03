@@ -13,6 +13,7 @@ public class MAFAMILE_ProductConvert {
 		entity2.setPrice(entity2.getPrice());
 		entity2.setCategoryCode(entity1.getCategoryCode());
 		entity2.setImage(entity1.getImage());
+		entity2.setSite(entity1.getSite());
 
 		return entity2;
 	}
