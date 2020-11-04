@@ -50,7 +50,7 @@ public class MAFAMILE_MenuAPI {
 	public ResponseEntity<MAFAMILE_MenuEntity> saveOne(@RequestBody MAFAMILE_MenuEntity mAFAMILE_MenuEntity) {
 		String URL = fileUtils.decoder(mAFAMILE_MenuEntity.getImage(), "ImageAPI");
 		mAFAMILE_MenuEntity.setImage(URL);
-		mAFAMILE_MenuEntity.setSite("amia");
+		mAFAMILE_MenuEntity.setSite("mafamile");
 		return ResponseEntity.ok(mAFAMILE_MenuService.save(mAFAMILE_MenuEntity));
 	}
 	
