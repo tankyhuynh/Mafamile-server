@@ -10,14 +10,13 @@ public class MAFAMILE_MenuEntity {
 	@Id
 	private String id;
 
-	private String categoryCode;
+	private String category;
 
 	private String name;
 	private double price;
 
 	private String image;
 	private String site;
-	
 
 	public MAFAMILE_MenuEntity() {
 		// TODO Auto-generated constructor stub
@@ -26,13 +25,11 @@ public class MAFAMILE_MenuEntity {
 	public MAFAMILE_MenuEntity(String id, String categoryCode, String name, double price, String image) {
 		super();
 		this.id = id;
-		this.categoryCode = categoryCode;
+		this.category = categoryCode;
 		this.name = name;
 		this.price = price;
 		this.image = image;
 	}
-	
-	
 
 	public String getSite() {
 		return site;
@@ -50,12 +47,12 @@ public class MAFAMILE_MenuEntity {
 		this.id = id;
 	}
 
-	public String getCategoryCode() {
-		return categoryCode;
+	public String getCategory() {
+		return category;
 	}
 
-	public void setCategoryCode(String categoryCode) {
-		this.categoryCode = categoryCode;
+	public void setCategory(String category) {
+		this.category = category;
 	}
 
 	public String getName() {
@@ -81,9 +78,5 @@ public class MAFAMILE_MenuEntity {
 	public void setImage(String image) {
 		this.image = image;
 	}
-
-	
-	
-	
 
 }

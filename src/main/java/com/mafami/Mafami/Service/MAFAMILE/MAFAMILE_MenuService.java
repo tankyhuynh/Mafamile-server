@@ -19,8 +19,8 @@ public class MAFAMILE_MenuService {
 		return mAFAMILE_MenuRepo.findOneById(idProduct);
 	}
 
-	public List<MAFAMILE_MenuEntity> findAllByCategoryCode(String categoryCode) {
-		return mAFAMILE_MenuRepo.findAllByCategoryCode(categoryCode);
+	public List<MAFAMILE_MenuEntity> findAllByCategory(String categoryCode) {
+		return mAFAMILE_MenuRepo.findAllByCategory(categoryCode);
 	}
 
 	public MAFAMILE_MenuEntity findOneByName(String name) {

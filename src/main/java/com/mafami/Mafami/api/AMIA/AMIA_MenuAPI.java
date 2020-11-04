@@ -42,9 +42,9 @@ public class AMIA_MenuAPI {
 		return ResponseEntity.ok(aMIA_MenuService.findOneById(id));
 	}
 	
-	@GetMapping("/category/{categoryCode}")
-	public ResponseEntity<List<AMIA_MenuEntity>> getAllByCategoryCode(@PathVariable("categoryCode") String categoryCode) {
-		return ResponseEntity.ok(aMIA_MenuService.findAllByCategoryCode(categoryCode));
+	@GetMapping("/category/{category}")
+	public ResponseEntity<List<AMIA_MenuEntity>> getAllByCategoryCode(@PathVariable("category") String category) {
+		return ResponseEntity.ok(aMIA_MenuService.findAllByCategoryCode(category));
 	}
 	
 	@PostMapping

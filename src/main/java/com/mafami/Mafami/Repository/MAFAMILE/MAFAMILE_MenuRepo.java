@@ -12,7 +12,7 @@ public interface MAFAMILE_MenuRepo extends MongoRepository<MAFAMILE_MenuEntity, 
 
 	
 	MAFAMILE_MenuEntity findOneById(String id);
-	List<MAFAMILE_MenuEntity> findAllByCategoryCode(String categoryCode);
+	List<MAFAMILE_MenuEntity> findAllByCategory(String category);
 	MAFAMILE_MenuEntity findOneByName(String name);
 	
 }

@@ -41,9 +41,9 @@ public class MAFAMILE_MenuAPI {
 		return ResponseEntity.ok(mAFAMILE_MenuService.findOneById(id));
 	}
 	
-	@GetMapping("/category/{categoryCode}")
-	public ResponseEntity<List<MAFAMILE_MenuEntity>> getAllByCategoryCode(@PathVariable("categoryCode") String categoryCode) {
-		return ResponseEntity.ok(mAFAMILE_MenuService.findAllByCategoryCode(categoryCode));
+	@GetMapping("/category/{category}")
+	public ResponseEntity<List<MAFAMILE_MenuEntity>> getAllByCategoryCode(@PathVariable("category") String category) {
+		return ResponseEntity.ok(mAFAMILE_MenuService.findAllByCategory(category));
 	}
 	
 	@PostMapping
