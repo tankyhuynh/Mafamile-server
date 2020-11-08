@@ -1,5 +1,7 @@
 package com.mafami.Mafami.Entity.MAFAMILE;
 
+import java.util.Locale.Category;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -10,7 +12,7 @@ public class MAFAMILE_MenuEntity {
 	@Id
 	private String id;
 
-	private String category;
+	private MAFAMILE_CategoryEntity category;
 
 	private String name;
 	private double price;
@@ -22,7 +24,8 @@ public class MAFAMILE_MenuEntity {
 		// TODO Auto-generated constructor stub
 	}
 
-	public MAFAMILE_MenuEntity(String id, String categoryCode, String name, double price, String image) {
+	public MAFAMILE_MenuEntity(String id, MAFAMILE_CategoryEntity categoryCode, String name, double price,
+			String image) {
 		super();
 		this.id = id;
 		this.category = categoryCode;
@@ -47,11 +50,11 @@ public class MAFAMILE_MenuEntity {
 		this.id = id;
 	}
 
-	public String getCategory() {
+	public MAFAMILE_CategoryEntity getCategory() {
 		return category;
 	}
 
-	public void setCategory(String category) {
+	public void setCategory(MAFAMILE_CategoryEntity category) {
 		this.category = category;
 	}
 

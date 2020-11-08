@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.mafami.Mafami.Entity.AMIA.AMIA_CategoryEntity;
 import com.mafami.Mafami.Entity.AMIA.AMIA_MenuEntity;
 import com.mafami.Mafami.Repository.AMIA.AMIA_MenuRepo;
 
@@ -18,7 +19,7 @@ public class AMIA_MenuService {
 		return aMIA_MenuRepo.findById(idProduct).orElse(new AMIA_MenuEntity());
 	}
 
-	public List<AMIA_MenuEntity> findAllByCategoryCode(String categoryCode) {
+	public List<AMIA_MenuEntity> findAllByCategoryCode(AMIA_CategoryEntity categoryCode) {
 		return aMIA_MenuRepo.findAllByCategory(categoryCode);
 	}
 

@@ -12,7 +12,7 @@ public class AMIA_CategoryEntity {
 
 	private String name;
 
-	private String code;
+	private String slug;
 
 	public AMIA_CategoryEntity() {
 		// TODO Auto-generated constructor stub
@@ -34,12 +34,12 @@ public class AMIA_CategoryEntity {
 		this.name = name;
 	}
 
-	public String getCode() {
-		return code;
+	public String getSlug() {
+		return slug;
 	}
 
-	public void setCode(String code) {
-		this.code = code;
+	public void setSlug(String slug) {
+		this.slug = slug;
 	}
 
 }

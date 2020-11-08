@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mafami.Mafami.Convert.AMIA.AMIA_ProductConvert;
+import com.mafami.Mafami.Entity.AMIA.AMIA_CategoryEntity;
 import com.mafami.Mafami.Entity.AMIA.AMIA_MenuEntity;
 import com.mafami.Mafami.Service.AMIA.AMIA_MenuService;
 import com.mafami.Mafami.Utils.FileUtils;
@@ -43,7 +44,7 @@ public class AMIA_MenuAPI {
 	}
 	
 	@GetMapping("/category/{category}")
-	public ResponseEntity<List<AMIA_MenuEntity>> getAllByCategoryCode(@PathVariable("category") String category) {
+	public ResponseEntity<List<AMIA_MenuEntity>> getAllByCategoryCode(@PathVariable("category") AMIA_CategoryEntity category) {
 		return ResponseEntity.ok(aMIA_MenuService.findAllByCategoryCode(category));
 	}
 	
@@ -75,6 +76,11 @@ public class AMIA_MenuAPI {
 	@DeleteMapping("/{id}")
 	public void deleteOneById(@PathVariable String id) {
 		aMIA_MenuService.delete(id);
+	}
+	
+	@DeleteMapping("/all")
+	public void deleteAll() {
+		aMIA_MenuService.deleteAll();
 	}
 
 	

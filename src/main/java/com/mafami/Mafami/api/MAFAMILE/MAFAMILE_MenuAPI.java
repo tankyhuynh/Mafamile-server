@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mafami.Mafami.Convert.MAFAMILE.MAFAMILE_ProductConvert;
+import com.mafami.Mafami.Entity.MAFAMILE.MAFAMILE_CategoryEntity;
 import com.mafami.Mafami.Entity.MAFAMILE.MAFAMILE_MenuEntity;
 import com.mafami.Mafami.Service.MAFAMILE.MAFAMILE_MenuService;
 import com.mafami.Mafami.Utils.FileUtils;
@@ -42,7 +43,7 @@ public class MAFAMILE_MenuAPI {
 	}
 	
 	@GetMapping("/category/{category}")
-	public ResponseEntity<List<MAFAMILE_MenuEntity>> getAllByCategoryCode(@PathVariable("category") String category) {
+	public ResponseEntity<List<MAFAMILE_MenuEntity>> getAllByCategoryCode(@PathVariable("category") MAFAMILE_CategoryEntity category) {
 		return ResponseEntity.ok(mAFAMILE_MenuService.findAllByCategory(category));
 	}
 	
@@ -74,6 +75,11 @@ public class MAFAMILE_MenuAPI {
 	@DeleteMapping("/{id}")
 	public void deleteOneById(@PathVariable String id) {
 		mAFAMILE_MenuService.delete(id);
+	}
+	
+	@DeleteMapping("/all")
+	public void deleteAll() {
+		mAFAMILE_MenuService.deleteAll();
 	}
 
 	

@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.mafami.Mafami.Entity.UserEntity;
+import com.mafami.Mafami.Entity.MAFAMILE.MAFAMILE_CategoryEntity;
 import com.mafami.Mafami.Entity.MAFAMILE.MAFAMILE_MenuEntity;
 import com.mafami.Mafami.Repository.MAFAMILE.MAFAMILE_MenuRepo;
 
@@ -19,7 +19,7 @@ public class MAFAMILE_MenuService {
 		return mAFAMILE_MenuRepo.findOneById(idProduct);
 	}
 
-	public List<MAFAMILE_MenuEntity> findAllByCategory(String categoryCode) {
+	public List<MAFAMILE_MenuEntity> findAllByCategory(MAFAMILE_CategoryEntity categoryCode) {
 		return mAFAMILE_MenuRepo.findAllByCategory(categoryCode);
 	}
 
@@ -37,6 +37,10 @@ public class MAFAMILE_MenuService {
 
 	public void delete(String id) {
 		mAFAMILE_MenuRepo.delete(mAFAMILE_MenuRepo.findOneById(id));
+	}
+	
+	public void deleteAll() {
+		mAFAMILE_MenuRepo.deleteAll();
 	}
 
 }
