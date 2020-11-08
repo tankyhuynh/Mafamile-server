@@ -20,8 +20,9 @@ public class MAFAMILE_PostEntity {
 	private Date time = Calendar.getInstance().getTime();
 	private UserEntity author;
 	private String thumbnail;
+	private String preview;
 	private String site;
-	
+
 	public MAFAMILE_PostEntity() {
 		// TODO Auto-generated constructor stub
 	}
@@ -91,12 +92,13 @@ public class MAFAMILE_PostEntity {
 	public void setThumbnail(String thumbnail) {
 		this.thumbnail = thumbnail;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
+
+	public String getPreview() {
+		return preview;
+	}
+
+	public void setPreview(String preview) {
+		this.preview = preview;
+	}
+
 }

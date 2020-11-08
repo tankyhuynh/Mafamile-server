@@ -20,6 +20,7 @@ public class AMIA_PostEntity {
 	private Date time = Calendar.getInstance().getTime();
 	private UserEntity author;
 	private String thumbnail;
+	private String preview;
 	private String site;
 
 	public AMIA_PostEntity() {
@@ -92,9 +93,12 @@ public class AMIA_PostEntity {
 		this.thumbnail = thumbnail;
 	}
 
-	
-	
-	
-	
+	public String getPreview() {
+		return preview;
+	}
+
+	public void setPreview(String preview) {
+		this.preview = preview;
+	}
 
 }
