@@ -11,9 +11,18 @@ public class MAFAMILE_CategoryEntity {
 	private String id;
 
 	private String name;
+	private String slug;
+	private String site;
 
 	public MAFAMILE_CategoryEntity() {
 		// TODO Auto-generated constructor stub
+	}
+
+	public MAFAMILE_CategoryEntity(String id, String name, String slug) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.slug = slug;
 	}
 
 	public String getId() {
@@ -30,6 +39,22 @@ public class MAFAMILE_CategoryEntity {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getSlug() {
+		return slug;
+	}
+
+	public void setSlug(String slug) {
+		this.slug = slug;
+	}
+
+	public String getSite() {
+		return site;
+	}
+
+	public void setSite(String site) {
+		this.site = site;
 	}
 
 }

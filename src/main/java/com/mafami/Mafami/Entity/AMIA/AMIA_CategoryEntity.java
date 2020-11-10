@@ -11,8 +11,8 @@ public class AMIA_CategoryEntity {
 	private String id;
 
 	private String name;
-
 	private String slug;
+	private String site;
 
 	public AMIA_CategoryEntity() {
 		// TODO Auto-generated constructor stub
@@ -41,5 +41,15 @@ public class AMIA_CategoryEntity {
 	public void setSlug(String slug) {
 		this.slug = slug;
 	}
+
+	public String getSite() {
+		return site;
+	}
+
+	public void setSite(String site) {
+		this.site = site;
+	}
+	
+	
 
 }
