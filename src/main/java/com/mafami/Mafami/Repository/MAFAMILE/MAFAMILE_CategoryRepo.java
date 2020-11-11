@@ -9,5 +9,6 @@ import com.mafami.Mafami.Entity.MAFAMILE.MAFAMILE_CategoryEntity;
 public interface MAFAMILE_CategoryRepo extends MongoRepository<MAFAMILE_CategoryEntity, String> {
 
 	MAFAMILE_CategoryEntity findOneById(String id);
+	MAFAMILE_CategoryEntity findOneBySlug(String slug);
 	
 }

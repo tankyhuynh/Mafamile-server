@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.mafami.Mafami.Convert.AMIA.AMIA_ProductConvert;
 import com.mafami.Mafami.Entity.AMIA.AMIA_CategoryEntity;
 import com.mafami.Mafami.Entity.AMIA.AMIA_MenuEntity;
+import com.mafami.Mafami.Service.AMIA.AMIA_CategoryService;
 import com.mafami.Mafami.Service.AMIA.AMIA_MenuService;
 import com.mafami.Mafami.Utils.FileUtils;
 
@@ -33,6 +34,9 @@ public class AMIA_MenuAPI {
 	@Autowired
 	private FileUtils fileUtils;
 	
+	@Autowired
+	private AMIA_CategoryService amia_CategoryService;
+	
 	@GetMapping
 	public ResponseEntity<List<AMIA_MenuEntity>> getAll() {
 		return ResponseEntity.ok(aMIA_MenuService.getAll());
@@ -43,9 +47,10 @@ public class AMIA_MenuAPI {
 		return ResponseEntity.ok(aMIA_MenuService.findOneById(id));
 	}
 	
-	@GetMapping("/category/{category}")
-	public ResponseEntity<List<AMIA_MenuEntity>> getAllByCategoryCode(@PathVariable("category") AMIA_CategoryEntity category) {
-		return ResponseEntity.ok(aMIA_MenuService.findAllByCategoryCode(category));
+	@GetMapping("/category/{slug}")
+	public ResponseEntity<List<AMIA_MenuEntity>> getAllBySlug(@PathVariable("slug") String slug) {
+		AMIA_CategoryEntity amia_CategoryEntity = amia_CategoryService.getOneBySlug(slug);
+		return ResponseEntity.ok(aMIA_MenuService.findAllByCategoryCode(amia_CategoryEntity));
 	}
 	
 	@PostMapping

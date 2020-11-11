@@ -18,6 +18,10 @@ public class MAFAMILE_CategoryService {
 	public MAFAMILE_CategoryEntity getOneById(String id) {
 		return mAFAMILE_CategoryRepo.findOneById(id);
 	}
+	
+	public MAFAMILE_CategoryEntity getOneBySlug(String slug) {
+		return mAFAMILE_CategoryRepo.findOneBySlug(slug);
+	}
 
 	public List<MAFAMILE_CategoryEntity> getAll() {
 		return mAFAMILE_CategoryRepo.findAll();

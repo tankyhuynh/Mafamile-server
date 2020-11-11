@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.mafami.Mafami.Convert.MAFAMILE.MAFAMILE_ProductConvert;
 import com.mafami.Mafami.Entity.MAFAMILE.MAFAMILE_CategoryEntity;
 import com.mafami.Mafami.Entity.MAFAMILE.MAFAMILE_MenuEntity;
+import com.mafami.Mafami.Service.MAFAMILE.MAFAMILE_CategoryService;
 import com.mafami.Mafami.Service.MAFAMILE.MAFAMILE_MenuService;
 import com.mafami.Mafami.Utils.FileUtils;
 
@@ -32,6 +33,9 @@ public class MAFAMILE_MenuAPI {
 	@Autowired
 	private FileUtils fileUtils;
 	
+	@Autowired
+	private MAFAMILE_CategoryService mafamile_CategoryService;
+	
 	@GetMapping
 	public ResponseEntity<List<MAFAMILE_MenuEntity>> getAll() {
 		return ResponseEntity.ok(mAFAMILE_MenuService.getAll());
@@ -42,9 +46,10 @@ public class MAFAMILE_MenuAPI {
 		return ResponseEntity.ok(mAFAMILE_MenuService.findOneById(id));
 	}
 	
-	@GetMapping("/category/{category}")
-	public ResponseEntity<List<MAFAMILE_MenuEntity>> getAllByCategoryCode(@PathVariable("category") MAFAMILE_CategoryEntity category) {
-		return ResponseEntity.ok(mAFAMILE_MenuService.findAllByCategory(category));
+	@GetMapping("/category/{slug}")
+	public ResponseEntity<List<MAFAMILE_MenuEntity>> getAllBySlug(@PathVariable("slug") String slug) {
+		MAFAMILE_CategoryEntity mafamile_CategoryEntity = mafamile_CategoryService.getOneBySlug(slug);
+		return ResponseEntity.ok(mAFAMILE_MenuService.findAllByCategory(mafamile_CategoryEntity));
 	}
 	
 	@PostMapping

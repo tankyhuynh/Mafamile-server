@@ -15,12 +15,17 @@ public class AMIA_CategoryService {
 	private AMIA_CategoryRepo aMIA_CategoryRepo;
 
 	public AMIA_CategoryEntity getOneById(String id) {
-		return aMIA_CategoryRepo.findById(id).orElse(new AMIA_CategoryEntity());
+		return aMIA_CategoryRepo.findOneById(id);
+	}
+	
+	public AMIA_CategoryEntity getOneBySlug(String slug) {
+		return aMIA_CategoryRepo.findOneBySlug(slug);
 	}
 
 	public List<AMIA_CategoryEntity> getAll() {
 		return aMIA_CategoryRepo.findAll();
 	}
+	
 
 	public AMIA_CategoryEntity save(AMIA_CategoryEntity entity) {
 		return aMIA_CategoryRepo.save(entity);
