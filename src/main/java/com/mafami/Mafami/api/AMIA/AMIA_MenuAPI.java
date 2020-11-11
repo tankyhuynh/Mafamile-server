@@ -57,7 +57,7 @@ public class AMIA_MenuAPI {
 	}
 	
 	@PostMapping("/all")
-	public ResponseEntity<String> saveOne(@RequestBody List<AMIA_MenuEntity> aMIA_MenuEntity) {
+	public ResponseEntity<String> saveAll(@RequestBody List<AMIA_MenuEntity> aMIA_MenuEntity) {
 		for (AMIA_MenuEntity entity : aMIA_MenuEntity) {
 			aMIA_MenuService.save(entity);
 		}

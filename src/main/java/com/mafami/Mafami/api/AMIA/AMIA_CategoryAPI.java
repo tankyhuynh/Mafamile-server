@@ -43,7 +43,7 @@ public class AMIA_CategoryAPI {
 	}
 
 	@PostMapping
-	public ResponseEntity<AMIA_CategoryEntity> save(@RequestBody AMIA_CategoryEntity categoryEntity) {
+	public ResponseEntity<AMIA_CategoryEntity> saveOne(@RequestBody AMIA_CategoryEntity categoryEntity) {
 		categoryEntity.setSite("amia");
 		return ResponseEntity.ok(amia_CategoryService.save(categoryEntity));
 	}

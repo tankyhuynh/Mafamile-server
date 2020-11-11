@@ -1,4 +1,4 @@
-package com.mafami.Mafami.Entity.MAFAMILE;
+package com.mafami.Mafami.Entity.AMIA;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -7,28 +7,38 @@ import java.util.List;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.mafami.Mafami.model.AMIA_FoodInformationModel;
 import com.mafami.Mafami.model.CustomerModel;
-import com.mafami.Mafami.model.MAFAMILE_FoodInformationModel;
 
-@Document(collection = "mafamile_bill")
-public class MAFAMILE_BillEntity {
+/**
+* @author root {10:45:58 AM}:
+ * @version Creation time: Nov 11, 2020 10:45:58 AM
+ * Class Description
+*/
+/**
+ * @author tankyhuynh
+ *
+ */
+
+@Document(collection = "amia_bill")
+public class AMIA_BillEntity {
 
 	@Id
 	private String id;
-
+	
 	private CustomerModel personalInformation;
-	private List<MAFAMILE_FoodInformationModel> foodInformation;
+	private List<AMIA_FoodInformationModel> foodInformation;
 	private Date createdDate  = Calendar.getInstance().getTime();
 	private Date orderDate;
 	private List<String> additionInformation;
 	private boolean isConfirmed;
 	private String site;
-
-	public MAFAMILE_BillEntity() {
+	
+	public AMIA_BillEntity() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public MAFAMILE_BillEntity(String id, CustomerModel personalInformation, List<MAFAMILE_FoodInformationModel> foodInformation,
+	public AMIA_BillEntity(String id, CustomerModel personalInformation, List<AMIA_FoodInformationModel> foodInformation,
 			Date createdDate, Date orderDate, List<String> additionInformation, boolean isConfirmed) {
 		super();
 		this.id = id;
@@ -56,11 +66,11 @@ public class MAFAMILE_BillEntity {
 		this.personalInformation = personalInformation;
 	}
 
-	public List<MAFAMILE_FoodInformationModel> getFoodInformation() {
+	public List<AMIA_FoodInformationModel> getFoodInformation() {
 		return foodInformation;
 	}
 
-	public void setFoodInformation(List<MAFAMILE_FoodInformationModel> foodInformation) {
+	public void setFoodInformation(List<AMIA_FoodInformationModel> foodInformation) {
 		this.foodInformation = foodInformation;
 	}
 
@@ -103,5 +113,23 @@ public class MAFAMILE_BillEntity {
 	public void setSite(String site) {
 		this.site = site;
 	}
-
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

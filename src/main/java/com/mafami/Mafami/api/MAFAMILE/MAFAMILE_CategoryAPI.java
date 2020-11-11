@@ -45,13 +45,13 @@ public class MAFAMILE_CategoryAPI {
 	}
 
 	@PostMapping
-	public ResponseEntity<MAFAMILE_CategoryEntity> save(@RequestBody MAFAMILE_CategoryEntity categoryEntity) {
+	public ResponseEntity<MAFAMILE_CategoryEntity> saveOne(@RequestBody MAFAMILE_CategoryEntity categoryEntity) {
 		categoryEntity.setSite("mafamile");
 		return ResponseEntity.ok(categoryService.save(categoryEntity));
 	}
 	
 	@PostMapping("/all")
-	public ResponseEntity<String> save(@RequestBody List<MAFAMILE_CategoryEntity> categoryEntity) {
+	public ResponseEntity<String> saveAll(@RequestBody List<MAFAMILE_CategoryEntity> categoryEntity) {
 		for (MAFAMILE_CategoryEntity entity : categoryEntity) {
 			entity.setSite("mafamile");
 			categoryService.save(entity);
