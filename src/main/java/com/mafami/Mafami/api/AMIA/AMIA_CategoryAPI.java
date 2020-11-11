@@ -44,12 +44,14 @@ public class AMIA_CategoryAPI {
 
 	@PostMapping
 	public ResponseEntity<AMIA_CategoryEntity> save(@RequestBody AMIA_CategoryEntity categoryEntity) {
+		categoryEntity.setSite("amia");
 		return ResponseEntity.ok(amia_CategoryService.save(categoryEntity));
 	}
 	
 	@PostMapping("/all")
-	public ResponseEntity<String> save(@RequestBody List<AMIA_CategoryEntity> categoryEntity) {
+	public ResponseEntity<String> saveAll(@RequestBody List<AMIA_CategoryEntity> categoryEntity) {
 		for (AMIA_CategoryEntity entity : categoryEntity) {
+			entity.setSite("amia");
 			amia_CategoryService.save(entity);
 		}
 		return ResponseEntity.ok("OK");

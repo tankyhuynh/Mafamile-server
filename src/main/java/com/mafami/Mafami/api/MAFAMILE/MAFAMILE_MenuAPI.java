@@ -56,7 +56,7 @@ public class MAFAMILE_MenuAPI {
 	}
 	
 	@PostMapping("/all")
-	public ResponseEntity<String> saveOne(@RequestBody List<MAFAMILE_MenuEntity> mAFAMILE_MenuEntity) {
+	public ResponseEntity<String> saveAll(@RequestBody List<MAFAMILE_MenuEntity> mAFAMILE_MenuEntity) {
 		for (MAFAMILE_MenuEntity entity : mAFAMILE_MenuEntity) {
 			mAFAMILE_MenuService.save(entity);
 		}
