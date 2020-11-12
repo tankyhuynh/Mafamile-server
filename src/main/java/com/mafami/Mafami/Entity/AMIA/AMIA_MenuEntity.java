@@ -13,6 +13,7 @@ public class AMIA_MenuEntity {
 	private String name;
 	private double price;
 	private String image;
+	private String additionInformation;
 	private String site;
 
 	public AMIA_MenuEntity() {
@@ -74,6 +75,14 @@ public class AMIA_MenuEntity {
 
 	public void setImage(String image) {
 		this.image = image;
+	}
+
+	public String getAdditionInformation() {
+		return additionInformation;
+	}
+
+	public void setAdditionInformation(String additionInformation) {
+		this.additionInformation = additionInformation;
 	}
 
 }

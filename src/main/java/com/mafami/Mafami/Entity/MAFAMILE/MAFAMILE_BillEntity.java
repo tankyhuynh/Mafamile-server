@@ -22,6 +22,7 @@ public class MAFAMILE_BillEntity {
 	private Date orderDate;
 	private List<String> additionInformation;
 	private boolean isConfirmed;
+	private double total;
 	private String site;
 
 	public MAFAMILE_BillEntity() {
@@ -103,5 +104,19 @@ public class MAFAMILE_BillEntity {
 	public void setSite(String site) {
 		this.site = site;
 	}
+
+	public double getTotal() {
+		return total;
+	}
+
+	public void setTotal(double total) {
+		this.total = total;
+	}
+	
+	
+	
+	
+	
+	
 
 }

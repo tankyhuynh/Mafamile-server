@@ -16,8 +16,8 @@ public class MAFAMILE_MenuEntity {
 
 	private String name;
 	private double price;
-
 	private String image;
+	private String additionInformation;
 	private String site;
 
 	public MAFAMILE_MenuEntity() {
@@ -80,6 +80,14 @@ public class MAFAMILE_MenuEntity {
 
 	public void setImage(String image) {
 		this.image = image;
+	}
+
+	public String getAdditionInformation() {
+		return additionInformation;
+	}
+
+	public void setAdditionInformation(String additionInformation) {
+		this.additionInformation = additionInformation;
 	}
 
 }

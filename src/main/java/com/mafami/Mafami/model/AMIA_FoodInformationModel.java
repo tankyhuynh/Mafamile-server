@@ -18,6 +18,7 @@ public class AMIA_FoodInformationModel {
 
 	private String id = UUID.randomUUID().toString();
 	private AMIA_MenuEntity food;
+	private String additionInformation;
 	private int quantity;
 
 	public AMIA_FoodInformationModel() {
@@ -53,6 +54,14 @@ public class AMIA_FoodInformationModel {
 
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
+	}
+
+	public String getAdditionInformation() {
+		return additionInformation;
+	}
+
+	public void setAdditionInformation(String additionInformation) {
+		this.additionInformation = additionInformation;
 	}
 
 }

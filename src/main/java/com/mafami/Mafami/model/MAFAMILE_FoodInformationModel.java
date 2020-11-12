@@ -17,6 +17,7 @@ public class MAFAMILE_FoodInformationModel {
 
 	private String id = UUID.randomUUID().toString();
 	private MAFAMILE_MenuEntity food;
+	private String additionInformation;
 	private int quantity;
 
 	public MAFAMILE_FoodInformationModel() {
@@ -53,5 +54,18 @@ public class MAFAMILE_FoodInformationModel {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
+
+	public String getAdditionInformation() {
+		return additionInformation;
+	}
+
+	public void setAdditionInformation(String additionInformation) {
+		this.additionInformation = additionInformation;
+	}
+
+	
+	
+	
+	
 
 }

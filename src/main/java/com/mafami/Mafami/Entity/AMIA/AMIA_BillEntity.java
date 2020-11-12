@@ -25,21 +25,23 @@ public class AMIA_BillEntity {
 
 	@Id
 	private String id;
-	
+
 	private CustomerModel personalInformation;
 	private List<AMIA_FoodInformationModel> foodInformation;
-	private Date createdDate  = Calendar.getInstance().getTime();
+	private Date createdDate = Calendar.getInstance().getTime();
 	private Date orderDate;
 	private List<String> additionInformation;
 	private boolean isConfirmed;
+	private double total;
 	private String site;
-	
+
 	public AMIA_BillEntity() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public AMIA_BillEntity(String id, CustomerModel personalInformation, List<AMIA_FoodInformationModel> foodInformation,
-			Date createdDate, Date orderDate, List<String> additionInformation, boolean isConfirmed) {
+	public AMIA_BillEntity(String id, CustomerModel personalInformation,
+			List<AMIA_FoodInformationModel> foodInformation, Date createdDate, Date orderDate,
+			List<String> additionInformation, boolean isConfirmed) {
 		super();
 		this.id = id;
 		this.personalInformation = personalInformation;
@@ -113,23 +115,13 @@ public class AMIA_BillEntity {
 	public void setSite(String site) {
 		this.site = site;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+	public double getTotal() {
+		return total;
+	}
+
+	public void setTotal(double total) {
+		this.total = total;
+	}
+
 }
