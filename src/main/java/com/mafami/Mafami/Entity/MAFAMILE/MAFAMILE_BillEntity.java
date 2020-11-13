@@ -29,16 +29,19 @@ public class MAFAMILE_BillEntity {
 		// TODO Auto-generated constructor stub
 	}
 
-	public MAFAMILE_BillEntity(String id, CustomerModel personalInformation, List<MAFAMILE_FoodInformationModel> foodInformation,
-			Date createdDate, Date orderDate, String additionInformation, boolean isConfirmed) {
+	public MAFAMILE_BillEntity(String id, CustomerModel customerInformation,
+			List<MAFAMILE_FoodInformationModel> foodInformation, Date createdDate, Date orderDate,
+			String additionInformation, boolean isConfirmed, double total, String site) {
 		super();
 		this.id = id;
-		this.customerInformation = personalInformation;
+		this.customerInformation = customerInformation;
 		this.foodInformation = foodInformation;
 		this.createdDate = createdDate;
 		this.orderDate = orderDate;
 		this.additionInformation = additionInformation;
 		this.isConfirmed = isConfirmed;
+		this.total = total;
+		this.site = site;
 	}
 
 	public String getId() {
@@ -49,12 +52,12 @@ public class MAFAMILE_BillEntity {
 		this.id = id;
 	}
 
-	public CustomerModel getPersonalInformation() {
+	public CustomerModel getCustomerInformation() {
 		return customerInformation;
 	}
 
-	public void setPersonalInformation(CustomerModel personalInformation) {
-		this.customerInformation = personalInformation;
+	public void setCustomerInformation(CustomerModel customerInformation) {
+		this.customerInformation = customerInformation;
 	}
 
 	public List<MAFAMILE_FoodInformationModel> getFoodInformation() {
@@ -97,6 +100,14 @@ public class MAFAMILE_BillEntity {
 		this.isConfirmed = isConfirmed;
 	}
 
+	public double getTotal() {
+		return total;
+	}
+
+	public void setTotal(double total) {
+		this.total = total;
+	}
+
 	public String getSite() {
 		return site;
 	}
@@ -105,15 +116,6 @@ public class MAFAMILE_BillEntity {
 		this.site = site;
 	}
 
-	public double getTotal() {
-		return total;
-	}
-
-	public void setTotal(double total) {
-		this.total = total;
-	}
-	
-	
 	
 	
 	
