@@ -21,8 +21,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class CustomerModel {
 
-	@Id
-	private String id;
 	private String name;
 	private String phone;
 	private String email;
