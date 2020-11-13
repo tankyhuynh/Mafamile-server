@@ -1,5 +1,6 @@
 package com.mafami.Mafami.Entity.AMIA;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.data.annotation.Id;
@@ -22,7 +23,7 @@ public class AMIA_MenuEntity {
 
 	private AMIA_CategoryEntity category;
 	private String name;
-	private PriceModel price;
+	private List<PriceModel> price;
 	private String image;
 	private String additionInformation;
 	private String site;
