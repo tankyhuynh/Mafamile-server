@@ -20,7 +20,7 @@ public class MAFAMILE_BillEntity {
 	private List<MAFAMILE_FoodInformationModel> foodInformation;
 	private Date createdDate  = Calendar.getInstance().getTime();
 	private Date orderDate;
-	private List<String> additionInformation;
+	private String additionInformation;
 	private boolean isConfirmed;
 	private double total;
 	private String site;
@@ -30,7 +30,7 @@ public class MAFAMILE_BillEntity {
 	}
 
 	public MAFAMILE_BillEntity(String id, CustomerModel personalInformation, List<MAFAMILE_FoodInformationModel> foodInformation,
-			Date createdDate, Date orderDate, List<String> additionInformation, boolean isConfirmed) {
+			Date createdDate, Date orderDate, String additionInformation, boolean isConfirmed) {
 		super();
 		this.id = id;
 		this.customerInformation = personalInformation;
@@ -81,11 +81,11 @@ public class MAFAMILE_BillEntity {
 		this.orderDate = orderDate;
 	}
 
-	public List<String> getAdditionInformation() {
+	public String getAdditionInformation() {
 		return additionInformation;
 	}
 
-	public void setAdditionInformation(List<String> additionInformation) {
+	public void setAdditionInformation(String additionInformation) {
 		this.additionInformation = additionInformation;
 	}
 
