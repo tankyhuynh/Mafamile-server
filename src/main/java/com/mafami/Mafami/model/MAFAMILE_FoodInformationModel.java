@@ -22,7 +22,6 @@ import lombok.NoArgsConstructor;
 public class MAFAMILE_FoodInformationModel {
 
 	private MAFAMILE_MenuEntity food;
-	private String additionInformation;
 	private int quantity;
 
 
