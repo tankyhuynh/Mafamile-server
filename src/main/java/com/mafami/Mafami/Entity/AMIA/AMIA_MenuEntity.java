@@ -5,6 +5,8 @@ import java.util.Map;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.mafami.Mafami.model.PriceModel;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,7 +22,7 @@ public class AMIA_MenuEntity {
 
 	private AMIA_CategoryEntity category;
 	private String name;
-	private Object price;
+	private PriceModel price;
 	private String image;
 	private String additionInformation;
 	private String site;
