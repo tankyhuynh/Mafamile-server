@@ -27,7 +27,7 @@ import com.mafami.Mafami.Service.BillService;
  */
 
 @RestController
-@RequestMapping("/api/amia/bill")
+@RequestMapping("/api/bill")
 public class BillAPI {
 	
 	@Autowired
