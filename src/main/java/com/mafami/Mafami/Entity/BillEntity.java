@@ -26,7 +26,7 @@ public class BillEntity {
 	@Id
 	private String id;
 
-	private CustomerModel personalInformation;
+	private CustomerModel customerInformation;
 	private List<FoodInformationModel> foodInformation;
 	private Date createdDate = Calendar.getInstance().getTime();
 	private Date orderDate;
@@ -44,7 +44,7 @@ public class BillEntity {
 			String additionInformation, boolean isConfirmed) {
 		super();
 		this.id = id;
-		this.personalInformation = personalInformation;
+		this.customerInformation = personalInformation;
 		this.foodInformation = foodInformation;
 		this.createdDate = createdDate;
 		this.orderDate = orderDate;
@@ -61,11 +61,11 @@ public class BillEntity {
 	}
 
 	public CustomerModel getPersonalInformation() {
-		return personalInformation;
+		return customerInformation;
 	}
 
 	public void setPersonalInformation(CustomerModel personalInformation) {
-		this.personalInformation = personalInformation;
+		this.customerInformation = personalInformation;
 	}
 
 	public List<FoodInformationModel> getFoodInformation() {
