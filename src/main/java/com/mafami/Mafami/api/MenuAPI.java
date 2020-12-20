@@ -1,5 +1,6 @@
 package com.mafami.Mafami.api;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,7 @@ import com.mafami.Mafami.Entity.MenuEntity;
 import com.mafami.Mafami.Service.CategoryService;
 import com.mafami.Mafami.Service.MenuService;
 import com.mafami.Mafami.Utils.FileUtils;
+import com.mafami.Mafami.model.PriceModel;
 
 
 @RestController
@@ -69,7 +71,18 @@ public class MenuAPI {
 	
 	@PostMapping("/{site}/all")
 	public ResponseEntity<String> saveAll(@PathVariable("site") String site, @RequestBody List<MenuEntity> menuEntity) {
+		List<PriceModel> prices = new ArrayList<>();
 		for (MenuEntity entity : menuEntity) {
+			for (PriceModel price : entity.getPrice()) {
+				if( price.getSize() != null ) {
+					prices.add(price);
+				}
+				else {
+					price.setSize("M");
+					prices.add(price);
+				}
+			}
+			entity.setPrice(prices);
 			entity.setSite(site);
 			menuService.save(entity);
 		}

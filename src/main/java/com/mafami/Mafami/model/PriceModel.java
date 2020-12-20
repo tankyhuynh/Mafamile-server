@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class PriceModel {
 
-	private String size;
+	private String size = "M";
 	private double price;
 	
 }
