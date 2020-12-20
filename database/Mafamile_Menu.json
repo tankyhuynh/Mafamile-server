@@ -8,7 +8,7 @@
 	"site": "mafamile"
 },
 "name": "Khoai tây chiên",
-"price": [39000], 
+"price": [{"price": 39000}], 
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016007/gqhwees7mgqyryaswndn.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -22,7 +22,7 @@
 	"site": "mafamile"
 },
 "name": "Khoai tây chiên lắc bơ",
-"price": [39000],
+"price": [{"price":39000}],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016030/dp0lmi3v4lvyjamkw7gv.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -36,7 +36,7 @@
 	"site": "mafamile"
 },
 "name": "Khoai tây chiên sốt phô mai",
-"price": [59000],
+"price": [{"price":59000}],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016057/qxqaqrals6xem0wljbj8.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -50,7 +50,7 @@
 	"site": "mafamile"
 },
 "name": "Bánh mì bơ tỏi",
-"price": [29000],
+"price": [{"price":29000}],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016080/qs5c7jho1fniielw3ata.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -64,7 +64,7 @@
 	"site": "mafamile"
 },
 "name": "Bánh mì phô mai thịt xông khói",
-"price": [29000],
+"price": [{"price":29000}],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016109/vc6gopk7fcrdpbsudiab.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -78,7 +78,7 @@
 	"site": "mafamile"
 },
 "name": "Bánh mì cà chua",
-"price": [29000],
+"price": [{"price":29000}],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016125/lcj1isvqqq5tradame3s.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -92,7 +92,7 @@
 	"site": "mafamile"
 },
 "name": "Đùi vịt đút lò",
-"price": [179000],
+"price": [{"price":179000}],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016174/gxmkbsd9eyczilrifh2z.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -106,7 +106,7 @@
 	"site": "mafamile"
 },
 "name": "Sườn nướng BBQ",
-"price": [230000],
+"price": [{"price":230000}],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016195/hlcmkksngpavdlszyyvm.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -120,7 +120,7 @@
 	"site": "mafamile"
 },
 "name": "Sườn nướng BBQ (1kg)",
-"price": [490000],
+"price": [{"price":490000}],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016223/pdglgrt9mhpmxqbo4jfz.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -134,7 +134,7 @@
 	"site": "mafamile"
 },
 "name": "Hàu đút lò phô mai",
-"price": [39000],
+"price": [{"price":39000}],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016257/nrkx42xgetkpcjtssf13.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -148,7 +148,7 @@
 	"site": "mafamile"
 },
 "name": "Tôm hùm đút lò phô mai/bơ tỏi",
-"price": [390000],
+"price": [{"price":390000}],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016287/b84mmzbnl03jttwhkduw.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -162,7 +162,7 @@
 	"site": "mafamile"
 },
 "name": "Set hải sản",
-"price": [179000],
+"price": [{"price":179000}],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016309/ykmvzypqbydyu9xzgps4.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -176,7 +176,7 @@
 	"site": "mafamile"
 },
 "name": "Thớt đồ nguội",
-"price": [169000],
+"price": [{"price":169000}],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016330/qqskuzxpygkr9goghfdi.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -190,7 +190,7 @@
 	"site": "mafamile"
 },
 "name": "Phi lê bò",
-"price": [329000],
+"price": [{"price":329000}],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016370/mvbhelcgpw8eodjvmzdf.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -204,7 +204,7 @@
 	"site": "mafamile"
 },
 "name": "Đầu thăn ngoại",
-"price": [229000],
+"price": [{"price":229000}],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016388/ykvmri4sr1n9heqnzeja.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -218,7 +218,7 @@
 	"site": "mafamile"
 },
 "name": "Beefsteak",
-"price": [149000],
+"price": [{"price":149000}],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016409/muxokhmvuka7deeump9h.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -232,7 +232,7 @@
 	"site": "mafamile"
 },
 "name": "Khối phi lê bò",
-"price": [999000],
+"price": [{"price":999000}],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016439/ej9hz9gcim4pwyssicjl.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -246,7 +246,7 @@
 	"site": "mafamile"
 },
 "name": "Ứt vịt áp chảo",
-"price": [179000],
+"price": [{"price":179000}],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016460/zcspwhamb5owjqmo66b9.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -260,7 +260,7 @@
 	"site": "mafamile"
 },
 "name": "Sốt thêm",
-"price": [20000],
+"price": [{"price":20000}],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016479/qzmh1sqlp95okb6sksmz.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -274,7 +274,7 @@
 	"site": "mafamile"
 },
 "name": "Salad trứng",
-"price": [55000],
+"price": [{"price":55000}],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016496/ucy7sk6obly8hmblxsdr.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -288,7 +288,7 @@
 	"site": "mafamile"
 },
 "name": "Salad cá ngừ",
-"price": [59000],
+"price": [{"price":59000}],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016514/nxxh5uvha6evv8mfypa0.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -302,7 +302,7 @@
 	"site": "mafamile"
 },
 "name": "Salad hải sản",
-"price": [79000],
+"price": [{"price":79000}],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016532/xbjdsc8jxxoubbdruwgw.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -316,7 +316,7 @@
 	"site": "mafamile"
 },
 "name": "Parma ham salad",
-"price": [79000],
+"price": [{"price":79000}],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016555/ffqovjopzgzpk95rmmnk.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -330,7 +330,7 @@
 	"site": "mafamile"
 },
 "name": "Salad cá hồi xông khói",
-"price": [79000],
+"price": [{"price":79000}],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016574/pay4b0ktek1f1wtr3pl4.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -344,7 +344,7 @@
 	"site": "mafamile"
 },
 "name": "Ma Famile Steak Salad",
-"price": [129000],
+"price": [{"price":129000}],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016602/f7p2nz9t5v1twfv69w07.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -358,7 +358,7 @@
 	"site": "mafamile"
 },
 "name": "Mì bò bằm",
-"price": [89000],
+"price": [{"price":89000}],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016665/laneedqydlbmr43uet5r.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -372,7 +372,7 @@
 	"site": "mafamile"
 },
 "name": "Mì cá hồi xông khói",
-"price": [89000],
+"price": [{"price":89000}],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016685/ol7447retpbfsfuo93ss.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -386,7 +386,7 @@
 	"site": "mafamile"
 },
 "name": "Mì nấm",
-"price": [89000],
+"price": [{"price":89000}],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016704/scwkg8itoersgnxx4dms.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -400,7 +400,7 @@
 	"site": "mafamile"
 },
 "name": "Mì kem trứng",
-"price": [89000],
+"price": [{"price":89000}],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016724/cloezchheknnfjar4odu.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -414,7 +414,7 @@
 	"site": "mafamile"
 },
 "name": "Mì hải sản",
-"price": [89000],
+"price": [{"price":89000}],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016743/oona06squalw8wcpttqe.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -428,7 +428,7 @@
 	"site": "mafamile"
 },
 "name": "Mì cua kem phô mai",
-"price": [179000],
+"price": [{"price":179000}],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016768/hghvgvasrakyg1uo3dr7.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -442,7 +442,7 @@
 	"site": "mafamile"
 },
 "name": "Lasagna",
-"price": [99000],
+"price": [{"price":99000}],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016787/ung3ezrseofkaou63uws.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -456,7 +456,7 @@
 	"site": "mafamile"
 },
 "name": "Mì ống đút lò phô mai",
-"price": [89000],
+"price": [{"price":89000}],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016808/cjlv3sgjigcr0auevuqp.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -470,7 +470,7 @@
 	"site": "mafamile"
 },
 "name": "Mousse Choco",
-"price": [39000],
+"price": [{"price":39000}],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016860/ey51wseswwmfkxyzoxk6.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -484,7 +484,7 @@
 	"site": "mafamile"
 },
 "name": "Yogurt",
-"price": [39000],
+"price": [{"price":39000}],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016883/exrobvan001vzfcsnp8h.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -498,7 +498,7 @@
 	"site": "mafamile"
 },
 "name": "HUYNH TAN KY (In Mafamile)",
-"price": [1250000],
+"price": [{"price":1250000}],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605083979/f4uytfqm2hqqltdpnmd7.jpg",
 "additionInformation": null,
 "site": "mafamile"

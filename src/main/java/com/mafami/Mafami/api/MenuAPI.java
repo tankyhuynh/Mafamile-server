@@ -1,5 +1,6 @@
 package com.mafami.Mafami.api;
 
+import java.awt.Menu;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,7 +38,7 @@ public class MenuAPI {
 	private FileUtils fileUtils;
 	
 	@Autowired
-	private CategoryService amia_CategoryService;
+	private CategoryService categoryService;
 	
 	@GetMapping
 	public ResponseEntity<List<MenuEntity>> getAll() {
@@ -56,7 +57,7 @@ public class MenuAPI {
 	
 	@GetMapping("/{site}/category/{slug}")
 	public ResponseEntity<List<MenuEntity>> getAllBySlug(@PathVariable("slug") String slug) {
-		CategoryEntity amia_CategoryEntity = amia_CategoryService.getOneBySlug(slug);
+		CategoryEntity amia_CategoryEntity = categoryService.getOneBySlug(slug);
 		return ResponseEntity.ok(menuService.findAllByCategoryCode(amia_CategoryEntity));
 	}
 	
@@ -123,6 +124,13 @@ public class MenuAPI {
 	@DeleteMapping("/all")
 	public void deleteAll() {
 		menuService.deleteAll();
+	}
+	
+	@GetMapping("/category/{slug}")
+	public List<MenuEntity> getAllMenuByCategory(@PathVariable String slug) {
+		CategoryEntity categoryEntity = categoryService.getOneBySlug(slug);
+		List<MenuEntity> listEntity = menuService.findAllByCategoryCode(categoryEntity);
+		return listEntity;
 	}
 
 	
