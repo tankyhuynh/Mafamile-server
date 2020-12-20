@@ -68,16 +68,6 @@ public class MenuAPI {
 		menuEntity.setImage(URL);
 		menuEntity.setSite(site);
 		
-		for (PriceModel price : menuEntity.getPrice()) {
-			if( price.getSize() != null ) {
-				prices.add(price);
-			}
-			else {
-				price.setSize("M");
-				prices.add(price);
-			}
-		}
-		
 		return ResponseEntity.ok(menuService.save(menuEntity));
 	}
 	
@@ -85,16 +75,6 @@ public class MenuAPI {
 	public ResponseEntity<String> saveAll(@PathVariable("site") String site, @RequestBody List<MenuEntity> menuEntity) {
 		List<PriceModel> prices = new ArrayList<>();
 		for (MenuEntity entity : menuEntity) {
-			for (PriceModel price : entity.getPrice()) {
-				if( price.getSize() != null ) {
-					prices.add(price);
-				}
-				else {
-					price.setSize("M");
-					prices.add(price);
-				}
-			}
-			entity.setPrice(prices);
 			entity.setSite(site);
 			menuService.save(entity);
 		}
