@@ -92,7 +92,7 @@ public class PDFUtils_Bills<T> {
 				table.addCell(idCell);
 				
 				
-				String customerInformation = (bill.getPersonalInformation().getName() != null) ? (bill.getPersonalInformation().getName()) : " ";
+				String customerInformation = (bill.getCustomerInformation().getName() != null) ? (bill.getCustomerInformation().getName()) : " ";
 				PdfPCell customerCell = new PdfPCell(new Phrase( customerInformation , font));
 				customerCell.setPaddingLeft(6);
 				customerCell.setVerticalAlignment(Element.ALIGN_MIDDLE);
