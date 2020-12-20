@@ -38,40 +38,31 @@ public class BillAPI {
 		return ResponseEntity.ok(billService.getAll());
 	}
 	
-	@GetMapping("/{site}")
-	public ResponseEntity<List<BillEntity>> getAll(@PathVariable String site) {
-		return ResponseEntity.ok(billService.getAllBySite(site));
-	}
 	
-	@GetMapping("/{site}/{id}")
-	public ResponseEntity<BillEntity> getById(@PathVariable("site") String site, @PathVariable("id") String id) {
+	@GetMapping("/{id}")
+	public ResponseEntity<BillEntity> getById(@PathVariable("id") String id) {
 		return ResponseEntity.ok(billService.getOneById(id));
 	}
 
 	
-
-	@PostMapping("/{site}")
-	public ResponseEntity<BillEntity> saveOne(@PathVariable String site, @RequestBody BillEntity categoryEntity) {
-		categoryEntity.setSite(site);
+	@PostMapping
+	public ResponseEntity<BillEntity> saveOne(@RequestBody BillEntity categoryEntity) {
 		return ResponseEntity.ok(billService.save(categoryEntity));
 	}
 	
-	@PostMapping("/{site}/all")
-	public ResponseEntity<String> saveAll(@PathVariable("site") String site, @RequestBody List<BillEntity> categoryEntity) {
+	@PostMapping("/all")
+	public ResponseEntity<String> saveAll(@RequestBody List<BillEntity> categoryEntity) {
 		for (BillEntity entity : categoryEntity) {
-			entity.setSite(site);
 			billService.save(entity);
 		}
 		return ResponseEntity.ok("OK");
 	}
 
-	@PutMapping("/{site}/{id}")
-	public ResponseEntity<BillEntity> update(@PathVariable("site") String site, @PathVariable("id") String id,
+	@PutMapping("/{id}")
+	public ResponseEntity<BillEntity> update(@PathVariable("id") String id,
 			@RequestBody BillEntity newEntity) {
 		BillEntity oldEntity = billService.getOneById(id);
-
 		newEntity.setId(id);
-		newEntity.setSite(site);
 		return ResponseEntity.ok(billService.save(newEntity));
 	}
 	
@@ -79,11 +70,7 @@ public class BillAPI {
 	public void deleteById(@PathVariable("id") String id) {
 		billService.delete(id);
 	}
-	
-	@DeleteMapping("/{site}/all")
-	public void deleteAllBySite(@PathVariable String site) {
-		billService.deleteAllBySite(site);
-	}
+
 	
 	@DeleteMapping("/all")
 	public void deleteAll() {
