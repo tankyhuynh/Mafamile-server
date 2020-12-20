@@ -39,12 +39,12 @@ public class BillEntity {
 		// TODO Auto-generated constructor stub
 	}
 
-	public BillEntity(String id, CustomerModel personalInformation,
+	public BillEntity(String id, CustomerModel customerInformation,
 			List<FoodInformationModel> foodInformation, Date createdDate, Date orderDate,
 			String additionInformation, boolean isConfirmed) {
 		super();
 		this.id = id;
-		this.customerInformation = personalInformation;
+		this.customerInformation = customerInformation;
 		this.foodInformation = foodInformation;
 		this.createdDate = createdDate;
 		this.orderDate = orderDate;
@@ -60,12 +60,14 @@ public class BillEntity {
 		this.id = id;
 	}
 
-	public CustomerModel getPersonalInformation() {
+	
+
+	public CustomerModel getCustomerInformation() {
 		return customerInformation;
 	}
 
-	public void setPersonalInformation(CustomerModel personalInformation) {
-		this.customerInformation = personalInformation;
+	public void setCustomerInformation(CustomerModel customerInformation) {
+		this.customerInformation = customerInformation;
 	}
 
 	public List<FoodInformationModel> getFoodInformation() {
