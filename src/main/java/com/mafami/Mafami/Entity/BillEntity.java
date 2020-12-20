@@ -7,8 +7,12 @@ import java.util.List;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import com.mafami.Mafami.model.FoodInformationModel;
 import com.mafami.Mafami.model.CustomerModel;
+import com.mafami.Mafami.model.FoodInformationModel;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
 * @author root {10:45:58 AM}:
@@ -21,6 +25,9 @@ import com.mafami.Mafami.model.CustomerModel;
  */
 
 @Document(collection = "bills")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class BillEntity {
 
 	@Id
@@ -35,101 +42,5 @@ public class BillEntity {
 	private double total;
 	private String site;
 
-	public BillEntity() {
-		// TODO Auto-generated constructor stub
-	}
-
-	
-
-	public BillEntity(String id, CustomerModel customerInformation, List<FoodInformationModel> foodInformation,
-			Date createdDate, Date orderDate, String additionInformation, boolean isConfirmed, double total,
-			String site) {
-		super();
-		this.id = id;
-		this.customerInformation = customerInformation;
-		this.foodInformation = foodInformation;
-		this.createdDate = createdDate;
-		this.orderDate = orderDate;
-		this.additionInformation = additionInformation;
-		this.isConfirmed = isConfirmed;
-		this.total = total;
-		this.site = site;
-	}
-
-
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
-
-	
-
-	public CustomerModel getCustomerInformation() {
-		return customerInformation;
-	}
-
-	public void setCustomerInformation(CustomerModel customerInformation) {
-		this.customerInformation = customerInformation;
-	}
-
-	public List<FoodInformationModel> getFoodInformation() {
-		return foodInformation;
-	}
-
-	public void setFoodInformation(List<FoodInformationModel> foodInformation) {
-		this.foodInformation = foodInformation;
-	}
-
-	public Date getCreatedDate() {
-		return createdDate;
-	}
-
-	public void setCreatedDate(Date createdDate) {
-		this.createdDate = createdDate;
-	}
-
-	public Date getOrderDate() {
-		return orderDate;
-	}
-
-	public void setOrderDate(Date orderDate) {
-		this.orderDate = orderDate;
-	}
-
-	public String getAdditionInformation() {
-		return additionInformation;
-	}
-
-	public void setAdditionInformation(String additionInformation) {
-		this.additionInformation = additionInformation;
-	}
-
-	public boolean isConfirmed() {
-		return isConfirmed;
-	}
-
-	public void setConfirmed(boolean isConfirmed) {
-		this.isConfirmed = isConfirmed;
-	}
-
-	public String getSite() {
-		return site;
-	}
-
-	public void setSite(String site) {
-		this.site = site;
-	}
-
-	public double getTotal() {
-		return total;
-	}
-
-	public void setTotal(double total) {
-		this.total = total;
-	}
 
 }
