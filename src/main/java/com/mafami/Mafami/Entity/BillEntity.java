@@ -39,9 +39,11 @@ public class BillEntity {
 		// TODO Auto-generated constructor stub
 	}
 
-	public BillEntity(String id, CustomerModel customerInformation,
-			List<FoodInformationModel> foodInformation, Date createdDate, Date orderDate,
-			String additionInformation, boolean isConfirmed) {
+	
+
+	public BillEntity(String id, CustomerModel customerInformation, List<FoodInformationModel> foodInformation,
+			Date createdDate, Date orderDate, String additionInformation, boolean isConfirmed, double total,
+			String site) {
 		super();
 		this.id = id;
 		this.customerInformation = customerInformation;
@@ -50,7 +52,11 @@ public class BillEntity {
 		this.orderDate = orderDate;
 		this.additionInformation = additionInformation;
 		this.isConfirmed = isConfirmed;
+		this.total = total;
+		this.site = site;
 	}
+
+
 
 	public String getId() {
 		return id;
