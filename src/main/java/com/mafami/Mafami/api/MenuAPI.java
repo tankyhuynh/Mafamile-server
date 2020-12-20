@@ -126,11 +126,18 @@ public class MenuAPI {
 		menuService.deleteAll();
 	}
 	
-	@GetMapping("/category/{slug}")
-	public List<MenuEntity> getAllMenuByCategory(@PathVariable String slug) {
+	@GetMapping("/category/{site}/{slug}")
+	public List<MenuEntity> getAllMenuByCategory(@PathVariable("site") String site, @PathVariable("slug") String slug) {
 		CategoryEntity categoryEntity = categoryService.getOneBySlug(slug);
 		List<MenuEntity> listEntity = menuService.findAllByCategoryCode(categoryEntity);
-		return listEntity;
+		List<MenuEntity> listEntityInSite = new ArrayList<MenuEntity>(); 
+		for (MenuEntity entity : listEntity) {
+			if(entity.getSite().equals(site)) {
+				listEntityInSite.add(entity);
+			}
+		}
+		
+		return listEntityInSite;
 	}
 
 	
