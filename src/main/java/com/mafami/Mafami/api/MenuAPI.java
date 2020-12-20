@@ -62,10 +62,21 @@ public class MenuAPI {
 	
 	@PostMapping("/{site}")
 	public ResponseEntity<MenuEntity> saveOne(@PathVariable("site") String site, @RequestBody MenuEntity menuEntity) {
-		
+		List<PriceModel> prices = new ArrayList<PriceModel>();
 		String URL = fileUtils.decoder(menuEntity.getImage(), "ImageAPI");
 		menuEntity.setImage(URL);
 		menuEntity.setSite(site);
+		
+		for (PriceModel price : menuEntity.getPrice()) {
+			if( price.getSize() != null ) {
+				prices.add(price);
+			}
+			else {
+				price.setSize("M");
+				prices.add(price);
+			}
+		}
+		
 		return ResponseEntity.ok(menuService.save(menuEntity));
 	}
 	

@@ -2,13 +2,13 @@
 {
 "id": "5faa99c8769d470bb5134962",
 "category": {
-"id": "5faa53a80ec16a2db7eb696d",
-"name": "Khai vị",
-"slug": "khai-vi",
-"site": "mafamile"
+	"id": "5faa53a80ec16a2db7eb696d",
+	"name": "Khai vị",
+	"slug": "khai-vi",
+	"site": "mafamile"
 },
 "name": "Khoai tây chiên",
-"price": 39000,
+"price": [39000], 
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016007/gqhwees7mgqyryaswndn.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -16,13 +16,13 @@
 {
 "id": "5faa99df769d470bb5134963",
 "category": {
-"id": "5faa53a80ec16a2db7eb696d",
-"name": "Khai vị",
-"slug": "khai-vi",
-"site": "mafamile"
+	"id": "5faa53a80ec16a2db7eb696d",
+	"name": "Khai vị",
+	"slug": "khai-vi",
+	"site": "mafamile"
 },
 "name": "Khoai tây chiên lắc bơ",
-"price": 39000,
+"price": [39000],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016030/dp0lmi3v4lvyjamkw7gv.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -30,13 +30,13 @@
 {
 "id": "5faa99fa769d470bb5134964",
 "category": {
-"id": "5faa53a80ec16a2db7eb696d",
-"name": "Khai vị",
-"slug": "khai-vi",
-"site": "mafamile"
+	"id": "5faa53a80ec16a2db7eb696d",
+	"name": "Khai vị",
+	"slug": "khai-vi",
+	"site": "mafamile"
 },
 "name": "Khoai tây chiên sốt phô mai",
-"price": 59000,
+"price": [59000],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016057/qxqaqrals6xem0wljbj8.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -44,13 +44,13 @@
 {
 "id": "5faa9a11769d470bb5134965",
 "category": {
-"id": "5faa53a80ec16a2db7eb696d",
-"name": "Khai vị",
-"slug": "khai-vi",
-"site": "mafamile"
+	"id": "5faa53a80ec16a2db7eb696d",
+	"name": "Khai vị",
+	"slug": "khai-vi",
+	"site": "mafamile"
 },
 "name": "Bánh mì bơ tỏi",
-"price": 29000,
+"price": [29000],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016080/qs5c7jho1fniielw3ata.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -58,13 +58,13 @@
 {
 "id": "5faa9a2d769d470bb5134966",
 "category": {
-"id": "5faa53a80ec16a2db7eb696d",
-"name": "Khai vị",
-"slug": "khai-vi",
-"site": "mafamile"
+	"id": "5faa53a80ec16a2db7eb696d",
+	"name": "Khai vị",
+	"slug": "khai-vi",
+	"site": "mafamile"
 },
 "name": "Bánh mì phô mai thịt xông khói",
-"price": 29000,
+"price": [29000],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016109/vc6gopk7fcrdpbsudiab.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -72,13 +72,13 @@
 {
 "id": "5faa9a3d769d470bb5134967",
 "category": {
-"id": "5faa53a80ec16a2db7eb696d",
-"name": "Khai vị",
-"slug": "khai-vi",
-"site": "mafamile"
+	"id": "5faa53a80ec16a2db7eb696d",
+	"name": "Khai vị",
+	"slug": "khai-vi",
+	"site": "mafamile"
 },
 "name": "Bánh mì cà chua",
-"price": 29000,
+"price": [29000],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016125/lcj1isvqqq5tradame3s.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -86,13 +86,13 @@
 {
 "id": "5faa9a6f769d470bb5134968",
 "category": {
-"id": "5faa90e1769d470bb513495d",
-"name": "Món chính",
-"slug": "mon-chinh",
-"site": "mafamile"
+	"id": "5faa90e1769d470bb513495d",
+	"name": "Món chính",
+	"slug": "mon-chinh",
+	"site": "mafamile"
 },
 "name": "Đùi vịt đút lò",
-"price": 179000,
+"price": [179000],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016174/gxmkbsd9eyczilrifh2z.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -100,13 +100,13 @@
 {
 "id": "5faa9a83769d470bb5134969",
 "category": {
-"id": "5faa90e1769d470bb513495d",
-"name": "Món chính",
-"slug": "mon-chinh",
-"site": "mafamile"
+	"id": "5faa90e1769d470bb513495d",
+	"name": "Món chính",
+	"slug": "mon-chinh",
+	"site": "mafamile"
 },
 "name": "Sườn nướng BBQ",
-"price": 230000,
+"price": [230000],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016195/hlcmkksngpavdlszyyvm.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -114,13 +114,13 @@
 {
 "id": "5faa9a9f769d470bb513496a",
 "category": {
-"id": "5faa90e1769d470bb513495d",
-"name": "Món chính",
-"slug": "mon-chinh",
-"site": "mafamile"
+	"id": "5faa90e1769d470bb513495d",
+	"name": "Món chính",
+	"slug": "mon-chinh",
+	"site": "mafamile"
 },
 "name": "Sườn nướng BBQ (1kg)",
-"price": 490000,
+"price": [490000],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016223/pdglgrt9mhpmxqbo4jfz.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -128,13 +128,13 @@
 {
 "id": "5faa9ac2769d470bb513496b",
 "category": {
-"id": "5faa90e1769d470bb513495d",
-"name": "Món chính",
-"slug": "mon-chinh",
-"site": "mafamile"
+	"id": "5faa90e1769d470bb513495d",
+	"name": "Món chính",
+	"slug": "mon-chinh",
+	"site": "mafamile"
 },
 "name": "Hàu đút lò phô mai",
-"price": 39000,
+"price": [39000],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016257/nrkx42xgetkpcjtssf13.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -142,13 +142,13 @@
 {
 "id": "5faa9ae0769d470bb513496c",
 "category": {
-"id": "5faa90e1769d470bb513495d",
-"name": "Món chính",
-"slug": "mon-chinh",
-"site": "mafamile"
+	"id": "5faa90e1769d470bb513495d",
+	"name": "Món chính",
+	"slug": "mon-chinh",
+	"site": "mafamile"
 },
 "name": "Tôm hùm đút lò phô mai/bơ tỏi",
-"price": 390000,
+"price": [390000],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016287/b84mmzbnl03jttwhkduw.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -156,13 +156,13 @@
 {
 "id": "5faa9af6769d470bb513496d",
 "category": {
-"id": "5faa90e1769d470bb513495d",
-"name": "Món chính",
-"slug": "mon-chinh",
-"site": "mafamile"
+	"id": "5faa90e1769d470bb513495d",
+	"name": "Món chính",
+	"slug": "mon-chinh",
+	"site": "mafamile"
 },
 "name": "Set hải sản",
-"price": 179000,
+"price": [179000],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016309/ykmvzypqbydyu9xzgps4.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -170,13 +170,13 @@
 {
 "id": "5faa9b0a769d470bb513496e",
 "category": {
-"id": "5faa90e1769d470bb513495d",
-"name": "Món chính",
-"slug": "mon-chinh",
-"site": "mafamile"
+	"id": "5faa90e1769d470bb513495d",
+	"name": "Món chính",
+	"slug": "mon-chinh",
+	"site": "mafamile"
 },
 "name": "Thớt đồ nguội",
-"price": 169000,
+"price": [169000],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016330/qqskuzxpygkr9goghfdi.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -184,13 +184,13 @@
 {
 "id": "5faa9b33769d470bb513496f",
 "category": {
-"id": "5faa90e1769d470bb513495d",
-"name": "Món chính",
-"slug": "mon-chinh",
-"site": "mafamile"
+	"id": "5faa90e1769d470bb513495d",
+	"name": "Món chính",
+	"slug": "mon-chinh",
+	"site": "mafamile"
 },
 "name": "Phi lê bò",
-"price": 329000,
+"price": [329000],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016370/mvbhelcgpw8eodjvmzdf.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -198,13 +198,13 @@
 {
 "id": "5faa9b45769d470bb5134970",
 "category": {
-"id": "5faa90e1769d470bb513495d",
-"name": "Món chính",
-"slug": "mon-chinh",
-"site": "mafamile"
+	"id": "5faa90e1769d470bb513495d",
+	"name": "Món chính",
+	"slug": "mon-chinh",
+	"site": "mafamile"
 },
 "name": "Đầu thăn ngoại",
-"price": 229000,
+"price": [229000],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016388/ykvmri4sr1n9heqnzeja.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -212,13 +212,13 @@
 {
 "id": "5faa9b5a769d470bb5134971",
 "category": {
-"id": "5faa90e1769d470bb513495d",
-"name": "Món chính",
-"slug": "mon-chinh",
-"site": "mafamile"
+	"id": "5faa90e1769d470bb513495d",
+	"name": "Món chính",
+	"slug": "mon-chinh",
+	"site": "mafamile"
 },
 "name": "Beefsteak",
-"price": 149000,
+"price": [149000],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016409/muxokhmvuka7deeump9h.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -226,13 +226,13 @@
 {
 "id": "5faa9b77769d470bb5134972",
 "category": {
-"id": "5faa90e1769d470bb513495d",
-"name": "Món chính",
-"slug": "mon-chinh",
-"site": "mafamile"
+	"id": "5faa90e1769d470bb513495d",
+	"name": "Món chính",
+	"slug": "mon-chinh",
+	"site": "mafamile"
 },
 "name": "Khối phi lê bò",
-"price": 999000,
+"price": [999000],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016439/ej9hz9gcim4pwyssicjl.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -240,13 +240,13 @@
 {
 "id": "5faa9b8d769d470bb5134973",
 "category": {
-"id": "5faa90e1769d470bb513495d",
-"name": "Món chính",
-"slug": "mon-chinh",
-"site": "mafamile"
+	"id": "5faa90e1769d470bb513495d",
+	"name": "Món chính",
+	"slug": "mon-chinh",
+	"site": "mafamile"
 },
 "name": "Ứt vịt áp chảo",
-"price": 179000,
+"price": [179000],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016460/zcspwhamb5owjqmo66b9.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -254,13 +254,13 @@
 {
 "id": "5faa9b9f769d470bb5134974",
 "category": {
-"id": "5faa90e1769d470bb513495d",
-"name": "Món chính",
-"slug": "mon-chinh",
-"site": "mafamile"
+	"id": "5faa90e1769d470bb513495d",
+	"name": "Món chính",
+	"slug": "mon-chinh",
+	"site": "mafamile"
 },
 "name": "Sốt thêm",
-"price": 20000,
+"price": [20000],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016479/qzmh1sqlp95okb6sksmz.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -268,13 +268,13 @@
 {
 "id": "5faa9bb0769d470bb5134975",
 "category": {
-"id": "5faa90eb769d470bb513495e",
-"name": "Salad",
-"slug": "salad",
-"site": "mafamile"
+	"id": "5faa90eb769d470bb513495e",
+	"name": "Salad",
+	"slug": "salad",
+	"site": "mafamile"
 },
 "name": "Salad trứng",
-"price": 55000,
+"price": [55000],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016496/ucy7sk6obly8hmblxsdr.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -282,13 +282,13 @@
 {
 "id": "5faa9bc2769d470bb5134976",
 "category": {
-"id": "5faa90eb769d470bb513495e",
-"name": "Salad",
-"slug": "salad",
-"site": "mafamile"
+	"id": "5faa90eb769d470bb513495e",
+	"name": "Salad",
+	"slug": "salad",
+	"site": "mafamile"
 },
 "name": "Salad cá ngừ",
-"price": 59000,
+"price": [59000],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016514/nxxh5uvha6evv8mfypa0.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -296,13 +296,13 @@
 {
 "id": "5faa9bd4769d470bb5134977",
 "category": {
-"id": "5faa90eb769d470bb513495e",
-"name": "Salad",
-"slug": "salad",
-"site": "mafamile"
+	"id": "5faa90eb769d470bb513495e",
+	"name": "Salad",
+	"slug": "salad",
+	"site": "mafamile"
 },
 "name": "Salad hải sản",
-"price": 79000,
+"price": [79000],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016532/xbjdsc8jxxoubbdruwgw.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -310,13 +310,13 @@
 {
 "id": "5faa9bec769d470bb5134978",
 "category": {
-"id": "5faa90eb769d470bb513495e",
-"name": "Salad",
-"slug": "salad",
-"site": "mafamile"
+	"id": "5faa90eb769d470bb513495e",
+	"name": "Salad",
+	"slug": "salad",
+	"site": "mafamile"
 },
 "name": "Parma ham salad",
-"price": 79000,
+"price": [79000],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016555/ffqovjopzgzpk95rmmnk.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -324,13 +324,13 @@
 {
 "id": "5faa9bff769d470bb5134979",
 "category": {
-"id": "5faa90eb769d470bb513495e",
-"name": "Salad",
-"slug": "salad",
-"site": "mafamile"
+	"id": "5faa90eb769d470bb513495e",
+	"name": "Salad",
+	"slug": "salad",
+	"site": "mafamile"
 },
 "name": "Salad cá hồi xông khói",
-"price": 79000,
+"price": [79000],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016574/pay4b0ktek1f1wtr3pl4.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -338,13 +338,13 @@
 {
 "id": "5faa9c1a769d470bb513497a",
 "category": {
-"id": "5faa90eb769d470bb513495e",
-"name": "Salad",
-"slug": "salad",
-"site": "mafamile"
+	"id": "5faa90eb769d470bb513495e",
+	"name": "Salad",
+	"slug": "salad",
+	"site": "mafamile"
 },
 "name": "Ma Famile Steak Salad",
-"price": 129000,
+"price": [129000],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016602/f7p2nz9t5v1twfv69w07.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -352,13 +352,13 @@
 {
 "id": "5faa9c5a769d470bb513497b",
 "category": {
-"id": "5faa912c769d470bb513495f",
-"name": "Spaghetti",
-"slug": "spaghetti",
-"site": "mafamile"
+	"id": "5faa912c769d470bb513495f",
+	"name": "Spaghetti",
+	"slug": "spaghetti",
+	"site": "mafamile"
 },
 "name": "Mì bò bằm",
-"price": 89000,
+"price": [89000],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016665/laneedqydlbmr43uet5r.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -366,13 +366,13 @@
 {
 "id": "5faa9c6e769d470bb513497c",
 "category": {
-"id": "5faa912c769d470bb513495f",
-"name": "Spaghetti",
-"slug": "spaghetti",
-"site": "mafamile"
+	"id": "5faa912c769d470bb513495f",
+	"name": "Spaghetti",
+	"slug": "spaghetti",
+	"site": "mafamile"
 },
 "name": "Mì cá hồi xông khói",
-"price": 89000,
+"price": [89000],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016685/ol7447retpbfsfuo93ss.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -380,13 +380,13 @@
 {
 "id": "5faa9c81769d470bb513497d",
 "category": {
-"id": "5faa912c769d470bb513495f",
-"name": "Spaghetti",
-"slug": "spaghetti",
-"site": "mafamile"
+	"id": "5faa912c769d470bb513495f",
+	"name": "Spaghetti",
+	"slug": "spaghetti",
+	"site": "mafamile"
 },
 "name": "Mì nấm",
-"price": 89000,
+"price": [89000],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016704/scwkg8itoersgnxx4dms.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -394,13 +394,13 @@
 {
 "id": "5faa9c95769d470bb513497e",
 "category": {
-"id": "5faa912c769d470bb513495f",
-"name": "Spaghetti",
-"slug": "spaghetti",
-"site": "mafamile"
+	"id": "5faa912c769d470bb513495f",
+	"name": "Spaghetti",
+	"slug": "spaghetti",
+	"site": "mafamile"
 },
 "name": "Mì kem trứng",
-"price": 89000,
+"price": [89000],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016724/cloezchheknnfjar4odu.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -408,13 +408,13 @@
 {
 "id": "5faa9ca7769d470bb513497f",
 "category": {
-"id": "5faa912c769d470bb513495f",
-"name": "Spaghetti",
-"slug": "spaghetti",
-"site": "mafamile"
+	"id": "5faa912c769d470bb513495f",
+	"name": "Spaghetti",
+	"slug": "spaghetti",
+	"site": "mafamile"
 },
 "name": "Mì hải sản",
-"price": 89000,
+"price": [89000],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016743/oona06squalw8wcpttqe.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -422,13 +422,13 @@
 {
 "id": "5faa9cc1769d470bb5134980",
 "category": {
-"id": "5faa912c769d470bb513495f",
-"name": "Spaghetti",
-"slug": "spaghetti",
-"site": "mafamile"
+	"id": "5faa912c769d470bb513495f",
+	"name": "Spaghetti",
+	"slug": "spaghetti",
+	"site": "mafamile"
 },
 "name": "Mì cua kem phô mai",
-"price": 179000,
+"price": [179000],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016768/hghvgvasrakyg1uo3dr7.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -436,13 +436,13 @@
 {
 "id": "5faa9cd4769d470bb5134981",
 "category": {
-"id": "5faa912c769d470bb513495f",
-"name": "Spaghetti",
-"slug": "spaghetti",
-"site": "mafamile"
+	"id": "5faa912c769d470bb513495f",
+	"name": "Spaghetti",
+	"slug": "spaghetti",
+	"site": "mafamile"
 },
 "name": "Lasagna",
-"price": 99000,
+"price": [99000],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016787/ung3ezrseofkaou63uws.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -450,13 +450,13 @@
 {
 "id": "5faa9ce8769d470bb5134982",
 "category": {
-"id": "5faa912c769d470bb513495f",
-"name": "Spaghetti",
-"slug": "spaghetti",
-"site": "mafamile"
+	"id": "5faa912c769d470bb513495f",
+	"name": "Spaghetti",
+	"slug": "spaghetti",
+	"site": "mafamile"
 },
 "name": "Mì ống đút lò phô mai",
-"price": 89000,
+"price": [89000],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016808/cjlv3sgjigcr0auevuqp.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -464,13 +464,13 @@
 {
 "id": "5faa9d1d769d470bb5134983",
 "category": {
-"id": "5faa9143769d470bb5134960",
-"name": "Tráng miệng",
-"slug": "trang-mieng",
-"site": "mafamile"
+	"id": "5faa9143769d470bb5134960",
+	"name": "Tráng miệng",
+	"slug": "trang-mieng",
+	"site": "mafamile"
 },
 "name": "Mousse Choco",
-"price": 39000,
+"price": [39000],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016860/ey51wseswwmfkxyzoxk6.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -478,13 +478,13 @@
 {
 "id": "5faa9d34769d470bb5134984",
 "category": {
-"id": "5faa9143769d470bb5134960",
-"name": "Tráng miệng",
-"slug": "trang-mieng",
-"site": "mafamile"
+	"id": "5faa9143769d470bb5134960",
+	"name": "Tráng miệng",
+	"slug": "trang-mieng",
+	"site": "mafamile"
 },
 "name": "Yogurt",
-"price": 39000,
+"price": [39000],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605016883/exrobvan001vzfcsnp8h.png",
 "additionInformation": null,
 "site": "mafamile"
@@ -492,13 +492,13 @@
 {
 "id": "5faba34c937ee807eed02f00",
 "category": {
-"id": "5faa912c769d470bb513495f",
-"name": "Spaghetti",
-"slug": "spaghetti",
-"site": "mafamile"
+	"id": "5faa912c769d470bb513495f",
+	"name": "Spaghetti",
+	"slug": "spaghetti",
+	"site": "mafamile"
 },
 "name": "HUYNH TAN KY (In Mafamile)",
-"price": 1250000,
+"price": [1250000],
 "image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605083979/f4uytfqm2hqqltdpnmd7.jpg",
 "additionInformation": null,
 "site": "mafamile"
