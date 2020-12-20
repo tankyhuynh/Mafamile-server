@@ -1,458 +1,345 @@
 [
-  {
-    "id": "5f81250a1b20876ce7486499",
-    "category": {
-    "id": "5f811e8fd558290ea7fa94f8",
-    "name": "ĂN VẶT",
-    "slug": "an-vat"
-  },
-    "name": "Gà Viên + Bánh Gạo Giòn Cay",
-    "price": 19000,
-    "image": "https://res.cloudinary.com/dbqzpdgpi/image/upload/v1604415181/G%C3%A0_Vi%C3%AAn_B%C3%A1nh_G%E1%BA%A1o_Gi%C3%B2n_Cay_obmdml.jpg",
-    "site": "amia"
-  },
-  {
-    "id": "5f81250a1b20876ce748649a",
-    "category": {
-    "id": "5f811e8fd558290ea7fa94f8",
-    "name": "ĂN VẶT",
-    "slug": "an-vat"
-  },
-    "name": "Bánh Gạo Chả Cá Nhà Làm",
-    "price": 19000,
-    "image": "https://res.cloudinary.com/dbqzpdgpi/image/upload/v1604415179/B%C3%A1nh_G%E1%BA%A1o_Ch%E1%BA%A3_C%C3%A1_Nh%C3%A0_L%C3%A0m_ail0gv.jpg",
-    "site": "amia"
-  },
-  {
-    "id": "5f81250a1b20876ce748649c",
-    "category": {
-    "id": "5f811e8fd558290ea7fa94f8",
-    "name": "ĂN VẶT",
-    "slug": "an-vat"
-  },
-    "name": "Bánh gạo luộc thêm",
-    "price": 5000,
-    "image": "https://res.cloudinary.com/dbqzpdgpi/image/upload/v1604415179/B%C3%A1nh_g%E1%BA%A1o_lu%E1%BB%99c_th%C3%AAm_ncnc2i.jpg",
-    "site": "amia"
-  },
-  {
-    "id": "5f81269f1b20876ce748649d",
-    "category": {
-    "id": "5f811e90d558290ea7fa94f9",
-    "name": "CAKE",
-    "slug": "cake"
-  },
-    "name": "Pastry Đào",
-    "price": 19000,
-    "image": "https://res.cloudinary.com/dbqzpdgpi/image/upload/v1604415183/Pastry_%C4%90%C3%A0o_afnmc4.jpg",
-    "site": "amia"
-  },
-  {
-    "id": "5f81269f1b20876ce748649e",
-    "category": {
-    "id": "5f811e90d558290ea7fa94f9",
-    "name": "CAKE",
-    "slug": "cake"
-  },
-    "name": "Pastry Dâu",
-    "price": 19000,
-    "image": "https://res.cloudinary.com/dbqzpdgpi/image/upload/v1604415183/Pastry_D%C3%A2u_ujak6v.jpg",
-    "site": "amia"
-  },
-  {
-    "id": "5f81269f1b20876ce748649f",
-    "category": {
-    "id": "5f811e90d558290ea7fa94f9",
-    "name": "CAKE",
-    "slug": "cake"
-  },
-    "name": "CROISSANT TRỨNG MUỐI",
-    "price": 25000,
-    "image": "https://res.cloudinary.com/dbqzpdgpi/image/upload/v1604415180/CROISSANT_TR%E1%BB%A8NG_MU%E1%BB%90I_tggeuv.jpg",
-    "site": "amia"
-  },
-  {
-    "id": "5f81269f1b20876ce74864a0",
-    "category": {
-    "id": "5f811e90d558290ea7fa94f9",
-    "name": "CAKE",
-    "slug": "cake"
-  },
-    "name": "CROISSANT",
-    "price": 19000,
-    "image": "https://res.cloudinary.com/dbqzpdgpi/image/upload/v1604415180/CROISSANT_gzrw5a.jpg",
-    "site": "amia"
-  },
-  {
-    "id": "5f81269f1b20876ce74864a1",
-    "category": {
-    "id": "5f811e90d558290ea7fa94f9",
-    "name": "CAKE",
-    "slug": "cake"
-  },
-    "name": "Bánh mì Xúc Xích",
-    "price": 19000,
-    "image": "https://res.cloudinary.com/dbqzpdgpi/image/upload/v1604415179/B%C3%A1nh_m%C3%AC_X%C3%BAc_X%C3%ADch_ggpse1.jpg",
-    "site": "amia"
-  },
-  {
-    "id": "5f81269f1b20876ce74864a2",
-    "category": {
-    "id": "5f811e90d558290ea7fa94f9",
-    "name": "CAKE",
-    "slug": "cake"
-  },
-    "name": "Bánh mì Tổ Cút",
-    "price": 19000,
-    "image": "https://res.cloudinary.com/dbqzpdgpi/image/upload/v1604415179/B%C3%A1nh_m%C3%AC_T%E1%BB%95_C%C3%BAt_diuldh.jpg",
-    "site": "amia"
-  },
-  {
-    "id": "5f81269f1b20876ce74864a3",
-    "category": {
-    "id": "5f811e90d558290ea7fa94fa",
-    "name": "SPECIAL TEA",
-    "slug": "special-tea"
-  },
-    "name": "TRÀ ĐÀO CAM SẢ (L)",
-    "price": 39000,
-    "image": "https://res.cloudinary.com/dbqzpdgpi/image/upload/v1604415185/TR%C3%80_CAM_%C4%90%C3%80O_L_ep2qlz.jpg",
-    "site": "amia"
-  },
-  {
-    "id": "5f81269f1b20876ce74864a4",
-    "category": {
-    "id": "5f811e90d558290ea7fa94fa",
-    "name": "SPECIAL TEA",
-    "slug": "special-tea"
-  },
-    "name": "TRÀ CAM ĐÀO (L)",
-    "price": 37000,
-    "image": "https://res.cloudinary.com/dbqzpdgpi/image/upload/v1604415185/TR%C3%80_CAM_%C4%90%C3%80O_L_ep2qlz.jpg",
-    "site": "amia"
-  },
-  {
-    "id": "5f81269f1b20876ce74864a5",
-    "category": {
-    "id": "5f811e90d558290ea7fa94fa",
-    "name": "SPECIAL TEA",
-    "slug": "special-tea"
-  },
-    "name": "TRÀ CAM BERRY (L)",
-    "price": 35000,
-    "image": "https://res.cloudinary.com/dbqzpdgpi/image/upload/v1604415184/TR%C3%80_CAM_BERRY_L_xnouaw.jpg",
-    "site": "amia"
-  },
-  {
-    "id": "5f81269f1b20876ce74864a6",
-    "category": {
-    "id": "5f811e90d558290ea7fa94fa",
-    "name": "SPECIAL TEA",
-    "slug": "special-tea"
-  },
-    "name": "TRÀ OLONG VẢI (L)",
-    "price": 35000,
-    "image": "https://res.cloudinary.com/dbqzpdgpi/image/upload/v1604415186/TR%C3%80_OLONG_V%E1%BA%A2I_L_cg01wv.jpg",
-    "site": "amia"
-  },
-  {
-    "id": "5f81269f1b20876ce74864a7",
-    "category": {
-    "id": "5f811e90d558290ea7fa94fa",
-    "name": "SPECIAL TEA",
-    "slug": "special-tea"
-  },
-    "name": "TRÀ NHÀI VẢI (L)",
-    "price": 35000,
-    "image": "https://res.cloudinary.com/dbqzpdgpi/image/upload/v1604415185/TR%C3%80_NH%C3%80I_V%E1%BA%A2I_L_xydpb4.jpg",
-    "site": "amia"
-  },
-  {
-    "id": "5f81269f1b20876ce74864a8",
-    "category": {
-    "id": "5f811e90d558290ea7fa94fa",
-    "name": "SPECIAL TEA",
-    "slug": "special-tea"
-  },
-    "name": "TRÀ OLONG ĐÀO (L)",
-    "price": 35000,
-    "image": "https://res.cloudinary.com/dbqzpdgpi/image/upload/v1604415186/TR%C3%80_OLONG_%C4%90%C3%80O_L_mlsn3t.jpg",
-    "site": "amia"
-  },
-  {
-    "id": "5f81269f1b20876ce74864a9",
-    "category": {
-    "id": "5f811e90d558290ea7fa94fa",
-    "name": "SPECIAL TEA",
-    "slug": "special-tea"
-  },
-    "name": "TRÀ BERRY CAM SẢ (L)",
-    "price": 37000,
-    "image": "https://res.cloudinary.com/dbqzpdgpi/image/upload/v1604415184/TR%C3%80_BERRY_CAM_S%E1%BA%A2_L_yau1c6.jpg",
-    "site": "amia"
-  },
-  {
-    "id": "5f8129601b20876ce74864aa",
-    "category": {
-    "id": "5f811e90d558290ea7fa94fb",
-    "name": "MILK TEA",
-    "slug": "milk-tea"
-  },
-    "name": "TRÀ SỮA HONGKONG",
-    "price": 32000,
-    "image": "https://res.cloudinary.com/dbqzpdgpi/image/upload/v1604415185/TR%C3%80_S%E1%BB%AEA_HONGKONG_lfzecu.jpg",
-    "site": "amia"
-  },
-  {
-    "id": "5f8129601b20876ce74864ab",
-    "category": {
-    "id": "5f811e90d558290ea7fa94fb",
-    "name": "MILK TEA",
-    "slug": "milk-tea"
-  },
-    "name": "TRÀ SỮA MATCHA NHẬT",
-    "price": 32000,
-    "image": "https://res.cloudinary.com/dbqzpdgpi/image/upload/v1604415185/TR%C3%80_S%E1%BB%AEA_MATCHA_NH%E1%BA%ACT_z1glex.jpg",
-    "site": "amia"
-  },
-  {
-    "id": "5f8129601b20876ce74864ad",
-    "category": {
-    "id": "5f811e90d558290ea7fa94fb",
-    "name": "MILK TEA",
-    "slug": "milk-tea"
-  },
-    "name": "NHÀI SỮA TƯƠI",
-    "price": 29000,
-    "image": "https://res.cloudinary.com/dbqzpdgpi/image/upload/v1604415182/NH%C3%80I_S%E1%BB%AEA_T%C6%AF%C6%A0I_s5gb9j.jpg",
-    "site": "amia"
-  },
-  {
-    "id": "5f8129601b20876ce74864ae",
-    "category": {
-    "id": "5f811e90d558290ea7fa94fb",
-    "name": "MILK TEA",
-    "slug": "milk-tea"
-  },
-    "name": "OLONG SỮA TƯƠI",
-    "price": 29000,
-    "image": "https://res.cloudinary.com/dbqzpdgpi/image/upload/v1604415186/OLONG_S%E1%BB%AEA_T%C6%AF%C6%A0I_ccsjm5.jpg",
-    "site": "amia"
-  },
-  {
-    "id": "5f8129601b20876ce74864af",
-    "category": {
-    "id": "5f811e90d558290ea7fa94fb",
-    "name": "MILK TEA",
-    "slug": "milk-tea"
-  },
-    "name": "KIỀU MẠCH SỮA",
-    "price": 32000,
-    "image": "https://res.cloudinary.com/dbqzpdgpi/image/upload/v1604415182/KI%E1%BB%80U_M%E1%BA%A0CH_S%E1%BB%AEA_eenfho.jpg",
-    "site": "amia"
-  },
-  {
-    "id": "5f8129601b20876ce74864b0",
-    "category": {
-    "id": "5f811e90d558290ea7fa94fc",
-    "name": "TOPPING",
-    "slug": "topping"
-  },
-    "name": "Pudding trứng",
-    "price": 5000,
-    "image": "https://res.cloudinary.com/dbqzpdgpi/image/upload/v1604415184/Pudding_tr%E1%BB%A9ng_fbfqgv.jpg",
-    "site": "amia"
-  },
-  {
-    "id": "5f8129601b20876ce74864b1",
-    "category": {
-    "id": "5f811e90d558290ea7fa94fc",
-    "name": "TOPPING",
-    "slug": "topping"
-  },
-    "name": "Củ năng",
-    "price": 6000,
-    "image": "https://res.cloudinary.com/dbqzpdgpi/image/upload/v1604415181/C%E1%BB%A7_n%C4%83ng_zockzc.jpg",
-    "site": "amia"
-  },
-  {
-    "id": "5f8129601b20876ce74864b2",
-    "category": {
-    "id": "5f811e90d558290ea7fa94fc",
-    "name": "TOPPING",
-    "slug": "topping"
-  },
-    "name": "Pudding chocolate",
-    "price": 5000,
-    "image": "https://res.cloudinary.com/dbqzpdgpi/image/upload/v1604415183/Pudding_chocolate_ahrjc8.jpg",
-    "site": "amia"
-  },
-  {
-    "id": "5f8129601b20876ce74864b3",
-    "category": {
-    "id": "5f811e90d558290ea7fa94fc",
-    "name": "TOPPING",
-    "slug": "topping"
-  },
-    "name": "Thạch Phomai",
-    "price": 6000,
-    "image": "https://res.cloudinary.com/dbqzpdgpi/image/upload/v1604415184/Th%E1%BA%A1ch_Phomai_mobqks.jpg",
-    "site": "amia"
-  },
-  {
-    "id": "5f8129601b20876ce74864b4",
-    "category": {
-    "id": "5f811e90d558290ea7fa94fc",
-    "name": "TOPPING",
-    "slug": "topping"
-  },
-    "name": "ĐÀO THÊM",
-    "price": 7000,
-    "image": "https://res.cloudinary.com/dbqzpdgpi/image/upload/v1604415180/%C4%90%C3%80O_TH%C3%8AM_xyl5vu.png",
-    "site": "amia"
-  },
-  {
-    "id": "5f8129601b20876ce74864b5",
-    "category": {
-    "id": "5f811e90d558290ea7fa94fc",
-    "name": "TOPPING",
-    "slug": "topping"
-  },
-    "name": "Khoai dẻo",
-    "price": 6000,
-    "image": "https://res.cloudinary.com/dbqzpdgpi/image/upload/v1604415182/Khoai_d%E1%BA%BBo_lz3cjb.png",
-    "site": "amia"
-  },
-  {
-    "id": "5f8129601b20876ce74864b7",
-    "category": {
-    "id": "5f811e90d558290ea7fa94fc",
-    "name": "TOPPING",
-    "slug": "topping"
-  },
-    "name": "Hạt sen",
-    "price": 6000,
-    "image": "https://res.cloudinary.com/dbqzpdgpi/image/upload/v1604415181/H%E1%BA%A1t_sen_yse1jr.png",
-    "site": "amia"
-  },
-  {
-    "id": "5f8129601b20876ce74864b6",
-    "category": {
-    "id": "5f811e90d558290ea7fa94fc",
-    "name": "TOPPING",
-    "slug": "topping"
-  },
-    "name": "KEM PHÔ MAI",
-    "price": 7000,
-    "image": "https://res.cloudinary.com/dbqzpdgpi/image/upload/v1604415182/KEM_PH%C3%94_MAI_flsyr0.jpg",
-    "site": "amia"
-  },
-  {
-    "id": "5f8129601b20876ce74864b8",
-    "category": {
-    "id": "5f811e90d558290ea7fa94fc",
-    "name": "TOPPING",
-    "slug": "topping"
-  },
-    "name": "Sương sáo",
-    "price": 4000,
-    "image": "https://res.cloudinary.com/dbqzpdgpi/image/upload/v1604415184/S%C6%B0%C6%A1ng_s%C3%A1o_nw9eip.jpg",
-    "site": "amia"
-  },
-  {
-    "id": "5f8129601b20876ce74864b9",
-    "category": {
-    "id": "5f811e90d558290ea7fa94fc",
-    "name": "TOPPING",
-    "slug": "topping"
-  },
-    "name": "VẢI THÊM",
-    "price": 7000,
-    "image": "https://res.cloudinary.com/dbqzpdgpi/image/upload/v1604415186/V%E1%BA%A2I_TH%C3%8AM_iadgra.png",
-    "site": "amia"
-  },
-  {
-    "id": "5f8129601b20876ce74864ba",
-    "category": {
-    "id": "5f811e90d558290ea7fa94fd",
-    "name": "TRÀ NGUYÊN VỊ",
-    "slug": "tra-nguyen-vi"
-  },
-    "name": "HỒNG TRÀ HẠT SEN",
-    "price": 32000,
-    "image": "https://res.cloudinary.com/dbqzpdgpi/image/upload/v1604415181/H%E1%BB%92NG_TR%C3%80_H%E1%BA%A0T_SEN_yeunli.jpg",
-    "site": "amia"
-  },
-  {
-    "id": "5f8129601b20876ce74864bb",
-    "category": {
-    "id": "5f811e90d558290ea7fa94fd",
-    "name": "TRÀ NGUYÊN VỊ",
-    "slug": "tra-nguyen-vi"
-  },
-    "name": "KIỀU MẠCH HẠT SEN",
-    "price": 32000,
-    "image": "https://res.cloudinary.com/dbqzpdgpi/image/upload/v1604415182/KI%E1%BB%80U_M%E1%BA%A0CH_H%E1%BA%A0T_SEN_edidql.jpg",
-    "site": "amia"
-  },
-  {
-    "id": "5f8129601b20876ce74864bc",
-    "category": {
-    "id": "5f811e90d558290ea7fa94fd",
-    "name": "TRÀ NGUYÊN VỊ",
-    "slug": "tra-nguyen-vi"
-  },
-    "name": "OLONG HẠT SEN",
-    "price": 32000,
-    "image": "https://res.cloudinary.com/dbqzpdgpi/image/upload/v1604415183/OLONG_H%E1%BA%A0T_SEN_r3eynu.jpg",
-    "site": "amia"
-  },
-  {
-    "id": "5f8129601b20876ce74864bd",
-    "category": {
-    "id": "5f811e90d558290ea7fa94fd",
-    "name": "TRÀ NGUYÊN VỊ",
-    "slug": "tra-nguyen-vi"
-  },
-    "name": "NHÀI HẠT SEN",
-    "price": 32000,
-    "image": "https://res.cloudinary.com/dbqzpdgpi/image/upload/v1604415182/NH%C3%80I_H%E1%BA%A0T_SEN_lxmgz5.jpg",
-    "site": "amia"
-  },
-  {
-    "id": "5f8129601b20876ce74864be",
-    "category": {
-    "id": "5f811e90d558290ea7fa94fe",
-    "name": "CÀ PHÊ VIỆT NAM",
-    "slug": "ca-phe-viet-nam"
-  },
-    "name": "BẠC XỈU",
-    "price": 29000,
-    "image": "https://res.cloudinary.com/dbqzpdgpi/image/upload/v1604415179/B%E1%BA%A0C_X%E1%BB%88U_olfmek.jpg",
-    "site": "amia"
-  },
-  {
-    "id": "5f8129601b20876ce74864bf",
-    "category": {
-    "id": "5f811e90d558290ea7fa94fe",
-    "name": "CÀ PHÊ VIỆT NAM",
-    "slug": "ca-phe-viet-nam"
-  },
-    "name": "CÀ PHÊ SỮA",
-    "price": 24000,
-    "image": "https://res.cloudinary.com/dbqzpdgpi/image/upload/v1604415180/C%C3%80_PH%C3%8A_S%E1%BB%AEA_trghdp.jpg",
-    "site": "amia"
-  },
-  {
-    "id": "5f8129601b20876ce74864c1",
-    "category": {
-    "id": "5f811e90d558290ea7fa94fe",
-    "name": "CÀ PHÊ VIỆT NAM",
-    "slug": "ca-phe-viet-nam"
-  },
-    "name": "CÀ PHÊ ĐEN",
-    "price": 20000,
-    "image": "https://res.cloudinary.com/dbqzpdgpi/image/upload/v1604415180/C%C3%80_PH%C3%8A_%C4%90EN_oayto7.jpg",
-    "site": "amia"
-  }
+{
+"id": "5faab868769d470bb513498a",
+"category": {
+"id": "5faab703769d470bb5134985",
+"name": "Cà phê rang củi",
+"slug": "ca-phe-rang-cui",
+"site": "amia"
+},
+"name": "Cà phê (Đá/Nóng)",
+"price": [
+20000
+],
+"image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605023846/npgemuwtvar9xo2zsbxm.png",
+"additionInformation": null,
+"site": "amia"
+},
+{
+"id": "5faab892769d470bb513498b",
+"category": {
+"id": "5faab703769d470bb5134985",
+"name": "Cà phê rang củi",
+"slug": "ca-phe-rang-cui",
+"site": "amia"
+},
+"name": "Cà phê sữa (Đá/Nóng)",
+"price": [
+24000
+],
+"image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605023889/m6hzjxcafsuwdvydx559.png",
+"additionInformation": null,
+"site": "amia"
+},
+{
+"id": "5faab8b5769d470bb513498c",
+"category": {
+"id": "5faab703769d470bb5134985",
+"name": "Cà phê rang củi",
+"slug": "ca-phe-rang-cui",
+"site": "amia"
+},
+"name": "Bạc xỉu (Đá/Nóng)",
+"price": [
+29000
+],
+"image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605023924/ktlskrc6x66vo8y2kwmk.png",
+"additionInformation": null,
+"site": "amia"
+},
+{
+"id": "5faab8cd769d470bb513498d",
+"category": {
+"id": "5faab753769d470bb5134986",
+"name": "Trà nguyên vị",
+"slug": "tra-nguyen-vi",
+"site": "amia"
+},
+"name": "Kiều mạch hạt sen",
+"price": [
+32000
+],
+"image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605023948/vlwdrmlzupncjutvruj2.png",
+"additionInformation": null,
+"site": "amia"
+},
+{
+"id": "5faab8ed769d470bb513498e",
+"category": {
+"id": "5faab753769d470bb5134986",
+"name": "Trà nguyên vị",
+"slug": "tra-nguyen-vi",
+"site": "amia"
+},
+"name": "Olong hạt sen",
+"price": [
+32000
+],
+"image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605023981/sqobrsszk2rbn0en3yfb.png",
+"additionInformation": null,
+"site": "amia"
+},
+{
+"id": "5faab905769d470bb513498f",
+"category": {
+"id": "5faab753769d470bb5134986",
+"name": "Trà nguyên vị",
+"slug": "tra-nguyen-vi",
+"site": "amia"
+},
+"name": "Nhài hạt sen",
+"price": [
+32000
+],
+"image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605024004/msjafsgynpomn2dwixuu.png",
+"additionInformation": null,
+"site": "amia"
+},
+{
+"id": "5faab924769d470bb5134990",
+"category": {
+"id": "5faab76b769d470bb5134987",
+"name": "Trà nóng",
+"slug": "tra-nong",
+"site": "amia"
+},
+"name": "Trà kiều mạch",
+"price": [
+32000
+],
+"image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605024035/vnj9x1xw1zebbjhwjufh.png",
+"additionInformation": null,
+"site": "amia"
+},
+{
+"id": "5faab937769d470bb5134991",
+"category": {
+"id": "5faab76b769d470bb5134987",
+"name": "Trà nóng",
+"slug": "tra-nong",
+"site": "amia"
+},
+"name": "Trà lài",
+"price": [
+32000
+],
+"image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605024054/k2dsk3liy4fjlymkjr19.png",
+"additionInformation": null,
+"site": "amia"
+},
+{
+"id": "5faab952769d470bb5134992",
+"category": {
+"id": "5faab780769d470bb5134988",
+"name": "Trà sữa tươi",
+"slug": "tra-sua-tuoi",
+"site": "amia"
+},
+"name": "Olong sữa tươi",
+"price": [
+29000
+],
+"image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605024082/oa6ul9arhepsev1a9l2d.png",
+"additionInformation": null,
+"site": "amia"
+},
+{
+"id": "5faab972769d470bb5134993",
+"category": {
+"id": "5faab780769d470bb5134988",
+"name": "Trà sữa tươi",
+"slug": "tra-sua-tuoi",
+"site": "amia"
+},
+"name": "Nhài sữa tươi",
+"price": [
+29000
+],
+"image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605024114/flu8i9tls0hlchtpffc5.png",
+"additionInformation": null,
+"site": "amia"
+},
+{
+"id": "5faab9be769d470bb5134994",
+"category": {
+"id": "5faab780769d470bb5134988",
+"name": "Trà sữa tươi",
+"slug": "tra-sua-tuoi",
+"site": "amia"
+},
+"name": "Kiều mạch sữa tươi",
+"price": [
+32000
+],
+"image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605024189/m2lwm67xsootcrmytk6d.png",
+"additionInformation": null,
+"site": "amia"
+},
+{
+"id": "5faab9e1769d470bb5134995",
+"category": {
+"id": "5faab780769d470bb5134988",
+"name": "Trà sữa tươi",
+"slug": "tra-sua-tuoi",
+"site": "amia"
+},
+"name": "Trà sữa tươi Houjicha",
+"price": [
+32000
+],
+"image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605024224/hdqayqsqh3dspt9uz0dz.png",
+"additionInformation": null,
+"site": "amia"
+},
+{
+"id": "5faaba52769d470bb5134996",
+"category": {
+"id": "5faab7a5769d470bb5134989",
+"name": "Trà đặc biệt",
+"slug": "tra-dac-biet",
+"site": "amia"
+},
+"name": "Trà cam quýt",
+"price": [
+37000
+],
+"image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605024338/gvil2klvm9i60675munv.png",
+"additionInformation": null,
+"site": "amia"
+},
+{
+"id": "5faabaa6769d470bb5134997",
+"category": {
+"id": "5faab7a5769d470bb5134989",
+"name": "Trà đặc biệt",
+"slug": "tra-dac-biet",
+"site": "amia"
+},
+"name": "Trà olong đào",
+"price": [
+29000
+],
+"image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605024421/fgklfj4foyvhd1plk1ut.png",
+"additionInformation": null,
+"site": "amia"
+},
+{
+"id": "5faabab9769d470bb5134998",
+"category": {
+"id": "5faab7a5769d470bb5134989",
+"name": "Trà đặc biệt",
+"slug": "tra-dac-biet",
+"site": "amia"
+},
+"name": "Trà cam đào",
+"price": [
+29000
+],
+"image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605024440/lui0rklwfcibynye3gwx.png",
+"additionInformation": null,
+"site": "amia"
+},
+{
+"id": "5faabacc769d470bb5134999",
+"category": {
+"id": "5faab7a5769d470bb5134989",
+"name": "Trà đặc biệt",
+"slug": "tra-dac-biet",
+"site": "amia"
+},
+"name": "Trà cam berry",
+"price": [
+29000
+],
+"image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605024460/swxxizxkhiayv9g4sqbu.png",
+"additionInformation": null,
+"site": "amia"
+},
+{
+"id": "5faabae5769d470bb513499a",
+"category": {
+"id": "5faab7a5769d470bb5134989",
+"name": "Trà đặc biệt",
+"slug": "tra-dac-biet",
+"site": "amia"
+},
+"name": "Trà berry - cam sả",
+"price": [
+37000
+],
+"image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605024485/uvpdewwmujjhn41be6oi.png",
+"additionInformation": null,
+"site": "amia"
+},
+{
+"id": "5faabaff769d470bb513499b",
+"category": {
+"id": "5faab7a5769d470bb5134989",
+"name": "Trà đặc biệt",
+"slug": "tra-dac-biet",
+"site": "amia"
+},
+"name": "Trà đào - cam sả",
+"price": [
+39000
+],
+"image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605024511/foehbxveaetkidl1deah.png",
+"additionInformation": null,
+"site": "amia"
+},
+{
+"id": "5faabb16769d470bb513499c",
+"category": {
+"id": "5faab7a5769d470bb5134989",
+"name": "Trà đặc biệt",
+"slug": "tra-dac-biet",
+"site": "amia"
+},
+"name": "Trà olong vải",
+"price": [
+29000
+],
+"image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605024533/cigrhfa2h54xtqj7q17b.png",
+"additionInformation": null,
+"site": "amia"
+},
+{
+"id": "5faabb30769d470bb513499d",
+"category": {
+"id": "5faab7a5769d470bb5134989",
+"name": "Trà đặc biệt",
+"slug": "tra-dac-biet",
+"site": "amia"
+},
+"name": "Trà nhài vải",
+"price": [
+31000
+],
+"image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1605024559/dwsdgfwvakgrrxr86usj.png",
+"additionInformation": null,
+"site": "amia"
+},
+{
+"id": "5fce3045b53d9674d85659ee",
+"category": {
+"id": "5faab703769d470bb5134985",
+"name": "Cà phê rang củi",
+"slug": "ca-phe-rang-cui",
+"site": "amia"
+},
+"name": "asda",
+"price": [
+{
+"size": "S",
+"price": 19000
+},
+{
+"size": "M",
+"price": 25000
+}
+],
+"image": "http://res.cloudinary.com/dbqzpdgpi/image/upload/v1607348291/lz9oicbg9m1oc5ozklls.png",
+"additionInformation": null,
+"site": "amia"
+}
 ]

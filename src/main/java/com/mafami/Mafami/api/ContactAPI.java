@@ -60,9 +60,10 @@ public class ContactAPI {
 	}
 
 	@PutMapping("/{site}/{id}")
-	public ResponseEntity<ContactEntity> saveOneById(@PathVariable String id, @RequestBody ContactEntity newEntity) {
+	public ResponseEntity<ContactEntity> saveOneById( @PathVariable("site") String site ,@PathVariable("id") String id, @RequestBody ContactEntity newEntity) {
 		ContactEntity oldEntity = contactService.findOneById(id);
 		newEntity.setId(id);
+		newEntity.setSite(site);
 		if (oldEntity != null)
 			return ResponseEntity.ok(contactService.save(newEntity));
 
@@ -74,7 +75,7 @@ public class ContactAPI {
 		contactService.delete(id);
 	}
 
-	@DeleteMapping("/all/{site}")
+	@DeleteMapping("/{site}/all")
 	public void deleteAllBySite(@PathVariable String site) {
 		contactService.deleteAllBySite(site);
 	}
