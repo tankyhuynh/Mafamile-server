@@ -39,7 +39,7 @@ public class CategoryAPI {
 	
 	@GetMapping("/{site}")
 	public ResponseEntity<List<CategoryEntity>> getAllBySite(@PathVariable("site") String site) {
-		return ResponseEntity.ok(categoryService.getAll());
+		return ResponseEntity.ok(categoryService.getAllBySite(site));
 	}
 	
 	@GetMapping("/{site}/{id}")

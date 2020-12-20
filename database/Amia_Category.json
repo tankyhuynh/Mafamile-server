@@ -1,0 +1,32 @@
+[
+  {
+    "id": "5faab703769d470bb5134985",
+    "name": "Cà phê rang củi",
+    "slug": "ca-phe-rang-cui",
+    "site": "amia"
+  },
+  {
+    "id": "5faab753769d470bb5134986",
+    "name": "Trà nguyên vị",
+    "slug": "tra-nguyen-vi",
+    "site": "amia"
+  },
+  {
+    "id": "5faab76b769d470bb5134987",
+    "name": "Trà nóng",
+    "slug": "tra-nong",
+    "site": "amia"
+  },
+  {
+    "id": "5faab780769d470bb5134988",
+    "name": "Trà sữa tươi",
+    "slug": "tra-sua-tuoi",
+    "site": "amia"
+  },
+  {
+    "id": "5faab7a5769d470bb5134989",
+    "name": "Trà đặc biệt",
+    "slug": "tra-dac-biet",
+    "site": "amia"
+  }
+]

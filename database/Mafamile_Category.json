@@ -1,0 +1,32 @@
+[
+  {
+    "id": "5faa53a80ec16a2db7eb696d",
+    "name": "Khai vị",
+    "slug": "khai-vi",
+    "site": "mafamile"
+  },
+  {
+    "id": "5faa90e1769d470bb513495d",
+    "name": "Món chính",
+    "slug": "mon-chinh",
+    "site": "mafamile"
+  },
+  {
+    "id": "5faa90eb769d470bb513495e",
+    "name": "Salad",
+    "slug": "salad",
+    "site": "mafamile"
+  },
+  {
+    "id": "5faa912c769d470bb513495f",
+    "name": "Spaghetti",
+    "slug": "spaghetti",
+    "site": "mafamile"
+  },
+  {
+    "id": "5faa9143769d470bb5134960",
+    "name": "Tráng miệng",
+    "slug": "trang-mieng",
+    "site": "mafamile"
+  }
+]
