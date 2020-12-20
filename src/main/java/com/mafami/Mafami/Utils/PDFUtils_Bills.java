@@ -131,12 +131,9 @@ public class PDFUtils_Bills<T> {
 				table.addCell(orderDateCell);
 				
 				
-				String additionInfo = "";
-				for (String item : bill.getAdditionInformation() ) {
-					additionInfo += item + "\n\n";
-				}
+				
 			
-				PdfPCell additionInformationCell = new PdfPCell(new Phrase(String.valueOf( additionInfo ), font));
+				PdfPCell additionInformationCell = new PdfPCell(new Phrase(String.valueOf( bill.getAdditionInformation() ), font));
 				additionInformationCell.setVerticalAlignment(Element.ALIGN_MIDDLE);
 				additionInformationCell.setHorizontalAlignment(Element.ALIGN_CENTER);
 				additionInformationCell.setBorderWidth(2);
