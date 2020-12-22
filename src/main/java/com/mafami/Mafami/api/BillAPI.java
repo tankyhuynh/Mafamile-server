@@ -1,6 +1,12 @@
 package com.mafami.Mafami.api;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -36,6 +42,43 @@ public class BillAPI {
 	@GetMapping
 	public ResponseEntity<List<BillEntity>> getAll() {
 		return ResponseEntity.ok(billService.getAll());
+	}
+
+	@GetMapping("/orderdate/{orderDate}")
+	public ResponseEntity<List<BillEntity>> getAllByOrderDate(@PathVariable String orderDate) throws Exception {
+		//yyyy-mm-dd HH:mm:ss
+	
+//		String string = "2020-12-21T21:00:00.000+00:00";
+		DateTimeFormatter dbFormatter = DateTimeFormatter.ofPattern("EEE MMM dd HH:mm:ss ZZZ yyyy", Locale.ENGLISH);
+			
+//		//yyyy-mm-dd HH:mm:ss
+		DateTimeFormatter clientFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH);
+		LocalDate date2 = LocalDate.parse(orderDate, clientFormatter);
+		
+		
+		ZoneId defaultZoneId = ZoneId.systemDefault();
+		Date d= Date.from(date2.atStartOfDay(defaultZoneId).toInstant());
+//		d = java.sql.Date.valueOf(date2);
+
+		
+		List<BillEntity> listEntities = billService.getAll();
+		List<BillEntity> listResult = new ArrayList<>();
+		
+		System.out.println("Client orderDate: " + d);
+		for (BillEntity bill : listEntities) {		
+			Date dbDate = bill.getOrderDate();
+			LocalDate localDateEntity = dbDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+			dbDate= Date.from(localDateEntity.atStartOfDay(defaultZoneId).toInstant());
+			
+			if (d.equals(dbDate)) {
+				listResult.add(bill);
+			}
+
+		}
+		
+		
+		return ResponseEntity.ok( listResult );
+//		return null;
 	}
 	
 	

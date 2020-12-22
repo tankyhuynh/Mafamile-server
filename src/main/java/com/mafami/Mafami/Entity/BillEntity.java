@@ -36,7 +36,7 @@ public class BillEntity {
 	private CustomerModel customerInformation;
 	private List<FoodInformationModel> foodInformation;
 	private Date createdDate = Calendar.getInstance().getTime();
-	private Date orderDate;
+	private Date orderDate ; //	-Time trừ 7h
 	private String additionInformation;
 	private boolean isConfirmed;
 	private double total;

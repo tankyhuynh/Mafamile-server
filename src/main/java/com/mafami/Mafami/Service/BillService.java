@@ -1,5 +1,6 @@
 package com.mafami.Mafami.Service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,10 @@ public class BillService {
 	
 	public List<BillEntity> getAllBySite(String site) {
 		return billRepo.findAllBySite(site, Sort.by(Sort.Direction.DESC, "createdDate"));
+	}
+	
+	public List<BillEntity> getAllByOrderDate(Date orderDateStart) {
+		return billRepo.findAllByOrderDate(orderDateStart);
 	}
 
 	public BillEntity save(BillEntity entity) {

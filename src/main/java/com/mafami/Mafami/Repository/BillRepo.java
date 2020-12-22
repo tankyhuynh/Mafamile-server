@@ -1,5 +1,6 @@
 package com.mafami.Mafami.Repository;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.domain.Sort;
@@ -22,5 +23,7 @@ public interface BillRepo extends MongoRepository<BillEntity, String>{
 
 	BillEntity findOneById(String id);
 	List<BillEntity> findAllBySite(String site, Sort sort);
+	
+	List<BillEntity> findAllByOrderDate(Date orderDateStart);
 	
 }
