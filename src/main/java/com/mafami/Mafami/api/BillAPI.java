@@ -49,7 +49,7 @@ public class BillAPI {
 		//yyyy-mm-dd HH:mm:ss
 	
 //		String string = "2020-12-21T21:00:00.000+00:00";
-		DateTimeFormatter dbFormatter = DateTimeFormatter.ofPattern("EEE MMM dd HH:mm:ss ZZZ yyyy", Locale.ENGLISH);
+		DateTimeFormatter dbFormatter = DateTimeFormatter.ofPattern("EEE MMM dd HH:mm:ss ZZZ yyyy", Locale.JAPAN);
 			
 //		//yyyy-mm-dd HH:mm:ss
 		DateTimeFormatter clientFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH);
@@ -67,8 +67,11 @@ public class BillAPI {
 		System.out.println("Client orderDate: " + d);
 		for (BillEntity bill : listEntities) {		
 			Date dbDate = bill.getOrderDate();
-			LocalDate localDateEntity = dbDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-			dbDate= Date.from(localDateEntity.atStartOfDay(defaultZoneId).toInstant());
+			System.out.println("ID: " + bill.getId() +" Entity Date Before: " + dbDate);
+			LocalDate localDateEntity = dbDate.toInstant().atZone(ZoneId.of("Asia/Ho_Chi_Minh")).toLocalDate();
+			dbDate= Date.from(localDateEntity.atStartOfDay(ZoneId.of("Asia/Ho_Chi_Minh")).toInstant());
+			System.out.println("Entity Date: " + dbDate);
+			System.out.println();
 			
 			if (d.equals(dbDate)) {
 				listResult.add(bill);

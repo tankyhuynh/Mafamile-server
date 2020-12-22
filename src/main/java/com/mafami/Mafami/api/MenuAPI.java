@@ -75,6 +75,8 @@ public class MenuAPI {
 	public ResponseEntity<String> saveAll(@PathVariable("site") String site, @RequestBody List<MenuEntity> menuEntity) {
 		List<PriceModel> prices = new ArrayList<>();
 		for (MenuEntity entity : menuEntity) {
+			String URL = fileUtils.decoder(entity.getImage(), "ImageAPI");
+			entity.setImage(URL);
 			entity.setSite(site);
 			menuService.save(entity);
 		}

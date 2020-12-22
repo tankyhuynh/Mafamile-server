@@ -130,7 +130,7 @@ public class ExcelUtils_Bills {
 		ZoneId defaultZoneId = ZoneId.systemDefault();
 //		
 //		2020-12-21T21:00:00.000+00:00
-		String string = "2020-12-21T21:00:00.000+00:00";
+		String string = "2020-12-20T21:26:00.000+00:00";
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'+'00:00", Locale.ENGLISH);
 		LocalDate date = LocalDate.parse(string, formatter);
 		Date d2= Date.from(date.atStartOfDay(defaultZoneId).toInstant());
