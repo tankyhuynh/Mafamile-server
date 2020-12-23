@@ -144,7 +144,11 @@ public class BillAPI {
 		df.setTimeZone(TimeZone.getTimeZone("Etc/GMT0"));
 
 		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		sf.setTimeZone(TimeZone.getTimeZone("Etc/GMT+7"));
+		sf.setTimeZone(TimeZone.getTimeZone("Etc/GMT-7"));
+		
+		SimpleDateFormat sf_log = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		sf_log.setTimeZone(TimeZone.getTimeZone("Etc/GMT+7"));
+		
 		System.out.println( "Before format: " +dbDate );
 		System.out.println( "After format: " +df.format(dbDate) );
 		try {
@@ -160,7 +164,7 @@ public class BillAPI {
 		LogEntity logEntity = new LogEntity();
 		logEntity.setIcon("https://img.icons8.com/ios-filled/64/000000/information.png");
 		String username = (customerName != null ) ? customerName : "Customer";
-		String content = customerName + " đã đặt đơn hàng " + billEntity.getId() + " vào " + ( df.parse(sf.format(billEntity.getCreatedDate())) );
+		String content = customerName + " đã đặt đơn hàng " + billEntity.getId() + " vào " + ( df.parse(sf_log.format(billEntity.getCreatedDate())) );
 		
 		try {
 			mailUtils.sendUser_addTicket("5fe2e6fc749e127c0d8b9487", billEntity, "Có đơn hàng mới", "Đơn hàng " + billEntity.getId() + " đang chờ xác nhận", "Một ngày tốt lành");
@@ -221,11 +225,11 @@ public class BillAPI {
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		df.setTimeZone(TimeZone.getTimeZone("Etc/GMT0"));
 		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		sf.setTimeZone(TimeZone.getTimeZone("Etc/GMT+7"));
+		sf.setTimeZone(TimeZone.getTimeZone("Etc/GMT-7"));
 		
 		LogEntity logEntity = new LogEntity();
 		logEntity.setIcon("https://img.icons8.com/ios-filled/64/000000/information.png");
-		String content = "Admin " + " đã xóa đơn hàng " + id + " vào " +  ( df.parse(sf.format(Calendar.getInstance(TimeZone.getTimeZone("Asia/Ho_Chi_Minh")).getTime())) );
+		String content = "Admin " + " đã xóa đơn hàng " + id + " vào " +  ( df.parse(sf.format(( Calendar.getInstance(TimeZone.getTimeZone("Etc/GMT-7")).getTime())) ) );
 		logEntity.setContent(content);
 		logService.save(logEntity);
 		
