@@ -77,7 +77,7 @@ public class MenuAPI {
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		df.setTimeZone(TimeZone.getTimeZone("Etc/GMT0"));
 		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		sf.setTimeZone(TimeZone.getTimeZone("Etc/GMT+7"));
+		sf.setTimeZone(TimeZone.getTimeZone("Etc/GMT-7"));
 		
 		List<PriceModel> prices = new ArrayList<PriceModel>();
 		String URL = fileUtils.decoder(menuEntity.getImage(), "ImageAPI");
@@ -121,7 +121,7 @@ public class MenuAPI {
 		
 		LogEntity logEntity = new LogEntity();
 		logEntity.setIcon("https://img.icons8.com/ios-filled/64/000000/information.png");
-		String content = "Admin" + " đã sửa thông tin món " + entity.getName() + " vào " +( df.parse(sf.format(( Calendar.getInstance(TimeZone.getTimeZone("Etc/GMT-7")).getTime())) ) ) + " trong menu của " + site;
+		String content = "Admin" + " đã sửa thông tin món " + entity.getName() + " vào " +( df.parse(sf.format(( Calendar.getInstance().getTime())) ) ) + " trong menu của " + site;
 		
 		logEntity.setContent(content);
 		logService.save(logEntity);
@@ -139,7 +139,7 @@ public class MenuAPI {
 		
 		LogEntity logEntity = new LogEntity();
 		logEntity.setIcon("https://img.icons8.com/ios-filled/64/000000/information.png");
-		String content = "Admin " + " đã xóa món " + id + " vào " +  ( df.parse(sf.format(( Calendar.getInstance(TimeZone.getTimeZone("Etc/GMT-7")).getTime())) ) ) +" với lý do " + reason;
+		String content = "Admin " + " đã xóa món " + id + " vào " +  ( df.parse(sf.format(( Calendar.getInstance().getTime())) ) ) +" với lý do " + reason;
 		logEntity.setContent(content);
 		logService.save(logEntity);
 		

@@ -194,15 +194,15 @@ public class BillAPI {
 		
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		df.setTimeZone(TimeZone.getTimeZone("Etc/GMT0"));
-		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		sf.setTimeZone(TimeZone.getTimeZone("Etc/GMT-7"));
+		SimpleDateFormat sf_log = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		sf_log.setTimeZone(TimeZone.getTimeZone("Etc/GMT-7"));
 		
 		BillEntity oldEntity = billService.getOneById(id);
 		newEntity.setId(id);
 		
 		LogEntity logEntity = new LogEntity();
 		logEntity.setIcon("https://img.icons8.com/ios-filled/64/000000/information.png");
-		String content = "Admin" + " đã xác nhân đơn hàng " + newEntity.getId() + " vào " + ( df.parse(sf.format(( Calendar.getInstance(TimeZone.getTimeZone("Etc/GMT-7")).getTime())) ) );
+		String content = "Admin" + " đã xác nhân đơn hàng " + newEntity.getId() + " vào " + (df.parse(sf_log.format(Calendar.getInstance().getTime())));
 		
 		String customerEmail = newEntity.getCustomerInformation().getEmail();	
 		if(newEntity.isConfirmed()) {
@@ -224,12 +224,12 @@ public class BillAPI {
 		
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		df.setTimeZone(TimeZone.getTimeZone("Etc/GMT0"));
-		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		sf.setTimeZone(TimeZone.getTimeZone("Etc/GMT-7"));
+		SimpleDateFormat sf_log = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		sf_log.setTimeZone(TimeZone.getTimeZone("Etc/GMT-7"));
 		
 		LogEntity logEntity = new LogEntity();
 		logEntity.setIcon("https://img.icons8.com/ios-filled/64/000000/information.png");
-		String content = "Admin " + " đã xóa đơn hàng " + id + " vào " +  ( df.parse(sf.format(( Calendar.getInstance(TimeZone.getTimeZone("Etc/GMT-7")).getTime())) ) );
+		String content = "Admin " + " đã xóa đơn hàng " + id + " vào " +  (df.parse(sf_log.format(Calendar.getInstance().getTime())));
 		logEntity.setContent(content);
 		logService.save(logEntity);
 		
