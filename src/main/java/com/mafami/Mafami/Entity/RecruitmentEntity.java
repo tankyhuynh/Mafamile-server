@@ -1,9 +1,9 @@
 package com.mafami.Mafami.Entity;
 
-import java.util.Date;
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import com.mafami.Mafami.model.RecruitTimeModel;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,6 +20,6 @@ public class RecruitmentEntity {
 	private String title;
 	private String recruitmentInfo;
 	private boolean status;
-	private Date time;
-	
+	private RecruitTimeModel time;
+
 }
