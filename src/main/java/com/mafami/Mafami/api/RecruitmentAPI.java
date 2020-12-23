@@ -32,7 +32,7 @@ public class RecruitmentAPI {
 	}
 
 	@PostMapping
-	public RecruitmentEntity saveOneBySite(@PathVariable String site, @RequestBody RecruitmentEntity billEntity) {
+	public RecruitmentEntity saveOne(@PathVariable String site, @RequestBody RecruitmentEntity billEntity) {
 		Date dbDateStart = billEntity.getTime().getStartDate();
 		Date dbDateEnd = billEntity.getTime().getEndDate();
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");

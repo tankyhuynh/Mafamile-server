@@ -29,22 +29,13 @@ public class PromotionAPI {
 		return promotionService.getAll();
 	}
 
-	@GetMapping("/{site}/{id}")
-	public ResponseEntity<PromotionEntity> getOneById(@PathVariable("id") String id) {
-		PromotionEntity promotionEntity = promotionService.findOneById(id);
-		if (promotionEntity != null) {
-			return ResponseEntity.ok(promotionService.findOneById(id));
-		}
-		return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-	}
-
 	@PostMapping
 	public PromotionEntity saveOneBySite(@PathVariable String site, @RequestBody PromotionEntity promotionEntity) {
 		return promotionService.save(promotionEntity);
 	}
 
-	@PutMapping("/{site}/{id}")
-	public ResponseEntity<PromotionEntity> saveOneById(@PathVariable("site") String site, @PathVariable("id") String id,
+	@PutMapping("/{id}")
+	public ResponseEntity<PromotionEntity> saveOneById(@PathVariable("id") String id,
 			@RequestBody PromotionEntity newEntity) {
 		PromotionEntity oldEntity = promotionService.findOneById(id);
 		newEntity.setId(id);
