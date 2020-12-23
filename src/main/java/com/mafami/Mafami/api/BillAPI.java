@@ -1,5 +1,7 @@
 package com.mafami.Mafami.api;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
@@ -7,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.TimeZone;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -66,9 +69,15 @@ public class BillAPI {
 		
 		System.out.println("Client orderDate: " + d);
 		for (BillEntity bill : listEntities) {		
-			Date dbDate = bill.getOrderDate();
-			System.out.println("ID: " + bill.getId() +" Entity Date Before: " + dbDate);
-			LocalDate localDateEntity = dbDate.toInstant().atZone(ZoneId.of("Asia/Ho_Chi_Minh")).toLocalDate();
+			Date dbDate = bill.getOrderDate();                      
+			
+			DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			// Use Madrid's time zone to format the date in
+			df.setTimeZone(TimeZone.getTimeZone("Etc/GMT0"));
+			
+			System.out.println("ID: " + bill.getId() +" Entity Date Before: " + dbDate + " format: " + df.format(dbDate));
+			LocalDate localDateEntity = dbDate.toInstant().atZone(ZoneId.of("Europe/Madrid")).toLocalDate();
+	
 			dbDate= Date.from(localDateEntity.atStartOfDay(ZoneId.of("Asia/Ho_Chi_Minh")).toInstant());
 			System.out.println("Entity Date: " + dbDate);
 			System.out.println();

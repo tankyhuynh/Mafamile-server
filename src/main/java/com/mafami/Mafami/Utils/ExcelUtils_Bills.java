@@ -1,6 +1,8 @@
 package com.mafami.Mafami.Utils;
 
+import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -8,6 +10,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.TimeZone;
 
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
@@ -23,13 +26,13 @@ import com.mafami.Mafami.Entity.BillEntity;
 @Component
 public class ExcelUtils_Bills {
 	
-	private static String FILE_NAME = "tmp.xlsx";
+	private static String FILE_NAME = "Thong_ke_hoa_don_theo_ngay.xlsx";
 
-	public static void export(String[] fieldName, List<BillEntity> billEntities) throws Exception {
+	public static byte[] export(String[] fieldName, List<BillEntity> billEntities) throws Exception {
 
 		Workbook workbook = new XSSFWorkbook();
 
-		Sheet sheet = workbook.createSheet("Persons");
+		Sheet sheet = workbook.createSheet("Hóa đơn");
 		
 
 		Row header = sheet.createRow(0);
@@ -74,7 +77,7 @@ public class ExcelUtils_Bills {
 				Cell cell = row.createCell(0);
 				cell.setCellValue(bill.getId());
 				cell.setCellStyle(style);
-				String customerInformation = "No Name";
+				String customerInformation = "Chưa điền thông tin cá nhân";
 				try {
 					customerInformation = bill.getCustomerInformation().getName();
 				} catch (Exception e) {
@@ -96,12 +99,27 @@ public class ExcelUtils_Bills {
 				cell.setCellStyle(style);
 				
 				
+				DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+				df.setTimeZone(TimeZone.getTimeZone("Etc/GMT0"));
+				
+				Date createdDate = bill.getCreatedDate();        
+				LocalDate localCreatedDate = createdDate.toInstant().atZone(ZoneId.of("Etc/GMT-7")).toLocalDate();
 				cell = row.createCell(3);
-				cell.setCellValue( SimpleDateFormat.getInstance().format(bill.getCreatedDate()) );
+				cell.setCellValue( df.format(createdDate) );
 				cell.setCellStyle(style);
 				
+				Date dbDate = bill.getOrderDate();                      
+				
+				
+				// Use Madrid's time zone to format the date in
+				
+				LocalDate localDateEntity = dbDate.toInstant().atZone(ZoneId.of("Etc/GMT-7")).toLocalDate();
+				
+				System.out.println("Orderdate: " + bill.getOrderDate());
+				System.out.println("Orderdate format: " + df.format(dbDate) );
+				System.out.println();
 				cell = row.createCell(4);
-				cell.setCellValue( SimpleDateFormat.getInstance().format(bill.getOrderDate()) );
+				cell.setCellValue( df.format(dbDate) );
 				cell.setCellStyle(style);
 				
 				cell = row.createCell(5);
@@ -109,54 +127,25 @@ public class ExcelUtils_Bills {
 				cell.setCellStyle(style);
 				
 				cell = row.createCell(6);
-				cell.setCellValue(bill.getTotal());
+				cell.setCellValue( bill.getTotal() + " VND");
 				cell.setCellStyle(style);
 			
 				i++;
 		}
-		
-		
-		
+	
 
 		FileOutputStream outputStream = new FileOutputStream(FILE_NAME);
+		ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        workbook.write(bos);
         workbook.write(outputStream);
         workbook.close();
-		
+  
 		System.out.println("Success");
+		
+		return bos.toByteArray();
 	}
 	
 	
-	public static void main(String[] args) throws Exception {
-		ZoneId defaultZoneId = ZoneId.systemDefault();
-//		
-//		2020-12-21T21:00:00.000+00:00
-		String string = "2020-12-20T21:26:00.000+00:00";
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'+'00:00", Locale.ENGLISH);
-		LocalDate date = LocalDate.parse(string, formatter);
-		Date d2= Date.from(date.atStartOfDay(defaultZoneId).toInstant());
-		System.out.println("Test: "+date);
-		System.out.println("Test: "+d2);
-		
-//		//yyyy-mm-dd HH:mm:ss
-		DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-		LocalDate date2 = LocalDate.parse(string, formatter);
-		System.out.println(date2);
-		
-		Date d= Date.from(date2.atStartOfDay(defaultZoneId).toInstant());
-		System.out.println(d);
-		System.out.println(date2);
-		
-		Date newDate = new Date(2020, 12, 12);
-		System.out.println("test new date: " + newDate);
-		
-		
-		
-		
-		
-		
-		
-		
-	}
 	
 	
 	
