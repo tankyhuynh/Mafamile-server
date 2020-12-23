@@ -198,7 +198,7 @@ public class BillAPI {
 		
 		LogEntity logEntity = new LogEntity();
 		logEntity.setIcon("https://img.icons8.com/ios-filled/64/000000/information.png");
-		String content = "Admin" + " đã xác nhân đơn hàng " + newEntity.getId() + " vào " + ( df.parse(sf.format(Calendar.getInstance(TimeZone.getTimeZone("Asia/Ho_Chi_Minh")).getTime())) );
+		String content = "Admin" + " đã xác nhân đơn hàng " + newEntity.getId() + " vào " + ( Calendar.getInstance(TimeZone.getTimeZone("Asia/Ho_Chi_Minh")).getTime() );
 		
 		String customerEmail = newEntity.getCustomerInformation().getEmail();	
 		if(newEntity.isConfirmed()) {
