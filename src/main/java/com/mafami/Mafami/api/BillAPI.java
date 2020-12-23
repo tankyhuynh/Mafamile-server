@@ -149,9 +149,9 @@ public class BillAPI {
 		
 		String customerEmail = billEntity.getCustomerInformation().getEmail();
 		billEntity.setId(UUID.randomUUID().toString());
-		mailUtils.sendUser_addTicket("5fe2e6fc749e127c0d8b9487", billEntity, "Có đơn hàng mới", "Đơn hàng " + billEntity.getId() + " đang chờ xác nhận", "Một ngày tốt lành");
 		
 		try {
+			mailUtils.sendUser_addTicket("5fe2e6fc749e127c0d8b9487", billEntity, "Có đơn hàng mới", "Đơn hàng " + billEntity.getId() + " đang chờ xác nhận", "Một ngày tốt lành");
 			mailUtils.sendUser_addTicket(customerEmail, billEntity, "Bạn vừa đặt đơn hàng của Mafamile", "Đơn hàng của bạn đang chờ xác nhận", "Một ngày tốt lành");
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -179,8 +179,10 @@ public class BillAPI {
 		String customerEmail = newEntity.getCustomerInformation().getEmail();	
 		if(newEntity.isConfirmed()) {
 			mailUtils.sendUser_addTicket("5fe2e6fc749e127c0d8b9487", newEntity, "Bạn vừa xác nhận đơn hàng", "Đơn hàng " + newEntity.getId() + " đã được xác nhận", "Một ngày tốt lành");
-			if(customerEmail != null) {
+			try {
 				mailUtils.sendUser_addTicket(customerEmail, newEntity, "Bạn vừa đặt đơn hàng của Mafamile", "Đơn hàng của bạn đã được xác nhận", "Một ngày tốt lành");
+			} catch (Exception e) {
+				// TODO: handle exception
 			}
 		}
 		
