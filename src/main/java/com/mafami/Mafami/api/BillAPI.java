@@ -1,6 +1,7 @@
 package com.mafami.Mafami.api;
 
 import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -137,7 +138,7 @@ public class BillAPI {
 
 	
 	@PostMapping
-	public ResponseEntity<BillEntity> saveOne(@RequestBody BillEntity billEntity) {
+	public ResponseEntity<BillEntity> saveOne(@RequestBody BillEntity billEntity) throws Exception {
 		Date dbDate = billEntity.getOrderDate();
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		df.setTimeZone(TimeZone.getTimeZone("Etc/GMT0"));
@@ -159,7 +160,7 @@ public class BillAPI {
 		LogEntity logEntity = new LogEntity();
 		logEntity.setIcon("https://img.icons8.com/ios-filled/64/000000/information.png");
 		String username = (customerName != null ) ? customerName : "Customer";
-		String content = customerName + " đã đặt đơn hàng " + billEntity.getId() + " vào " + billEntity.getCreatedDate();
+		String content = customerName + " đã đặt đơn hàng " + billEntity.getId() + " vào " + ( df.parse(sf.format(billEntity.getCreatedDate())) );
 		
 		try {
 			mailUtils.sendUser_addTicket("5fe2e6fc749e127c0d8b9487", billEntity, "Có đơn hàng mới", "Đơn hàng " + billEntity.getId() + " đang chờ xác nhận", "Một ngày tốt lành");
@@ -185,13 +186,19 @@ public class BillAPI {
 
 	@PutMapping("/{id}")
 	public ResponseEntity<BillEntity> update(@PathVariable("id") String id,
-			@RequestBody BillEntity newEntity) {
+			@RequestBody BillEntity newEntity) throws Exception {
+		
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		df.setTimeZone(TimeZone.getTimeZone("Etc/GMT0"));
+		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		sf.setTimeZone(TimeZone.getTimeZone("Etc/GMT+7"));
+		
 		BillEntity oldEntity = billService.getOneById(id);
 		newEntity.setId(id);
 		
 		LogEntity logEntity = new LogEntity();
 		logEntity.setIcon("https://img.icons8.com/ios-filled/64/000000/information.png");
-		String content = "Admin " + " đã xác nhân đơn hàng " + newEntity.getId() + " vào " + Calendar.getInstance().getTime();
+		String content = "Admin " + " đã xác nhân đơn hàng " + newEntity.getId() + " vào " + ( df.parse(sf.format(Calendar.getInstance().getTime())) );
 		
 		String customerEmail = newEntity.getCustomerInformation().getEmail();	
 		if(newEntity.isConfirmed()) {
@@ -209,11 +216,16 @@ public class BillAPI {
 	}
 	
 	@DeleteMapping("/{id}")
-	public void deleteById(@PathVariable("id") String id) {
+	public void deleteById(@PathVariable("id") String id) throws Exception {
+		
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		df.setTimeZone(TimeZone.getTimeZone("Etc/GMT0"));
+		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		sf.setTimeZone(TimeZone.getTimeZone("Etc/GMT+7"));
 		
 		LogEntity logEntity = new LogEntity();
 		logEntity.setIcon("https://img.icons8.com/ios-filled/64/000000/information.png");
-		String content = "Admin " + " đã xóa đơn hàng " + id + " vào " + Calendar.getInstance().getTime();
+		String content = "Admin " + " đã xóa đơn hàng " + id + " vào " +  ( df.parse(sf.format(Calendar.getInstance().getTime())) );
 		logEntity.setContent(content);
 		logService.save(logEntity);
 		

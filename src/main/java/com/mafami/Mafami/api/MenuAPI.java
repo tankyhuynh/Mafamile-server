@@ -1,8 +1,13 @@
 package com.mafami.Mafami.api;
 
 import java.awt.Menu;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+import java.util.TimeZone;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,8 +22,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.mafami.Mafami.Convert.AMIA.AMIA_ProductConvert;
 import com.mafami.Mafami.Entity.CategoryEntity;
+import com.mafami.Mafami.Entity.LogEntity;
 import com.mafami.Mafami.Entity.MenuEntity;
 import com.mafami.Mafami.Service.CategoryService;
+import com.mafami.Mafami.Service.LogService;
 import com.mafami.Mafami.Service.MenuService;
 import com.mafami.Mafami.Utils.FileUtils;
 import com.mafami.Mafami.model.PriceModel;
@@ -30,6 +37,9 @@ public class MenuAPI {
 
 	@Autowired
 	private MenuService menuService;
+	
+	@Autowired
+	private LogService logService;
 	
 	@Autowired
 	private AMIA_ProductConvert aMIA_ProductConvert;
@@ -62,11 +72,24 @@ public class MenuAPI {
 	}
 	
 	@PostMapping("/{site}")
-	public ResponseEntity<MenuEntity> saveOne(@PathVariable("site") String site, @RequestBody MenuEntity menuEntity) {
+	public ResponseEntity<MenuEntity> saveOne(@PathVariable("site") String site, @RequestBody MenuEntity menuEntity) throws Exception {
+		
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		df.setTimeZone(TimeZone.getTimeZone("Etc/GMT0"));
+		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		sf.setTimeZone(TimeZone.getTimeZone("Etc/GMT+7"));
+		
 		List<PriceModel> prices = new ArrayList<PriceModel>();
 		String URL = fileUtils.decoder(menuEntity.getImage(), "ImageAPI");
 		menuEntity.setImage(URL);
 		menuEntity.setSite(site);
+		
+		LogEntity logEntity = new LogEntity();
+		logEntity.setIcon("https://img.icons8.com/ios-filled/64/000000/information.png");
+		String content = "Admin" + " đã thêm món " + menuEntity.getName() + " vào " + ( df.parse(sf.format(Calendar.getInstance().getTime())) ) + " vào menu của " + site;
+		
+		logEntity.setContent(content);
+		logService.save(logEntity);
 		
 		return ResponseEntity.ok(menuService.save(menuEntity));
 	}
@@ -84,17 +107,42 @@ public class MenuAPI {
 	}
 	
 	@PutMapping("/{site}/{id}")
-	public ResponseEntity<MenuEntity> saveOneById(@PathVariable("site") String site, @PathVariable String id, @RequestBody MenuEntity entity) {
+	public ResponseEntity<MenuEntity> saveOneById(@PathVariable("site") String site, @PathVariable String id, @RequestBody MenuEntity entity) throws Exception {
+		
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		df.setTimeZone(TimeZone.getTimeZone("Etc/GMT0"));
+		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		sf.setTimeZone(TimeZone.getTimeZone("Etc/GMT+7"));
+		
 		MenuEntity newEntity = menuService.findOneById(id);
 		newEntity = aMIA_ProductConvert.entity_to_entity(entity);
 		newEntity.setId(id);
 		newEntity.setSite(site);
 		
+		LogEntity logEntity = new LogEntity();
+		logEntity.setIcon("https://img.icons8.com/ios-filled/64/000000/information.png");
+		String content = "Admin" + " đã sửa thông tin món " + entity.getName() + " vào " + ( df.parse(sf.format(Calendar.getInstance().getTime())) ) + " trong menu của " + site;
+		
+		logEntity.setContent(content);
+		logService.save(logEntity);
+		
 		return ResponseEntity.ok(menuService.save(newEntity));
 	}
 	
 	@DeleteMapping("/{id}")
-	public void deleteOneById(@PathVariable String id) {
+	public void deleteOneById(@PathVariable String id, @RequestBody String reason) throws Exception {
+		
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		df.setTimeZone(TimeZone.getTimeZone("Etc/GMT0"));
+		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		sf.setTimeZone(TimeZone.getTimeZone("Etc/GMT+7"));
+		
+		LogEntity logEntity = new LogEntity();
+		logEntity.setIcon("https://img.icons8.com/ios-filled/64/000000/information.png");
+		String content = "Admin " + " đã xóa món " + id + " vào " +  ( df.parse(sf.format(Calendar.getInstance().getTime())) ) +" với lý do " + reason;
+		logEntity.setContent(content);
+		logService.save(logEntity);
+		
 		menuService.delete(id);
 	}
 	
