@@ -45,7 +45,7 @@ public class MailUtils {
 		try {
 			helper.setText(emailBody
 					+ "<br> " + content
-					+ "<br>" + emailFooter, true);
+					+ "<br><br>" + emailFooter, true);
 			helper.setTo(email);
 			helper.setSubject(emailTitle);
 			

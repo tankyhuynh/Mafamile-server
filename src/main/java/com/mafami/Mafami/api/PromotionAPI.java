@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.mafami.Mafami.Entity.PromotionEntity;
 import com.mafami.Mafami.Service.PromotionService;
+import com.mafami.Mafami.Utils.FileUtils;
 
 @RestController
 @RequestMapping("/api/promotion")
@@ -23,6 +24,9 @@ public class PromotionAPI {
 
 	@Autowired
 	private PromotionService promotionService;
+	
+	@Autowired
+	private FileUtils fileUtils;
 
 	@GetMapping
 	public List<PromotionEntity> getAll() {
@@ -44,9 +48,15 @@ public class PromotionAPI {
 	}
 
 	@PostMapping("/{site}")
-	public PromotionEntity saveOneBySite(@PathVariable String site, @RequestBody PromotionEntity contactEntity) {
-		contactEntity.setSite(site);
-		return promotionService.save(contactEntity);
+	public PromotionEntity saveOneBySite(@PathVariable String site, @RequestBody PromotionEntity promotionEntity) {
+		promotionEntity.setSite(site);
+		
+		if (promotionEntity.getThumbnail() != null) {
+			String URL = fileUtils.decoder(promotionEntity.getThumbnail(), "outputFile");
+			promotionEntity.setThumbnail(URL);
+		}
+		
+		return promotionService.save(promotionEntity);
 	}
 
 	@PutMapping("/{site}/{id}")
