@@ -1,5 +1,8 @@
 package com.mafami.Mafami.Entity;
 
+import java.util.Calendar;
+import java.util.Date;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -18,8 +21,7 @@ public class PromotionEntity {
 	private String title;
 	private String shortDescription;
 	private String thumbnail;
+	private Date createdDate = Calendar.getInstance().getTime();
 	private String site;
-	
-	
-	
+
 }

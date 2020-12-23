@@ -147,8 +147,10 @@ public class BillAPI {
 			System.out.println(e);
 		}
 		
+		String customerEmail = billEntity.getCustomerInformation().getEmail();
 		billEntity.setId(UUID.randomUUID().toString());
 		mailUtils.sendUser_addTicket("5fe2e6fc749e127c0d8b9487", billEntity, "Có đơn hàng mới", "Đơn hàng " + billEntity.getId() + " đang chờ xác nhận", "Một ngày tốt lành");
+		mailUtils.sendUser_addTicket(customerEmail, billEntity, "Bạn vừa đặt đơn hàng của Mafamile", "Đơn hàng của bạn đang chờ xác nhận", "Một ngày tốt lành");
 		
 		
 		return ResponseEntity.ok(billService.save(billEntity));
@@ -167,6 +169,15 @@ public class BillAPI {
 			@RequestBody BillEntity newEntity) {
 		BillEntity oldEntity = billService.getOneById(id);
 		newEntity.setId(id);
+		
+		String customerEmail = newEntity.getCustomerInformation().getEmail();	
+		if(newEntity.isConfirmed()) {
+			mailUtils.sendUser_addTicket("5fe2e6fc749e127c0d8b9487", newEntity, "Bạn vừa xác nhận đơn hàng", "Đơn hàng " + newEntity.getId() + " đã được xác nhận", "Một ngày tốt lành");
+			if(customerEmail != null) {
+				mailUtils.sendUser_addTicket(customerEmail, newEntity, "Bạn vừa đặt đơn hàng của Mafamile", "Đơn hàng của bạn đã được xác nhận", "Một ngày tốt lành");
+			}
+		}
+		
 		return ResponseEntity.ok(billService.save(newEntity));
 	}
 	
