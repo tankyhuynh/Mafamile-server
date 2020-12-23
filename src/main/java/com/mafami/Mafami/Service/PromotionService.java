@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.mafami.Mafami.Entity.ContactEntity;
 import com.mafami.Mafami.Entity.PromotionEntity;
 import com.mafami.Mafami.Repository.PromotionRepo;
 
@@ -21,6 +22,10 @@ public class PromotionService {
 	public List<PromotionEntity> getAll() {
 		return promotionRepo.findAll();
 	}
+	
+	public List<PromotionEntity> getAllBySite(String site) {
+		return promotionRepo.findAllBySite(site);
+	}
 
 	public PromotionEntity save(PromotionEntity entity) {
 		return promotionRepo.save(entity);
@@ -30,6 +35,11 @@ public class PromotionService {
 		promotionRepo.delete(promotionRepo.findOneById(id));
 	}
 
+	public void deleteAllBySite(String site) {
+		List<PromotionEntity> listContacts = promotionRepo.findAllBySite(site);
+		promotionRepo.deleteAll(listContacts);
+	}
+	
 	public void deleteAll() {
 		promotionRepo.deleteAll();
 	}

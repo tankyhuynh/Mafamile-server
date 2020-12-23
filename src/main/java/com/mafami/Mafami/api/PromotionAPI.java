@@ -29,16 +29,31 @@ public class PromotionAPI {
 		return promotionService.getAll();
 	}
 
-	@PostMapping
-	public PromotionEntity saveOneBySite(@PathVariable String site, @RequestBody PromotionEntity promotionEntity) {
-		return promotionService.save(promotionEntity);
+	@GetMapping("/{site}")
+	public List<PromotionEntity> getAllBySite(@PathVariable String site) {
+		return promotionService.getAllBySite(site);
 	}
 
-	@PutMapping("/{id}")
-	public ResponseEntity<PromotionEntity> saveOneById(@PathVariable("id") String id,
-			@RequestBody PromotionEntity newEntity) {
+	@GetMapping("/{site}/{id}")
+	public ResponseEntity<PromotionEntity> getOneById( @PathVariable("id") String id) {
+		PromotionEntity logEntity = promotionService.findOneById(id);
+		if (logEntity != null) {
+			return ResponseEntity.ok(promotionService.findOneById(id));
+		}
+		return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+	}
+
+	@PostMapping("/{site}")
+	public PromotionEntity saveOneBySite(@PathVariable String site, @RequestBody PromotionEntity contactEntity) {
+		contactEntity.setSite(site);
+		return promotionService.save(contactEntity);
+	}
+
+	@PutMapping("/{site}/{id}")
+	public ResponseEntity<PromotionEntity> saveOneById( @PathVariable("site") String site ,@PathVariable("id") String id, @RequestBody PromotionEntity newEntity) {
 		PromotionEntity oldEntity = promotionService.findOneById(id);
 		newEntity.setId(id);
+		newEntity.setSite(site);
 		if (oldEntity != null)
 			return ResponseEntity.ok(promotionService.save(newEntity));
 
@@ -50,6 +65,11 @@ public class PromotionAPI {
 		promotionService.delete(id);
 	}
 
+	@DeleteMapping("/{site}/all")
+	public void deleteAllBySite(@PathVariable String site) {
+		promotionService.deleteAllBySite(site);
+	}
+	
 	@DeleteMapping("/all")
 	public void deleteAll() {
 		promotionService.deleteAll();

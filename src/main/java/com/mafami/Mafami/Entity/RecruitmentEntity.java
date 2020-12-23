@@ -21,5 +21,6 @@ public class RecruitmentEntity {
 	private String recruitmentInfo;
 	private boolean status;
 	private RecruitTimeModel time;
+	private String site;
 
 }

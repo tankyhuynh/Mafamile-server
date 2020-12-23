@@ -18,6 +18,7 @@ public class PromotionEntity {
 	private String title;
 	private String shortDescription;
 	private String thumbnail;
+	private String site;
 	
 	
 	

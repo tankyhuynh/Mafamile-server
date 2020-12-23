@@ -10,6 +10,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -146,8 +147,8 @@ public class BillAPI {
 			System.out.println(e);
 		}
 		
-		
-		mailUtils.sendUser_addTicket("5fe2e6fc749e127c0d8b9487", billEntity, "Có đơn hàng mới", "Có đơn hàng mớ", "Thanks");
+		billEntity.setId(UUID.randomUUID().toString());
+		mailUtils.sendUser_addTicket("5fe2e6fc749e127c0d8b9487", billEntity, "Có đơn hàng mới", "Đơn hàng " + billEntity.getId() + " đang chờ xác nhận", "Một ngày tốt lành");
 		
 		
 		return ResponseEntity.ok(billService.save(billEntity));
