@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +19,7 @@ import com.mafami.Mafami.Service.UserService;
 import com.mafami.Mafami.model.SigninRequest;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/api")
 public class AuthenticationAPI {
 
@@ -33,13 +35,13 @@ public class AuthenticationAPI {
 		String token = UUID.randomUUID().toString();
 		UserEntity user;
 		
-		
+//		
 		 BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 		 String hashedPass = bCryptPasswordEncoder.encode(authenticationRequest.getPassword());
-		 
+//		 
 		
 		if ((user = userService.findByUsernameAndPassword(authenticationRequest.getUsername(),
-				hashedPass )) != null) {
+				hashedPass	 )) != null) {
 
 			userService.save(user);
 			return ResponseEntity.ok(user);

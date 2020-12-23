@@ -12,6 +12,7 @@ import java.util.Locale;
 import java.util.TimeZone;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -84,9 +85,9 @@ public class ExcelAPI {
 		public static void main(String[] args) {
 			
 			
-//			 BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
-//			 String hashedPass = bCryptPasswordEncoder.encode("admin");
-//			 System.out.println(hashedPass);
+			 BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+			 String hashedPass = bCryptPasswordEncoder.encode("admin");
+			 System.out.println(hashedPass);
 //			
 		}
 		
