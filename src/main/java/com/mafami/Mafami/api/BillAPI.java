@@ -54,9 +54,10 @@ public class BillAPI {
 
 			SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			sf.setTimeZone(TimeZone.getTimeZone("Etc/GMT+7"));
+			System.out.println( "Before format: " + dbDate );
 			System.out.println( df.format(dbDate) );
 			try {
-				System.out.println("New Date: " + df.parse(sf.format(dbDate)) );
+				System.out.println("After format: " + df.parse(sf.format(dbDate)) );
 			} catch (Exception e) {
 				System.out.println(e);
 			}
@@ -128,7 +129,8 @@ public class BillAPI {
 
 		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		sf.setTimeZone(TimeZone.getTimeZone("Etc/GMT+7"));
-		System.out.println( df.format(dbDate) );
+		System.out.println( "Before format: " +dbDate );
+		System.out.println( "After format: " +df.format(dbDate) );
 		try {
 			billEntity.setOrderDate( df.parse(sf.format(dbDate)) );
 		} catch (Exception e) {
