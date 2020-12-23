@@ -22,6 +22,7 @@ public class PromotionEntity {
 	private String shortDescription;
 	private String thumbnail;
 	private Date createdDate = Calendar.getInstance().getTime();
+	private String url;
 	private String site;
 
 }
