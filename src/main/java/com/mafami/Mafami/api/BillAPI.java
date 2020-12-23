@@ -123,19 +123,19 @@ public class BillAPI {
 	
 	@PostMapping
 	public ResponseEntity<BillEntity> saveOne(@RequestBody BillEntity billEntity) {
-//		Date dbDate = billEntity.getOrderDate();
-//		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-//		df.setTimeZone(TimeZone.getTimeZone("Etc/GMT0"));
-//
-//		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-//		sf.setTimeZone(TimeZone.getTimeZone("Etc/GMT+7"));
-//		System.out.println( "Before format: " +dbDate );
-//		System.out.println( "After format: " +df.format(dbDate) );
-//		try {
-//			billEntity.setOrderDate( df.parse(sf.format(dbDate)) );
-//		} catch (Exception e) {
-//			System.out.println(e);
-//		}
+		Date dbDate = billEntity.getOrderDate();
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		df.setTimeZone(TimeZone.getTimeZone("Etc/GMT0"));
+
+		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		sf.setTimeZone(TimeZone.getTimeZone("Etc/GMT+7"));
+		System.out.println( "Before format: " +dbDate );
+		System.out.println( "After format: " +df.format(dbDate) );
+		try {
+			billEntity.setOrderDate( df.parse(sf.format(dbDate)) );
+		} catch (Exception e) {
+			System.out.println(e);
+		}
 		return ResponseEntity.ok(billService.save(billEntity));
 	}
 	
