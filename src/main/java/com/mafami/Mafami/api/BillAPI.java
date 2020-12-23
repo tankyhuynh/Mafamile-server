@@ -151,8 +151,10 @@ public class BillAPI {
 		billEntity.setId(UUID.randomUUID().toString());
 		mailUtils.sendUser_addTicket("5fe2e6fc749e127c0d8b9487", billEntity, "Có đơn hàng mới", "Đơn hàng " + billEntity.getId() + " đang chờ xác nhận", "Một ngày tốt lành");
 		
-		if(customerEmail != null) {
+		try {
 			mailUtils.sendUser_addTicket(customerEmail, billEntity, "Bạn vừa đặt đơn hàng của Mafamile", "Đơn hàng của bạn đang chờ xác nhận", "Một ngày tốt lành");
+		} catch (Exception e) {
+			// TODO: handle exception
 		}
 
 		
