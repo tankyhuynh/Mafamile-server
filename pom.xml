@@ -21,6 +21,12 @@
 
 	<dependencies>
 
+		<!-- Springboot Mail -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-mail</artifactId>
+		</dependency>
+
 		<!-- Apache POI -->
 		<dependency>
 			<groupId>org.apache.poi</groupId>
@@ -32,7 +38,7 @@
 			<artifactId>poi-ooxml</artifactId>
 			<version>3.15</version>
 		</dependency>
-		
+
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

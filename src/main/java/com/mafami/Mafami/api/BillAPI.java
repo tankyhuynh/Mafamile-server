@@ -23,7 +23,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mafami.Mafami.Entity.BillEntity;
+import com.mafami.Mafami.Entity.UserEntity;
 import com.mafami.Mafami.Service.BillService;
+import com.mafami.Mafami.Service.UserService;
+import com.mafami.Mafami.Utils.MailUtils;
 
 /**
 * @author root {11:02:46 AM}:
@@ -42,28 +45,34 @@ public class BillAPI {
 	@Autowired
 	private BillService billService;
 	
+	@Autowired
+	private UserService userService;
+	
+	@Autowired
+	private MailUtils mailUtils;
+	
 	@GetMapping
 	public ResponseEntity<List<BillEntity>> getAll() {
 		List<BillEntity> listEntities = billService.getAll();
 		
-		
-		for (BillEntity bill : listEntities) {
-			Date dbDate = bill.getOrderDate();
-			DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-			df.setTimeZone(TimeZone.getTimeZone("Etc/GMT0"));
-
-			SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-			sf.setTimeZone(TimeZone.getTimeZone("Etc/GMT+7"));
-			System.out.println( "Before format: " + dbDate );
-			System.out.println( df.format(dbDate) );
-			try {
-				System.out.println("After format: " + df.parse(sf.format(dbDate)) );
-			} catch (Exception e) {
-				System.out.println(e);
-			}
-			System.out.println();
-			
-		}
+//		
+//			for (BillEntity bill : listEntities) {
+//				Date dbDate = bill.getOrderDate();
+//				DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//				df.setTimeZone(TimeZone.getTimeZone("Etc/GMT0"));
+//	
+//				SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+//				sf.setTimeZone(TimeZone.getTimeZone("Etc/GMT+7"));
+//				System.out.println( "Before format: " + dbDate );
+//				System.out.println( df.format(dbDate) );
+//				try {
+//					System.out.println("After format: " + df.parse(sf.format(dbDate)) );
+//				} catch (Exception e) {
+//					System.out.println(e);
+//				}
+//				System.out.println();
+//			
+//		}
 		
 		return ResponseEntity.ok( listEntities );
 	}
@@ -136,6 +145,11 @@ public class BillAPI {
 		} catch (Exception e) {
 			System.out.println(e);
 		}
+		
+		
+		mailUtils.sendUser_addTicket("5fe2e6fc749e127c0d8b9487", billEntity, "Có đơn hàng mới", "Có đơn hàng mớ", "Thanks");
+		
+		
 		return ResponseEntity.ok(billService.save(billEntity));
 	}
 	
