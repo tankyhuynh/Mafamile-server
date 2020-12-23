@@ -121,7 +121,7 @@ public class MenuAPI {
 		
 		LogEntity logEntity = new LogEntity();
 		logEntity.setIcon("https://img.icons8.com/ios-filled/64/000000/information.png");
-		String content = "Admin" + " đã sửa thông tin món " + entity.getName() + " vào " + ( df.parse(sf.format(Calendar.getInstance().getTime())) ) + " trong menu của " + site;
+		String content = "Admin" + " đã sửa thông tin món " + entity.getName() + " vào " + ( df.parse(sf.format(Calendar.getInstance(TimeZone.getTimeZone("Asia/Ho_Chi_Minh")).getTime())) ) + " trong menu của " + site;
 		
 		logEntity.setContent(content);
 		logService.save(logEntity);
@@ -139,7 +139,7 @@ public class MenuAPI {
 		
 		LogEntity logEntity = new LogEntity();
 		logEntity.setIcon("https://img.icons8.com/ios-filled/64/000000/information.png");
-		String content = "Admin " + " đã xóa món " + id + " vào " +  ( df.parse(sf.format(Calendar.getInstance().getTime())) ) +" với lý do " + reason;
+		String content = "Admin " + " đã xóa món " + id + " vào " +  ( df.parse(sf.format(Calendar.getInstance(TimeZone.getTimeZone("Asia/Ho_Chi_Minh")).getTime())) ) +" với lý do " + reason;
 		logEntity.setContent(content);
 		logService.save(logEntity);
 		
