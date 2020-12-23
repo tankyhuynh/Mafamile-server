@@ -2,6 +2,7 @@ package com.mafami.Mafami.api;
 
 import java.util.UUID;
 
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -32,19 +33,24 @@ public class AuthenticationAPI {
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public ResponseEntity<UserEntity> signIn(@RequestBody SigninRequest authenticationRequest) throws Exception {
 		String token = UUID.randomUUID().toString();
-		UserEntity user;
+		UserEntity user = new UserEntity();
+		boolean check2;
 		
-//		
-//		 BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
-//		 String hashedPass = bCryptPasswordEncoder.encode(authenticationRequest.getPassword());
-//		 
+		String password = authenticationRequest.getPassword();
+		String hash = BCrypt.hashpw(password, BCrypt.gensalt(12));
 		
-		if ((user = userService.findByUsernameAndPassword(authenticationRequest.getUsername(),
-				authenticationRequest.getPassword()	 )) != null) {
-
-			userService.save(user);
+		try {
+			user = userService.findByUsername(authenticationRequest.getUsername());
+			check2 = true;
+		} catch (Exception e) {
+			check2 = false;
+		}
+		
+		String passwordCheck = user.getPassword();
+		boolean check = BCrypt.checkpw(password, passwordCheck);
+		
+		if ( check && check2 ) {
 			return ResponseEntity.ok(user);
-
 		} else
 			return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
 

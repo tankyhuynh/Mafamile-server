@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
 
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -87,7 +88,18 @@ public class ExcelAPI {
 //			 BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
 //			 String hashedPass = bCryptPasswordEncoder.encode("admin");
 //			 System.out.println(hashedPass);
-//			
+			
+			String password =  "admin";
+			String hash = BCrypt.hashpw(password, BCrypt.gensalt(12));
+			
+			String passwordCheck = "stackjava.com";
+			boolean check = BCrypt.checkpw(password, "$2a$12$ukjmxrmIZJS1OZ5TmqWCQ.wOTyhznjbmKVaBQJVurlbvzPX5OxTHm");
+			
+			System.out.println(hash);
+			System.out.println(check);
+			
+			//$2a$12$FH9wlI0vuFLPa4UWh4shI.9TcC6NOccF/jxNWbIkDdl0ne6XtDlrq
+				
 		}
 		
 		
