@@ -164,7 +164,7 @@ public class BillAPI {
 		LogEntity logEntity = new LogEntity();
 		logEntity.setIcon("https://img.icons8.com/ios-filled/64/000000/information.png");
 		String username = (customerName != null ) ? customerName : "Customer";
-		String content = customerName + " đã đặt đơn hàng " + billEntity.getId() + " vào " + (df.parse(sf_log.format(Calendar.getInstance().getTime())));
+		String content = customerName + " đã đặt đơn hàng " + billEntity.getId() + " lúc " + (df.parse(sf_log.format(Calendar.getInstance().getTime())));
 		
 		try {
 			mailUtils.sendUser_addTicket("5fe2e6fc749e127c0d8b9487", billEntity, "Có đơn hàng mới", "Đơn hàng " + billEntity.getId() + " đang chờ xác nhận", "Một ngày tốt lành");
@@ -202,7 +202,7 @@ public class BillAPI {
 		
 		LogEntity logEntity = new LogEntity();
 		logEntity.setIcon("https://img.icons8.com/ios-filled/64/000000/information.png");
-		String content = "Admin" + " đã xác nhân đơn hàng " + newEntity.getId() + " vào " + (df.parse(sf_log.format(Calendar.getInstance().getTime())));
+		String content = "Admin" + " đã xác nhân đơn hàng " + newEntity.getId() + " lúc " + (df.parse(sf_log.format(Calendar.getInstance().getTime())));
 		
 		String customerEmail = newEntity.getCustomerInformation().getEmail();	
 		if(newEntity.isConfirmed()) {
@@ -229,7 +229,7 @@ public class BillAPI {
 		
 		LogEntity logEntity = new LogEntity();
 		logEntity.setIcon("https://img.icons8.com/ios-filled/64/000000/information.png");
-		String content = "Admin " + " đã xóa đơn hàng " + id + " vào " +  (df.parse(sf_log.format(Calendar.getInstance().getTime())));
+		String content = "Admin " + " đã xóa đơn hàng " + id + " lúc " +  (df.parse(sf_log.format(Calendar.getInstance().getTime())));
 		logEntity.setContent(content);
 		logService.save(logEntity);
 		

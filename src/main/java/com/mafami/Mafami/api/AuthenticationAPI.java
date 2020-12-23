@@ -5,6 +5,7 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,16 +25,23 @@ public class AuthenticationAPI {
 	private UserRepo user_repo;
 
 	@Autowired
-	private UserService UserService;
+	private UserService userService;
+	
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public ResponseEntity<UserEntity> signIn(@RequestBody SigninRequest authenticationRequest) throws Exception {
 		String token = UUID.randomUUID().toString();
 		UserEntity user;
-		if ((user = UserService.findByUsernameAndPassword(authenticationRequest.getUsername(),
-				authenticationRequest.getPassword())) != null) {
+		
+		
+		 BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+		 String hashedPass = bCryptPasswordEncoder.encode(authenticationRequest.getPassword());
+		 
+		
+		if ((user = userService.findByUsernameAndPassword(authenticationRequest.getUsername(),
+				hashedPass)) != null) {
 
-			UserService.save(user);
+			userService.save(user);
 			return ResponseEntity.ok(user);
 
 		} else
