@@ -191,14 +191,14 @@ public class BillAPI {
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		df.setTimeZone(TimeZone.getTimeZone("Etc/GMT0"));
 		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		sf.setTimeZone(TimeZone.getTimeZone("Etc/GMT+7"));
+		sf.setTimeZone(TimeZone.getTimeZone("Etc/GMT-7"));
 		
 		BillEntity oldEntity = billService.getOneById(id);
 		newEntity.setId(id);
 		
 		LogEntity logEntity = new LogEntity();
 		logEntity.setIcon("https://img.icons8.com/ios-filled/64/000000/information.png");
-		String content = "Admin" + " đã xác nhân đơn hàng " + newEntity.getId() + " vào " + ( Calendar.getInstance(TimeZone.getTimeZone("Etc/GMT-7")).getTime() );
+		String content = "Admin" + " đã xác nhân đơn hàng " + newEntity.getId() + " vào " + ( df.parse(sf.format(( Calendar.getInstance(TimeZone.getTimeZone("Etc/GMT-7")).getTime())) ) );
 		
 		String customerEmail = newEntity.getCustomerInformation().getEmail();	
 		if(newEntity.isConfirmed()) {
