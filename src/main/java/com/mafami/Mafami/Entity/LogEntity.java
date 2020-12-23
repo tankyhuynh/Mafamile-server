@@ -29,7 +29,8 @@ public class LogEntity {
 	@Id
 	private String id;
 	private Date time = Calendar.getInstance().getTime();
-	private String entity;
 	private String content;
+	private String reason;
+	private String icon;
 
 }

@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -24,8 +25,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mafami.Mafami.Entity.BillEntity;
-import com.mafami.Mafami.Entity.UserEntity;
+import com.mafami.Mafami.Entity.LogEntity;
 import com.mafami.Mafami.Service.BillService;
+import com.mafami.Mafami.Service.LogService;
 import com.mafami.Mafami.Service.UserService;
 import com.mafami.Mafami.Utils.MailUtils;
 
@@ -48,6 +50,9 @@ public class BillAPI {
 	
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private LogService logService;
 	
 	@Autowired
 	private MailUtils mailUtils;
@@ -150,13 +155,21 @@ public class BillAPI {
 		String customerEmail = billEntity.getCustomerInformation().getEmail();
 		billEntity.setId(UUID.randomUUID().toString());
 		
+		String customerName = billEntity.getCustomerInformation().getName();
+		LogEntity logEntity = new LogEntity();
+		logEntity.setIcon("https://img.icons8.com/ios-filled/64/000000/information.png");
+		String username = (customerName != null ) ? customerName : "Customer";
+		String content = customerName + " đã đặt đơn hàng " + billEntity.getId() + " vào " + billEntity.getCreatedDate();
+		
 		try {
 			mailUtils.sendUser_addTicket("5fe2e6fc749e127c0d8b9487", billEntity, "Có đơn hàng mới", "Đơn hàng " + billEntity.getId() + " đang chờ xác nhận", "Một ngày tốt lành");
-			mailUtils.sendUser_addTicket(customerEmail, billEntity, "Bạn vừa đặt đơn hàng của Mafamile", "Đơn hàng của bạn đang chờ xác nhận", "Một ngày tốt lành");
+			mailUtils.sendUser_addTicket(customerEmail, billEntity, "Bạn vừa đặt đơn hàng của Mafamile", "Đơn hàng của bạn đang chờ xác nhận", "Một ngày tốt lành");	
+			
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-
+		logEntity.setContent(content);
+		logService.save(logEntity);
 		
 		
 		return ResponseEntity.ok(billService.save(billEntity));
@@ -176,21 +189,34 @@ public class BillAPI {
 		BillEntity oldEntity = billService.getOneById(id);
 		newEntity.setId(id);
 		
+		LogEntity logEntity = new LogEntity();
+		logEntity.setIcon("https://img.icons8.com/ios-filled/64/000000/information.png");
+		String content = "Admin " + " đã xác nhân đơn hàng " + newEntity.getId() + " vào " + Calendar.getInstance().getTime();
+		
 		String customerEmail = newEntity.getCustomerInformation().getEmail();	
 		if(newEntity.isConfirmed()) {
-			mailUtils.sendUser_addTicket("5fe2e6fc749e127c0d8b9487", newEntity, "Bạn vừa xác nhận đơn hàng", "Đơn hàng " + newEntity.getId() + " đã được xác nhận", "Một ngày tốt lành");
+			mailUtils.sendUser_addTicket("5fe2e6fc749e127c0d8b9487", newEntity, "Bạn vừa xác nhận đơn hàng", "Đơn hàng <b>" + newEntity.getId() + " </b> đã được xác nhận", "Một ngày tốt lành");
 			try {
 				mailUtils.sendUser_addTicket(customerEmail, newEntity, "Bạn vừa đặt đơn hàng của Mafamile", "Đơn hàng của bạn đã được xác nhận", "Một ngày tốt lành");
 			} catch (Exception e) {
 				// TODO: handle exception
 			}
 		}
+		logEntity.setContent(content);
+		logService.save(logEntity);
 		
 		return ResponseEntity.ok(billService.save(newEntity));
 	}
 	
 	@DeleteMapping("/{id}")
 	public void deleteById(@PathVariable("id") String id) {
+		
+		LogEntity logEntity = new LogEntity();
+		logEntity.setIcon("https://img.icons8.com/ios-filled/64/000000/information.png");
+		String content = "Admin " + " đã xóa đơn hàng " + id + " vào " + Calendar.getInstance().getTime();
+		logEntity.setContent(content);
+		logService.save(logEntity);
+		
 		billService.delete(id);
 	}
 
