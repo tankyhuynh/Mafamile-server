@@ -74,7 +74,7 @@ public class ContactAPI {
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		df.setTimeZone(TimeZone.getTimeZone("Etc/GMT0"));
 		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		sf.setTimeZone(TimeZone.getTimeZone("Etc/GMT+7"));
+		sf.setTimeZone(TimeZone.getTimeZone("Etc/GMT-7"));
 		
 		Date createdDate  = df.parse(sf.format(Calendar.getInstance().getTime())) ;
 		
