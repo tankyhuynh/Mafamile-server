@@ -1,6 +1,11 @@
 package com.mafami.Mafami.api;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.TimeZone;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.mafami.Mafami.Entity.RecruitmentEntity;
 import com.mafami.Mafami.Service.RecruitmentService;
+import com.mafami.Mafami.model.RecruitTimeModel;
 
 @RestController
 @RequestMapping("/api/recruitment")
@@ -44,9 +50,18 @@ public class RecruitmentAPI {
 	}
 
 	@PostMapping("/{site}")
-	public RecruitmentEntity saveOneBySite(@PathVariable String site, @RequestBody RecruitmentEntity contactEntity) {
-		contactEntity.setSite(site);
-		return recruitmentService.save(contactEntity);
+	public RecruitmentEntity saveOneBySite(@PathVariable String site, @RequestBody RecruitmentEntity recruitmentEntity) throws Exception {
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		df.setTimeZone(TimeZone.getTimeZone("Etc/GMT0"));
+		SimpleDateFormat sf_log = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		sf_log.setTimeZone(TimeZone.getTimeZone("Etc/GMT-7"));
+		Date startDate = recruitmentEntity.getTime().getStartDate();
+		Date endDate = recruitmentEntity.getTime().getEndDate();
+		RecruitTimeModel timeModel = new RecruitTimeModel( df.parse(sf_log.format(startDate)),  df.parse(sf_log.format(endDate)) );
+		
+		recruitmentEntity.setTime(timeModel);
+		recruitmentEntity.setSite(site);
+		return recruitmentService.save(recruitmentEntity); 
 	}
 
 	@PutMapping("/{site}/{id}")

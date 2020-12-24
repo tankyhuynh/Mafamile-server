@@ -143,11 +143,13 @@ public class BillAPI {
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		df.setTimeZone(TimeZone.getTimeZone("Etc/GMT0"));
 
+		SimpleDateFormat sf_log = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		sf_log.setTimeZone(TimeZone.getTimeZone("Etc/GMT-7"));
+		
 		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		sf.setTimeZone(TimeZone.getTimeZone("Etc/GMT+7"));
 		
-		SimpleDateFormat sf_log = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		sf_log.setTimeZone(TimeZone.getTimeZone("Etc/GMT-7"));
+		
 		
 		System.out.println( "Before format: " +dbDate );
 		System.out.println( "After format: " +df.format(dbDate) );

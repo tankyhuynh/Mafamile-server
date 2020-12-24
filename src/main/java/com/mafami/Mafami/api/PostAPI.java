@@ -1,6 +1,11 @@
 package com.mafami.Mafami.api;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
+import java.util.TimeZone;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.mafami.Mafami.Entity.LogEntity;
 import com.mafami.Mafami.Entity.PostEntity;
 import com.mafami.Mafami.Service.PostService;
 import com.mafami.Mafami.Utils.FileUtils;
@@ -45,12 +51,24 @@ public class PostAPI {
 	
 	
 	@PostMapping("/{site}")
-	public ResponseEntity<PostEntity> saveOne(@PathVariable("site") String site, @RequestBody PostEntity entity) {
+	public ResponseEntity<PostEntity> saveOne(@PathVariable("site") String site, @RequestBody PostEntity entity) throws Exception {
 		entity.setSite(site);
 		if (entity.getThumbnail() != null) {
 			String URL = fileUtils.decoder(entity.getThumbnail(), "outputFile");
 			entity.setThumbnail(URL);
 		}
+		
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		df.setTimeZone(TimeZone.getTimeZone("Etc/GMT0"));
+
+		SimpleDateFormat sf_log = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		sf_log.setTimeZone(TimeZone.getTimeZone("Etc/GMT-7"));
+		
+		LogEntity logEntity = new LogEntity();
+		logEntity.setIcon("https://img.icons8.com/ios-filled/64/000000/information.png");
+		String author = entity.getAuthor().getUsername();
+		String content = author  + " đã thêm bài viết " + entity.getTitle() + " lúc " + (df.parse(sf_log.format(Calendar.getInstance().getTime())));
+		
 		return ResponseEntity.ok(postService.save(entity));
 	}
 	

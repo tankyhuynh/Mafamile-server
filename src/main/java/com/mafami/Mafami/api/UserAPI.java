@@ -57,6 +57,10 @@ public class UserAPI {
 		newEntity = userConvert.Entity_To_Entity(userEntity);
 		newEntity.setId(id);
 		
+		String password =  userEntity.getPassword();
+		String hashedPass = BCrypt.hashpw(password, BCrypt.gensalt(12));
+		 userEntity.setPassword(hashedPass);
+		
 		return userService.save(newEntity);
 	}
 	

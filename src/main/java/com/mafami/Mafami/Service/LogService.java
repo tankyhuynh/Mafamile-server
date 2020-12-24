@@ -3,6 +3,9 @@ package com.mafami.Mafami.Service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.mafami.Mafami.Entity.LogEntity;
@@ -29,7 +32,8 @@ public class LogService {
 	}
 
 	public List<LogEntity> getAll() {
-		return logRepo.findAll();
+		Pageable limit = PageRequest.of(0, 10);
+		return logRepo.findAll(limit).getContent();
 	}
 
 	public LogEntity save(LogEntity entity) {

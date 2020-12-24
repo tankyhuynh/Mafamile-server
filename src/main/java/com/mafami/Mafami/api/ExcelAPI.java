@@ -95,8 +95,12 @@ public class ExcelAPI {
 			String passwordCheck = "stackjava.com";
 			boolean check = BCrypt.checkpw(password, "$2a$12$ukjmxrmIZJS1OZ5TmqWCQ.wOTyhznjbmKVaBQJVurlbvzPX5OxTHm");
 			
+			
 			System.out.println(hash);
 			System.out.println(check);
+			
+			
+			
 			
 			//$2a$12$FH9wlI0vuFLPa4UWh4shI.9TcC6NOccF/jxNWbIkDdl0ne6XtDlrq
 				

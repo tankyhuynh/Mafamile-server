@@ -20,12 +20,11 @@ public class PostEntity {
 	private String id;
 	private String title;
 	private String content;
+	private String shortDescription;
 	private Date time = Calendar.getInstance().getTime();
 	private UserEntity author;
 	private String thumbnail;
 	private String preview;
 	private String site;
-
-
 
 }
