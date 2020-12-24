@@ -76,6 +76,9 @@ public class ContactAPI {
 		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		sf.setTimeZone(TimeZone.getTimeZone("Etc/GMT-7"));
 		
+		SimpleDateFormat sf_entity = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		sf_entity.setTimeZone(TimeZone.getTimeZone("Etc/GMT+7"));
+		
 		Date createdDate  = df.parse(sf.format(Calendar.getInstance(TimeZone.getTimeZone("Etc/GMT-7")).getTime())) ;
 		
 		LogEntity logEntity = new LogEntity();
@@ -86,7 +89,7 @@ public class ContactAPI {
 		logEntity.setContent(content);
 		logService.save(logEntity);
 		
-		contactEntity.setTime( createdDate );
+		contactEntity.setTime( df.parse(sf_entity.format(createdDate)) );
 		return contactService.save(contactEntity);
 	}
 
