@@ -4,6 +4,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 /**
 * @author root {1:56:37 PM}:
@@ -73,13 +74,16 @@ public class ContactAPI {
 		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		sf.setTimeZone(TimeZone.getTimeZone("Etc/GMT-7"));
 		
+		Date createdDate  = df.parse(sf.format(Calendar.getInstance().getTime())) ;
+		
 		LogEntity logEntity = new LogEntity();
 		logEntity.setIcon("https://img.icons8.com/ios-filled/64/000000/information.png");
-		String content = "Admin" + " đã thêm liên hệ " + contactEntity.getId() + " lúc " + ( df.parse(sf.format(Calendar.getInstance().getTime())) ) + " vào liên hệ của " + site;
+		String content = "Admin" + " đã thêm liên hệ " + contactEntity.getId() + " lúc " + ( createdDate ) + " vào liên hệ của " + site;
 		
 		logEntity.setContent(content);
 		logService.save(logEntity);
 		
+		contactEntity.setTime(createdDate);
 		return contactService.save(contactEntity);
 	}
 
@@ -116,7 +120,7 @@ public class ContactAPI {
 		
 		LogEntity logEntity = new LogEntity();
 		logEntity.setIcon("https://img.icons8.com/ios-filled/64/000000/information.png");
-		String content = "Admin " + " đã xóa liên hệ " + id + " lúc " +  ( df.parse(sf.format(( Calendar.getInstance().getTime())) ) ) +" với lý do " + reason;
+		String content = "Admin" + " đã xóa liên hệ " + id + " lúc " +  ( df.parse(sf.format(( Calendar.getInstance().getTime())) ) ) +" với lý do " + reason;
 		logEntity.setContent(content);
 		logService.save(logEntity);
 		

@@ -75,8 +75,11 @@ public class MenuAPI {
 	public ResponseEntity<MenuEntity> saveOne(@PathVariable("site") String site, @RequestBody MenuEntity menuEntity) throws Exception {
 		
 		List<PriceModel> prices = new ArrayList<PriceModel>();
-		String URL = fileUtils.decoder(menuEntity.getImage(), "ImageAPI");
-		menuEntity.setImage(URL);
+		if(menuEntity.getImage() != null) {
+			String URL = fileUtils.decoder(menuEntity.getImage(), "ImageAPI");
+			menuEntity.setImage(URL);
+		}
+		
 		menuEntity.setSite(site);
 		
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");

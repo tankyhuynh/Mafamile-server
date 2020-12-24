@@ -31,7 +31,7 @@ public class ContactEntity {
 	private String email;
 	private String customerName;
 	private String content;
-	private Date time = Calendar.getInstance().getTime();
+	private Date time ;
 	private boolean isChecked;
 	private String site;
 

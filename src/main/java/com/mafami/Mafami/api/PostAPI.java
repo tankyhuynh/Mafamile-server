@@ -111,7 +111,7 @@ public class PostAPI {
 		
 		LogEntity logEntity = new LogEntity();
 		logEntity.setIcon("https://img.icons8.com/ios-filled/64/000000/information.png");
-		String content = "admin " + " đã xóa món " + postEntity.getTitle() + " lúc " +  ( df.parse(sf.format(( Calendar.getInstance().getTime())) ) ) +" với lý do " + reason;
+		String content = "Admin " + " đã xóa món " + postEntity.getTitle() + " lúc " +  ( df.parse(sf.format(( Calendar.getInstance().getTime())) ) ) +" với lý do " + reason;
 		logEntity.setContent(content);
 		logService.save(logEntity);
 		
@@ -129,7 +129,7 @@ public class PostAPI {
 		
 		LogEntity logEntity = new LogEntity();
 		logEntity.setIcon("https://img.icons8.com/ios-filled/64/000000/information.png");
-		String content = "admin " + " đã xóa món " + postEntity.getTitle() + " lúc " +  ( df.parse(sf.format(( Calendar.getInstance().getTime())) ) ) +" với lý do " + reason;
+		String content = "Admin " + " đã xóa bài viết " + postEntity.getTitle() + " lúc " +  ( df.parse(sf.format(( Calendar.getInstance().getTime())) ) ) +" với lý do " + reason;
 		logEntity.setContent(content);
 		logService.save(logEntity);
 		
