@@ -86,7 +86,6 @@ public class ContactAPI {
 		logEntity.setContent(content);
 		logService.save(logEntity);
 		
-		contactEntity.setTime(createdDate);
 		return contactService.save(contactEntity);
 	}
 
