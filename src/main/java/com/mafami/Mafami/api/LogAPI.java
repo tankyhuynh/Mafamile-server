@@ -60,7 +60,7 @@ public class LogAPI {
 	}
 
 	@PutMapping("/{id}")
-	public ResponseEntity<LogEntity> saveOneById(@PathVariable String id, @RequestBody LogEntity newEntity) {
+	public ResponseEntity<LogEntity> saveOneById(@PathVariable String id, @RequestBody(required = false) LogEntity newEntity) {
 		LogEntity oldEntity = logService.findOneById(id);
 		newEntity.setId(id);
 		if (oldEntity != null)

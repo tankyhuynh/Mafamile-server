@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.mafami.Mafami.Entity.UserEntity;
 import com.mafami.Mafami.Repository.UserRepo;
 import com.mafami.Mafami.Service.UserService;
+import com.mafami.Mafami.model.ChangePassModel;
 import com.mafami.Mafami.model.SigninRequest;
 
 @RestController
@@ -54,6 +56,25 @@ public class AuthenticationAPI {
 		} else
 			return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
 
+	}
+	
+	@PostMapping("/changepassword/{id}")
+	public ResponseEntity<UserEntity> changePassword(@PathVariable String id, @RequestBody ChangePassModel user) {
+		UserEntity userEntity = userService.findOneById(id);
+		
+		String oldPassInDatabase = userEntity.getPassword();
+		
+		String passwordCheck = user.getOldPass();
+		boolean check = BCrypt.checkpw(oldPassInDatabase, passwordCheck);
+		
+		if ( check ) {
+			String password = user.getNewPass();
+			String hashPassword = BCrypt.hashpw(password, BCrypt.gensalt(12));
+			userEntity.setPassword(hashPassword);
+			return ResponseEntity.ok(userService.save(userEntity));
+		}
+
+		return ResponseEntity.status(HttpStatus.FORBIDDEN).build();
 	}
 
 	@PostMapping("/auth")
