@@ -99,7 +99,7 @@ public class UserAPI {
 	}
 	
 	@DeleteMapping("/{id}")
-	public void deleteOneById(@PathVariable String id, @RequestBody String reason) throws Exception {
+	public void deleteOneById(@PathVariable String id, @RequestBody(required = false) String reason) throws Exception {
 		UserEntity user = userService.findOneById(id);
 		
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");

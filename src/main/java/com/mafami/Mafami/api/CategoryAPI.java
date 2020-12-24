@@ -110,7 +110,7 @@ public class CategoryAPI {
 	}
 	
 	@DeleteMapping("/{id}")
-	public void deleteById(@PathVariable("id") String id, @RequestBody String reason) throws Exception {
+	public void deleteById(@PathVariable("id") String id, @RequestBody(required = false) String reason) throws Exception {
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		df.setTimeZone(TimeZone.getTimeZone("Etc/GMT0"));
 		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
