@@ -89,7 +89,7 @@ public class ContactAPI {
 		logEntity.setContent(content);
 		logService.save(logEntity);
 		
-		contactEntity.setTime( df.parse(sf_entity.format(createdDate)) );
+		contactEntity.setTime( Calendar.getInstance().getTime() );
 		return contactService.save(contactEntity);
 	}
 
