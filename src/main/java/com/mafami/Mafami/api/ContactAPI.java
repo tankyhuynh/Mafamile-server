@@ -74,9 +74,9 @@ public class ContactAPI {
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		df.setTimeZone(TimeZone.getTimeZone("Etc/GMT0"));
 		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		sf.setTimeZone(TimeZone.getTimeZone("Etc/GMT+7"));
+		sf.setTimeZone(TimeZone.getTimeZone("Etc/GMT-7"));
 		
-		Date createdDate  = df.parse(sf.format(Calendar.getInstance(TimeZone.getTimeZone("Etc/GMT+7")).getTime())) ;
+		Date createdDate  = df.parse(sf.format(Calendar.getInstance(TimeZone.getTimeZone("Etc/GMT-7")).getTime())) ;
 		
 		LogEntity logEntity = new LogEntity();
 		logEntity.setIcon("https://img.icons8.com/ios-filled/64/000000/information.png");
