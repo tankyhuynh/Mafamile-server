@@ -58,9 +58,12 @@ public class PostAPI {
 	@PostMapping("/{site}")
 	public ResponseEntity<PostEntity> saveOne(@PathVariable("site") String site, @RequestBody PostEntity entity) throws Exception {
 		entity.setSite(site);
-		if (entity.getThumbnail() != null) {
+		
+		try {
 			String URL = fileUtils.decoder(entity.getThumbnail(), "outputFile");
 			entity.setThumbnail(URL);
+		} catch (Exception e) {
+			System.out.println(e);
 		}
 		
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");

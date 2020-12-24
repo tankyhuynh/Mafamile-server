@@ -3,6 +3,7 @@ package com.mafami.Mafami.Service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.mafami.Mafami.Entity.ContactEntity;
@@ -20,7 +21,7 @@ public class PromotionService {
 	}
 
 	public List<PromotionEntity> getAll() {
-		return promotionRepo.findAll();
+		return promotionRepo.findAll(Sort.by(Sort.Direction.DESC, "time"));
 	}
 	
 	public List<PromotionEntity> getAllBySite(String site) {

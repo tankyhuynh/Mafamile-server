@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.mafami.Mafami.Entity.LogEntity;
@@ -32,7 +33,7 @@ public class LogService {
 	}
 
 	public List<LogEntity> getAll() {
-		return logRepo.findAll();
+		return logRepo.findAll(Sort.by(Sort.Direction.DESC, "time"));
 	}
 	
 	public List<LogEntity> getAllByPage(int page) {

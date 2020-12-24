@@ -3,6 +3,7 @@ package com.mafami.Mafami.Service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.mafami.Mafami.Entity.ContactEntity;
@@ -17,7 +18,7 @@ public class PostService {
 	private PostRepo postRepo;
 	
 	public List<PostEntity> findAll() {
-		return postRepo.findAll();
+		return postRepo.findAll(Sort.by(Sort.Direction.DESC, "time"));
 	}
 	
 	public List<PostEntity> findAllByAuthor(UserEntity author) {

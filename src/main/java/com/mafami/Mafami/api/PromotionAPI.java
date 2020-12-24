@@ -61,9 +61,11 @@ public class PromotionAPI {
 	public PromotionEntity saveOneBySite(@PathVariable String site, @RequestBody PromotionEntity promotionEntity) throws Exception {
 		promotionEntity.setSite(site);
 		
-		if (promotionEntity.getThumbnail() != null) {
+		try {
 			String URL = fileUtils.decoder(promotionEntity.getThumbnail(), "outputFile");
 			promotionEntity.setThumbnail(URL);
+		} catch (Exception e) {
+			System.out.println(e);
 		}
 		
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
