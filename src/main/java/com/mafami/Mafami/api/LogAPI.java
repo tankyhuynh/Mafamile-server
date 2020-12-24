@@ -3,6 +3,7 @@ package com.mafami.Mafami.api;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -37,6 +38,11 @@ public class LogAPI {
 	@GetMapping
 	public List<LogEntity> getAll() {
 		return logService.getAll();
+	}
+	
+	@GetMapping("/page/{numberOfPage}")
+	public List<LogEntity> getAllByNumberOfPage(@PathVariable int pageNumber) {
+		return logService.getAllByPage(pageNumber);
 	}
 
 	@GetMapping("/{id}")

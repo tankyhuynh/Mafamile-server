@@ -32,8 +32,12 @@ public class LogService {
 	}
 
 	public List<LogEntity> getAll() {
-		Pageable limit = PageRequest.of(0, 10);
-		return logRepo.findAll(limit).getContent();
+		return logRepo.findAll();
+	}
+	
+	public List<LogEntity> getAllByPage(int page) {
+		Pageable pageable = PageRequest.of(page, 10);
+		return logRepo.findAll(pageable).getContent();
 	}
 
 	public LogEntity save(LogEntity entity) {
