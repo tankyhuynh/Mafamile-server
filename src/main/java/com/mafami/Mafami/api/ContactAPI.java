@@ -18,6 +18,7 @@ import java.util.Date;
 
 import java.util.List;
 import java.util.TimeZone;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -67,18 +68,20 @@ public class ContactAPI {
 
 	@PostMapping("/{site}")
 	public ContactEntity saveOneBySite(@PathVariable String site, @RequestBody ContactEntity contactEntity) throws Exception {
+		contactEntity.setId(UUID.randomUUID().toString());
 		contactEntity.setSite(site);
 		
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		df.setTimeZone(TimeZone.getTimeZone("Etc/GMT0"));
 		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		sf.setTimeZone(TimeZone.getTimeZone("Etc/GMT-7"));
+		sf.setTimeZone(TimeZone.getTimeZone("Etc/GMT+7"));
 		
 		Date createdDate  = df.parse(sf.format(Calendar.getInstance().getTime())) ;
 		
 		LogEntity logEntity = new LogEntity();
 		logEntity.setIcon("https://img.icons8.com/ios-filled/64/000000/information.png");
-		String content = "Admin" + " đã thêm liên hệ " + contactEntity.getId() + " lúc " + ( createdDate ) + " vào liên hệ của " + site;
+		String customerName =  contactEntity.getCustomerName(); 
+		String content = customerName + " đã thêm liên hệ " + contactEntity.getId() + " lúc " + ( createdDate ) + " vào liên hệ của " + site;
 		
 		logEntity.setContent(content);
 		logService.save(logEntity);
