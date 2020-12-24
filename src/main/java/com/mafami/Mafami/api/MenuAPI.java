@@ -131,6 +131,7 @@ public class MenuAPI {
 	
 	@DeleteMapping("/{id}")
 	public void deleteOneById(@PathVariable String id, @RequestBody(required = false) String reason) throws Exception {
+		MenuEntity menuEntity = menuService.findOneById(id);
 		
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		df.setTimeZone(TimeZone.getTimeZone("Etc/GMT0"));
@@ -139,7 +140,7 @@ public class MenuAPI {
 		
 		LogEntity logEntity = new LogEntity();
 		logEntity.setIcon("https://img.icons8.com/ios-filled/64/000000/information.png");
-		String content = "Admin " + " đã xóa món " + id + " lúc " +  ( df.parse(sf.format(( Calendar.getInstance().getTime())) ) ) +" với lý do " + reason;
+		String content = "Admin " + " đã xóa món " + menuEntity.getName() + " lúc " +  ( df.parse(sf.format(( Calendar.getInstance().getTime())) ) ) +" với lý do " + reason;
 		logEntity.setContent(content);
 		logService.save(logEntity);
 		
