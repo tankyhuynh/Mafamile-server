@@ -1,5 +1,10 @@
 package com.mafami.Mafami.api;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 /**
 * @author root {1:56:37 PM}:
  * @version Creation time: Nov 8, 2020 1:56:37 PM
@@ -11,6 +16,7 @@ package com.mafami.Mafami.api;
  */
 
 import java.util.List;
+import java.util.TimeZone;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,7 +31,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mafami.Mafami.Entity.ContactEntity;
+import com.mafami.Mafami.Entity.LogEntity;
 import com.mafami.Mafami.Service.ContactService;
+import com.mafami.Mafami.Service.LogService;
 
 @RestController
 @RequestMapping("/api/contact")
@@ -33,6 +41,9 @@ public class ContactAPI {
 
 	@Autowired
 	private ContactService contactService;
+	
+	@Autowired
+	private LogService logService;
 	
 	@GetMapping
 	public List<ContactEntity> getAll() {
@@ -54,16 +65,42 @@ public class ContactAPI {
 	}
 
 	@PostMapping("/{site}")
-	public ContactEntity saveOneBySite(@PathVariable String site, @RequestBody ContactEntity contactEntity) {
+	public ContactEntity saveOneBySite(@PathVariable String site, @RequestBody ContactEntity contactEntity) throws Exception {
 		contactEntity.setSite(site);
+		
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		df.setTimeZone(TimeZone.getTimeZone("Etc/GMT0"));
+		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		sf.setTimeZone(TimeZone.getTimeZone("Etc/GMT-7"));
+		
+		LogEntity logEntity = new LogEntity();
+		logEntity.setIcon("https://img.icons8.com/ios-filled/64/000000/information.png");
+		String content = "Admin" + " đã thêm liên hệ " + contactEntity.getId() + " lúc " + ( df.parse(sf.format(Calendar.getInstance().getTime())) ) + " vào liên hệ của " + site;
+		
+		logEntity.setContent(content);
+		logService.save(logEntity);
+		
 		return contactService.save(contactEntity);
 	}
 
 	@PutMapping("/{site}/{id}")
-	public ResponseEntity<ContactEntity> saveOneById( @PathVariable("site") String site ,@PathVariable("id") String id, @RequestBody ContactEntity newEntity) {
+	public ResponseEntity<ContactEntity> saveOneById( @PathVariable("site") String site ,@PathVariable("id") String id, @RequestBody ContactEntity newEntity) throws Exception {
 		ContactEntity oldEntity = contactService.findOneById(id);
 		newEntity.setId(id);
 		newEntity.setSite(site);
+		
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		df.setTimeZone(TimeZone.getTimeZone("Etc/GMT0"));
+		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		sf.setTimeZone(TimeZone.getTimeZone("Etc/GMT-7"));
+		
+		LogEntity logEntity = new LogEntity();
+		logEntity.setIcon("https://img.icons8.com/ios-filled/64/000000/information.png");
+		String content = "Admin" + " đã sửa thông tin liên hệ " + newEntity.getId() + " lúc " +( df.parse(sf.format(( Calendar.getInstance().getTime())) ) ) + " trong liên hệ của " + site;
+		
+		logEntity.setContent(content);
+		logService.save(logEntity);
+		
 		if (oldEntity != null)
 			return ResponseEntity.ok(contactService.save(newEntity));
 
@@ -71,7 +108,18 @@ public class ContactAPI {
 	}
 
 	@DeleteMapping("/{id}")
-	public void deleteOneById(@PathVariable String id) {
+	public void deleteOneById(@PathVariable String id, @RequestBody String reason) throws Exception {
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		df.setTimeZone(TimeZone.getTimeZone("Etc/GMT0"));
+		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		sf.setTimeZone(TimeZone.getTimeZone("Etc/GMT-7"));
+		
+		LogEntity logEntity = new LogEntity();
+		logEntity.setIcon("https://img.icons8.com/ios-filled/64/000000/information.png");
+		String content = "Admin " + " đã xóa liên hệ " + id + " lúc " +  ( df.parse(sf.format(( Calendar.getInstance().getTime())) ) ) +" với lý do " + reason;
+		logEntity.setContent(content);
+		logService.save(logEntity);
+		
 		contactService.delete(id);
 	}
 

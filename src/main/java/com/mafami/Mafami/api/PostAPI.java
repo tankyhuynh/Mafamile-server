@@ -16,10 +16,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mafami.Mafami.Entity.LogEntity;
 import com.mafami.Mafami.Entity.PostEntity;
+import com.mafami.Mafami.Service.LogService;
 import com.mafami.Mafami.Service.PostService;
 import com.mafami.Mafami.Utils.FileUtils;
 
@@ -32,6 +34,9 @@ public class PostAPI {
 	
 	@Autowired
 	private FileUtils fileUtils;
+	
+	@Autowired
+	private LogService logService;
 	
 	@GetMapping
 	public ResponseEntity<List<PostEntity>> getAll() {
@@ -60,28 +65,54 @@ public class PostAPI {
 		
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		df.setTimeZone(TimeZone.getTimeZone("Etc/GMT0"));
-
 		SimpleDateFormat sf_log = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		sf_log.setTimeZone(TimeZone.getTimeZone("Etc/GMT-7"));
 		
 		LogEntity logEntity = new LogEntity();
 		logEntity.setIcon("https://img.icons8.com/ios-filled/64/000000/information.png");
 		String author = entity.getAuthor().getUsername();
-		String content = author  + " đã thêm bài viết " + entity.getTitle() + " lúc " + (df.parse(sf_log.format(Calendar.getInstance().getTime())));
+		String content = author  + " đã thêm bài viết " + entity.getTitle() + " lúc " + (df.parse(sf_log.format(Calendar.getInstance().getTime())))+ " vào bài viết của " + site;
+		
+		logEntity.setContent(content);
+		logService.save(logEntity);
 		
 		return ResponseEntity.ok(postService.save(entity));
 	}
 	
 	@PutMapping("/{site}/{id}")
-	public PostEntity saveOneById(@PathVariable("site") String site, @PathVariable String id, @RequestBody PostEntity postEntity) {
+	public PostEntity saveOneById(@PathVariable("site") String site, @PathVariable String id, @RequestBody PostEntity postEntity) throws Exception {
 		postEntity.setId(id);
 		postEntity.setSite(site);
+		
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		df.setTimeZone(TimeZone.getTimeZone("Etc/GMT0"));
+		SimpleDateFormat sf_log = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		sf_log.setTimeZone(TimeZone.getTimeZone("Etc/GMT-7"));
+		
+		LogEntity logEntity = new LogEntity();
+		logEntity.setIcon("https://img.icons8.com/ios-filled/64/000000/information.png");
+		String author = postEntity.getAuthor().getUsername();
+		String content = author  + " đã sửa bài viết " + postEntity.getTitle() + " lúc " + (df.parse(sf_log.format(Calendar.getInstance().getTime())))+ " trong bài viết của " + site;
+		
+		logEntity.setContent(content);
+		logService.save(logEntity);
 		
 		return postService.save(postEntity);
 	}
 	
 	@DeleteMapping("/{id}")
-	public void deleteOneById(@PathVariable String id) {
+	public void deleteOneById(@PathVariable String id, @RequestBody String reason) throws Exception {
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		df.setTimeZone(TimeZone.getTimeZone("Etc/GMT0"));
+		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		sf.setTimeZone(TimeZone.getTimeZone("Etc/GMT-7"));
+		
+		LogEntity logEntity = new LogEntity();
+		logEntity.setIcon("https://img.icons8.com/ios-filled/64/000000/information.png");
+		String content = "Admin " + " đã xóa món " + id + " lúc " +  ( df.parse(sf.format(( Calendar.getInstance().getTime())) ) ) +" với lý do " + reason;
+		logEntity.setContent(content);
+		logService.save(logEntity);
+		
 		postService.delete(id);
 	}
 	

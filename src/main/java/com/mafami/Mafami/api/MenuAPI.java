@@ -74,15 +74,15 @@ public class MenuAPI {
 	@PostMapping("/{site}")
 	public ResponseEntity<MenuEntity> saveOne(@PathVariable("site") String site, @RequestBody MenuEntity menuEntity) throws Exception {
 		
-		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		df.setTimeZone(TimeZone.getTimeZone("Etc/GMT0"));
-		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		sf.setTimeZone(TimeZone.getTimeZone("Etc/GMT-7"));
-		
 		List<PriceModel> prices = new ArrayList<PriceModel>();
 		String URL = fileUtils.decoder(menuEntity.getImage(), "ImageAPI");
 		menuEntity.setImage(URL);
 		menuEntity.setSite(site);
+		
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		df.setTimeZone(TimeZone.getTimeZone("Etc/GMT0"));
+		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		sf.setTimeZone(TimeZone.getTimeZone("Etc/GMT-7"));
 		
 		LogEntity logEntity = new LogEntity();
 		logEntity.setIcon("https://img.icons8.com/ios-filled/64/000000/information.png");
@@ -108,16 +108,16 @@ public class MenuAPI {
 	
 	@PutMapping("/{site}/{id}")
 	public ResponseEntity<MenuEntity> saveOneById(@PathVariable("site") String site, @PathVariable String id, @RequestBody MenuEntity entity) throws Exception {
+
+		MenuEntity newEntity = menuService.findOneById(id);
+		newEntity = aMIA_ProductConvert.entity_to_entity(entity);
+		newEntity.setId(id);
+		newEntity.setSite(site);
 		
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		df.setTimeZone(TimeZone.getTimeZone("Etc/GMT0"));
 		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		sf.setTimeZone(TimeZone.getTimeZone("Etc/GMT-7"));
-		
-		MenuEntity newEntity = menuService.findOneById(id);
-		newEntity = aMIA_ProductConvert.entity_to_entity(entity);
-		newEntity.setId(id);
-		newEntity.setSite(site);
 		
 		LogEntity logEntity = new LogEntity();
 		logEntity.setIcon("https://img.icons8.com/ios-filled/64/000000/information.png");
