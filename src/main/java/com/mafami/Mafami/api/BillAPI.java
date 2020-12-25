@@ -214,8 +214,8 @@ public class BillAPI {
 		String content = customerName + " đã đặt đơn hàng " + billEntity.getId() + " lúc " + (df.parse(sf_log.format(Calendar.getInstance().getTime())));
 		
 		try {												
-			mailUtils.sendUser_addTicket("5f89a8a1f5cdd900414ae8dc", billEntity, "Có đơn hàng mới", "Đơn hàng " + billEntity.getId() + " đang chờ xác nhận", "Một ngày tốt lành");
-			mailUtils.sendUser_addTicket(customerEmail, billEntity, "Bạn vừa đặt đơn hàng của Mafamile", "Đơn hàng của bạn đang chờ xác nhận", "Một ngày tốt lành");	
+			mailUtils.sendAddBill_Admin("5f89a8a1f5cdd900414ae8dc", billEntity, "Có đơn hàng mới", "Đơn hàng " + billEntity.getId() + " đang chờ xác nhận", "Một ngày tốt lành");
+			mailUtils.sendAddBill_Customer(customerEmail, billEntity, "Bạn vừa đặt đơn hàng của Mafamile", "Đơn hàng của bạn đang chờ xác nhận", "Một ngày tốt lành");	
 			
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -253,9 +253,9 @@ public class BillAPI {
 		
 		String customerEmail = newEntity.getCustomerInformation().getEmail();	
 		if(newEntity.isConfirmed()) { 	
-			mailUtils.sendUser_addTicket("5f89a8a1f5cdd900414ae8dc", newEntity, "Bạn vừa xác nhận đơn hàng", "Đơn hàng <b>" + newEntity.getId() + " </b> đã được xác nhận", "Một ngày tốt lành");
+			mailUtils.sendUpdateBill("5f89a8a1f5cdd900414ae8dc", newEntity, "Bạn vừa xác nhận đơn hàng", "Đơn hàng <b>" + newEntity.getId() + " </b> đã được xác nhận", "Một ngày tốt lành");
 			try {
-				mailUtils.sendUser_addTicket(customerEmail, newEntity, "Bạn vừa đặt đơn hàng của Mafamile", "Đơn hàng của bạn đã được xác nhận", "Một ngày tốt lành");
+				mailUtils.sendAddBill_Customer(customerEmail, newEntity, "Bạn vừa đặt đơn hàng của Mafamile", "Đơn hàng của bạn đã được xác nhận", "Một ngày tốt lành");
 			} catch (Exception e) {
 				// TODO: handle exception
 			}

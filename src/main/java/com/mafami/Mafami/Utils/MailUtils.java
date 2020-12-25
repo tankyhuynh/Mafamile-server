@@ -17,6 +17,7 @@ import org.springframework.stereotype.Component;
 import com.mafami.Mafami.Constant.MailConstant;
 import com.mafami.Mafami.Entity.BillEntity;
 import com.mafami.Mafami.Service.UserService;
+import com.mafami.Mafami.model.FoodInformationModel;
 
 @Component
 public class MailUtils {
@@ -31,7 +32,7 @@ public class MailUtils {
 	private UserService userService;
 	
 
-	public void sendUser_addTicket(String userId,BillEntity billEntity, String emailTitle, String emailBody, String emailFooter) {
+	public void sendAddBill_Admin(String userId,BillEntity billEntity, String emailTitle, String emailBody, String emailFooter) {
 
 		String email = userService.findOneById(userId).getEmail();
 	
@@ -45,6 +46,73 @@ public class MailUtils {
 		try {
 			helper.setText(emailBody
 					+ "<br> " + content
+					+ "<br><br>" + emailFooter, true);
+			helper.setTo(email);
+			helper.setSubject(emailTitle);
+			
+			javaMailSender.send(mimeMessage);
+		} catch (MessagingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		
+		javaMailSender.send(mimeMessage);	
+		
+	}
+	
+	
+	public void sendAddBill_Customer(String userId,BillEntity billEntity, String emailTitle, String emailBody, String emailFooter) {
+
+		String email = userService.findOneById(userId).getEmail();
+	
+		String listFood = "";
+		for (FoodInformationModel food : billEntity.getFoodInformation()) {
+			listFood += food.getFood().getName() + " - " + food.getQuantity() + "<br>";
+		}
+		
+		String content = 	"<br>Bill_ID: " + billEntity.getId()  
+															+ "Bao gồm: "
+															+ listFood
+															+ "Thời gian đặt: " + billEntity.getCreatedDate()
+															+ "Thời gian nhận: " + billEntity.getOrderDate()
+															+ "Thành tiền: " + billEntity.getTotal() + " VND";
+
+		
+		MimeMessage mimeMessage = javaMailSender.createMimeMessage();
+		MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, "utf-8");
+		
+		try {
+			helper.setText(emailBody
+					+ "<br> " + content
+					+ "<br><br>" + emailFooter, true);
+			helper.setTo(email);
+			helper.setSubject(emailTitle);
+			
+			javaMailSender.send(mimeMessage);
+		} catch (MessagingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		
+		javaMailSender.send(mimeMessage);	
+		
+	}
+	
+	
+	public void sendUpdateBill(String userId,BillEntity billEntity, String emailTitle, String emailBody, String emailFooter) {
+
+		String email = userService.findOneById(userId).getEmail();
+		
+		String listFood = "";
+		for (FoodInformationModel food : billEntity.getFoodInformation()) {
+			listFood += food.getFood().getName() + " - " + food.getQuantity() + "<br>";
+		}
+	
+		MimeMessage mimeMessage = javaMailSender.createMimeMessage();
+		MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, "utf-8");
+		
+		try {
+			helper.setText(emailBody
 					+ "<br><br>" + emailFooter, true);
 			helper.setTo(email);
 			helper.setSubject(emailTitle);
