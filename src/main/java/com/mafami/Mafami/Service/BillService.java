@@ -4,11 +4,12 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.mafami.Mafami.Entity.BillEntity;
-import com.mafami.Mafami.Entity.ContactEntity;
 import com.mafami.Mafami.Repository.BillRepo;
 
 /**
@@ -34,13 +35,22 @@ public class BillService {
 	public List<BillEntity> getAll() {
 		return billRepo.findAll(Sort.by(Sort.Direction.DESC, "createdDate"));
 	}
-	
+
+	public List<BillEntity> getAllByPage(int page) {
+		Pageable pageable = PageRequest.of(page, 10);
+		return billRepo.findAll(pageable).getContent();
+	}
+
 	public List<BillEntity> getAllBySite(String site) {
 		return billRepo.findAllBySite(site, Sort.by(Sort.Direction.DESC, "createdDate"));
 	}
-	
+
 	public List<BillEntity> getAllByOrderDate(Date orderDateStart) {
 		return billRepo.findAllByOrderDate(orderDateStart);
+	}
+
+	public List<BillEntity> getAllByOrderDateBetween(Date createdDate1, Date createdDate2) {
+		return billRepo.findAllByCreatedDateBetween(createdDate1, createdDate2);
 	}
 
 	public BillEntity save(BillEntity entity) {
@@ -50,7 +60,7 @@ public class BillService {
 	public void delete(String id) {
 		billRepo.deleteById(id);
 	}
-	
+
 	public void deleteAllBySite(String site) {
 		List<BillEntity> listBills = billRepo.findAllBySite(site, Sort.by(Sort.Direction.DESC, "createdDate"));
 		billRepo.deleteAll(listBills);

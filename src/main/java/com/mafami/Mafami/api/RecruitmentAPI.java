@@ -38,12 +38,12 @@ public class RecruitmentAPI {
 
 	@GetMapping
 	public List<RecruitmentEntity> getAll() {
-		return recruitmentService.getAll();
+		return recruitmentService.findAll();
 	}
 
 	@GetMapping("/{site}")
 	public List<RecruitmentEntity> getAllBySite(@PathVariable String site) {
-		return recruitmentService.getAllBySite(site);
+		return recruitmentService.findAllBySite(site);
 	}
 
 	@GetMapping("/{site}/{id}")

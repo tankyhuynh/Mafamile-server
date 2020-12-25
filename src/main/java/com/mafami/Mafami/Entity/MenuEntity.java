@@ -1,6 +1,7 @@
 package com.mafami.Mafami.Entity;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -18,7 +19,7 @@ import lombok.NoArgsConstructor;
 public class MenuEntity {
 
 	@Id
-	private String id;
+	private String id = (UUID.randomUUID()).toString().substring(0, 8);
 
 	private CategoryEntity category;
 	private String name;

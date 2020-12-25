@@ -3,10 +3,11 @@ package com.mafami.Mafami.Service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.mafami.Mafami.Entity.CategoryEntity;
-import com.mafami.Mafami.Entity.ContactEntity;
 import com.mafami.Mafami.Entity.MenuEntity;
 import com.mafami.Mafami.Repository.MenuRepo;
 
@@ -23,9 +24,14 @@ public class MenuService {
 	public List<MenuEntity> findAllByCategoryCode(CategoryEntity categoryCode) {
 		return menuRepo.findAllByCategory(categoryCode);
 	}
-	
+
 	public List<MenuEntity> findAllBySite(String site) {
 		return menuRepo.findAllBySite(site);
+	}
+
+	public List<MenuEntity> findAllByPage(int page) {
+		Pageable pageable = PageRequest.of(page, 10);
+		return menuRepo.findAll(pageable).getContent();
 	}
 
 	public MenuEntity findOneByName(String name) {
@@ -43,12 +49,12 @@ public class MenuService {
 	public void delete(String id) {
 		menuRepo.deleteById(id);
 	}
-	
+
 	public void deleteAllBySite(String site) {
 		List<MenuEntity> listMenu = menuRepo.findAllBySite(site);
 		menuRepo.deleteAll(listMenu);
 	}
-	
+
 	public void deleteAll() {
 		menuRepo.deleteAll();
 	}

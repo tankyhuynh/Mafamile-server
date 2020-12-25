@@ -3,6 +3,7 @@ package com.mafami.Mafami.Entity;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -31,7 +32,7 @@ import lombok.NoArgsConstructor;
 public class BillEntity {
 
 	@Id
-	private String id;
+	private String id = (UUID.randomUUID()).toString().substring(0, 8);
 
 	private CustomerModel customerInformation;
 	private List<FoodInformationModel> foodInformation;

@@ -40,12 +40,12 @@ public class PromotionAPI {
 
 	@GetMapping
 	public List<PromotionEntity> getAll() {
-		return promotionService.getAll();
+		return promotionService.findAll();
 	}
 
 	@GetMapping("/{site}")
 	public List<PromotionEntity> getAllBySite(@PathVariable String site) {
-		return promotionService.getAllBySite(site);
+		return promotionService.findAllBySite(site);
 	}
 
 	@GetMapping("/{site}/{id}")

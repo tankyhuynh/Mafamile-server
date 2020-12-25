@@ -25,6 +25,6 @@ public interface BillRepo extends MongoRepository<BillEntity, String>{
 	List<BillEntity> findAllBySite(String site, Sort sort);
 	
 	List<BillEntity> findAllByOrderDate(Date orderDateStart);
-	List<BillEntity> findAllByOrderDateBetween(Date orderDate1, Date orderDate2);
+	List<BillEntity> findAllByCreatedDateBetween(Date createdDate1, Date createdDate2);
 	
 }

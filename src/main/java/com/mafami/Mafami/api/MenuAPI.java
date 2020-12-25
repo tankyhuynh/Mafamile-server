@@ -67,7 +67,7 @@ public class MenuAPI {
 	
 	@GetMapping("/{site}/category/{slug}")
 	public ResponseEntity<List<MenuEntity>> getAllBySlug(@PathVariable("slug") String slug) {
-		CategoryEntity amia_CategoryEntity = categoryService.getOneBySlug(slug);
+		CategoryEntity amia_CategoryEntity = categoryService.findOneBySlug(slug);
 		return ResponseEntity.ok(menuService.findAllByCategoryCode(amia_CategoryEntity));
 	}
 	
@@ -162,7 +162,7 @@ public class MenuAPI {
 	
 	@GetMapping("/category/{site}/{slug}")
 	public List<MenuEntity> getAllMenuByCategory(@PathVariable("site") String site, @PathVariable("slug") String slug) {
-		CategoryEntity categoryEntity = categoryService.getOneBySlug(slug);
+		CategoryEntity categoryEntity = categoryService.findOneBySlug(slug);
 		List<MenuEntity> listEntity = menuService.findAllByCategoryCode(categoryEntity);
 		List<MenuEntity> listEntityInSite = new ArrayList<MenuEntity>(); 
 		for (MenuEntity entity : listEntity) {

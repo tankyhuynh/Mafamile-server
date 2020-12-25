@@ -49,12 +49,12 @@ public class CategoryAPI {
 	
 	@GetMapping("/{site}")
 	public ResponseEntity<List<CategoryEntity>> getAllBySite(@PathVariable("site") String site) {
-		return ResponseEntity.ok(categoryService.getAllBySite(site));
+		return ResponseEntity.ok(categoryService.findAllBySite(site));
 	}
 	
 	@GetMapping("/{site}/{id}")
 	public ResponseEntity<CategoryEntity> getById(@PathVariable("id") String id) {
-		return ResponseEntity.ok(categoryService.getOneById(id));
+		return ResponseEntity.ok(categoryService.findOneById(id));
 	}
 
 	
@@ -90,7 +90,7 @@ public class CategoryAPI {
 	@PutMapping("/{site}/{id}")
 	public ResponseEntity<CategoryEntity> update(@PathVariable("site") String site, @PathVariable("id") String id,
 			@RequestBody CategoryEntity newEntity) throws Exception {
-		CategoryEntity oldEntity = categoryService.getOneById(id);
+		CategoryEntity oldEntity = categoryService.findOneById(id);
 		newEntity.setId(id);
 		newEntity.setSite(site);
 		
@@ -111,7 +111,7 @@ public class CategoryAPI {
 	
 	@DeleteMapping("/{id}")
 	public void deleteById(@PathVariable("id") String id, @RequestBody(required = false) String reason) throws Exception {
-		CategoryEntity categoryEntity = categoryService.getOneById(id);
+		CategoryEntity categoryEntity = categoryService.findOneById(id);
 		
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		df.setTimeZone(TimeZone.getTimeZone("Etc/GMT0"));

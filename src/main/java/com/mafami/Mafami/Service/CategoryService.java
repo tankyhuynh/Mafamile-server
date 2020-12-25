@@ -3,10 +3,11 @@ package com.mafami.Mafami.Service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.mafami.Mafami.Entity.CategoryEntity;
-import com.mafami.Mafami.Entity.ContactEntity;
 import com.mafami.Mafami.Repository.CategoryRepo;
 
 @Service
@@ -15,11 +16,11 @@ public class CategoryService {
 	@Autowired
 	private CategoryRepo categoryRepo;
 
-	public CategoryEntity getOneById(String id) {
+	public CategoryEntity findOneById(String id) {
 		return categoryRepo.findOneById(id);
 	}
 	
-	public CategoryEntity getOneBySlug(String slug) {
+	public CategoryEntity findOneBySlug(String slug) {
 		return categoryRepo.findOneBySlug(slug);
 	}
 
@@ -27,8 +28,13 @@ public class CategoryService {
 		return categoryRepo.findAll();
 	}
 	
-	public List<CategoryEntity> getAllBySite(String site) {
+	public List<CategoryEntity> findAllBySite(String site) {
 		return categoryRepo.findAllBySite(site);
+	}
+	
+	public List<CategoryEntity> findAllByPage(int page) {
+		Pageable pageable = PageRequest.of(page, 10);
+		return categoryRepo.findAll(pageable).getContent();
 	}
 	
 

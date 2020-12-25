@@ -49,12 +49,12 @@ public class ContactAPI {
 	
 	@GetMapping
 	public List<ContactEntity> getAll() {
-		return contactService.getAll();
+		return contactService.findAll();
 	}
 
 	@GetMapping("/{site}")
 	public List<ContactEntity> getAllBySite(@PathVariable String site) {
-		return contactService.getAllBySite(site);
+		return contactService.findAllBySite(site);
 	}
 
 	@GetMapping("/{site}/{id}")

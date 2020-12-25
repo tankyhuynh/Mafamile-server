@@ -3,6 +3,8 @@ package com.mafami.Mafami.Service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.mafami.Mafami.Entity.ContactEntity;
@@ -28,12 +30,17 @@ public class ContactService {
 		return contactRepo.findOneById(id);
 	}
 
-	public List<ContactEntity> getAll() {
+	public List<ContactEntity> findAll() {
 		return contactRepo.findAll();
 	}
-	
-	public List<ContactEntity> getAllBySite(String site) {
+
+	public List<ContactEntity> findAllBySite(String site) {
 		return contactRepo.findAllBySite(site);
+	}
+
+	public List<ContactEntity> findAllByPage(int page) {
+		Pageable pageable = PageRequest.of(page, 10);
+		return contactRepo.findAll(pageable).getContent();
 	}
 
 	public ContactEntity save(ContactEntity entity) {
@@ -48,7 +55,7 @@ public class ContactService {
 		List<ContactEntity> listContacts = contactRepo.findAllBySite(site);
 		contactRepo.deleteAll(listContacts);
 	}
-	
+
 	public void deleteAll() {
 		contactRepo.deleteAll();
 	}

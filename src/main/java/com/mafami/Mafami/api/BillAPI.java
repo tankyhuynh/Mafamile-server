@@ -84,18 +84,17 @@ public class BillAPI {
 		return ResponseEntity.ok( listEntities );
 	}
 
-	@GetMapping("/orderdate/{orderDate}")
-	public ResponseEntity<List<BillEntity>> getAllByOrderDate(@PathVariable String orderDate) throws Exception {
+	@GetMapping("/orderdate/{createdDate}")
+	public ResponseEntity<List<BillEntity>> getAllByCreatedDate(@PathVariable String createdDate) throws Exception {
 		DateTimeFormatter dbFormatter = DateTimeFormatter.ofPattern("EEE MMM dd HH:mm:ss ZZZ yyyy", Locale.JAPAN);
 			
 //		//yyyy-mm-dd HH:mm:ss
 		DateTimeFormatter clientFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH);
-		LocalDate date2 = LocalDate.parse(orderDate, clientFormatter);
+		LocalDate date2 = LocalDate.parse(createdDate, clientFormatter);
 		
 		
 		ZoneId defaultZoneId = ZoneId.systemDefault();
 		Date d= Date.from(date2.atStartOfDay(defaultZoneId).toInstant());
-//		d = java.sql.Date.valueOf(date2);
 
 		
 		List<BillEntity> listEntities = billService.getAll();
@@ -103,7 +102,7 @@ public class BillAPI {
 		
 		System.out.println("Client orderDate: " + d);
 		for (BillEntity bill : listEntities) {		
-			Date dbDate = bill.getOrderDate();                      
+			Date dbDate = bill.getCreatedDate();                      
 			
 			DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			// Use Madrid's time zone to format the date in
@@ -125,24 +124,31 @@ public class BillAPI {
 		return ResponseEntity.ok( listResult );
 	}
 	
-	@GetMapping("/orderdate/{orderDate1}/{orderDate2}")
-	public ResponseEntity<List<BillEntity>> getAllByOrderDateBetween(@PathVariable String orderDate) throws Exception {
+	@GetMapping("/orderdate/{createdDate1}/{createdDate2}")
+	public ResponseEntity<List<BillEntity>> getAllByCreatedDateBetween(@PathVariable("createdDate1") String createdDate1, @PathVariable("createdDate2") String createdDate2) throws Exception {
 		DateTimeFormatter dbFormatter = DateTimeFormatter.ofPattern("EEE MMM dd HH:mm:ss ZZZ yyyy", Locale.JAPAN);
 			
 //		//yyyy-mm-dd HH:mm:ss
 		DateTimeFormatter clientFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH);
-		LocalDate date2 = LocalDate.parse(orderDate, clientFormatter);
+		
+		LocalDate date1 = LocalDate.parse(createdDate1, clientFormatter);
+		LocalDate date2 = LocalDate.parse(createdDate2, clientFormatter);
 		
 		
 		ZoneId defaultZoneId = ZoneId.systemDefault();
-		Date d= Date.from(date2.atStartOfDay(defaultZoneId).toInstant());
-//		d = java.sql.Date.valueOf(date2);
+		
+		Date d1= Date.from(date1.atStartOfDay(defaultZoneId).toInstant());
+		Date d2= Date.from(date2.atStartOfDay(defaultZoneId).toInstant());
+		d2.setDate(d2.getDate() + 1);
+
+		System.out.println("OrderDate 1: " + d1);
+		System.out.println("OrderDate 2: " + d2);
 
 		
 		List<BillEntity> listEntities = billService.getAll();
 		List<BillEntity> listResult = new ArrayList<>();
 		
-		System.out.println("Client orderDate: " + d);
+		System.out.println("Client orderDate: " + d2);
 		for (BillEntity bill : listEntities) {		
 			Date dbDate = bill.getOrderDate();                      
 			
@@ -157,13 +163,10 @@ public class BillAPI {
 			System.out.println("Entity Date: " + dbDate);
 			System.out.println();
 			
-			if (d.equals(dbDate)) {
-				listResult.add(bill);
-			}
-
+			
 		}
 		
-		return ResponseEntity.ok( listResult );
+		return ResponseEntity.ok( billService.getAllByOrderDateBetween(d1, d2) );
 	}
 	
 	
