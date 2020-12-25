@@ -1,7 +1,6 @@
 package com.mafami.Mafami.api;
 
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -18,9 +17,9 @@ import java.util.Date;
 
 import java.util.List;
 import java.util.TimeZone;
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -43,13 +42,18 @@ public class ContactAPI {
 
 	@Autowired
 	private ContactService contactService;
-	
+
 	@Autowired
 	private LogService logService;
-	
+
 	@GetMapping
 	public List<ContactEntity> getAll() {
 		return contactService.findAll();
+	}
+
+	@GetMapping("/page/{numberOfPage}")
+	public Page<ContactEntity> getAllByNumberOfPage(@PathVariable("numberOfPage") int numberOfPage) {
+		return contactService.findAllByPage(numberOfPage);
 	}
 
 	@GetMapping("/{site}")
@@ -58,7 +62,7 @@ public class ContactAPI {
 	}
 
 	@GetMapping("/{site}/{id}")
-	public ResponseEntity<ContactEntity> getOneById( @PathVariable("id") String id) {
+	public ResponseEntity<ContactEntity> getOneById(@PathVariable("id") String id) {
 		ContactEntity logEntity = contactService.findOneById(id);
 		if (logEntity != null) {
 			return ResponseEntity.ok(contactService.findOneById(id));
@@ -67,49 +71,53 @@ public class ContactAPI {
 	}
 
 	@PostMapping("/{site}")
-	public ContactEntity saveOneBySite(@PathVariable String site, @RequestBody ContactEntity contactEntity) throws Exception {
+	public ContactEntity saveOneBySite(@PathVariable String site, @RequestBody ContactEntity contactEntity)
+			throws Exception {
 		contactEntity.setSite(site);
-		
+
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		df.setTimeZone(TimeZone.getTimeZone("Etc/GMT0"));
 		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		sf.setTimeZone(TimeZone.getTimeZone("Etc/GMT-7"));
-		
+
 		SimpleDateFormat sf_entity = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		sf_entity.setTimeZone(TimeZone.getTimeZone("Etc/GMT+7"));
-		
-		Date createdDate  = df.parse(sf.format(Calendar.getInstance(TimeZone.getTimeZone("Etc/GMT-7")).getTime())) ;
-		
+
+		Date createdDate = df.parse(sf.format(Calendar.getInstance(TimeZone.getTimeZone("Etc/GMT-7")).getTime()));
+
 		LogEntity logEntity = new LogEntity();
 		logEntity.setIcon("https://img.icons8.com/ios-filled/64/000000/information.png");
-		String customerName =  contactEntity.getCustomerName(); 
-		String content = customerName + " đã thêm liên hệ " + contactEntity.getId() + " lúc " + ( createdDate ) + " vào liên hệ của " + site;
-		
+		String customerName = contactEntity.getCustomerName();
+		String content = customerName + " đã thêm liên hệ " + contactEntity.getId() + " lúc " + (createdDate)
+				+ " vào liên hệ của " + site;
+
 		logEntity.setContent(content);
 		logService.save(logEntity);
-		
-		contactEntity.setTime( Calendar.getInstance().getTime() );
+
+		contactEntity.setTime(Calendar.getInstance().getTime());
 		return contactService.save(contactEntity);
 	}
 
 	@PutMapping("/{site}/{id}")
-	public ResponseEntity<ContactEntity> saveOneById( @PathVariable("site") String site ,@PathVariable("id") String id, @RequestBody ContactEntity newEntity) throws Exception {
+	public ResponseEntity<ContactEntity> saveOneById(@PathVariable("site") String site, @PathVariable("id") String id,
+			@RequestBody ContactEntity newEntity) throws Exception {
 		ContactEntity oldEntity = contactService.findOneById(id);
 		newEntity.setId(id);
 		newEntity.setSite(site);
-		
+
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		df.setTimeZone(TimeZone.getTimeZone("Etc/GMT0"));
 		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		sf.setTimeZone(TimeZone.getTimeZone("Etc/GMT-7"));
-		
+
 		LogEntity logEntity = new LogEntity();
 		logEntity.setIcon("https://img.icons8.com/ios-filled/64/000000/information.png");
-		String content = "Admin" + " đã sửa thông tin liên hệ " + newEntity.getId() + " lúc " +( df.parse(sf.format(( Calendar.getInstance().getTime())) ) ) + " trong liên hệ của " + site;
-		
+		String content = "Admin" + " đã sửa thông tin liên hệ " + newEntity.getId() + " lúc "
+				+ (df.parse(sf.format((Calendar.getInstance().getTime())))) + " trong liên hệ của " + site;
+
 		logEntity.setContent(content);
 		logService.save(logEntity);
-		
+
 		if (oldEntity != null)
 			return ResponseEntity.ok(contactService.save(newEntity));
 
@@ -122,13 +130,14 @@ public class ContactAPI {
 		df.setTimeZone(TimeZone.getTimeZone("Etc/GMT0"));
 		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		sf.setTimeZone(TimeZone.getTimeZone("Etc/GMT-7"));
-		
+
 		LogEntity logEntity = new LogEntity();
 		logEntity.setIcon("https://img.icons8.com/ios-filled/64/000000/information.png");
-		String content = "Admin" + " đã xóa liên hệ " + id + " lúc " +  ( df.parse(sf.format(( Calendar.getInstance().getTime())) ) ) +" với lý do " + reason;
+		String content = "Admin" + " đã xóa liên hệ " + id + " lúc "
+				+ (df.parse(sf.format((Calendar.getInstance().getTime())))) + " với lý do " + reason;
 		logEntity.setContent(content);
 		logService.save(logEntity);
-		
+
 		contactService.delete(id);
 	}
 
@@ -136,7 +145,7 @@ public class ContactAPI {
 	public void deleteAllBySite(@PathVariable String site) {
 		contactService.deleteAllBySite(site);
 	}
-	
+
 	@DeleteMapping("/all")
 	public void deleteAll() {
 		contactService.deleteAll();

@@ -1,7 +1,6 @@
 package com.mafami.Mafami.api;
 
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -12,9 +11,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -83,6 +82,14 @@ public class BillAPI {
 		
 		return ResponseEntity.ok( listEntities );
 	}
+	
+	@GetMapping("/page/{numberOfPage}")
+	public Page<BillEntity> getAllByNumberOfPage(@PathVariable("numberOfPage") int numberOfPage) {
+		return billService.getAllByPage(numberOfPage);
+	}
+
+	
+	
 
 	@GetMapping("/orderdate/{createdDate}")
 	public ResponseEntity<List<BillEntity>> getAllByCreatedDate(@PathVariable String createdDate) throws Exception {

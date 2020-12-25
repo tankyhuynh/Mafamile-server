@@ -25,7 +25,7 @@ public class CategoryService {
 		return categoryRepo.findOneBySlug(slug);
 	}
 
-	public List<CategoryEntity> getAll() {
+	public List<CategoryEntity> findAll() {
 		return categoryRepo.findAll();
 	}
 	

@@ -1,8 +1,6 @@
 package com.mafami.Mafami.api;
 
-import java.awt.Menu;
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -10,6 +8,7 @@ import java.util.List;
 import java.util.TimeZone;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -53,6 +52,11 @@ public class MenuAPI {
 	@GetMapping
 	public ResponseEntity<List<MenuEntity>> getAll() {
 		return ResponseEntity.ok(menuService.getAll());
+	}
+	
+	@GetMapping("/page/{numberOfPage}")
+	public Page<MenuEntity> getAllByNumberOfPage(@PathVariable("numberOfPage") int numberOfPage) {
+		return menuService.findAllByPage(numberOfPage);
 	}
 	
 	@GetMapping("/{site}")

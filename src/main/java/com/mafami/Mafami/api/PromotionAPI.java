@@ -1,13 +1,13 @@
 package com.mafami.Mafami.api;
 
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 import java.util.TimeZone;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -41,6 +41,11 @@ public class PromotionAPI {
 	@GetMapping
 	public List<PromotionEntity> getAll() {
 		return promotionService.findAll();
+	}
+	
+	@GetMapping("/page/{numberOfPage}")
+	public Page<PromotionEntity> getAllByNumberOfPage(@PathVariable("numberOfPage") int numberOfPage) {
+		return promotionService.findAllByPage(numberOfPage);
 	}
 
 	@GetMapping("/{site}")

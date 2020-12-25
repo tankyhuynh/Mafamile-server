@@ -1,7 +1,6 @@
 package com.mafami.Mafami.api;
 
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -9,6 +8,7 @@ import java.util.List;
 import java.util.TimeZone;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -39,6 +39,11 @@ public class RecruitmentAPI {
 	@GetMapping
 	public List<RecruitmentEntity> getAll() {
 		return recruitmentService.findAll();
+	}
+	
+	@GetMapping("/page/{numberOfPage}")
+	public Page<RecruitmentEntity> getAllByNumberOfPage(@PathVariable("numberOfPage") int numberOfPage) {
+		return recruitmentService.findAllByPage(numberOfPage);
 	}
 
 	@GetMapping("/{site}")
