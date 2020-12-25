@@ -6,6 +6,8 @@ package com.mafami.Mafami.Utils;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
 
@@ -64,8 +66,17 @@ public class MailUtils {
 	}
 	
 	
-	public void sendAddBill_Customer(String email,BillEntity billEntity, String emailTitle, String emailBody, String emailFooter) throws Exception {
+	public void sendAddBill_Customer(String[] emails,BillEntity billEntity, String emailTitle, String emailBody, String emailFooter) throws Exception {
 	
+		List<String> listEmails  = new ArrayList<String>();
+//		String[] strEmails = 
+		
+		for (String email : emails) {
+			if( email.equals("5f89a8a1f5cdd900414ae8dc") ) {
+				listEmails.add( userService.findOneById(email).getEmail() );
+			}
+		}
+		
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		df.setTimeZone(TimeZone.getTimeZone("Etc/GMT0"));
 
@@ -92,7 +103,7 @@ public class MailUtils {
 			helper.setText(emailBody
 					+ "<br> " + content
 					+ "<br><br>" + emailFooter, true);
-			helper.setTo(email);
+//			helper.setTo(email);
 			helper.setSubject(emailTitle);
 			
 			javaMailSender.send(mimeMessage);

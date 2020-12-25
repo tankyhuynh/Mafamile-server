@@ -132,6 +132,24 @@ public class CategoryAPI {
 		categoryService.delete(id);
 	}
 	
+	@DeleteMapping("/{site}/{id}")
+	public void deleteByIdAndSite(@PathVariable("id") String id, @RequestBody(required = false) String reason) throws Exception {
+		CategoryEntity categoryEntity = categoryService.findOneById(id);
+		
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		df.setTimeZone(TimeZone.getTimeZone("Etc/GMT0"));
+		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		sf.setTimeZone(TimeZone.getTimeZone("Etc/GMT-7"));
+		
+		LogEntity logEntity = new LogEntity();
+		logEntity.setIcon("https://img.icons8.com/ios-filled/64/000000/information.png");
+		String content = "Admin " + " đã xóa danh mục " + categoryEntity.getName() + " lúc " +  ( df.parse(sf.format(( Calendar.getInstance().getTime())) ) ) +" với lý do " + reason;
+		logEntity.setContent(content);
+		logService.save(logEntity);
+		
+		categoryService.delete(id);
+	}
+	
 	@DeleteMapping("/{site}/all")
 	public void deleteAllBySite(@PathVariable String site) {
 		categoryService.deleteAllBySite(site);
