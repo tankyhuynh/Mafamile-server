@@ -33,13 +33,13 @@ public class LogService {
 	}
 
 	public Page<LogEntity> getAll() {
-		Pageable pageable = PageRequest.of(0, 10);
+		Pageable pageable = PageRequest.of(0, 10, Sort.by(Sort.Direction.DESC, "time"));
 		return logRepo.findAll(pageable);
 //		return logRepo.findAll(Sort.by(Sort.Direction.DESC, "time"));
 	}
 	
 	public Page<LogEntity> getAllByPage(int page) {
-		Pageable pageable = PageRequest.of(page, 10);
+		Pageable pageable = PageRequest.of(page, 10, Sort.by(Sort.Direction.DESC, "time"));
 		return logRepo.findAll(pageable);
 	}
 

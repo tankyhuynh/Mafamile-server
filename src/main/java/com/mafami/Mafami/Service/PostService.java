@@ -32,7 +32,7 @@ public class PostService {
 	}
 
 	public Page<PostEntity> findAllByPage(int page) {
-		Pageable pageable = PageRequest.of(page, 10);
+		Pageable pageable = PageRequest.of(page, 10, Sort.by(Sort.Direction.DESC, "time"));
 		return postRepo.findAll(pageable);
 	}
 

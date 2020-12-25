@@ -31,7 +31,7 @@ public class PromotionService {
 	}
 	
 	public Page<PromotionEntity> findAllByPage(int page) {
-		Pageable pageable = PageRequest.of(page, 10);
+		Pageable pageable = PageRequest.of(page, 10, Sort.by(Sort.Direction.DESC, "createdDate"));
 		return promotionRepo.findAll(pageable);
 	}
 
