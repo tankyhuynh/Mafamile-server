@@ -181,6 +181,33 @@ public class BillAPI {
 	public ResponseEntity<BillEntity> getById(@PathVariable("id") String id) {
 		return ResponseEntity.ok(billService.getOneById(id));
 	}
+	
+	@GetMapping("/verifyBill/{id}")
+	public ResponseEntity<BillEntity> update(@PathVariable("id") String id ) throws Exception {
+		
+		BillEntity billEntity = billService.getOneById(id);
+		billEntity.setConfirmed(true);
+		
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		df.setTimeZone(TimeZone.getTimeZone("Etc/GMT0"));
+		SimpleDateFormat sf_log = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		sf_log.setTimeZone(TimeZone.getTimeZone("Etc/GMT-7"));
+	
+		
+		LogEntity logEntity = new LogEntity();
+		logEntity.setIcon("https://img.icons8.com/ios-filled/64/000000/information.png");
+		String content = "Admin" + " đã xác nhận đơn hàng " + billEntity.getId() + " lúc " + (df.parse(sf_log.format(Calendar.getInstance().getTime())));
+		
+		String customerEmail = billEntity.getCustomerInformation().getEmail();	
+		mailUtils.sendUpdateBill_Admin("5f89a8a1f5cdd900414ae8dc", billEntity, "Bạn vừa xác nhận đơn hàng", "Đơn hàng <b>" + billEntity.getId() + " </b> đã được xác nhận", "Một ngày tốt lành");
+		mailUtils.sendUpdateBill_Customer(customerEmail, billEntity, "Bạn vừa đặt đơn hàng của Mafamile", "Đơn hàng của bạn đã được xác nhận", "Một ngày tốt lành");
+	
+		
+		logEntity.setContent(content);
+		logService.save(logEntity);
+		
+		return ResponseEntity.ok(billService.save(billEntity));
+	}
 
 	
 	@PostMapping
@@ -261,32 +288,7 @@ public class BillAPI {
 		return ResponseEntity.ok(billService.save(newEntity));
 	}
 	
-	@GetMapping("/verifyBill/{id}")
-	public ResponseEntity<BillEntity> update(@PathVariable("id") String id ) throws Exception {
-		
-		BillEntity billEntity = billService.getOneById(id);
-		billEntity.setConfirmed(true);
-		
-		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		df.setTimeZone(TimeZone.getTimeZone("Etc/GMT0"));
-		SimpleDateFormat sf_log = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		sf_log.setTimeZone(TimeZone.getTimeZone("Etc/GMT-7"));
 	
-		
-		LogEntity logEntity = new LogEntity();
-		logEntity.setIcon("https://img.icons8.com/ios-filled/64/000000/information.png");
-		String content = "Admin" + " đã xác nhận đơn hàng " + billEntity.getId() + " lúc " + (df.parse(sf_log.format(Calendar.getInstance().getTime())));
-		
-		String customerEmail = billEntity.getCustomerInformation().getEmail();	
-		mailUtils.sendUpdateBill_Admin("5f89a8a1f5cdd900414ae8dc", billEntity, "Bạn vừa xác nhận đơn hàng", "Đơn hàng <b>" + billEntity.getId() + " </b> đã được xác nhận", "Một ngày tốt lành");
-		mailUtils.sendUpdateBill_Customer(customerEmail, billEntity, "Bạn vừa đặt đơn hàng của Mafamile", "Đơn hàng của bạn đã được xác nhận", "Một ngày tốt lành");
-	
-		
-		logEntity.setContent(content);
-		logService.save(logEntity);
-		
-		return ResponseEntity.ok(billService.save(billEntity));
-	}
 	
 	@DeleteMapping("/{id}")
 	public void deleteById(@PathVariable("id") String id) throws Exception {

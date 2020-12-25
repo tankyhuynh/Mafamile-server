@@ -43,6 +43,7 @@ public class MailUtils {
 	
 		String content = 	"<br>Bill ID: " + billEntity.getId()  
 							+ "<br><a href='https://mafamile.herokuapp.com/api/bill/verifyBill/'" + billEntity.getId() + ">Chọn vào đây để xác nhận</a>";
+		System.out.println("Verify " + billEntity.getId());
 
 		
 		MimeMessage mimeMessage = javaMailSender.createMimeMessage();
