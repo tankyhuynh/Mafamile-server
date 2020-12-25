@@ -64,7 +64,7 @@ public class AuthenticationAPI {
 		
 		String oldPassInDatabase = userEntity.getPassword();
 		
-		String passwordCheck = BCrypt.hashpw( user.getOldPass() , BCrypt.gensalt(12));
+		String passwordCheck = user.getOldPass();
 		boolean check = BCrypt.checkpw(oldPassInDatabase, passwordCheck);
 		
 		if ( check ) {

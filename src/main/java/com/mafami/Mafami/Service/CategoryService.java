@@ -35,7 +35,7 @@ public class CategoryService {
 	}
 	
 	public Page<CategoryEntity> findAllByPage(int page) {
-		Pageable pageable = PageRequest.of(page, 10, Sort.by(Sort.Direction.DESC, "name"));
+		Pageable pageable = PageRequest.of(page, 10, Sort.by(Sort.Direction.DESC, "slug"));
 		return categoryRepo.findAll(pageable);
 	}
 	
