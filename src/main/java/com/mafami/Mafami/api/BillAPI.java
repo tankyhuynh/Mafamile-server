@@ -86,9 +86,6 @@ public class BillAPI {
 
 	@GetMapping("/orderdate/{orderDate}")
 	public ResponseEntity<List<BillEntity>> getAllByOrderDate(@PathVariable String orderDate) throws Exception {
-		//yyyy-mm-dd HH:mm:ss
-	
-//		String string = "2020-12-21T21:00:00.000+00:00";
 		DateTimeFormatter dbFormatter = DateTimeFormatter.ofPattern("EEE MMM dd HH:mm:ss ZZZ yyyy", Locale.JAPAN);
 			
 //		//yyyy-mm-dd HH:mm:ss
@@ -125,9 +122,48 @@ public class BillAPI {
 
 		}
 		
+		return ResponseEntity.ok( listResult );
+	}
+	
+	@GetMapping("/orderdate/{orderDate1}/{orderDate2}")
+	public ResponseEntity<List<BillEntity>> getAllByOrderDateBetween(@PathVariable String orderDate) throws Exception {
+		DateTimeFormatter dbFormatter = DateTimeFormatter.ofPattern("EEE MMM dd HH:mm:ss ZZZ yyyy", Locale.JAPAN);
+			
+//		//yyyy-mm-dd HH:mm:ss
+		DateTimeFormatter clientFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH);
+		LocalDate date2 = LocalDate.parse(orderDate, clientFormatter);
+		
+		
+		ZoneId defaultZoneId = ZoneId.systemDefault();
+		Date d= Date.from(date2.atStartOfDay(defaultZoneId).toInstant());
+//		d = java.sql.Date.valueOf(date2);
+
+		
+		List<BillEntity> listEntities = billService.getAll();
+		List<BillEntity> listResult = new ArrayList<>();
+		
+		System.out.println("Client orderDate: " + d);
+		for (BillEntity bill : listEntities) {		
+			Date dbDate = bill.getOrderDate();                      
+			
+			DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			// Use Madrid's time zone to format the date in
+			df.setTimeZone(TimeZone.getTimeZone("Etc/GMT0"));
+			
+			System.out.println("ID: " + bill.getId() +" Entity Date Before: " + dbDate + " format: " + df.format(dbDate));
+			LocalDate localDateEntity = dbDate.toInstant().atZone(ZoneId.of("Europe/Madrid")).toLocalDate();
+	
+			dbDate= Date.from(localDateEntity.atStartOfDay(ZoneId.of("Asia/Ho_Chi_Minh")).toInstant());
+			System.out.println("Entity Date: " + dbDate);
+			System.out.println();
+			
+			if (d.equals(dbDate)) {
+				listResult.add(bill);
+			}
+
+		}
 		
 		return ResponseEntity.ok( listResult );
-//		return null;
 	}
 	
 	

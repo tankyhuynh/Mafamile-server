@@ -41,8 +41,8 @@ public class LogAPI {
 	}
 	
 	@GetMapping("/page/{numberOfPage}")
-	public List<LogEntity> getAllByNumberOfPage(@PathVariable int pageNumber) {
-		return logService.getAllByPage(pageNumber);
+	public List<LogEntity> getAllByNumberOfPage(@PathVariable("numberOfPage") int numberOfPage) {
+		return logService.getAllByPage(numberOfPage);
 	}
 
 	@GetMapping("/{id}")
