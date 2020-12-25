@@ -32,8 +32,10 @@ public class LogService {
 		return logRepo.findOneById(id);
 	}
 
-	public List<LogEntity> getAll() {
-		return logRepo.findAll(Sort.by(Sort.Direction.DESC, "time"));
+	public Page<LogEntity> getAll() {
+		Pageable pageable = PageRequest.of(0, 10);
+		return logRepo.findAll(pageable);
+//		return logRepo.findAll(Sort.by(Sort.Direction.DESC, "time"));
 	}
 	
 	public List<LogEntity> getAllByPage(int page) {
