@@ -195,8 +195,6 @@ public class BillAPI {
 		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		sf.setTimeZone(TimeZone.getTimeZone("Etc/GMT+7"));
 		
-		
-		
 		System.out.println( "Before format: " +dbDate );
 		System.out.println( "After format: " +df.format(dbDate) );
 		try {
@@ -214,13 +212,10 @@ public class BillAPI {
 		String username = (customerName != null ) ? customerName : "Customer";
 		String content = customerName + " đã đặt đơn hàng " + billEntity.getId() + " lúc " + (df.parse(sf_log.format(Calendar.getInstance().getTime())));
 		
-		try {												
+									
 			mailUtils.sendAddBill_Admin("5f89a8a1f5cdd900414ae8dc", billEntity, "Có đơn hàng mới", "Đơn hàng " + billEntity.getId() + " đang chờ xác nhận", "Một ngày tốt lành");
 			mailUtils.sendAddBill_Customer(customerEmail, billEntity, "Bạn vừa đặt đơn hàng của Mafamile", "Đơn hàng của bạn đang chờ xác nhận", "Một ngày tốt lành");	
-			
-		} catch (Exception e) {
-			System.out.println("Exception: "+e);
-		}
+
 		logEntity.setContent(content);
 		logService.save(logEntity);
 		
