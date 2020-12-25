@@ -40,9 +40,12 @@ public class MailUtils {
 	public void sendAddBill_Admin(String userId,BillEntity billEntity, String emailTitle, String emailBody, String emailFooter) {
 
 		String email = userService.findOneById(userId).getEmail();
+		
+		String link = "<a href='https://mafamile.herokuapp.com/api/bill/verifyBill/?id=" + billEntity.getId()  +" > Click </a>";
 	
 		String content = 	"<br>Bill ID: " + billEntity.getId()  
-							+ "<br><a href='https://mafamile.herokuapp.com/api/bill/verifyBill/?id='" + billEntity.getId() + ">Chọn vào đây để xác nhận</a>";
+							+ "<br>"
+							+ link;
 		System.out.println("Verify " + billEntity.getId());
 
 		
