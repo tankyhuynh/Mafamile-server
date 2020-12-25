@@ -211,8 +211,12 @@ public class BillAPI {
 		logEntity.setIcon("https://img.icons8.com/ios-filled/64/000000/information.png");
 		String username = (customerName != null ) ? customerName : "Customer";
 		String content = customerName + " đã đặt đơn hàng " + billEntity.getId() + " lúc " + (df.parse(sf_log.format(Calendar.getInstance().getTime())));
-								
-		String[] emails = new String[] {"5f89a8a1f5cdd900414ae8dc", customerEmail};
+		
+		List<String> listEmails = new ArrayList<String>();
+		listEmails.add("5f89a8a1f5cdd900414ae8dc");
+		listEmails.add(customerEmail);
+				
+		String[] emails = listEmails.stream().toArray(String[]::new);
 		mailUtils.sendAddBill(emails, billEntity, "Bạn vừa đặt đơn hàng của Mafamile", "Đơn hàng của bạn đang chờ xác nhận", "Một ngày tốt lành");	
 
 		logEntity.setContent(content);
