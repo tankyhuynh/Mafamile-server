@@ -89,11 +89,11 @@ public class ExcelAPI {
 //			 String hashedPass = bCryptPasswordEncoder.encode("admin");
 //			 System.out.println(hashedPass);
 			
-			String password =  "admin";
+			String password =  "admin123";
 			String hash = BCrypt.hashpw(password, BCrypt.gensalt(12));
 			
 			String passwordCheck = "stackjava.com";
-			boolean check = BCrypt.checkpw(password, "$2a$12$CaaYAgH29lUQnsu91kG7WeM3/J0lIcY49gxwRrKI70RxiqLBFpDXi");
+			boolean check = BCrypt.checkpw(password, "$2a$12$hjVALTUoGju0KQlVxLVCHu8bXhh3IItbO1bLsWbNCDYI.1yGRZeKS");
 			
 			
 			System.out.println(hash);
