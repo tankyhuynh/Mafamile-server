@@ -261,7 +261,7 @@ public class BillAPI {
 		return ResponseEntity.ok(billService.save(newEntity));
 	}
 	
-	@PutMapping("/verifyBill/{id}")
+	@GetMapping("/verifyBill/{id}")
 	public ResponseEntity<BillEntity> update(@PathVariable("id") String id ) throws Exception {
 		
 		BillEntity billEntity = billService.getOneById(id);
