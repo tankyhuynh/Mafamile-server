@@ -77,7 +77,9 @@ public class MailUtils {
 		
 		String listFood = "";
 		for (FoodInformationModel food : billEntity.getFoodInformation()) {
-			listFood += "<li>" + food.getFood().getName() + " - " + food.getQuantity() + "</li>" + "<br>";
+			if( food != billEntity.getFoodInformation().get(0)  ) {
+				listFood += "<li>" + food.getFood().getName() + " - " + food.getQuantity() + "</li>" + "<br>";
+			}else 	listFood += food.getFood().getName() + " - " + food.getQuantity()  + "<br>";
 		}
 		
 		String content = 	"<br>Bill_ID: " + billEntity.getId()  + "<br>"
