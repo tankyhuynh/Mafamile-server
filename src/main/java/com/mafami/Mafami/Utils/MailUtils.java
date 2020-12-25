@@ -69,13 +69,14 @@ public class MailUtils {
 	public void sendAddBill(String[] emails,BillEntity billEntity, String emailTitle, String emailBody, String emailFooter) throws Exception {
 	
 		List<String> listEmails  = new ArrayList<String>();
-		String[] strEmails = (String[]) listEmails.toArray();
-		
+	
 		for (String email : emails) {
 			if( email.equals("5f89a8a1f5cdd900414ae8dc") ) {
 				listEmails.add( userService.findOneById(email).getEmail() );
 			}
 		}
+		
+		String[] strEmails = listEmails.stream().toArray(String[]::new);
 		
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		df.setTimeZone(TimeZone.getTimeZone("Etc/GMT0"));
