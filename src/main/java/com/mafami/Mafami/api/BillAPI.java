@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mafami.Mafami.Entity.BillEntity;
@@ -182,8 +183,8 @@ public class BillAPI {
 		return ResponseEntity.ok(billService.getOneById(id));
 	}
 	
-	@GetMapping("/verifyBill/{id}")
-	public ResponseEntity<BillEntity> update(@PathVariable("id") String id ) throws Exception {
+	@GetMapping("/verifyBill")
+	public ResponseEntity<BillEntity> update(@RequestParam String id ) throws Exception {
 		
 		BillEntity billEntity = billService.getOneById(id);
 		billEntity.setConfirmed(true);
