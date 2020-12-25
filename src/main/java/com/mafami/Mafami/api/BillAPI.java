@@ -206,6 +206,7 @@ public class BillAPI {
 		}
 		
 		String customerEmail = billEntity.getCustomerInformation().getEmail();
+		System.out.println("Customer Email: " + customerEmail);
 		
 		String customerName = billEntity.getCustomerInformation().getName();
 		LogEntity logEntity = new LogEntity();
@@ -218,7 +219,7 @@ public class BillAPI {
 			mailUtils.sendAddBill_Customer(customerEmail, billEntity, "Bạn vừa đặt đơn hàng của Mafamile", "Đơn hàng của bạn đang chờ xác nhận", "Một ngày tốt lành");	
 			
 		} catch (Exception e) {
-			// TODO: handle exception
+			System.out.println("Exception: "+e);
 		}
 		logEntity.setContent(content);
 		logService.save(logEntity);
