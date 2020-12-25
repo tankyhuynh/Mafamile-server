@@ -79,9 +79,11 @@ public class MenuAPI {
 	public ResponseEntity<MenuEntity> saveOne(@PathVariable("site") String site, @RequestBody MenuEntity menuEntity) throws Exception {
 		
 		List<PriceModel> prices = new ArrayList<PriceModel>();
-		if(menuEntity.getImage() != null) {
+		try {
 			String URL = fileUtils.decoder(menuEntity.getImage(), "ImageAPI");
 			menuEntity.setImage(URL);
+		} catch (Exception e) {
+			System.out.println("Exception: " + e);
 		}
 		
 		menuEntity.setSite(site);
@@ -105,9 +107,13 @@ public class MenuAPI {
 	public ResponseEntity<String> saveAll(@PathVariable("site") String site, @RequestBody List<MenuEntity> menuEntity) {
 		List<PriceModel> prices = new ArrayList<>();
 		for (MenuEntity entity : menuEntity) {
-			String URL = fileUtils.decoder(entity.getImage(), "ImageAPI");
-			entity.setImage(URL);
-			entity.setSite(site);
+			try {
+				String URL = fileUtils.decoder(entity.getImage(), "ImageAPI");
+				entity.setImage(URL);
+				entity.setSite(site);
+			} catch (Exception e) {
+				System.out.println("Exception: " + e);
+			}
 			menuService.save(entity);
 		}
 		return ResponseEntity.ok("OK");
