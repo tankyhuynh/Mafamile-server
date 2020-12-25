@@ -244,7 +244,7 @@ public class BillAPI {
 		
 		LogEntity logEntity = new LogEntity();
 		logEntity.setIcon("https://img.icons8.com/ios-filled/64/000000/information.png");
-		String content = "Admin" + " đã xác nhân đơn hàng " + newEntity.getId() + " lúc " + (df.parse(sf_log.format(Calendar.getInstance().getTime())));
+		String content = "Admin" + " đã xác nhận đơn hàng " + newEntity.getId() + " lúc " + (df.parse(sf_log.format(Calendar.getInstance().getTime())));
 		
 		String customerEmail = newEntity.getCustomerInformation().getEmail();	
 		if(newEntity.isConfirmed()) { 	

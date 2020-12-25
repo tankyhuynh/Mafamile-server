@@ -123,7 +123,7 @@ public class PromotionAPI {
 		
 		LogEntity logEntity = new LogEntity();
 		logEntity.setIcon("https://img.icons8.com/ios-filled/64/000000/information.png");
-		String content = "Admin " + " đã xóa món " + id + " lúc " +  ( df.parse(sf.format(( Calendar.getInstance().getTime())) ) ) + contentOfReason;
+		String content = "Admin " + " đã xóa ưu đãi " + id + " lúc " +  ( df.parse(sf.format(( Calendar.getInstance().getTime())) ) ) + contentOfReason;
 		logEntity.setContent(content);
 		logService.save(logEntity);
 		
@@ -141,7 +141,7 @@ public class PromotionAPI {
 		
 		LogEntity logEntity = new LogEntity();
 		logEntity.setIcon("https://img.icons8.com/ios-filled/64/000000/information.png");
-		String content = "Admin " + " đã xóa món " + id + " lúc " +  ( df.parse(sf.format(( Calendar.getInstance().getTime())) ) ) + contentOfReason;
+		String content = "Admin " + " đã xóa ưu đãi " + id + " lúc " +  ( df.parse(sf.format(( Calendar.getInstance().getTime())) ) ) + contentOfReason;
 		logEntity.setContent(content);
 		logService.save(logEntity);
 		
