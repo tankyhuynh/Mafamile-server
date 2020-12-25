@@ -249,9 +249,9 @@ public class BillAPI {
 		
 		String customerEmail = newEntity.getCustomerInformation().getEmail();	
 		if(newEntity.isConfirmed()) { 	
-			mailUtils.sendUpdateBill("5f89a8a1f5cdd900414ae8dc", newEntity, "Bạn vừa xác nhận đơn hàng", "Đơn hàng <b>" + newEntity.getId() + " </b> đã được xác nhận", "Một ngày tốt lành");
+			mailUtils.sendUpdateBill_Admin("5f89a8a1f5cdd900414ae8dc", newEntity, "Bạn vừa xác nhận đơn hàng", "Đơn hàng <b>" + newEntity.getId() + " </b> đã được xác nhận", "Một ngày tốt lành");
 			try {
-				mailUtils.sendAddBill_Customer(customerEmail, newEntity, "Bạn vừa đặt đơn hàng của Mafamile", "Đơn hàng của bạn đã được xác nhận", "Một ngày tốt lành");
+				mailUtils.sendUpdateBill_Customer(customerEmail, newEntity, "Bạn vừa đặt đơn hàng của Mafamile", "Đơn hàng của bạn đã được xác nhận", "Một ngày tốt lành");
 			} catch (Exception e) {
 				// TODO: handle exception
 			}
