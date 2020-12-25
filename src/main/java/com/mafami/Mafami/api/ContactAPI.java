@@ -126,6 +126,8 @@ public class ContactAPI {
 
 	@DeleteMapping("/{id}")
 	public void deleteOneById(@PathVariable String id, @RequestBody(required = false) String reason) throws Exception {
+		String contentOfReason = ( reason != null ) ? ( " với lý do "  +  reason)  : " " ;
+		
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		df.setTimeZone(TimeZone.getTimeZone("Etc/GMT0"));
 		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -134,7 +136,26 @@ public class ContactAPI {
 		LogEntity logEntity = new LogEntity();
 		logEntity.setIcon("https://img.icons8.com/ios-filled/64/000000/information.png");
 		String content = "Admin" + " đã xóa liên hệ " + id + " lúc "
-				+ (df.parse(sf.format((Calendar.getInstance().getTime())))) + " với lý do " + reason;
+				+ (df.parse(sf.format((Calendar.getInstance().getTime())))) + contentOfReason;
+		logEntity.setContent(content);
+		logService.save(logEntity);
+
+		contactService.delete(id);
+	}
+	
+	@DeleteMapping("/{site}/{id}")
+	public void deleteOneByIdAndSite(@PathVariable String id, @RequestBody(required = false) String reason) throws Exception {
+		String contentOfReason = ( reason != null ) ? ( " với lý do "  +  reason)  : " " ;
+		
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		df.setTimeZone(TimeZone.getTimeZone("Etc/GMT0"));
+		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		sf.setTimeZone(TimeZone.getTimeZone("Etc/GMT-7"));
+
+		LogEntity logEntity = new LogEntity();
+		logEntity.setIcon("https://img.icons8.com/ios-filled/64/000000/information.png");
+		String content = "Admin" + " đã xóa liên hệ " + id + " lúc "
+				+ (df.parse(sf.format((Calendar.getInstance().getTime())))) + contentOfReason;
 		logEntity.setContent(content);
 		logService.save(logEntity);
 

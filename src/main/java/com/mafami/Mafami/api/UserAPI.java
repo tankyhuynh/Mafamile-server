@@ -100,6 +100,8 @@ public class UserAPI {
 	
 	@DeleteMapping("/{id}")
 	public void deleteOneById(@PathVariable String id, @RequestBody(required = false) String reason) throws Exception {
+		String contentOfReason = ( reason != null ) ? ( " với lý do "  +  reason)  : " " ;
+		
 		UserEntity user = userService.findOneById(id);
 		
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -109,7 +111,7 @@ public class UserAPI {
 		
 		LogEntity logEntity = new LogEntity();
 		logEntity.setIcon("https://img.icons8.com/ios-filled/64/000000/information.png");
-		String content = "Admin " + " đã xóa nhân viên " + user.getFullname() + " lúc " +  ( df.parse(sf.format(( Calendar.getInstance().getTime())) ) ) +" với lý do " + reason;
+		String content = "Admin " + " đã xóa nhân viên " + user.getFullname() + " lúc " +  ( df.parse(sf.format(( Calendar.getInstance().getTime())) ) ) + contentOfReason;
 		logEntity.setContent(content);
 		logService.save(logEntity);
 		
