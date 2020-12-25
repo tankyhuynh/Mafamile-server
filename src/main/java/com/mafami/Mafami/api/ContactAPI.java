@@ -68,7 +68,6 @@ public class ContactAPI {
 
 	@PostMapping("/{site}")
 	public ContactEntity saveOneBySite(@PathVariable String site, @RequestBody ContactEntity contactEntity) throws Exception {
-		contactEntity.setId(UUID.randomUUID().toString());
 		contactEntity.setSite(site);
 		
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");

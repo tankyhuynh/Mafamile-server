@@ -199,7 +199,6 @@ public class BillAPI {
 		}
 		
 		String customerEmail = billEntity.getCustomerInformation().getEmail();
-		billEntity.setId(UUID.randomUUID().toString());
 		
 		String customerName = billEntity.getCustomerInformation().getName();
 		LogEntity logEntity = new LogEntity();
