@@ -21,7 +21,7 @@ import lombok.NoArgsConstructor;
  *
  */
 
-@Document(collection = "contact")
+@Document(collection = "contacts")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

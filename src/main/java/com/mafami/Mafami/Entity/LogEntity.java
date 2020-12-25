@@ -20,7 +20,7 @@ import lombok.NoArgsConstructor;
  *
  */
 
-@Document(collection = "log")
+@Document(collection = "logs")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

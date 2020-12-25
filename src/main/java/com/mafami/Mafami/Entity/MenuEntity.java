@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Document(collection = "amia_products")
+@Document(collection = "products")
 public class MenuEntity {
 
 	@Id

@@ -11,7 +11,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Document("ami_design_post")
+@Document("posts")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

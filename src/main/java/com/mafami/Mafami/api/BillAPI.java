@@ -184,7 +184,7 @@ public class BillAPI {
 	}
 	
 	@GetMapping("/verifyBill")
-	public ResponseEntity<BillEntity> update(@RequestParam String id ) throws Exception {
+	public ResponseEntity<String> update(@RequestParam String id ) throws Exception {
 		
 		BillEntity billEntity = billService.getOneById(id);
 		billEntity.setConfirmed(true);
@@ -207,7 +207,7 @@ public class BillAPI {
 		logEntity.setContent(content);
 		logService.save(logEntity);
 		
-		return ResponseEntity.ok(billService.save(billEntity));
+		return ResponseEntity.ok( "Bạn đã xác nhận đơn hàng thành công" );
 	}
 
 	

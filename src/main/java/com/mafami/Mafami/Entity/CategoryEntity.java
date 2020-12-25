@@ -9,7 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Document(collection = "amia_categories")
+@Document(collection = "categories")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
