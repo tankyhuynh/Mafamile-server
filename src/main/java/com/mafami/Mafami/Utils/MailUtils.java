@@ -3,8 +3,11 @@
  */
 package com.mafami.Mafami.Utils;
 
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Locale;
+import java.util.TimeZone;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
@@ -61,18 +64,24 @@ public class MailUtils {
 	}
 	
 	
-	public void sendAddBill_Customer(String email,BillEntity billEntity, String emailTitle, String emailBody, String emailFooter) {
+	public void sendAddBill_Customer(String email,BillEntity billEntity, String emailTitle, String emailBody, String emailFooter) throws Exception {
 	
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		df.setTimeZone(TimeZone.getTimeZone("Etc/GMT0"));
+
+		SimpleDateFormat sf_log = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		sf_log.setTimeZone(TimeZone.getTimeZone("Etc/GMT-7"));
+		
 		String listFood = "";
 		for (FoodInformationModel food : billEntity.getFoodInformation()) {
 			listFood += food.getFood().getName() + " - " + food.getQuantity() + "<br>";
 		}
 		
-		String content = 	"<br>Bill_ID: " + billEntity.getId()  
-															+ "Bao gồm: "
+		String content = 	"<br>Bill_ID: " + billEntity.getId()  + "<br>"
+															+ "Bao gồm: " + "<br>"
 															+ listFood
-															+ "Thời gian đặt: " + billEntity.getCreatedDate()
-															+ "Thời gian nhận: " + billEntity.getOrderDate()
+															+ "Thời gian đặt: " + (df.parse(sf_log.format( billEntity.getCreatedDate() )))
+															+ "Thời gian nhận: " + billEntity.getOrderDate() + "<br>"
 															+ "Thành tiền: " + billEntity.getTotal() + " VND";
 
 		
