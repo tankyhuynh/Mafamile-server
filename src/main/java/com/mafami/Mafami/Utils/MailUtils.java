@@ -42,7 +42,7 @@ public class MailUtils {
 		String email = userService.findOneById(userId).getEmail();
 	
 		String content = 	"<br>Bill ID: " + billEntity.getId()  
-							+ "<br><a href='https://mafamile.herokuapp.com/'>Chọn vào đây để xác nhận</a>";
+							+ "<br><a href='https://mafamile.herokuapp.com/api/bill/verifyBill/'" + billEntity.getId() + ">Chọn vào đây để xác nhận</a>";
 
 		
 		MimeMessage mimeMessage = javaMailSender.createMimeMessage();
