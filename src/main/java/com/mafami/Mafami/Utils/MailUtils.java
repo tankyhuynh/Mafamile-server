@@ -78,11 +78,11 @@ public class MailUtils {
 		}
 		
 		String content = 	"<br>Bill_ID: " + billEntity.getId()  + "<br>"
-															+ "Bao gồm: " + "<br>"
-															+ listFood
-															+ "Thời gian đặt: " + (df.parse(sf_log.format( billEntity.getCreatedDate() )))
-															+ "Thời gian nhận: " + billEntity.getOrderDate() + "<br>"
-															+ "Thành tiền: " + billEntity.getTotal() + " VND";
+															+ "<ul>Bao gồm: </ul>" + "<br>"
+															+ "<li>" +listFood + "</li>"
+ 															+ "<li>" + "Thời gian đặt: " + (df.parse(sf_log.format( billEntity.getCreatedDate() ))) +  "</li>" + "<br>"
+															+ "<li>" + "Thời gian nhận: " + billEntity.getOrderDate() + "</li>" + "<br>"
+															+ "<b>" + "Thành tiền: " + billEntity.getTotal() + " VND" + "</b>";
 
 		
 		MimeMessage mimeMessage = javaMailSender.createMimeMessage();
