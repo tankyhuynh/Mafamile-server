@@ -66,10 +66,10 @@ public class MailUtils {
 	}
 	
 	
-	public void sendAddBill_Customer(String[] emails,BillEntity billEntity, String emailTitle, String emailBody, String emailFooter) throws Exception {
+	public void sendAddBill(String[] emails,BillEntity billEntity, String emailTitle, String emailBody, String emailFooter) throws Exception {
 	
 		List<String> listEmails  = new ArrayList<String>();
-//		String[] strEmails = 
+		String[] strEmails = (String[]) listEmails.toArray();
 		
 		for (String email : emails) {
 			if( email.equals("5f89a8a1f5cdd900414ae8dc") ) {
@@ -103,7 +103,7 @@ public class MailUtils {
 			helper.setText(emailBody
 					+ "<br> " + content
 					+ "<br><br>" + emailFooter, true);
-//			helper.setTo(email);
+			helper.setTo(strEmails);
 			helper.setSubject(emailTitle);
 			
 			javaMailSender.send(mimeMessage);
