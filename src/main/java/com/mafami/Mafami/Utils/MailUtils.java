@@ -77,14 +77,14 @@ public class MailUtils {
 		
 		String listFood = "";
 		for (FoodInformationModel food : billEntity.getFoodInformation()) {
-			listFood += food.getFood().getName() + " - " + food.getQuantity() + "<br>";
+			listFood += "<li>" + food.getFood().getName() + " - " + food.getQuantity() + "</li>" + "<br>";
 		}
 		
 		String content = 	"<br>Bill_ID: " + billEntity.getId()  + "<br>"
-															+ "<ul>Bao gồm: </ul>" + "<br>"
+															+ "Bao gồm:" + "<br>"
 															+ "<li>" +listFood + "</li>"
- 															+ "<li>" + "Thời gian đặt: " + (df.parse(sf_log.format( billEntity.getCreatedDate() ))) +  "</li>" + "<br>"
-															+ "<li>" + "Thời gian nhận: " + billEntity.getOrderDate() + "</li>" + "<br>"
+ 															+ "Thời gian đặt: " + (df.parse(sf_log.format( billEntity.getCreatedDate() ))) + "<br>"
+															+  "Thời gian nhận: " + billEntity.getOrderDate()  + "<br>"
 															+ "<b>" + "Thành tiền: " + billEntity.getTotal() + " VND" + "</b>";
 
 		
