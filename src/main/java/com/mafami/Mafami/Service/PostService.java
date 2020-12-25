@@ -3,6 +3,7 @@ package com.mafami.Mafami.Service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -30,9 +31,9 @@ public class PostService {
 		return postRepo.findAllBySite(site);
 	}
 
-	public List<PostEntity> findAllByPage(int page) {
+	public Page<PostEntity> findAllByPage(int page) {
 		Pageable pageable = PageRequest.of(page, 10);
-		return postRepo.findAll(pageable).getContent();
+		return postRepo.findAll(pageable);
 	}
 
 	public PostEntity findOneById(String id) {

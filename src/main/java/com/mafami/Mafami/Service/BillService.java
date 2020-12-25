@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -36,9 +37,9 @@ public class BillService {
 		return billRepo.findAll(Sort.by(Sort.Direction.DESC, "createdDate"));
 	}
 
-	public List<BillEntity> getAllByPage(int page) {
+	public Page<BillEntity> getAllByPage(int page) {
 		Pageable pageable = PageRequest.of(page, 10);
-		return billRepo.findAll(pageable).getContent();
+		return billRepo.findAll(pageable);
 	}
 
 	public List<BillEntity> getAllBySite(String site) {

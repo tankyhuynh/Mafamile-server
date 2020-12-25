@@ -3,13 +3,12 @@ package com.mafami.Mafami.Service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import com.mafami.Mafami.Entity.ContactEntity;
-import com.mafami.Mafami.Entity.PostEntity;
 import com.mafami.Mafami.Entity.PromotionEntity;
 import com.mafami.Mafami.Repository.PromotionRepo;
 
@@ -31,9 +30,9 @@ public class PromotionService {
 		return promotionRepo.findAllBySite(site);
 	}
 	
-	public List<PromotionEntity> findAllByPage(int page) {
+	public Page<PromotionEntity> findAllByPage(int page) {
 		Pageable pageable = PageRequest.of(page, 10);
-		return promotionRepo.findAll(pageable).getContent();
+		return promotionRepo.findAll(pageable);
 	}
 
 	public PromotionEntity save(PromotionEntity entity) {

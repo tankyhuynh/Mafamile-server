@@ -3,6 +3,7 @@ package com.mafami.Mafami.Service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -28,9 +29,9 @@ public class RecruitmentService {
 		return recruitmentRepo.findAllBySite(site);
 	}
 
-	public List<RecruitmentEntity> findAllByPage(int page) {
+	public Page<RecruitmentEntity> findAllByPage(int page) {
 		Pageable pageable = PageRequest.of(page, 10);
-		return recruitmentRepo.findAll(pageable).getContent();
+		return recruitmentRepo.findAll(pageable);
 	}
 
 	public RecruitmentEntity save(RecruitmentEntity entity) {
