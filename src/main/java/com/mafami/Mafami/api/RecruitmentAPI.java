@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mafami.Mafami.Entity.LogEntity;
@@ -109,7 +110,7 @@ public class RecruitmentAPI {
 	}
 
 	@DeleteMapping("/{id}")
-	public void deleteOneById(@PathVariable String id, @RequestBody(required = false) String reason) throws Exception {
+	public void deleteOneById(@PathVariable String id, @RequestParam(required = false) String reason) throws Exception {
 		String contentOfReason = ( reason != null ) ? ( " với lý do "  +  reason)  : " " ;
 		
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -127,7 +128,7 @@ public class RecruitmentAPI {
 	}
 	
 	@DeleteMapping("/{site}/{id}")
-	public void deleteOneByIdAndSite(@PathVariable String id, @RequestBody(required = false) String reason) throws Exception {
+	public void deleteOneByIdAndSite(@PathVariable String id, @RequestParam(required = false) String reason) throws Exception {
 		String contentOfReason = ( reason != null ) ? ( " với lý do "  +  reason)  : " " ;
 		
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");

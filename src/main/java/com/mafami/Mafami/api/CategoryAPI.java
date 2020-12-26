@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mafami.Mafami.Entity.CategoryEntity;
@@ -115,7 +116,7 @@ public class CategoryAPI {
 	}
 	
 	@DeleteMapping("/{id}")
-	public void deleteById(@PathVariable("id") String id, @RequestBody(required = false) String reason) throws Exception {
+	public void deleteById(@PathVariable("id") String id, @RequestParam(required = false) String reason) throws Exception {
 		String contentOfReason = ( reason != null ) ? ( " với lý do "  +  reason)  : " " ;
 		
 		CategoryEntity categoryEntity = categoryService.findOneById(id);
@@ -135,7 +136,7 @@ public class CategoryAPI {
 	}
 	
 	@DeleteMapping("/{site}/{id}")
-	public void deleteByIdAndSite(@PathVariable("id") String id, @RequestBody(required = false) String reason) throws Exception {
+	public void deleteByIdAndSite(@PathVariable("id") String id, @RequestParam(required = false) String reason) throws Exception {
 
 		String contentOfReason = ( reason != null ) ? ( " với lý do "  +  reason)  : " " ;
 		
