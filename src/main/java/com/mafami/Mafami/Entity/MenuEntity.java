@@ -25,7 +25,6 @@ public class MenuEntity {
 	private String name;
 	private List<PriceModel> price;
 	private String image;
-	private String additionInformation;
 	private String site;
 
 	

@@ -22,6 +22,7 @@ import lombok.NoArgsConstructor;
 public class FoodInformationModel {
 
 	private MenuEntity food;
+	private String additionInformation;
 	private int quantity;
 
 }
