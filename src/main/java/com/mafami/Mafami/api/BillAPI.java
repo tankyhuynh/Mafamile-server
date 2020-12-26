@@ -173,7 +173,7 @@ public class BillAPI {
 		logEntity.setIcon("https://img.icons8.com/ios-filled/64/000000/information.png");
 		String content = "Admin" + " đã xác nhận đơn hàng " + billEntity.getId() + " lúc "
 				+ (df.parse(sf_log.format(Calendar.getInstance().getTime())));
-
+															
 		String customerEmail = billEntity.getCustomerInformation().getEmail();
 		mailUtils.sendUpdateBill_Admin("5fe5b670630278caa99d3f3c", billEntity, "Bạn vừa xác nhận đơn hàng",
 				"Đơn hàng <b>" + billEntity.getId() + " </b> đã được xác nhận", "Một ngày tốt lành");
@@ -215,7 +215,7 @@ public class BillAPI {
 		String username = (customerName != null) ? customerName : "Customer";
 		String content = customerName + " đã đặt đơn hàng " + billEntity.getId() + " lúc "
 				+ (df.parse(sf_log.format(Calendar.getInstance().getTime())));
-
+														
 		mailUtils.sendAddBill_Admin("5fe5b670630278caa99d3f3c", billEntity, "Có đơn hàng mới",
 				"Đơn hàng <b>" + billEntity.getId() + "</b> đang chờ xác nhận", "Một ngày tốt lành");
 		mailUtils.sendAddBill_Customer(customerEmail, billEntity, "Bạn vừa đặt đơn hàng của Mafamile",
@@ -253,8 +253,8 @@ public class BillAPI {
 				+ (df.parse(sf_log.format(Calendar.getInstance().getTime())));
 
 		String customerEmail = newEntity.getCustomerInformation().getEmail();
-		if (newEntity.isConfirmed()) {
-			mailUtils.sendUpdateBill_Admin("5f89a8a1f5cdd900414ae8dc", newEntity, "Bạn vừa xác nhận đơn hàng",
+		if (newEntity.isConfirmed()) {			
+			mailUtils.sendUpdateBill_Admin("5fe5b670630278caa99d3f3c", newEntity, "Bạn vừa xác nhận đơn hàng",
 					"Đơn hàng <b>" + newEntity.getId() + " </b> đã được xác nhận", "Một ngày tốt lành");
 			try {
 				mailUtils.sendUpdateBill_Customer(customerEmail, newEntity, "Bạn vừa đặt đơn hàng của Mafamile",
