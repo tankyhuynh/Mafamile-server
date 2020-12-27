@@ -136,7 +136,7 @@ public class CategoryAPI {
 	}
 	
 	@DeleteMapping("/{site}/{id}")
-	public void deleteByIdAndSite(@PathVariable("id") String id, @RequestParam(required = false) String reason) throws Exception {
+	public void deleteByIdAndSite(@PathVariable("site") String site, @PathVariable("id") String id, @RequestParam(required = false) String reason) throws Exception {
 
 		String contentOfReason = ( reason != null ) ? ( " với lý do "  +  reason)  : " " ;
 		

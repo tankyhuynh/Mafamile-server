@@ -128,7 +128,7 @@ public class PostAPI {
 	}
 	
 	@DeleteMapping("/{site}/{id}")
-	public void deleteOneByIdBySite(@PathVariable String id, @RequestBody(required = false) String reason) throws Exception {
+	public void deleteOneByIdBySite(@PathVariable("site") String site, @PathVariable("id") String id, @RequestBody(required = false) String reason) throws Exception {
 		String contentOfReason = ( reason != null ) ? ( " với lý do "  +  reason)  : " " ;
 		
 		PostEntity postEntity = postService.findOneById(id);

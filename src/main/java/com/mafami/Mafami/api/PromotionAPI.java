@@ -132,7 +132,7 @@ public class PromotionAPI {
 	}
 	
 	@DeleteMapping("/{site}{id}")
-	public void deleteOneByIdAndSite(@PathVariable String id, @RequestParam(required = false) String reason) throws Exception {
+	public void deleteOneByIdAndSite(@PathVariable("site") String site, @PathVariable("id") String id, @RequestParam(required = false) String reason) throws Exception {
 		String contentOfReason = ( reason != null ) ? ( " với lý do "  +  reason)  : " " ;
 		
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
