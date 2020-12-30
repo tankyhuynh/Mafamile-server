@@ -43,8 +43,8 @@ public class ExcelAPI {
 			
 		}
 		
-		@GetMapping(value = "/bills/createdDate/{createdDate}", produces = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
-		public byte[] exportBillsWith_CreatedDate(@PathVariable String createdDate) throws Exception {
+		@GetMapping(value = "/bills/orderDate/{orderDate}", produces = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
+		public byte[] exportBillsWith_CreatedDate(@PathVariable String orderDate) throws Exception {
 			
 			List<BillEntity> bills = billService.getAll();
 			String[] fieldName = {"ID", "Tên khách hàng", "Thông tin món", "Ngày tạo", "Ngày đặt", "Thông tin thêm", "Tổng"};
@@ -53,7 +53,7 @@ public class ExcelAPI {
 			
 //			//yyyy-mm-dd HH:mm:ss
 			DateTimeFormatter clientFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH);
-			LocalDate date2 = LocalDate.parse(createdDate, clientFormatter);	
+			LocalDate date2 = LocalDate.parse(orderDate, clientFormatter);	
 			
 			ZoneId defaultZoneId = ZoneId.systemDefault();
 			Date d= Date.from(date2.atStartOfDay(defaultZoneId).toInstant());
@@ -83,8 +83,8 @@ public class ExcelAPI {
 		}
 		
 		
-		@GetMapping(value = "/bills/createdDate/{createdDate1}/{createdDate2}", produces = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
-		public byte[] exportBillsWith_CreatedDateBetween(@PathVariable String createdDate1, @PathVariable String createdDate2) throws Exception {
+		@GetMapping(value = "/bills/orderDate/{orderDate1}/{orderDate2}", produces = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
+		public byte[] exportBillsWith_CreatedDateBetween(@PathVariable String orderDate1, @PathVariable String orderDate2) throws Exception {
 			
 			List<BillEntity> bills = billService.getAll();
 			String[] fieldName = {"ID", "Tên khách hàng", "Thông tin món", "Ngày tạo", "Ngày đặt", "Thông tin thêm", "Tổng"};
@@ -94,8 +94,8 @@ public class ExcelAPI {
 //			//yyyy-mm-dd HH:mm:ss
 			DateTimeFormatter clientFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH);
 
-			LocalDate date1 = LocalDate.parse(createdDate1, clientFormatter);
-			LocalDate date2 = LocalDate.parse(createdDate2, clientFormatter);
+			LocalDate date1 = LocalDate.parse(orderDate1, clientFormatter);
+			LocalDate date2 = LocalDate.parse(orderDate2, clientFormatter);
 
 			ZoneId defaultZoneId = ZoneId.systemDefault();
 

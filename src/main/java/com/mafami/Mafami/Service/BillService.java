@@ -51,7 +51,7 @@ public class BillService {
 	}
 
 	public List<BillEntity> getAllByOrderDateBetween(Date orderDate1, Date orderDate2) {
-		return billRepo.findAllByCreatedDateBetween(orderDate1, orderDate2);
+		return billRepo.findAllByOrderDateBetween(orderDate1, orderDate2);
 	}
 
 	public BillEntity save(BillEntity entity) {
