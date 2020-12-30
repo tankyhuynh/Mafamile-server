@@ -34,7 +34,7 @@ public class BillEntity {
 	@Id
 	private String id = (UUID.randomUUID()).toString().substring(0, 8);
 
-	private CustomerModel customerInformation;
+	private CustomerEntity customerInformation;
 	private List<FoodInformationModel> foodInformation;
 	private Date createdDate = Calendar.getInstance().getTime();
 	private Date orderDate ; //	-Time trừ 7h

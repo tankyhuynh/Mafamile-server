@@ -11,7 +11,9 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.mafami.Mafami.Entity.BillEntity;
+import com.mafami.Mafami.Entity.CustomerEntity;
 import com.mafami.Mafami.Repository.BillRepo;
+import com.mafami.Mafami.model.CustomerModel;
 
 /**
 * @author root {10:52:49 AM}:
@@ -52,6 +54,10 @@ public class BillService {
 
 	public List<BillEntity> getAllByOrderDateBetween(Date orderDate1, Date orderDate2) {
 		return billRepo.findAllByOrderDateBetween(orderDate1, orderDate2);
+	}
+	
+	public List<BillEntity> getAllByCustomer(CustomerEntity customer) {
+		return billRepo.findAllByCustomerInformation(customer);
 	}
 
 	public BillEntity save(BillEntity entity) {

@@ -26,8 +26,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mafami.Mafami.Entity.BillEntity;
+import com.mafami.Mafami.Entity.CustomerEntity;
 import com.mafami.Mafami.Entity.LogEntity;
 import com.mafami.Mafami.Service.BillService;
+import com.mafami.Mafami.Service.CustomerService;
 import com.mafami.Mafami.Service.LogService;
 import com.mafami.Mafami.Service.UserService;
 import com.mafami.Mafami.Utils.MailUtils;
@@ -57,12 +59,29 @@ public class BillAPI {
 
 	@Autowired
 	private MailUtils mailUtils;
+	
+	@Autowired
+	private CustomerService customerService;
 
 	@GetMapping
 	public ResponseEntity<List<BillEntity>> getAll() {
 		List<BillEntity> listEntities = billService.getAll();
 		return ResponseEntity.ok(listEntities);
 	}
+	
+	@GetMapping("/search/name/{name}")
+	public ResponseEntity<List<BillEntity>> getAll(@PathVariable String name) {
+		List<CustomerEntity> customerEntity = customerService.findAllByName(name);
+		List<BillEntity> listBills = new ArrayList<>();
+		
+		for (CustomerEntity customer : customerEntity) {
+			listBills.addAll(billService.getAllByCustomer(customer));
+		}
+		
+		
+		return ResponseEntity.ok(listBills);
+	}
+	
 
 	@GetMapping("/page/{numberOfPage}")
 	public Page<BillEntity> getAllByNumberOfPage(@PathVariable("numberOfPage") int numberOfPage) {
@@ -223,14 +242,40 @@ public class BillAPI {
 
 		logEntity.setContent(content);
 		logService.save(logEntity);
+		
+		List<CustomerEntity> customerEntity = customerService.findAllByName(billEntity.getCustomerInformation().getName());
+		boolean check = false;
+		for (CustomerEntity customer : customerEntity) {
+			if ( customer.equals(billEntity.getCustomerInformation()) ) {
+				check = true;
+			}
+		}
+		
+		if (!check) {
+			customerService.save(billEntity.getCustomerInformation());
+		}
 
 		return ResponseEntity.ok(billService.save(billEntity));
 	}
 
 	@PostMapping("/all")
-	public ResponseEntity<String> saveAll(@RequestBody List<BillEntity> categoryEntity) {
-		for (BillEntity entity : categoryEntity) {
+	public ResponseEntity<String> saveAll(@RequestBody List<BillEntity> entities) {
+		for (BillEntity entity : entities) {
 			billService.save(entity);
+			
+			List<CustomerEntity> customerEntity = customerService.findAllByName(entity.getCustomerInformation().getName());
+			boolean check = false;
+			for (CustomerEntity customer : customerEntity) {
+				if ( customer.equals(entity.getCustomerInformation()) ) {
+					check = true;
+				}
+			}
+			
+			if (!check) {
+				customerService.save(entity.getCustomerInformation());
+			}
+			
+			
 		}
 		return ResponseEntity.ok("OK");
 	}

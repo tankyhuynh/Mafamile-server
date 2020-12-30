@@ -86,13 +86,53 @@ public class MailUtils {
 			}else 	listFood += food.getFood().getName() + " - " + food.getQuantity()  + "<br>";
 		}
 		
-		String content = 	"<br>Bill_ID: " + billEntity.getId()  + "<br>"
-															+ "Bao gồm:" + "<br>"
-															+ "<li>" +listFood + "</li>"
- 															+ "Thời gian đặt: " + (df.parse(sf_log.format( billEntity.getCreatedDate() ))) + "<br>"
-															+  "Thời gian nhận: " + billEntity.getOrderDate()  + "<br>"
-															+ "<b>" + "Thành tiền: " + billEntity.getTotal() + " VND" + "</b>";
+//		String content = 	"<br>Bill_ID: " + billEntity.getId()  + "<br>"
+//															+ "Bao gồm:" + "<br>"
+//															+ "<li>" +listFood + "</li>"
+// 															+ "Thời gian đặt: " + (df.parse(sf_log.format( billEntity.getCreatedDate() ))) + "<br>"
+//															+  "Thời gian nhận: " + billEntity.getOrderDate()  + "<br>"
+//															+ "<b>" + "Thành tiền: " + billEntity.getTotal() + " VND" + "</b>";
 
+		String content = "<h1>Cảm ơn bạn đã đặt tiệc.</h1>\r\n"
+				+ "<h3>Đây là thông tin của bạn</h3>\r\n"
+				+ "<hr>\r\n"
+				+ "<p>Thời gian tạo đơn: " +(df.parse(sf_log.format( billEntity.getCreatedDate() )))  + "</p>\r\n"
+				+ "<p>Thời gian đặt: " + (df.parse(sf_log.format( billEntity.getOrderDate() )))+ "</p>\r\n"
+				+ "<p>Thông tin thêm: " + billEntity.getAdditionInformation()  + "</p>\r\n"
+				+ "<p>Trạng thái: Chưa xác nhận</p>\r\n"
+				+ "<hr>\r\n"
+				+ "<h3>Hoá đơn</h3>\r\n"
+				+ "<table cellspacing=\"0\" cellpadding=\"0\" border=\"1\">\r\n"
+				+ "  <thead>\r\n"
+				+ "    <tr>\r\n"
+				+ "      <th style=\"padding: 3px 5px;\" width=\"150\">Tên món</th>\r\n"
+				+ "      <th style=\"padding: 3px 5px;\" width=\"150\">Số lượng</th>\r\n"
+				+ "      <th style=\"padding: 3px 5px;\" width=\"150\">Đơn giá</th>\r\n"
+				+ "      <th style=\"padding: 3px 5px;\" width=\"150\">Thành tiền</th </tr>\r\n"
+				+ "  </thead>\r\n"
+				+ "  <tbody>\r\n";
+	
+			
+		
+				for (FoodInformationModel food : billEntity.getFoodInformation()) {
+					content = content+  "    <tr>\r\n"
+							+ "      <td style=\"padding: 3px 5px;\">" + food.getFood().getName() + "</td>\r\n"
+							+ "      <td style=\"padding: 3px 5px;\">" + food.getQuantity() + "</td>\r\n"
+							+ "      <td style=\"padding: 3px 5px;\">"+ food.getFood().getPrice().get(food.getFood().getPrice().size() -1)  + "</t>\r\n"
+							+ "    </tr>\r\n";
+				}
+				
+				content = content + "  </tbody>\r\n"
+				+ "</table>\r\n"
+				+ "<h3>Tổng: " + billEntity.getTotal() +"</h3>\r\n"
+				+ "<p>Bạn hãy chuyển khoản ít nhất 50% giá trị đơn trước thời gian đặt ... để chúng tôi có thể xác nhận thực hiện. Cảm ơn. </p>\r\n"
+				+ "<hr>\r\n"
+				+ "<h3>THÔNG TIN CHUYỂN KHOẢN</h3>\r\n"
+				+ "<ul>\r\n"
+				+ "  <li>Chủ tài khoản:...</li>\r\n"
+				+ "  <li>Số tài khoản:...</li>\r\n"
+				+ "  <li>Ngân hàng:...</li>\r\n"
+				+ "</ul>";
 		
 		MimeMessage mimeMessage = javaMailSender.createMimeMessage();
 		MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, "utf-8");
