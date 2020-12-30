@@ -115,12 +115,16 @@ public class MailUtils {
 			
 		
 				for (FoodInformationModel food : billEntity.getFoodInformation()) {
+					double price = food.getFood().getPrice().get(food.getFood().getPrice().size() -1).getPrice();
+					int quantity = food.getQuantity();
 					content = content+  "    <tr>\r\n"
 							+ "      <td style=\"padding: 3px 5px;\">" + food.getFood().getName() + "</td>\r\n"
-							+ "      <td style=\"padding: 3px 5px;\">" + food.getQuantity() + "</td>\r\n"
-							+ "      <td style=\"padding: 3px 5px;\">"+ food.getFood().getPrice().get(food.getFood().getPrice().size() -1)  + "</t>\r\n"
+							+ "      <td style=\"padding: 3px 5px;\">" +  quantity + "</td>\r\n"
+							+ "      <td style=\"padding: 3px 5px;\">"+  price + "</td>\r\n"
+							+ "       <td style=\"padding: 3px 5px;\">" + price *  quantity  + "</td>\r\n"
 							+ "    </tr>\r\n";
 				}
+				
 				
 				content = content + "  </tbody>\r\n"
 				+ "</table>\r\n"
