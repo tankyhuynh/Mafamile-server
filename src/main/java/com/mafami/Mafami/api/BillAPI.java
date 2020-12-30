@@ -69,13 +69,13 @@ public class BillAPI {
 		return billService.getAllByPage(numberOfPage);
 	}
 
-	@GetMapping("/createdDate/{createdDate}")
-	public ResponseEntity<List<BillEntity>> getAllByCreatedDate(@PathVariable String createdDate) throws Exception {
+	@GetMapping("/orderDate/{orderDate}")
+	public ResponseEntity<List<BillEntity>> getAllByCreatedDate(@PathVariable String orderDate) throws Exception {
 		DateTimeFormatter dbFormatter = DateTimeFormatter.ofPattern("EEE MMM dd HH:mm:ss ZZZ yyyy", Locale.JAPAN);
 
 //		//yyyy-mm-dd HH:mm:ss
 		DateTimeFormatter clientFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH);
-		LocalDate date2 = LocalDate.parse(createdDate, clientFormatter);
+		LocalDate date2 = LocalDate.parse(orderDate, clientFormatter);
 
 		ZoneId defaultZoneId = ZoneId.systemDefault();
 		Date d = Date.from(date2.atStartOfDay(defaultZoneId).toInstant());
@@ -85,7 +85,7 @@ public class BillAPI {
 
 		System.out.println("Client orderDate: " + d);
 		for (BillEntity bill : listEntities) {
-			Date dbDate = bill.getCreatedDate();
+			Date dbDate = bill.getOrderDate();
 
 			DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			// Use Madrid's time zone to format the date in
@@ -108,17 +108,17 @@ public class BillAPI {
 		return ResponseEntity.ok(listResult);
 	}
 
-	@GetMapping("/createdDate/{createdDate1}/{createdDate2}")
+	@GetMapping("/orderDate/{orderDate1}/{orderDate2}")
 	public ResponseEntity<List<BillEntity>> getAllByCreatedDateBetween(
-			@PathVariable("createdDate1") String createdDate1, @PathVariable("createdDate2") String createdDate2)
+			@PathVariable("orderDate1") String orderDate1, @PathVariable("orderDate2") String orderDate2)
 			throws Exception {
 		DateTimeFormatter dbFormatter = DateTimeFormatter.ofPattern("EEE MMM dd HH:mm:ss ZZZ yyyy", Locale.JAPAN);
 
 //		//yyyy-mm-dd HH:mm:ss
 		DateTimeFormatter clientFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH);
 
-		LocalDate date1 = LocalDate.parse(createdDate1, clientFormatter);
-		LocalDate date2 = LocalDate.parse(createdDate2, clientFormatter);
+		LocalDate date1 = LocalDate.parse(orderDate1, clientFormatter);
+		LocalDate date2 = LocalDate.parse(orderDate2, clientFormatter);
 
 		ZoneId defaultZoneId = ZoneId.systemDefault();
 

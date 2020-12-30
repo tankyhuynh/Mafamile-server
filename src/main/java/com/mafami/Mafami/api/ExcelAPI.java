@@ -44,7 +44,7 @@ public class ExcelAPI {
 		}
 		
 		@GetMapping(value = "/bills/createdDate/{createdDate}", produces = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
-		public byte[] exportBillsWith_OrderDate(@PathVariable String createdDate) throws Exception {
+		public byte[] exportBillsWith_CreatedDate(@PathVariable String createdDate) throws Exception {
 			
 			List<BillEntity> bills = billService.getAll();
 			String[] fieldName = {"ID", "Tên khách hàng", "Thông tin món", "Ngày tạo", "Ngày đặt", "Thông tin thêm", "Tổng"};
