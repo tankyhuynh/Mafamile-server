@@ -41,7 +41,7 @@ public class MailUtils {
 
 		String email = userService.findOneById(userId).getEmail();
 		
-		String link = "<a href='https://mafamile.herokuapp.com/api/bill/verifyBill/?id=" + billEntity.getId()  +" '> Chọn vào đây để xác nhận </a>";
+		String link = "<a href='http://api.thisisatestingdomain.site/api/bill/verifyBill/?id=" + billEntity.getId()  +" '> Chọn vào đây để xác nhận </a>";
 	
 		String content = 	"<br>Bill ID: " + billEntity.getId()  
 							+ "<br>"

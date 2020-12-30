@@ -34,7 +34,7 @@ public class BillService {
 	}
 
 	public List<BillEntity> getAll() {
-		return billRepo.findAll(Sort.by(Sort.Direction.DESC, "createdDate"));
+		return billRepo.findAll(Sort.by(Sort.Direction.ASC, "orderDate"));
 	}
 
 	public Page<BillEntity> getAllByPage(int page) {
@@ -43,7 +43,7 @@ public class BillService {
 	}
 
 	public List<BillEntity> getAllBySite(String site) {
-		return billRepo.findAllBySite(site, Sort.by(Sort.Direction.DESC, "createdDate"));
+		return billRepo.findAllBySite(site, Sort.by(Sort.Direction.ASC, "orderDate"));
 	}
 
 	public List<BillEntity> getAllByOrderDate(Date orderDateStart) {

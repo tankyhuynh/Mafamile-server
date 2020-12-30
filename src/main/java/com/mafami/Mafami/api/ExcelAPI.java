@@ -43,8 +43,8 @@ public class ExcelAPI {
 			
 		}
 		
-		@GetMapping(value = "/bills/orderdate/{orderDate}", produces = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
-		public byte[] exportBillsWith_OrderDate(@PathVariable String orderDate) throws Exception {
+		@GetMapping(value = "/bills/createdDate/{createdDate}", produces = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
+		public byte[] exportBillsWith_OrderDate(@PathVariable String createdDate) throws Exception {
 			
 			List<BillEntity> bills = billService.getAll();
 			String[] fieldName = {"ID", "Tên khách hàng", "Thông tin món", "Ngày tạo", "Ngày đặt", "Thông tin thêm", "Tổng"};
@@ -53,7 +53,7 @@ public class ExcelAPI {
 			
 //			//yyyy-mm-dd HH:mm:ss
 			DateTimeFormatter clientFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH);
-			LocalDate date2 = LocalDate.parse(orderDate, clientFormatter);	
+			LocalDate date2 = LocalDate.parse(createdDate, clientFormatter);	
 			
 			ZoneId defaultZoneId = ZoneId.systemDefault();
 			Date d= Date.from(date2.atStartOfDay(defaultZoneId).toInstant());
@@ -81,6 +81,49 @@ public class ExcelAPI {
 			return res;
 			
 		}
+		
+		
+		@GetMapping(value = "/bills/createdDate/{createdDate1}/{createdDate2}", produces = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
+		public byte[] exportBillsWith_CreatedDateBetween(@PathVariable String createdDate1, @PathVariable String createdDate2) throws Exception {
+			
+			List<BillEntity> bills = billService.getAll();
+			String[] fieldName = {"ID", "Tên khách hàng", "Thông tin món", "Ngày tạo", "Ngày đặt", "Thông tin thêm", "Tổng"};
+			
+			DateTimeFormatter dbFormatter = DateTimeFormatter.ofPattern("EEE MMM dd HH:mm:ss ZZZ yyyy", Locale.JAPAN);
+
+//			//yyyy-mm-dd HH:mm:ss
+			DateTimeFormatter clientFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH);
+
+			LocalDate date1 = LocalDate.parse(createdDate1, clientFormatter);
+			LocalDate date2 = LocalDate.parse(createdDate2, clientFormatter);
+
+			ZoneId defaultZoneId = ZoneId.systemDefault();
+
+			Date d1 = Date.from(date1.atStartOfDay(defaultZoneId).toInstant());
+			Date d2 = Date.from(date2.atStartOfDay(defaultZoneId).toInstant());
+			d2.setDate(d2.getDate() + 1);
+
+			System.out.println("OrderDate 1: " + d1);
+			System.out.println("OrderDate 2: " + d2);
+
+			List<BillEntity> listEntities = billService.getAll();
+			List<BillEntity> listResult = new ArrayList<>();
+
+			System.out.println("Client orderDate: " + d2);
+			
+			
+			bills = billService.getAllByOrderDateBetween(d1, d2);
+			byte[] res = excelUtils_Bills.export(fieldName, bills);
+			
+			return res;
+			
+		}
+		
+		
+		
+		
+		
+		
 		
 		public static void main(String[] args) {
 			
