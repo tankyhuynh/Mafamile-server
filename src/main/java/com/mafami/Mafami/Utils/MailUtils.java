@@ -17,6 +17,7 @@ import javax.mail.internet.MimeMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
 import com.mafami.Mafami.Constant.MailConstant;
@@ -37,6 +38,7 @@ public class MailUtils {
 	private UserService userService;
 	
 
+	@Async
 	public void sendAddBill_Admin(String userId,BillEntity billEntity, String emailTitle, String emailBody, String emailFooter) {
 
 		String email = userService.findOneById(userId).getEmail();
@@ -70,6 +72,7 @@ public class MailUtils {
 	}
 	
 	
+	@Async
 	public void sendAddBill_Customer(String email,BillEntity billEntity, String emailTitle, String emailBody, String emailFooter) throws Exception {
 	
 		
