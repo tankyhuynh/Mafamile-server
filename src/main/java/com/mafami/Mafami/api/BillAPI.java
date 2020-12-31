@@ -70,7 +70,8 @@ public class BillAPI {
 	}
 	
 	@GetMapping("/search/")
-	public ResponseEntity<List<BillEntity>> getAll(@RequestParam("id") String id, @RequestParam("ten") String ten, @RequestParam("sdt") String sdt) {
+	public ResponseEntity<List<BillEntity>> getAll(@RequestParam(value = "id", required = false) String id, @RequestParam(value = "ten", required = false) String ten, @RequestParam(value = "sdt", required = false) String sdt) {
+		
 		CustomerEntity customerEntity_ById = customerService.findOneById(id);
 		CustomerEntity customerEntity_ByPhone = customerService.findOneByPhone(sdt);
 		
