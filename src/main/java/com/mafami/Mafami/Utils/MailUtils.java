@@ -128,7 +128,7 @@ public class MailUtils {
 				
 				content = content + "  </tbody>\r\n"
 				+ "</table>\r\n"
-				+ "<h3>Tổng: " + billEntity.getTotal() +"</h3>\r\n"
+				+ "<h3>Tổng: " + billEntity.getTotal() + " VND" +"</h3>\r\n"
 				+ "<p>Bạn hãy chuyển khoản ít nhất 50% giá trị đơn trước thời gian đặt ... để chúng tôi có thể xác nhận thực hiện. Cảm ơn. </p>\r\n"
 				+ "<hr>\r\n"
 				+ "<h3>THÔNG TIN CHUYỂN KHOẢN</h3>\r\n"

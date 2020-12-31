@@ -65,16 +65,22 @@ public class BillAPI {
 
 	@GetMapping
 	public ResponseEntity<List<BillEntity>> getAll() {
-		List<BillEntity> listEntities = billService.getAll();
+		List<BillEntity> listEntities = billService.getAll(); 
 		return ResponseEntity.ok(listEntities);
 	}
 	
-	@GetMapping("/search/name/{name}")
-	public ResponseEntity<List<BillEntity>> getAll(@PathVariable String name) {
-		List<CustomerEntity> customerEntity = customerService.findAllByName(name);
+	@GetMapping("/search/")
+	public ResponseEntity<List<BillEntity>> getAll(@RequestParam("id") String id, @RequestParam("ten") String ten, @RequestParam("sdt") String sdt) {
+		CustomerEntity customerEntity_ById = customerService.findOneById(id);
+		CustomerEntity customerEntity_ByPhone = customerService.findOneByPhone(sdt);
+		
 		List<BillEntity> listBills = new ArrayList<>();
 		
-		for (CustomerEntity customer : customerEntity) {
+		listBills.addAll(billService.getAllByCustomer(customerEntity_ById));
+		listBills.addAll(billService.getAllByCustomer(customerEntity_ByPhone));
+		
+		List<CustomerEntity> customerEntity_ByName = customerService.findAllByName(ten);
+		for (CustomerEntity customer : customerEntity_ByName) {
 			listBills.addAll(billService.getAllByCustomer(customer));
 		}
 		
