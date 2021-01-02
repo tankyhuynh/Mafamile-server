@@ -90,6 +90,7 @@ public class BillAPI {
 			listBills.add(billEntity_ID);
 		}
 		else if(customerEntity_ByPhone.size() >=1 ) {
+			System.out.println("Search By Phone size >= 1");
 			for (CustomerEntity customerEntity : customerEntity_ByPhone) {
 				listBills.addAll( billService.getAllByCustomer(customerEntity) );
 			}
