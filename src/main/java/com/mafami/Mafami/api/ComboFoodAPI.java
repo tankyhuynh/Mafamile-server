@@ -57,6 +57,7 @@ public class ComboFoodAPI {
 			comboEntity.setThumbnail(URL);
 		} catch (Exception e) {
 			System.out.println("Exception: " + e);
+			comboEntity.setThumbnail("https://res.cloudinary.com/dbqzpdgpi/image/upload/v1596088950/MrVans/MrVans_Image_df9p6s.png");
 		}
 		return comboFoodService.save(comboEntity);
 	}
