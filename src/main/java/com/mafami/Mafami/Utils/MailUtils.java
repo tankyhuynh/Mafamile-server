@@ -162,6 +162,7 @@ public class MailUtils {
 	}
 	
 	
+	@Async
 	public void sendUpdateBill_Admin(String userId,BillEntity billEntity, String emailTitle, String emailBody, String emailFooter) {
 
 		String email = userService.findOneById(userId).getEmail();

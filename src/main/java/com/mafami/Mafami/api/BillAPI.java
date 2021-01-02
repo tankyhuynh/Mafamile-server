@@ -69,7 +69,7 @@ public class BillAPI {
 		return ResponseEntity.ok(listEntities);
 	}
 	
-	@GetMapping("/search/")
+	@GetMapping("/search")
 	public ResponseEntity<List<BillEntity>> getAll(@RequestParam(value = "id", required = false) String id, @RequestParam(value = "ten", required = false) String ten, @RequestParam(value = "sdt", required = false) String sdt) {
 		
 		CustomerEntity customerEntity_ById = customerService.findOneById(id);
@@ -208,6 +208,7 @@ public class BillAPI {
 
 		logEntity.setContent(content);
 		logService.save(logEntity);
+		billService.save(billEntity);
 
 		return ResponseEntity.ok("Bạn đã xác nhận đơn hàng thành công");
 	}
