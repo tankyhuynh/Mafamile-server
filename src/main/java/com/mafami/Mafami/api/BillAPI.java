@@ -75,10 +75,17 @@ public class BillAPI {
 	public ResponseEntity<List<BillEntity>> getAll(@RequestParam(value = "id", required = false) String id, @RequestParam(value = "ten", required = false) String ten, @RequestParam(value = "sdt", required = false) String sdt) {
 		
 		BillEntity billEntity_ID = billService.getOneById(id);
-		List<CustomerEntity> customerEntity_ByPhone = customerService.findAllByPhone(sdt.toString());
-		
 		List<BillEntity> listBills = new ArrayList<>();
+		List<CustomerEntity> customerEntity_ByPhone = new ArrayList<>();
+		List<CustomerEntity> customerEntity_ByName = new ArrayList<>();
 		
+		try {
+			customerEntity_ByPhone = customerService.findAllByPhone(sdt.toString());
+			customerEntity_ByName  = customerService.findAllByName(ten);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
 		if(billEntity_ID != null) {
 			listBills.add(billEntity_ID);
 		}
@@ -88,7 +95,6 @@ public class BillAPI {
 			}
 		}
 		else {
-			List<CustomerEntity> customerEntity_ByName = customerService.findAllByName(ten);
 			for (CustomerEntity customer : customerEntity_ByName) {
 				listBills.addAll(billService.getAllByCustomer(customer));
 			}
