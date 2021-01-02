@@ -23,7 +23,7 @@ import com.mafami.Mafami.model.PriceModel;
 
 @RestController
 @RequestMapping("/api/combo")
-public class ComboFooddAPI {
+public class ComboFoodAPI {
 
 	@Autowired
 	private ComboFoodService comboFoodService;

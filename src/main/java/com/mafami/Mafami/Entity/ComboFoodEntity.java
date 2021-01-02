@@ -21,7 +21,7 @@ public class ComboFoodEntity {
 	private String id;
 
 	private String name;
-	private List<FoodInformationModel> foods;
+	private List<String> foods;
 	private String thumbnail;
 	private String price;
 }
