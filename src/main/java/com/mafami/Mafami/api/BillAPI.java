@@ -274,16 +274,14 @@ public class BillAPI {
 			billService.save(entity);
 			
 			List<CustomerEntity> customerEntity = customerService.findAllByName(entity.getCustomerInformation().getName());
-			boolean check = false;
-			for (CustomerEntity customer : customerEntity) {
-				if ( customer.equals(entity.getCustomerInformation()) ) {
-					check = true;
-				}
-			}
+//			boolean check = false;
+//			for (CustomerEntity customer : customerEntity) {
+//				if ( customer.equals(entity.getCustomerInformation()) ) {
+//					check = true;
+//				}
+//			}
 			
-			if (!check) {
-				customerService.save(entity.getCustomerInformation());
-			}
+			customerService.save(entity.getCustomerInformation());
 			
 			
 		}
