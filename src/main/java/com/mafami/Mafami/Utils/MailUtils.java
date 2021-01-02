@@ -191,6 +191,7 @@ public class MailUtils {
 		
 	}
 	
+	@Async
 	public void sendUpdateBill_Customer(String email,BillEntity billEntity, String emailTitle, String emailBody, String emailFooter) {
 		
 		String listFood = "";
