@@ -63,7 +63,7 @@ public class ComboFoodAPI {
 	}
 	
 	@PostMapping("/all")
-	public ResponseEntity<String> saveAll(@PathVariable("site") String site, @RequestBody List<ComboFoodEntity> comboFoodEntities) {
+	public ResponseEntity<String> saveAll(@RequestBody List<ComboFoodEntity> comboFoodEntities) {
 		List<PriceModel> prices = new ArrayList<>();
 		for (ComboFoodEntity entity : comboFoodEntities) {
 			try {

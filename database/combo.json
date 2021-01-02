@@ -1,13 +1,56 @@
-{
-	"name": "SET 1",
-	"foods": [
-		"Bánh mỳ bơ tỏi",
-		"Salad cá ngừ",
-		"Beefstead (chọn sốt)",
-		"Đùi hoặc ức vịt sốt chanh dây",
-		"Mì bò hầm (thay đỗi mỳ đồng giá)",
-		"Mousse sữa chua, Tiramisu"
-	],
-	"thumbnail": null,
-	"price": "580.000"
-}
+[
+
+	{
+		"name": "SET 1",
+		"foods": [
+			"Bánh mỳ bơ tỏi",
+			"Salad cá ngừ",
+			"Beefstead (chọn sốt)",
+			"Đùi hoặc ức vịt sốt chanh dây",
+			"Mì bò hầm (thay đỗi mỳ đồng giá)",
+			"Mousse sữa chua, Tiramisu"
+		],
+		"price": "580.000"
+	},
+	
+	{
+		"name": "SET 2",
+		"foods": [
+			"KHOAI TÂY CHIÊN",
+			"Salad ( hải sản, parma ham, hoặc cá hồi)",
+			"Beefstead (chọn sốt)",
+			"Đùi hoặc ức vịt sốt chanh dây",
+			"Mì LASAGNA",
+			"Mousse sữa chua, Tiramisu"
+		],
+		"price": "640.000"
+	},
+	
+	{
+		"name": "SET 3",
+		"foods": [
+			"Hàu đút lò phoma x2",
+			"Salad (parma ham, cá hồi xông khói hoặc hải sản)",
+			"Beefstead (chọn sốt)",
+			"Sườn BBQ",
+			"Mì Cua phomai ĐẶC BIỆT",
+			"Mousse sữa chua, Tiramisu"
+		],
+		"price": "790.000"
+	},
+	
+	{
+		"name": "SET 4",
+		"foods": [
+			"Bánh mì bơ tỏi",
+			"Hàu phomai đút lò x2",
+			"Salad steak MaFamile",
+			"Tôm hùm đút lò (tùy thời giá)",
+			"Mì (Mệnh giá 89.000)",
+			"Mousse sữa chua, Tiramisu"
+		],
+		"price": "990.000 - 1.xxx.000"
+	}
+	
+
+]
