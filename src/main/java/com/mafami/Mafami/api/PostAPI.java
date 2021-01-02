@@ -92,6 +92,11 @@ public class PostAPI {
 		postEntity.setId(id);
 		postEntity.setSite(site);
 		
+		if( postEntity.getThumbnail() != null ) {
+			String URL = fileUtils.decoder(postEntity.getThumbnail(), "outputFile");
+			postEntity.setThumbnail(URL);
+		}
+		
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		df.setTimeZone(TimeZone.getTimeZone("Etc/GMT0"));
 		SimpleDateFormat sf_log = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");

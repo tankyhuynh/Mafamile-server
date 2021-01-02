@@ -51,8 +51,14 @@ public class ComboFoodAPI {
 	}
 
 	@PostMapping
-	public ComboFoodEntity saveOne(@RequestBody ComboFoodEntity userEntity) {
-		return comboFoodService.save(userEntity);
+	public ComboFoodEntity saveOne(@RequestBody ComboFoodEntity comboEntity) {
+		try {
+			String URL = fileUtils.decoder(comboEntity.getThumbnail(), "ImageAPI");
+			comboEntity.setThumbnail(URL);
+		} catch (Exception e) {
+			System.out.println("Exception: " + e);
+		}
+		return comboFoodService.save(comboEntity);
 	}
 	
 	@PostMapping("/all")
@@ -74,6 +80,14 @@ public class ComboFoodAPI {
 	public ResponseEntity<ComboFoodEntity> saveOneById(@PathVariable String id, @RequestBody(required = false) ComboFoodEntity newEntity) {
 		ComboFoodEntity oldEntity = comboFoodService.findOneById(id);
 		newEntity.setId(id);
+		
+		
+		if(newEntity.getThumbnail() != null) {
+			String URL = fileUtils.decoder(newEntity.getThumbnail(), "ImageAPI");
+			newEntity.setThumbnail(URL);
+		}
+		
+		
 		if (oldEntity != null)
 			return ResponseEntity.ok(comboFoodService.save(newEntity));
 
