@@ -74,18 +74,27 @@ public class BillAPI {
 	@GetMapping("/search")
 	public ResponseEntity<List<BillEntity>> getAll(@RequestParam(value = "id", required = false) String id, @RequestParam(value = "ten", required = false) String ten, @RequestParam(value = "sdt", required = false) String sdt) {
 		
-		CustomerEntity customerEntity_ById = customerService.findOneById(id);
-		CustomerEntity customerEntity_ByPhone = customerService.findOneByPhone(sdt.toString());
+		BillEntity billEntity_ID = billService.getOneById(id);
+		List<CustomerEntity> customerEntity_ByPhone = customerService.findAllByPhone(sdt.toString());
 		
 		List<BillEntity> listBills = new ArrayList<>();
 		
-		listBills.addAll(billService.getAllByCustomer(customerEntity_ById));
-		listBills.addAll(billService.getAllByCustomer(customerEntity_ByPhone));
-		
-		List<CustomerEntity> customerEntity_ByName = customerService.findAllByName(ten);
-		for (CustomerEntity customer : customerEntity_ByName) {
-			listBills.addAll(billService.getAllByCustomer(customer));
+		if(billEntity_ID != null) {
+			listBills.add(billEntity_ID);
 		}
+		else if(customerEntity_ByPhone.size() >=1 ) {
+			for (CustomerEntity customerEntity : customerEntity_ByPhone) {
+				listBills.addAll( billService.getAllByCustomer(customerEntity) );
+			}
+		}
+		else {
+			List<CustomerEntity> customerEntity_ByName = customerService.findAllByName(ten);
+			for (CustomerEntity customer : customerEntity_ByName) {
+				listBills.addAll(billService.getAllByCustomer(customer));
+			}
+		}
+		
+		
 		
 		
 		return ResponseEntity.ok(listBills);

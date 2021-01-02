@@ -12,5 +12,5 @@ public interface CustomerRepo extends MongoRepository<CustomerEntity, String>{
 
 	CustomerEntity findOneById(String id);
 	List<CustomerEntity> findAllByName(String name);
-	CustomerEntity findOneByPhone(String phone);
+	List<CustomerEntity> findAllByPhone(String phone);
 }

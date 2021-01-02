@@ -22,8 +22,8 @@ public class CustomerService {
 		return customerRepo.findOneById(id);
 	}
 	
-	public CustomerEntity findOneByPhone(String phone) {
-		return customerRepo.findOneByPhone(phone);
+	public List<CustomerEntity> findAllByPhone(String phone) {
+		return customerRepo.findAllByPhone(phone);
 	}
 
 	public List<CustomerEntity> findAll() {
