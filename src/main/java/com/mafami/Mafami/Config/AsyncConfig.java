@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableAsync;
 
 @Configuration
-@ComponentScan(basePackages = "com.mafami.Mafami")
+//@ComponentScan(basePackages = "com.mafami.Mafami")
 @EnableAsync
 public class AsyncConfig {
 
