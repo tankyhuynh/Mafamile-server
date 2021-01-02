@@ -80,10 +80,10 @@ public class BillAPI {
 		List<CustomerEntity> customerEntity_ByName = new ArrayList<>();
 		
 		try {
-			customerEntity_ByPhone = customerService.findAllByPhone(sdt.toString());
+			customerEntity_ByPhone = customerService.findAllByPhone(sdt);
 			customerEntity_ByName  = customerService.findAllByName(ten);
 		} catch (Exception e) {
-			e.printStackTrace();
+			
 		}
 
 		if(billEntity_ID != null) {
