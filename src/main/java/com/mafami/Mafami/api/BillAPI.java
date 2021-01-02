@@ -75,7 +75,7 @@ public class BillAPI {
 	public ResponseEntity<List<BillEntity>> getAll(@RequestParam(value = "id", required = false) String id, @RequestParam(value = "ten", required = false) String ten, @RequestParam(value = "sdt", required = false) String sdt) {
 		
 		CustomerEntity customerEntity_ById = customerService.findOneById(id);
-		CustomerEntity customerEntity_ByPhone = customerService.findOneByPhone(sdt);
+		CustomerEntity customerEntity_ByPhone = customerService.findOneByPhone(sdt.toString());
 		
 		List<BillEntity> listBills = new ArrayList<>();
 		

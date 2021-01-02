@@ -123,8 +123,8 @@ public class MailUtils {
 					content = content+  "    <tr>\r\n"
 							+ "      <td style=\"padding: 3px 5px;\">" + food.getFood().getName() + "</td>\r\n"
 							+ "      <td style=\"padding: 3px 5px;\">" +  quantity + "</td>\r\n"
-							+ "      <td style=\"padding: 3px 5px;\">"+  price + "</td>\r\n"
-							+ "       <td style=\"padding: 3px 5px;\">" + price *  quantity  + "</td>\r\n"
+							+ "      <td style=\"padding: 3px 5px;\">"+  price + " VND "+ "</td>\r\n"
+							+ "       <td style=\"padding: 3px 5px;\">" + price *  quantity + " VND" + "</td>\r\n"
 							+ "    </tr>\r\n";
 				}
 				
