@@ -136,9 +136,9 @@ public class MailUtils {
 				+ "<hr>\r\n"
 				+ "<h3>THÔNG TIN CHUYỂN KHOẢN</h3>\r\n"
 				+ "<ul>\r\n"
-				+ "  <li>Chủ tài khoản:...</li>\r\n"
-				+ "  <li>Số tài khoản:...</li>\r\n"
-				+ "  <li>Ngân hàng:...</li>\r\n"
+				+ "  <li>Chủ tài khoản: TA DUC KIM </li>\r\n"
+				+ "  <li>Số tài khoản: 1015419465 </li>\r\n"
+				+ "  <li>Ngân hàng: VCB </li>\r\n"
 				+ "</ul>";
 		
 		MimeMessage mimeMessage = javaMailSender.createMimeMessage();
