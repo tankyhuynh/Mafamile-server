@@ -326,7 +326,7 @@ public class BillAPI {
 			mailUtils.sendUpdateBill_Admin( newEntity, "Bạn vừa xác nhận đơn hàng",
 					"Đơn hàng <b>" + newEntity.getId() + " </b> đã được xác nhận", "Một ngày tốt lành");
 			try {
-				mailUtils.sendUpdateBill_Customer(customerEmail, newEntity, "Bạn vừa đặt đơn hàng của Mafamile",
+				mailUtils.sendUpdateBill_Customer(customerEmail, newEntity, "Thông tin đơn hàng " + newEntity.getId(),
 						"Đơn hàng của bạn đã được xác nhận", "Một ngày tốt lành");
 			} catch (Exception e) {
 				// TODO: handle exception
