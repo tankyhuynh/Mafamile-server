@@ -79,7 +79,7 @@ public class PostAPI {
 		LogEntity logEntity = new LogEntity();
 		logEntity.setIcon("https://img.icons8.com/ios-filled/64/000000/information.png");
 		String author = entity.getAuthor().getUsername();
-		String content = author  + " đã thêm bài viết " + "<b>" + entity.getTitle() + "</b>" + " lúc " + (df.parse(sf_log.format(Calendar.getInstance().getTime())))+ " vào bài viết của " + site;
+		String content = author  + " đã thêm bài viết " + entity.getTitle() + " lúc " + (df.parse(sf_log.format(Calendar.getInstance().getTime())))+ " vào bài viết của " + site;
 		
 		logEntity.setContent(content);
 		logService.save(logEntity);
