@@ -219,7 +219,7 @@ public class BillAPI {
 				+ (df.parse(sf_log.format(Calendar.getInstance().getTime())));
 
 		String customerEmail = billEntity.getCustomerInformation().getEmail();
-		mailUtils.sendUpdateBill_Admin(admin_mail, billEntity, "Bạn vừa xác nhận đơn hàng",
+		mailUtils.sendUpdateBill_Admin(billEntity, "Bạn vừa xác nhận đơn hàng",
 				"Đơn hàng <b>" + billEntity.getId() + " </b> đã được xác nhận", "Một ngày tốt lành");
 		mailUtils.sendUpdateBill_Customer(customerEmail, billEntity, "Bạn vừa đặt đơn hàng của Mafamile",
 				"Đơn hàng của bạn đã được xác nhận", "Một ngày tốt lành");
@@ -261,7 +261,7 @@ public class BillAPI {
 		String content = customerName + " đã đặt đơn hàng " + billEntity.getId() + " lúc "
 				+ (df.parse(sf_log.format(Calendar.getInstance().getTime())));
 
-		mailUtils.sendAddBill_Admin(admin_mail, billEntity, "Có đơn hàng mới",
+		mailUtils.sendAddBill_Admin(billEntity, "Có đơn hàng mới",
 				"Đơn hàng <b>" + billEntity.getId() + "</b> đang chờ xác nhận", "Một ngày tốt lành");
 		mailUtils.sendAddBill_Customer(customerEmail, billEntity, "Bạn vừa đặt đơn hàng của Mafamile",
 				"Đơn hàng của bạn đang chờ xác nhận", "Một ngày tốt lành");
@@ -323,7 +323,7 @@ public class BillAPI {
 
 		String customerEmail = newEntity.getCustomerInformation().getEmail();
 		if (newEntity.isConfirmed()) {
-			mailUtils.sendUpdateBill_Admin(admin_mail, newEntity, "Bạn vừa xác nhận đơn hàng",
+			mailUtils.sendUpdateBill_Admin( newEntity, "Bạn vừa xác nhận đơn hàng",
 					"Đơn hàng <b>" + newEntity.getId() + " </b> đã được xác nhận", "Một ngày tốt lành");
 			try {
 				mailUtils.sendUpdateBill_Customer(customerEmail, newEntity, "Bạn vừa đặt đơn hàng của Mafamile",

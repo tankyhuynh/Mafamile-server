@@ -39,9 +39,9 @@ public class MailUtils {
 	
 
 	@Async
-	public void sendAddBill_Admin(String userId,BillEntity billEntity, String emailTitle, String emailBody, String emailFooter) {
+	public void sendAddBill_Admin(BillEntity billEntity, String emailTitle, String emailBody, String emailFooter) {
 
-		String email = userService.findOneById(userId).getEmail();
+		String email = userService.findByUsername("admin").getEmail();
 		
 		String link = "<a href='http://api.thisisatestingdomain.site/api/bill/verifyBill/?id=" + billEntity.getId()  +" '> Chọn vào đây để xác nhận </a>";
 	
@@ -163,9 +163,9 @@ public class MailUtils {
 	
 	
 	@Async
-	public void sendUpdateBill_Admin(String userId,BillEntity billEntity, String emailTitle, String emailBody, String emailFooter) {
+	public void sendUpdateBill_Admin(BillEntity billEntity, String emailTitle, String emailBody, String emailFooter) {
 
-		String email = userService.findOneById(userId).getEmail();
+		String email = userService.findByUsername("admin").getEmail();
 		
 		String listFood = "";
 		for (FoodInformationModel food : billEntity.getFoodInformation()) {

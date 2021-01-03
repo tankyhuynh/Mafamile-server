@@ -95,6 +95,11 @@ public class PromotionAPI {
 		newEntity.setId(id);
 		newEntity.setSite(site);
 		
+		if( newEntity.getThumbnail() != null ) {
+			String URL = fileUtils.decoder(newEntity.getThumbnail(), "outputFile");
+			newEntity.setThumbnail(URL);
+		}
+		
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		df.setTimeZone(TimeZone.getTimeZone("Etc/GMT0"));
 		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
