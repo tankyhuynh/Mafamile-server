@@ -36,16 +36,16 @@ public class BillService {
 	}
 
 	public List<BillEntity> getAll() {
-		return billRepo.findAll(Sort.by(Sort.Direction.ASC, "orderDate"));
+		return billRepo.findAll(Sort.by(Sort.Direction.DESC, "orderDate"));
 	}
 
 	public Page<BillEntity> getAllByPage(int page) {
-		Pageable pageable = PageRequest.of(page, 10);
+		Pageable pageable = PageRequest.of(page, 10, Sort.by(Sort.Direction.DESC, "orderDate"));
 		return billRepo.findAll(pageable);
 	}
 
 	public List<BillEntity> getAllBySite(String site) {
-		return billRepo.findAllBySite(site, Sort.by(Sort.Direction.ASC, "orderDate"));
+		return billRepo.findAllBySite(site, Sort.by(Sort.Direction.DESC, "orderDate"));
 	}
 
 	public List<BillEntity> getAllByOrderDate(Date orderDateStart) {
