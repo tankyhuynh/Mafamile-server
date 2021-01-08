@@ -25,14 +25,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.mafami.Mafami.Convert.ComboFoodConvert;
 import com.mafami.Mafami.Entity.BillEntity;
+import com.mafami.Mafami.Entity.ComboFoodEntity;
 import com.mafami.Mafami.Entity.CustomerEntity;
 import com.mafami.Mafami.Entity.LogEntity;
+import com.mafami.Mafami.Entity.MenuEntity;
 import com.mafami.Mafami.Service.BillService;
+import com.mafami.Mafami.Service.ComboFoodService;
 import com.mafami.Mafami.Service.CustomerService;
 import com.mafami.Mafami.Service.LogService;
 import com.mafami.Mafami.Service.UserService;
 import com.mafami.Mafami.Utils.MailUtils;
+import com.mafami.Mafami.model.FoodInformationModel;
 
 /**
 * @author root {11:02:46 AM}:
@@ -62,6 +67,12 @@ public class BillAPI {
 	
 	@Autowired
 	private CustomerService customerService;
+	
+	@Autowired
+	private ComboFoodService comboFoodService;
+	
+	@Autowired
+	private ComboFoodConvert comboFoodConvert;
 	
 	private String admin_mail = "5f89a8a1f5cdd900414ae8dc";
 
@@ -232,7 +243,7 @@ public class BillAPI {
 	}
 
 	@PostMapping
-	public ResponseEntity<BillEntity> saveOne(@RequestBody BillEntity billEntity) throws Exception {
+	public ResponseEntity<BillEntity> saveOne(@RequestBody BillEntity billEntity, @RequestParam(required = false) String comboId) throws Exception {
 		Date dbDate = billEntity.getOrderDate();
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		df.setTimeZone(TimeZone.getTimeZone("Etc/GMT0"));
@@ -280,6 +291,11 @@ public class BillAPI {
 		if (!check) {
 			customerService.save(billEntity.getCustomerInformation());
 		}
+		
+		ComboFoodEntity comboFoodEntity = comboFoodService.findOneById(comboId);
+		MenuEntity menuEntity = comboFoodConvert.fromCombo_To_Menu(comboFoodEntity);
+		billEntity.getFoodInformation().add( new FoodInformationModel(menuEntity, "", 1) );
+		
 
 		return ResponseEntity.ok(billService.save(billEntity));
 	}
