@@ -243,7 +243,7 @@ public class BillAPI {
 	}
 
 	@PostMapping
-	public ResponseEntity<BillEntity> saveOne(@RequestBody BillEntity billEntity, @RequestParam(required = false) String comboId) throws Exception {
+	public ResponseEntity<BillEntity> saveOne(@RequestBody BillEntity billEntity, @RequestParam(required = false) ComboFoodEntity comboEntity) throws Exception {
 		Date dbDate = billEntity.getOrderDate();
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		df.setTimeZone(TimeZone.getTimeZone("Etc/GMT0"));
@@ -292,9 +292,9 @@ public class BillAPI {
 			customerService.save(billEntity.getCustomerInformation());
 		}
 		
-		ComboFoodEntity comboFoodEntity = comboFoodService.findOneById(comboId);
-		MenuEntity menuEntity = comboFoodConvert.fromCombo_To_Menu(comboFoodEntity);
-		billEntity.getFoodInformation().add( new FoodInformationModel(menuEntity, "", 1) );
+		
+		MenuEntity menuEntity = comboFoodConvert.fromCombo_To_Menu(comboEntity);
+		billEntity.getFoodInformation().add( new FoodInformationModel(menuEntity, "", comboEntity.getQuantity()) );
 		
 
 		return ResponseEntity.ok(billService.save(billEntity));
