@@ -36,7 +36,6 @@ public class BillEntity {
 
 	private CustomerEntity customerInformation;
 	private List<FoodInformationModel> foodInformation;
-	private List<ComboFoodEntity> combo;
 	private Date createdDate = Calendar.getInstance().getTime();
 	private Date orderDate ; //	-Time trừ 7h
 	private String additionInformation;

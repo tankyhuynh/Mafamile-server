@@ -118,6 +118,7 @@ public class MenuAPI {
 			String URL = fileUtils.decoder(menuEntity.getImage(), "ImageAPI");
 			menuEntity.setImage(URL);
 		} catch (Exception e) {
+			menuEntity.setImage("https://res.cloudinary.com/dbqzpdgpi/image/upload/v1596088950/MrVans/MrVans_Image_df9p6s.png");
 			System.out.println("Exception: " + e);
 		}
 		
@@ -136,6 +137,8 @@ public class MenuAPI {
 		return ResponseEntity.ok(menuService.save(menuEntity));
 	}
 	
+	
+	
 	@PostMapping("/{site}/all")
 	public ResponseEntity<String> saveAll(@PathVariable("site") String site, @RequestBody List<MenuEntity> menuEntity) {
 		List<PriceModel> prices = new ArrayList<>();
@@ -144,6 +147,21 @@ public class MenuAPI {
 				String URL = fileUtils.decoder(entity.getImage(), "ImageAPI");
 				entity.setImage(URL);
 				entity.setSite(site);
+			} catch (Exception e) {
+				System.out.println("Exception: " + e);
+			}
+			menuService.save(entity);
+		}
+		return ResponseEntity.ok("OK");
+	}
+	
+	@PostMapping("/combo/all")
+	public ResponseEntity<String> saveAllCombo(@RequestBody List<MenuEntity> menuEntity) {
+		List<PriceModel> prices = new ArrayList<>();
+		for (MenuEntity entity : menuEntity) {
+			try {
+				String URL = fileUtils.decoder(entity.getImage(), "ImageAPI");
+				entity.setImage(URL);
 			} catch (Exception e) {
 				System.out.println("Exception: " + e);
 			}
