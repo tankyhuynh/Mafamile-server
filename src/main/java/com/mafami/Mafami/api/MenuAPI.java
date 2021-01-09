@@ -207,7 +207,7 @@ public class MenuAPI {
 		return ResponseEntity.ok(menuService.save(newEntity));
 	}
 	
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/combo/{id}")
 	public void deleteOneByComboId(@PathVariable String id, @RequestParam(required = false) String reason) throws Exception {
 		String contentOfReason = ( reason != null ) ? ( " với lý do "  +  reason)  : " " ;
 		
