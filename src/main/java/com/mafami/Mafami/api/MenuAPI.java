@@ -76,6 +76,12 @@ public class MenuAPI {
 		return ResponseEntity.ok(menuService.findAllByCategoryCode(amia_CategoryEntity));
 	}
 	
+	@GetMapping("/combo")
+	public ResponseEntity<List<MenuEntity>> getAllCombo() {
+		CategoryEntity categoryEntity = categoryService.findOneBySlug("combo");
+		return ResponseEntity.ok(menuService.findAllByCategoryCode(categoryEntity));
+	}
+	
 	@PostMapping("/{site}")
 	public ResponseEntity<MenuEntity> saveOne(@PathVariable("site") String site, @RequestBody MenuEntity menuEntity) throws Exception {
 		
@@ -97,6 +103,32 @@ public class MenuAPI {
 		LogEntity logEntity = new LogEntity();
 		logEntity.setIcon("https://img.icons8.com/ios-filled/64/000000/information.png");
 		String content = "Admin" + " đã thêm món " + menuEntity.getName() + " lúc " + ( df.parse(sf.format(Calendar.getInstance().getTime())) ) + " vào menu của " + site;
+		
+		logEntity.setContent(content);
+		logService.save(logEntity);
+		
+		return ResponseEntity.ok(menuService.save(menuEntity));
+	}
+	
+	@PostMapping("/combo")
+	public ResponseEntity<MenuEntity> saveOne(@RequestBody MenuEntity menuEntity) throws Exception {
+		
+		List<PriceModel> prices = new ArrayList<PriceModel>();
+		try {
+			String URL = fileUtils.decoder(menuEntity.getImage(), "ImageAPI");
+			menuEntity.setImage(URL);
+		} catch (Exception e) {
+			System.out.println("Exception: " + e);
+		}
+		
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		df.setTimeZone(TimeZone.getTimeZone("Etc/GMT0"));
+		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		sf.setTimeZone(TimeZone.getTimeZone("Etc/GMT-7"));
+		
+		LogEntity logEntity = new LogEntity();
+		logEntity.setIcon("https://img.icons8.com/ios-filled/64/000000/information.png");
+		String content = "Admin" + " đã thêm combo " + menuEntity.getName() + " lúc " + ( df.parse(sf.format(Calendar.getInstance().getTime())) );
 		
 		logEntity.setContent(content);
 		logService.save(logEntity);
@@ -146,6 +178,53 @@ public class MenuAPI {
 		logService.save(logEntity);
 		
 		return ResponseEntity.ok(menuService.save(newEntity));
+	}
+	
+	@PutMapping("/combo/{id}")
+	public ResponseEntity<MenuEntity> saveOneByComboId(@PathVariable String id, @RequestBody MenuEntity entity) throws Exception {
+
+		MenuEntity newEntity = menuService.findOneById(id);
+		newEntity = aMIA_ProductConvert.entity_to_entity(entity);
+		newEntity.setId(id);
+		
+		if( entity.getImage() != null ) {
+			String URL = fileUtils.decoder(entity.getImage(), "ImageAPI");
+			entity.setImage(URL);
+		}
+		
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		df.setTimeZone(TimeZone.getTimeZone("Etc/GMT0"));
+		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		sf.setTimeZone(TimeZone.getTimeZone("Etc/GMT-7"));
+		
+		LogEntity logEntity = new LogEntity();
+		logEntity.setIcon("https://img.icons8.com/ios-filled/64/000000/information.png");
+		String content = "Admin" + " đã sửa thông tin combo " + entity.getName() + " lúc " +( df.parse(sf.format(( Calendar.getInstance().getTime())) ) ) ;
+		
+		logEntity.setContent(content);
+		logService.save(logEntity);
+		
+		return ResponseEntity.ok(menuService.save(newEntity));
+	}
+	
+	@DeleteMapping("/{id}")
+	public void deleteOneByComboId(@PathVariable String id, @RequestParam(required = false) String reason) throws Exception {
+		String contentOfReason = ( reason != null ) ? ( " với lý do "  +  reason)  : " " ;
+		
+		MenuEntity menuEntity = menuService.findOneById(id);
+		
+		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		df.setTimeZone(TimeZone.getTimeZone("Etc/GMT0"));
+		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		sf.setTimeZone(TimeZone.getTimeZone("Etc/GMT-7"));
+		
+		LogEntity logEntity = new LogEntity();
+		logEntity.setIcon("https://img.icons8.com/ios-filled/64/000000/information.png");
+		String content = "Admin " + " đã xóa combo " + menuEntity.getName() + " lúc " +  ( df.parse(sf.format(( Calendar.getInstance().getTime())) ) ) + contentOfReason;
+		logEntity.setContent(content);
+		logService.save(logEntity);
+		
+		menuService.delete(id);
 	}
 	
 	@DeleteMapping("/{id}")
@@ -211,6 +290,8 @@ public class MenuAPI {
 		
 		return listEntityInSite;
 	}
+	
+	
 
 	
 	

@@ -23,6 +23,7 @@ public class MenuEntity {
 
 	private CategoryEntity category;
 	private String name;
+	private String details;
 	private List<PriceModel> price;
 	private String image;
 	private String site;
