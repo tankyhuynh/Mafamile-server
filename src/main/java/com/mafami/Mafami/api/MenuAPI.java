@@ -180,7 +180,7 @@ public class MenuAPI {
 		
 		if( entity.getImage() != null ) {
 			String URL = fileUtils.decoder(entity.getImage(), "ImageAPI");
-			entity.setImage(URL);
+			newEntity.setImage(URL);
 		}
 		
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -207,7 +207,7 @@ public class MenuAPI {
 		
 		if( entity.getImage() != null ) {
 			String URL = fileUtils.decoder(entity.getImage(), "ImageAPI");
-			entity.setImage(URL);
+			newEntity.setImage(URL);
 		}
 		
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
