@@ -108,9 +108,13 @@ public class ComboFoodAPI {
 		ComboFoodEntity oldEntity = comboFoodService.findOneById(id);
 		newEntity.setId(id);
 		
-		if(newEntity.getThumbnail() != null) {
-			String URL = fileUtils.decoder(newEntity.getThumbnail(), "ImageAPI");
-			newEntity.setThumbnail(URL);
+		try {
+			if(newEntity.getThumbnail() != null) {
+				String URL = fileUtils.decoder(newEntity.getThumbnail(), "ImageAPI");
+				newEntity.setThumbnail(URL);
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
 		}
 		
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");

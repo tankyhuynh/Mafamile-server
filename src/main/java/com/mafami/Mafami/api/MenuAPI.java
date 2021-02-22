@@ -209,9 +209,13 @@ public class MenuAPI {
 		newEntity = aMIA_ProductConvert.entity_to_entity(entity);
 		newEntity.setId(id);
 		
-		if( entity.getImage() != null ) {
-			String URL = fileUtils.decoder(entity.getImage(), "ImageAPI");
-			newEntity.setImage(URL);
+		try {
+			if( entity.getImage() != null ) {
+				String URL = fileUtils.decoder(entity.getImage(), "ImageAPI");
+				newEntity.setImage(URL);
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
 		}
 		
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");

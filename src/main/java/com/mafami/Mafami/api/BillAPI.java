@@ -343,8 +343,9 @@ public class BillAPI {
 	}
 
 	@DeleteMapping("/{id}")
-	public void deleteById(@PathVariable("id") String id) throws Exception {
-
+	public void deleteById(@PathVariable("id") String id, @RequestParam(required = false) String reason) throws Exception {
+		String contentOfReason = ( reason != null ) ? ( " với lý do "  +  reason)  : " " ;
+		
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		df.setTimeZone(TimeZone.getTimeZone("Etc/GMT0"));
 		SimpleDateFormat sf_log = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -353,7 +354,7 @@ public class BillAPI {
 		LogEntity logEntity = new LogEntity();
 		logEntity.setIcon("https://img.icons8.com/ios-filled/64/000000/information.png");
 		String content = "Admin " + " đã xóa đơn hàng " + id + " lúc "
-				+ (df.parse(sf_log.format(Calendar.getInstance().getTime())));
+				+ (df.parse(sf_log.format(Calendar.getInstance().getTime()))) + contentOfReason;
 		logEntity.setContent(content);
 		logService.save(logEntity);
 
