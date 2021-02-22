@@ -92,9 +92,13 @@ public class PostAPI {
 		postEntity.setId(id);
 		postEntity.setSite(site);
 		
-		if( postEntity.getThumbnail() != null ) {
-			String URL = fileUtils.decoder(postEntity.getThumbnail(), "outputFile");
-			postEntity.setThumbnail(URL);
+		try {
+			if( postEntity.getThumbnail() != null ) {
+				String URL = fileUtils.decoder(postEntity.getThumbnail(), "outputFile");
+				postEntity.setThumbnail(URL);
+			}
+		} catch (Exception e) {
+			System.out.println("Error in PUT Post Entity method");
 		}
 		
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");

@@ -178,9 +178,13 @@ public class MenuAPI {
 		newEntity.setId(id);
 		newEntity.setSite(site);
 		
-		if( entity.getImage() != null ) {
-			String URL = fileUtils.decoder(entity.getImage(), "ImageAPI");
-			newEntity.setImage(URL);
+		try {
+			if( entity.getImage() != null ) {
+				String URL = fileUtils.decoder(entity.getImage(), "ImageAPI");
+				newEntity.setImage(URL);
+			}
+		} catch (Exception e) {
+			System.out.println("Error in PUT Menu Entity method");
 		}
 		
 		DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
